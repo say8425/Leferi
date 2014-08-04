@@ -1,0 +1,434 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		246BFBCD198F7978002B4456 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 246BFBCC198F7978002B4456 /* main.m */; };
+		246BFBD0198F7978002B4456 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 246BFBCF198F7978002B4456 /* AppDelegate.m */; };
+		246BFBD3198F7978002B4456 /* Leferi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 246BFBD1198F7978002B4456 /* Leferi.xcdatamodeld */; };
+		246BFBD6198F7978002B4456 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 246BFBD5198F7978002B4456 /* ViewController.m */; };
+		246BFBD9198F7978002B4456 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 246BFBD7198F7978002B4456 /* Main.storyboard */; };
+		246BFBDB198F7978002B4456 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 246BFBDA198F7978002B4456 /* Images.xcassets */; };
+		246BFBE7198F7978002B4456 /* LeferiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 246BFBE6198F7978002B4456 /* LeferiTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		246BFBE1198F7978002B4456 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 246BFBBF198F7978002B4456 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 246BFBC6198F7978002B4456;
+			remoteInfo = Leferi;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		246BFBC7198F7978002B4456 /* Leferi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Leferi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		246BFBCB198F7978002B4456 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		246BFBCC198F7978002B4456 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		246BFBCE198F7978002B4456 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		246BFBCF198F7978002B4456 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		246BFBD2198F7978002B4456 /* Leferi.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Leferi.xcdatamodel; sourceTree = "<group>"; };
+		246BFBD4198F7978002B4456 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		246BFBD5198F7978002B4456 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		246BFBD8198F7978002B4456 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		246BFBDA198F7978002B4456 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		246BFBE0198F7978002B4456 /* LeferiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeferiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		246BFBE5198F7978002B4456 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		246BFBE6198F7978002B4456 /* LeferiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeferiTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		246BFBC4198F7978002B4456 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		246BFBDD198F7978002B4456 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		246BFBBE198F7978002B4456 = {
+			isa = PBXGroup;
+			children = (
+				246BFBC9198F7978002B4456 /* Leferi */,
+				246BFBE3198F7978002B4456 /* LeferiTests */,
+				246BFBC8198F7978002B4456 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		246BFBC8198F7978002B4456 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				246BFBC7198F7978002B4456 /* Leferi.app */,
+				246BFBE0198F7978002B4456 /* LeferiTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		246BFBC9198F7978002B4456 /* Leferi */ = {
+			isa = PBXGroup;
+			children = (
+				246BFBCE198F7978002B4456 /* AppDelegate.h */,
+				246BFBCF198F7978002B4456 /* AppDelegate.m */,
+				246BFBD4198F7978002B4456 /* ViewController.h */,
+				246BFBD5198F7978002B4456 /* ViewController.m */,
+				246BFBD7198F7978002B4456 /* Main.storyboard */,
+				246BFBDA198F7978002B4456 /* Images.xcassets */,
+				246BFBD1198F7978002B4456 /* Leferi.xcdatamodeld */,
+				246BFBCA198F7978002B4456 /* Supporting Files */,
+			);
+			path = Leferi;
+			sourceTree = "<group>";
+		};
+		246BFBCA198F7978002B4456 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				246BFBCB198F7978002B4456 /* Info.plist */,
+				246BFBCC198F7978002B4456 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		246BFBE3198F7978002B4456 /* LeferiTests */ = {
+			isa = PBXGroup;
+			children = (
+				246BFBE6198F7978002B4456 /* LeferiTests.m */,
+				246BFBE4198F7978002B4456 /* Supporting Files */,
+			);
+			path = LeferiTests;
+			sourceTree = "<group>";
+		};
+		246BFBE4198F7978002B4456 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				246BFBE5198F7978002B4456 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		246BFBC6198F7978002B4456 /* Leferi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 246BFBEA198F7978002B4456 /* Build configuration list for PBXNativeTarget "Leferi" */;
+			buildPhases = (
+				246BFBC3198F7978002B4456 /* Sources */,
+				246BFBC4198F7978002B4456 /* Frameworks */,
+				246BFBC5198F7978002B4456 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Leferi;
+			productName = Leferi;
+			productReference = 246BFBC7198F7978002B4456 /* Leferi.app */;
+			productType = "com.apple.product-type.application";
+		};
+		246BFBDF198F7978002B4456 /* LeferiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 246BFBED198F7978002B4456 /* Build configuration list for PBXNativeTarget "LeferiTests" */;
+			buildPhases = (
+				246BFBDC198F7978002B4456 /* Sources */,
+				246BFBDD198F7978002B4456 /* Frameworks */,
+				246BFBDE198F7978002B4456 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				246BFBE2198F7978002B4456 /* PBXTargetDependency */,
+			);
+			name = LeferiTests;
+			productName = LeferiTests;
+			productReference = 246BFBE0198F7978002B4456 /* LeferiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		246BFBBF198F7978002B4456 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = northPenguin;
+				TargetAttributes = {
+					246BFBC6198F7978002B4456 = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					246BFBDF198F7978002B4456 = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = 246BFBC6198F7978002B4456;
+					};
+				};
+			};
+			buildConfigurationList = 246BFBC2198F7978002B4456 /* Build configuration list for PBXProject "Leferi" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 246BFBBE198F7978002B4456;
+			productRefGroup = 246BFBC8198F7978002B4456 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				246BFBC6198F7978002B4456 /* Leferi */,
+				246BFBDF198F7978002B4456 /* LeferiTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		246BFBC5198F7978002B4456 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				246BFBD9198F7978002B4456 /* Main.storyboard in Resources */,
+				246BFBDB198F7978002B4456 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		246BFBDE198F7978002B4456 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		246BFBC3198F7978002B4456 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				246BFBD0198F7978002B4456 /* AppDelegate.m in Sources */,
+				246BFBD3198F7978002B4456 /* Leferi.xcdatamodeld in Sources */,
+				246BFBD6198F7978002B4456 /* ViewController.m in Sources */,
+				246BFBCD198F7978002B4456 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		246BFBDC198F7978002B4456 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				246BFBE7198F7978002B4456 /* LeferiTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		246BFBE2198F7978002B4456 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 246BFBC6198F7978002B4456 /* Leferi */;
+			targetProxy = 246BFBE1198F7978002B4456 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		246BFBD7198F7978002B4456 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				246BFBD8198F7978002B4456 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		246BFBE8198F7978002B4456 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		246BFBE9198F7978002B4456 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		246BFBEB198F7978002B4456 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = Leferi/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		246BFBEC198F7978002B4456 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = Leferi/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		246BFBEE198F7978002B4456 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Leferi.app/Leferi";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = LeferiTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Debug;
+		};
+		246BFBEF198F7978002B4456 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Leferi.app/Leferi";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = LeferiTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		246BFBC2198F7978002B4456 /* Build configuration list for PBXProject "Leferi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				246BFBE8198F7978002B4456 /* Debug */,
+				246BFBE9198F7978002B4456 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		246BFBEA198F7978002B4456 /* Build configuration list for PBXNativeTarget "Leferi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				246BFBEB198F7978002B4456 /* Debug */,
+				246BFBEC198F7978002B4456 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		246BFBED198F7978002B4456 /* Build configuration list for PBXNativeTarget "LeferiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				246BFBEE198F7978002B4456 /* Debug */,
+				246BFBEF198F7978002B4456 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		246BFBD1198F7978002B4456 /* Leferi.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				246BFBD2198F7978002B4456 /* Leferi.xcdatamodel */,
+			);
+			currentVersion = 246BFBD2198F7978002B4456 /* Leferi.xcdatamodel */;
+			path = Leferi.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 246BFBBF198F7978002B4456 /* Project object */;
+}
