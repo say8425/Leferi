@@ -23,7 +23,7 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"proposeTitle.png"] forBarMetrics:UIBarMetricsDefault];
     [self.navigationItem setLeftBarButtonItem:[UIBarButtonItem customBackButtonWithImage:[UIImage imageNamed:@"backButton.png"] Target:self action:@selector(back:)]];
 
-    //propose content
+    //Propose content - have to get height of image
     [self.imageView setImage:[UIImage imageNamed:@"proposeStory.png"]];
     [self.imageConstraintHeight setConstant:1648.5];
 

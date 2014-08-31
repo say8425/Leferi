@@ -2,20 +2,15 @@
 //  ReviewViewController.h
 //  Leferi
 //
-//  Created by Cheon Park on 2014. 8. 26..
+//  Created by Cheon Park on 2014. 8. 31..
 //  Copyright (c) 2014년 northPenguin. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "TLYShyNavBarManager.h"
-#import "UIBarButtonItem+Image.h"
 
-@interface ReviewViewController : UIViewController
+@interface ReviewViewController : UIViewController 
 
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UIButton *menuBtn1;
-@property (weak, nonatomic) IBOutlet UIButton *menuBtn2;
-@property (weak, nonatomic) IBOutlet UIButton *menuBtn3;
-@property (weak, nonatomic) IBOutlet UIButton *menuBtn4;
+@property (strong, nonatomic) NSURL *reviewURL;
+@property (strong, nonatomic) IBOutlet UIWebView *webView;
 
 @end

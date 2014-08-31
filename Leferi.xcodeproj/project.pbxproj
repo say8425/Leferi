@@ -15,6 +15,7 @@
 		2440170119A227CF0009B5A7 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 244016FC19A227CF0009B5A7 /* UIImage+ImageEffects.m */; };
 		2440170219A227CF0009B5A7 /* UIView+MCAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 244016FE19A227CF0009B5A7 /* UIView+MCAdditions.m */; };
 		2440170519A228170009B5A7 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2440170419A228170009B5A7 /* MenuViewController.m */; };
+		2442BBEC19B337C7008C89D2 /* ReviewViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2442BBEB19B337C7008C89D2 /* ReviewViewCell.m */; };
 		244305621991FF540078250B /* menu2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2443055C1991FF540078250B /* menu2@2x.png */; };
 		244305631991FF540078250B /* menu3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2443055D1991FF540078250B /* menu3@2x.png */; };
 		244305641991FF540078250B /* menu4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2443055E1991FF540078250B /* menu4@2x.png */; };
@@ -24,6 +25,11 @@
 		2443056C199222160078250B /* proposeTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 2443056B199222160078250B /* proposeTitle.png */; };
 		24430571199239BD0078250B /* UIBarButtonItem+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 24430570199239BD0078250B /* UIBarButtonItem+Image.m */; };
 		24430578199335C40078250B /* LeferiBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 24430577199335C40078250B /* LeferiBack.png */; };
+		2453381719B3211900D27354 /* blogMenu1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2453381319B3211900D27354 /* blogMenu1@2x.png */; };
+		2453381819B3211900D27354 /* blogMenu2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2453381419B3211900D27354 /* blogMenu2@2x.png */; };
+		2453381919B3211900D27354 /* blogMenu3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2453381519B3211900D27354 /* blogMenu3@2x.png */; };
+		2453381A19B3211900D27354 /* blogMenu4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2453381619B3211900D27354 /* blogMenu4@2x.png */; };
+		2453381D19B3251900D27354 /* ReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2453381C19B3251900D27354 /* ReviewViewController.m */; };
 		245E5F8219AD704800781E30 /* BeautiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 245E5F8119AD704800781E30 /* BeautiViewController.m */; };
 		245E5F8719AD790500781E30 /* beautiGram@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 245E5F8619AD790500781E30 /* beautiGram@2x.jpg */; };
 		245E5F9B19ADB58B00781E30 /* XCDYouTubeClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 245E5F8B19ADB58B00781E30 /* XCDYouTubeClient.m */; };
@@ -62,7 +68,7 @@
 		24A0DC1319987E570014ACFE /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A0DC1219987E570014ACFE /* CommentViewController.m */; };
 		24A0DC4B1998B6A70014ACFE /* backButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 24A0DC4A1998B6A70014ACFE /* backButton.png */; };
 		24D657AC199B436300FF7C56 /* pageText1_960.png in Resources */ = {isa = PBXBuildFile; fileRef = 24D657AB199B436300FF7C56 /* pageText1_960.png */; };
-		24D710E019AC78A9005F4886 /* ReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D710DF19AC78A9005F4886 /* ReviewViewController.m */; };
+		24D710E019AC78A9005F4886 /* ReviewListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D710DF19AC78A9005F4886 /* ReviewListViewController.m */; };
 		24D710E919AC997A005F4886 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D710E819AC997A005F4886 /* VideoViewController.m */; };
 		24D710FD19ACACD6005F4886 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D710FC19ACACD6005F4886 /* JavaScriptCore.framework */; };
 		24D7110319ACAE2A005F4886 /* DepartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D7110219ACAE2A005F4886 /* DepartViewController.m */; };
@@ -103,6 +109,8 @@
 		244016FE19A227CF0009B5A7 /* UIView+MCAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MCAdditions.m"; sourceTree = "<group>"; };
 		2440170319A228170009B5A7 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		2440170419A228170009B5A7 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		2442BBEA19B337C7008C89D2 /* ReviewViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewViewCell.h; sourceTree = "<group>"; };
+		2442BBEB19B337C7008C89D2 /* ReviewViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewViewCell.m; sourceTree = "<group>"; };
 		2443055C1991FF540078250B /* menu2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu2@2x.png"; sourceTree = "<group>"; };
 		2443055D1991FF540078250B /* menu3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu3@2x.png"; sourceTree = "<group>"; };
 		2443055E1991FF540078250B /* menu4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu4@2x.png"; sourceTree = "<group>"; };
@@ -113,6 +121,12 @@
 		2443056F199239BD0078250B /* UIBarButtonItem+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Image.h"; sourceTree = "<group>"; };
 		24430570199239BD0078250B /* UIBarButtonItem+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Image.m"; sourceTree = "<group>"; };
 		24430577199335C40078250B /* LeferiBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LeferiBack.png; sourceTree = "<group>"; };
+		2453381319B3211900D27354 /* blogMenu1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blogMenu1@2x.png"; sourceTree = "<group>"; };
+		2453381419B3211900D27354 /* blogMenu2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blogMenu2@2x.png"; sourceTree = "<group>"; };
+		2453381519B3211900D27354 /* blogMenu3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blogMenu3@2x.png"; sourceTree = "<group>"; };
+		2453381619B3211900D27354 /* blogMenu4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blogMenu4@2x.png"; sourceTree = "<group>"; };
+		2453381B19B3251900D27354 /* ReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewViewController.h; sourceTree = "<group>"; };
+		2453381C19B3251900D27354 /* ReviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewViewController.m; sourceTree = "<group>"; };
 		245E5F8019AD704800781E30 /* BeautiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautiViewController.h; sourceTree = "<group>"; };
 		245E5F8119AD704800781E30 /* BeautiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeautiViewController.m; sourceTree = "<group>"; };
 		245E5F8619AD790500781E30 /* beautiGram@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "beautiGram@2x.jpg"; sourceTree = "<group>"; };
@@ -179,8 +193,8 @@
 		24A0DC4A1998B6A70014ACFE /* backButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backButton.png; sourceTree = "<group>"; };
 		24D657AB199B436300FF7C56 /* pageText1_960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pageText1_960.png; sourceTree = "<group>"; };
 		24D657B2199B55CA00FF7C56 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
-		24D710DE19AC78A9005F4886 /* ReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewViewController.h; sourceTree = "<group>"; };
-		24D710DF19AC78A9005F4886 /* ReviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewViewController.m; sourceTree = "<group>"; };
+		24D710DE19AC78A9005F4886 /* ReviewListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewListViewController.h; sourceTree = "<group>"; };
+		24D710DF19AC78A9005F4886 /* ReviewListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewListViewController.m; sourceTree = "<group>"; };
 		24D710E719AC997A005F4886 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
 		24D710E819AC997A005F4886 /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
 		24D710FC19ACACD6005F4886 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -364,10 +378,10 @@
 				246BFC55198F7AF0002B4456 /* IntroView */,
 				246BFC56198F7AF8002B4456 /* MenuView */,
 				246BFC57198F7B06002B4456 /* ProposeView */,
-				24430577199335C40078250B /* LeferiBack.png */,
-				246BFBFF198F79CC002B4456 /* LeferiIcon.png */,
 				24D710E119AC7A17005F4886 /* ReviewView */,
 				245E5F8319AD710B00781E30 /* BeautiGram */,
+				24430577199335C40078250B /* LeferiBack.png */,
+				246BFBFF198F79CC002B4456 /* LeferiIcon.png */,
 			);
 			name = imageRES;
 			sourceTree = "<group>";
@@ -505,8 +519,12 @@
 		24D710DD19AC785D005F4886 /* ReviewView */ = {
 			isa = PBXGroup;
 			children = (
-				24D710DE19AC78A9005F4886 /* ReviewViewController.h */,
-				24D710DF19AC78A9005F4886 /* ReviewViewController.m */,
+				24D710DE19AC78A9005F4886 /* ReviewListViewController.h */,
+				24D710DF19AC78A9005F4886 /* ReviewListViewController.m */,
+				2453381B19B3251900D27354 /* ReviewViewController.h */,
+				2453381C19B3251900D27354 /* ReviewViewController.m */,
+				2442BBEA19B337C7008C89D2 /* ReviewViewCell.h */,
+				2442BBEB19B337C7008C89D2 /* ReviewViewCell.m */,
 			);
 			name = ReviewView;
 			sourceTree = "<group>";
@@ -514,6 +532,10 @@
 		24D710E119AC7A17005F4886 /* ReviewView */ = {
 			isa = PBXGroup;
 			children = (
+				2453381319B3211900D27354 /* blogMenu1@2x.png */,
+				2453381419B3211900D27354 /* blogMenu2@2x.png */,
+				2453381519B3211900D27354 /* blogMenu3@2x.png */,
+				2453381619B3211900D27354 /* blogMenu4@2x.png */,
 			);
 			name = ReviewView;
 			sourceTree = "<group>";
@@ -660,12 +682,14 @@
 			files = (
 				24F26D85199A2B2800C8A766 /* menu1@2x.png in Resources */,
 				24F26D83199A2A8600C8A766 /* menu7@2x.png in Resources */,
+				2453381A19B3211900D27354 /* blogMenu4@2x.png in Resources */,
 				244305621991FF540078250B /* menu2@2x.png in Resources */,
 				24D657AC199B436300FF7C56 /* pageText1_960.png in Resources */,
 				244016F519A227640009B5A7 /* titleBar@2x.png in Resources */,
 				246BFC3B198F79CC002B4456 /* pageText4.png in Resources */,
 				246BFC34198F79CC002B4456 /* page3.png in Resources */,
 				246BFC32198F79CC002B4456 /* page2.png in Resources */,
+				2453381719B3211900D27354 /* blogMenu1@2x.png in Resources */,
 				246BFC31198F79CC002B4456 /* page1.png in Resources */,
 				246BFC3A198F79CC002B4456 /* pageText3.png in Resources */,
 				244305661991FF540078250B /* menu6@2x.png in Resources */,
@@ -681,6 +705,8 @@
 				246BFC3C198F79CC002B4456 /* proposeFBbtn.png in Resources */,
 				246BFC39198F79CC002B4456 /* pageText2.png in Resources */,
 				24430568199201950078250B /* menuBtn.png in Resources */,
+				2453381819B3211900D27354 /* blogMenu2@2x.png in Resources */,
+				2453381919B3211900D27354 /* blogMenu3@2x.png in Resources */,
 				24F26D89199A384B00C8A766 /* naviBarShadow.png in Resources */,
 				246BFC28198F79CC002B4456 /* LeferiIcon.png in Resources */,
 				244305641991FF540078250B /* menu4@2x.png in Resources */,
@@ -709,13 +735,15 @@
 				2440170519A228170009B5A7 /* MenuViewController.m in Sources */,
 				245E5F9C19ADB58B00781E30 /* XCDYouTubePlayerScript.m in Sources */,
 				246BFBD3198F7978002B4456 /* Leferi.xcdatamodeld in Sources */,
+				2453381D19B3251900D27354 /* ReviewViewController.m in Sources */,
 				24A0DC1319987E570014ACFE /* CommentViewController.m in Sources */,
 				248B504019ADF9F500E895FD /* UIViewController+Rotation.m in Sources */,
 				24ED1FD51999237E00BE3386 /* TLYDelegateProxy.m in Sources */,
 				24D7110319ACAE2A005F4886 /* DepartViewController.m in Sources */,
 				24ED1FD61999237E00BE3386 /* TLYShyNavBarManager.m in Sources */,
+				2442BBEC19B337C7008C89D2 /* ReviewViewCell.m in Sources */,
 				24DE368219ADC53A00AD57E4 /* RTScreenPhysicalSize.m in Sources */,
-				24D710E019AC78A9005F4886 /* ReviewViewController.m in Sources */,
+				24D710E019AC78A9005F4886 /* ReviewListViewController.m in Sources */,
 				245E5F8219AD704800781E30 /* BeautiViewController.m in Sources */,
 				2440170119A227CF0009B5A7 /* UIImage+ImageEffects.m in Sources */,
 				246BFC4A198F7A3D002B4456 /* EAIntroPage.m in Sources */,
