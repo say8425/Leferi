@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.8" systemVersion="14A329f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="DxM-8z-rMo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.8" systemVersion="14A343f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="DxM-8z-rMo">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
     </dependencies>
@@ -571,63 +571,77 @@
         <scene sceneID="EQs-Yg-ySH">
             <objects>
                 <viewController id="9OF-hj-FuI" customClass="BeautiViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="64G-yZ-V8E"/>
-                        <viewControllerLayoutGuide type="bottom" id="cJj-Nu-tAm"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="dla-bR-FnS">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="340" sectionHeaderHeight="22" sectionFooterHeight="22" id="2lo-MY-WEK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Ng-Ou-Pg7">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rsz-eU-6VC">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bjU-1R-h0D">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="568" id="jf0-WJ-0EC"/>
-                                                    <constraint firstAttribute="width" constant="320" id="vEq-gk-X2V"/>
-                                                </constraints>
-                                            </imageView>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="bjU-1R-h0D" secondAttribute="bottom" id="0BY-zq-ZAl"/>
-                                            <constraint firstAttribute="trailing" secondItem="bjU-1R-h0D" secondAttribute="trailing" id="3Qj-uw-Qo7"/>
-                                            <constraint firstItem="bjU-1R-h0D" firstAttribute="top" secondItem="rsz-eU-6VC" secondAttribute="top" id="Our-Hq-HN7"/>
-                                            <constraint firstItem="bjU-1R-h0D" firstAttribute="leading" secondItem="rsz-eU-6VC" secondAttribute="leading" id="p9D-tE-n4A"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="rsz-eU-6VC" firstAttribute="leading" secondItem="8Ng-Ou-Pg7" secondAttribute="leading" id="3Pc-Hv-Vzl"/>
-                                    <constraint firstAttribute="bottom" secondItem="rsz-eU-6VC" secondAttribute="bottom" id="Osm-TG-Mwr"/>
-                                    <constraint firstItem="rsz-eU-6VC" firstAttribute="top" secondItem="8Ng-Ou-Pg7" secondAttribute="top" id="S1q-Zm-WNs"/>
-                                    <constraint firstAttribute="trailing" secondItem="rsz-eU-6VC" secondAttribute="trailing" id="TPc-fS-sG0"/>
-                                </constraints>
-                            </scrollView>
-                        </subviews>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="8Ng-Ou-Pg7" secondAttribute="trailing" id="80d-xL-uIN"/>
-                            <constraint firstItem="8Ng-Ou-Pg7" firstAttribute="leading" secondItem="dla-bR-FnS" secondAttribute="leading" id="KwZ-Zd-8Ah"/>
-                            <constraint firstItem="8Ng-Ou-Pg7" firstAttribute="top" secondItem="dla-bR-FnS" secondAttribute="top" id="mFk-nF-O0q"/>
-                            <constraint firstItem="cJj-Nu-tAm" firstAttribute="top" secondItem="8Ng-Ou-Pg7" secondAttribute="bottom" id="tBj-47-pMU"/>
-                        </constraints>
-                    </view>
+                        <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="nkJ-JZ-AXG">
+                            <rect key="frame" x="0.0" y="64" width="320" height="180"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="instaCell" rowHeight="340" id="MNv-dp-T5r" customClass="BeautiTableViewCell">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MNv-dp-T5r" id="RdK-It-LMS">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a5v-59-MZV">
+                                            <rect key="frame" x="0.0" y="1" width="320" height="158"/>
+                                        </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TTl-t8-9mG">
+                                            <rect key="frame" x="106" y="167" width="45" height="45"/>
+                                            <state key="normal" image="instaNormBtn.png">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="highlighted" image="instaLikeBtn.png"/>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="like" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SrF-8e-XbN">
+                                            <rect key="frame" x="159" y="179" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c9J-Jp-4VL">
+                                            <rect key="frame" x="133" y="275" width="45" height="45"/>
+                                            <state key="normal" image="instaComtBtn.png">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="instaComt.png" translatesAutoresizingMaskIntoConstraints="NO" id="6zV-cF-Bqi">
+                                            <rect key="frame" x="109" y="246" width="92" height="20"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Insta Caption" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r79-K2-xHS">
+                                            <rect key="frame" x="96" y="186" width="150" height="50"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="caption" destination="r79-K2-xHS" id="i0l-1l-6Jh"/>
+                                    <outlet property="commentBtn" destination="c9J-Jp-4VL" id="Os3-Ok-jmN"/>
+                                    <outlet property="imageView" destination="a5v-59-MZV" id="deh-h0-wYw"/>
+                                    <outlet property="likeBtn" destination="TTl-t8-9mG" id="L5J-qp-FUM"/>
+                                    <outlet property="likeCount" destination="SrF-8e-XbN" id="4k7-N0-zqK"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="9OF-hj-FuI" id="VUj-PE-hTv"/>
+                            <outlet property="delegate" destination="9OF-hj-FuI" id="8aP-S0-tEO"/>
+                        </connections>
+                    </tableView>
                     <navigationItem key="navigationItem" id="ovp-Ls-w4y"/>
                     <connections>
-                        <outlet property="imageConstraintHeight" destination="jf0-WJ-0EC" id="wTy-O6-EmR"/>
-                        <outlet property="imageView" destination="bjU-1R-h0D" id="aiJ-0n-Hjc"/>
-                        <outlet property="scrollView" destination="8Ng-Ou-Pg7" id="HSV-ly-KKK"/>
+                        <outlet property="headImageView" destination="nkJ-JZ-AXG" id="ZzT-69-NeA"/>
+                        <outlet property="tableView" destination="2lo-MY-WEK" id="9hP-vl-9U5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lgy-GR-uQT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-785" y="515"/>
+            <point key="canvasLocation" x="-785" y="514"/>
         </scene>
         <!--Dummy Nav View Controller-->
         <scene sceneID="MRa-QN-Wkb">
@@ -667,6 +681,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="instaComt.png" width="76" height="16"/>
+        <image name="instaComtBtn.png" width="44" height="44"/>
+        <image name="instaLikeBtn.png" width="25" height="25"/>
+        <image name="instaNormBtn.png" width="25" height="25"/>
         <image name="menuBtn.png" width="124" height="124"/>
         <image name="pageSkipBtn.png" width="293" height="293"/>
         <image name="proposeFBbtn.png" width="124" height="124"/>
