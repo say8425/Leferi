@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.8" systemVersion="14A343f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="DxM-8z-rMo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.9" systemVersion="14A343f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="DxM-8z-rMo">
     <dependencies>
+        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
     </dependencies>
     <scenes>
@@ -161,7 +162,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="an7-Zh-uMP" kind="custom" identifier="" customClass="TransAlphaSegue" id="MyO-T5-awe"/>
+                                    <segue destination="ciP-tg-0mX" kind="custom" customClass="TransAlphaSegue" id="dcC-oi-AK1"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -623,6 +624,7 @@
                                     <outlet property="caption" destination="r79-K2-xHS" id="i0l-1l-6Jh"/>
                                     <outlet property="commentBtn" destination="c9J-Jp-4VL" id="Os3-Ok-jmN"/>
                                     <outlet property="imageView" destination="a5v-59-MZV" id="deh-h0-wYw"/>
+                                    <outlet property="instaCaption" destination="r79-K2-xHS" id="ZrP-BB-eN9"/>
                                     <outlet property="likeBtn" destination="TTl-t8-9mG" id="L5J-qp-FUM"/>
                                     <outlet property="likeCount" destination="SrF-8e-XbN" id="4k7-N0-zqK"/>
                                 </connections>
@@ -698,6 +700,7 @@
         </simulatedScreenMetrics>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="dcC-oi-AK1"/>
         <segue reference="kG5-fF-Tps"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

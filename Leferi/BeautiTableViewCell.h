@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *likeBtn;
 @property (weak, nonatomic) IBOutlet UILabel *likeCount;
 @property (weak, nonatomic) IBOutlet UILabel *caption;
+@property (strong, nonatomic) IBOutlet UILabel *instaCaption;
 @property (weak, nonatomic) IBOutlet UIButton *commentBtn;
 
 @end

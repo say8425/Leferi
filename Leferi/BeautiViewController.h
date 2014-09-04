@@ -22,6 +22,7 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *headImageView;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) InstagramMedia * media;
 @property (strong, nonatomic) InstagramPaginationInfo *currentPaginationInfo;
 
 

@@ -25,8 +25,8 @@
                           delay:0.0
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
-                         [sourceViewController.navigationController.navigationBar err]
-                         [destinationViewController.view.transform = CGAffineTransformMakeScale(1.0, 1.0)];
+                         [sourceViewController.navigationController.navigationBar setAlpha:1.0];
+                         [destinationViewController.view setAlpha:1.0];
                      } completion:^(BOOL finished){
                          [destinationViewController.view removeFromSuperview];
                          [sourceViewController presentViewController:destinationViewController animated:NO completion:NULL]; // present VC

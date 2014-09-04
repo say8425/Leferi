@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //Navigation Setting
+    //Navigaxtion Setting
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"proposeTitle.png"] forBarMetrics:UIBarMetricsDefault];
@@ -27,12 +27,16 @@
     //Head Image Setting
     [self.headImageView setImage:[UIImage imageNamed:@"headImage@2x.png"]];
     
-    
     //Title Bar Hding
     [self.shyNavBarManager setScrollView:self.tableView];
+    
+    //Instagram Load
+    [self loadMedia];
 }
 
-#pragma mark - InstaGram Setting
+#pragma mark - InstaGram Setting Func
+
+///Basic parameter and Method init
 - (void)loadMedia {
     tagString = [NSString new];
     mediaArray = [NSMutableArray new];
@@ -47,6 +51,7 @@
     }
 }
 
+///Get media from Tag.
 - (void)getMediaFromTag:(NSString *)tag {
     [mediaArray removeAllObjects];
     [[InstagramEngine sharedEngine] getMediaWithTagName:tag count:15 maxId:self.currentPaginationInfo.nextMaxId withSuccess:^(NSArray *media, InstagramPaginationInfo *paginationInfo) {
@@ -60,6 +65,7 @@
     }];
 }
 
+///Load popular media. If token fail then loaded it.
 - (void)loadPopularMedia {
     [[InstagramEngine sharedEngine] getPopularMediaWithSuccess:^(NSArray *media, InstagramPaginationInfo *paginationInfo) {
         [mediaArray removeAllObjects];
@@ -81,7 +87,14 @@
     return newStringDate;
 }
 
-///Follow the user.
+///Follow the user
+- (void)followUser {
+    [[InstagramEngine sharedEngine]followUser:self.media.user.Id withSuccess:^(NSDictionary *response) {
+        NSLog(@"Follow success");
+    }failure:^(NSError *error){
+        NSLog(@"Failed to follow");
+    }];
+}
 
 #pragma makr - Setting of Table
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -89,8 +102,8 @@
 }
 
 //- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-//    //return [instaSectionTitle objectAtIndex:section];
-//    return mediaArray.count;
+//    return self.media.user.username;
+//    //return mediaArray.count;
 //}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -101,22 +114,23 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    InstagramMedia *media = mediaArray[section];
-    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 32)];
+    self.media = mediaArray[section];
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 300)];
+    view.backgroundColor = [UIColor whiteColor];
     
-    UIImageView *userImageView; [userImageView setImageWithURL:media.standardResolutionImageURL];   //image for profile photo
-    UIButton *userProfile = [self makingRoundButtonWithImage:userImageView.image buttonForX:4 buttonForY:4 buttonForSize:24];
-    UILabel *userName = [[UILabel alloc]initWithFrame:CGRectMake(30, 4, 60, 8)];
-    UILabel *createDate = [[UILabel alloc]initWithFrame:CGRectMake(30, 64, 60, 68)];
+    UIImageView *userImageView; [userImageView setImageWithURL:self.media.user.profilePictureURL];   //image for profile photo
+    UIButton *userProfile = [self makingRoundButtonWithImage:userImageView.image buttonForX:4 buttonForY:4 buttonForSize:48];
+    UILabel *userName = [[UILabel alloc]initWithFrame:CGRectMake(64, 4, 142, 32)];
+    UILabel *createDate = [[UILabel alloc]initWithFrame:CGRectMake(64, 24, 142, 32)];
     UIButton *followButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [followButton setFrame:CGRectMake(200, 14, 40, 10)];
     [followButton setImage:[UIImage imageNamed:@"instaFollBtn.png"] forState:UIControlStateNormal];
-    [followButton addTarget:self action:[self performSelector:@selector(followUser:withSuccess:failure:) withObject:media.user.username] forControlEvents:UIControlEventTouchUpInside];
-
+    [followButton addTarget:self action:@selector(followUser) forControlEvents:UIControlEventTouchUpInside];
     
-    [userName setFont:[UIFont systemFontOfSize:12]];
-    [userName setText:media.user.username];
-    [createDate setFont:[UIFont systemFontOfSize:6]];
-    [createDate setText:[self returnCreatedDate:media.createdDate]];
+    [userName setFont:[UIFont systemFontOfSize:24]];
+    [userName setText:self.media.user.username];
+    [createDate setFont:[UIFont systemFontOfSize:12]];
+    [createDate setText:[self returnCreatedDate:self.media.createdDate]];
     
     [view addSubview:userProfile];
     [view addSubview:userName];
@@ -128,41 +142,21 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BeautiTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"instaCell" forIndexPath:indexPath];
     if (mediaArray.count >= indexPath.row + 1) {
-        InstagramMedia *media = mediaArray[indexPath.row];
-        [cell.imageView setImageWithURL:media.standardResolutionImageURL];
-        
-        
-        [cell.userIconBtn setImageForState:UIControlStateNormal withURL:media.user.profilePictureURL];
-        [cell.userNameLb setText:media.user.username];
-        [cell.userDateLb setText:[self returnCreatedDate:media.createdDate]];
-        [cell.likeNumLb setText:[NSString stringWithFormat:@"%ld", (long)media.likesCount]];
-        [cell.commentNumLb setText:[NSString stringWithFormat:@"%ld", (long)media.commentCount]];
-        [cell.captionLb setText:media.caption.text];
-        //[cell.captionLb setNumberOfLines:0];
-        [cell.captionLb setTextAlignment:NSTextAlignmentCenter];
-        [cell.captionLb setLineBreakMode:NSLineBreakByWordWrapping];
+        self.media = mediaArray[indexPath.row];
+        [cell.imageView setImageWithURL:self.media.standardResolutionImageURL];
+        [cell.likeCount setText:[NSString stringWithFormat:@"%ld", (long)self.media.likesCount]];
+        [cell.caption setText:self.media.caption.text];
+        [cell.caption setNumberOfLines:0];
+        [cell.caption setTextAlignment:NSTextAlignmentCenter];
+        [cell.caption setLineBreakMode:NSLineBreakByWordWrapping];
         //[cell.captionLb sizeToFit];
         NSLog(@"Image is loaded");
     } else {
-        [cell.photoImageView setImage:nil];
+        [cell.imageView setImage:nil];
         NSLog(@"Sorry. Image is nil");
     }
     return cell;
 }
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    BeautiTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"instaCell" forIndexPath:indexPath];
-    
-
-    NSString *sectionTitle = [instaSectionTitle objectAtIndex:indexPath.section];
-    NSArray *sectionInstas = [instaDictionary objectForKey:sectionTitle];
-    NSString *insta = [sectionInstas objectAtIndex:indexPath.row];
-    
-    
-}
-
-
 
 
 #pragma mark - Rounding Button
