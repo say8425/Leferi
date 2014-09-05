@@ -85,6 +85,7 @@
 		246BFC4A198F7A3D002B4456 /* EAIntroPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 246BFC47198F7A3D002B4456 /* EAIntroPage.m */; };
 		246BFC4B198F7A3D002B4456 /* EAIntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = 246BFC49198F7A3D002B4456 /* EAIntroView.m */; };
 		246BFC4E198F7A6F002B4456 /* SMPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 246BFC4D198F7A6F002B4456 /* SMPageControl.m */; };
+		247C055219B98ED500DE603C /* UserHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 247C055119B98ED500DE603C /* UserHeaderTableViewCell.m */; };
 		248B504019ADF9F500E895FD /* UIViewController+Rotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 248B503F19ADF9F500E895FD /* UIViewController+Rotation.m */; };
 		24A0DC1319987E570014ACFE /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A0DC1219987E570014ACFE /* CommentViewController.m */; };
 		24A0DC4B1998B6A70014ACFE /* backButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 24A0DC4A1998B6A70014ACFE /* backButton.png */; };
@@ -259,6 +260,8 @@
 		246BFC49198F7A3D002B4456 /* EAIntroView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAIntroView.m; sourceTree = "<group>"; };
 		246BFC4C198F7A6F002B4456 /* SMPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPageControl.h; sourceTree = "<group>"; };
 		246BFC4D198F7A6F002B4456 /* SMPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPageControl.m; sourceTree = "<group>"; };
+		247C055019B98ED500DE603C /* UserHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserHeaderTableViewCell.h; sourceTree = "<group>"; };
+		247C055119B98ED500DE603C /* UserHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserHeaderTableViewCell.m; sourceTree = "<group>"; };
 		248B503E19ADF9F500E895FD /* UIViewController+Rotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Rotation.h"; sourceTree = "<group>"; };
 		248B503F19ADF9F500E895FD /* UIViewController+Rotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Rotation.m"; sourceTree = "<group>"; };
 		24A0DC1119987E570014ACFE /* CommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentViewController.h; sourceTree = "<group>"; };
@@ -713,6 +716,8 @@
 				245E5F8119AD704800781E30 /* BeautiViewController.m */,
 				24CD04FC19B5DA2300B39716 /* BeautiTableViewCell.h */,
 				24CD04FD19B5DA2300B39716 /* BeautiTableViewCell.m */,
+				247C055019B98ED500DE603C /* UserHeaderTableViewCell.h */,
+				247C055119B98ED500DE603C /* UserHeaderTableViewCell.m */,
 			);
 			name = BeautiGram;
 			sourceTree = "<group>";
@@ -993,6 +998,7 @@
 				246BFBCD198F7978002B4456 /* main.m in Sources */,
 				246BFC2A198F79CC002B4456 /* MainTableViewController.m in Sources */,
 				244016FF19A227CF0009B5A7 /* MCPanelViewController.m in Sources */,
+				247C055219B98ED500DE603C /* UserHeaderTableViewCell.m in Sources */,
 				246BFC3F198F79CC002B4456 /* ProposeViewController.m in Sources */,
 				243F36EE19B72EC500729FB5 /* AFURLResponseSerialization.m in Sources */,
 				24FCB84B19B6E5BD009ACE20 /* InstagramEngine.m in Sources */,

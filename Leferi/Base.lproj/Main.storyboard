@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.9" systemVersion="14A343f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ciP-tg-0mX">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
     </dependencies>
     <scenes>
@@ -581,43 +580,83 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="instaCell" rowHeight="340" id="MNv-dp-T5r" customClass="BeautiTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="InstaUserSectionHeader" rowHeight="64" id="Z8W-j7-92e" customClass="UserHeaderTableViewCell">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z8W-j7-92e" id="FQI-2R-oSN">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E0L-aJ-Phf" userLabel="userProfile">
+                                            <rect key="frame" x="8" y="7" width="48" height="48"/>
+                                            <state key="normal">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="UserName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3yN-nf-iPr" userLabel="userName">
+                                            <rect key="frame" x="64" y="8" width="125" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="createdDate" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y1f-iK-OcR">
+                                            <rect key="frame" x="64" y="34" width="125" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0do-IO-cHq" userLabel="followBtn">
+                                            <rect key="frame" x="250" y="20" width="61" height="22"/>
+                                            <state key="normal" image="instaFollBtn.png">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="createdDate" destination="y1f-iK-OcR" id="fpO-tl-p4v"/>
+                                    <outlet property="followBtn" destination="0do-IO-cHq" id="t8h-eM-lWc"/>
+                                    <outlet property="userName" destination="3yN-nf-iPr" id="nd1-wS-HbF"/>
+                                    <outlet property="userProfileBtn" destination="E0L-aJ-Phf" id="yX2-o5-3qT"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="instaCell" rowHeight="700" id="MNv-dp-T5r" customClass="BeautiTableViewCell">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MNv-dp-T5r" id="RdK-It-LMS">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TTl-t8-9mG">
-                                            <rect key="frame" x="106" y="167" width="45" height="45"/>
+                                            <rect key="frame" x="105" y="157" width="65" height="65"/>
                                             <state key="normal" image="instaNormBtn.png">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <state key="highlighted" image="instaLikeBtn.png"/>
                                         </button>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a5v-59-MZV">
+                                            <rect key="frame" x="0.0" y="1" width="320" height="158"/>
+                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="like" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SrF-8e-XbN">
-                                            <rect key="frame" x="159" y="179" width="42" height="21"/>
+                                            <rect key="frame" x="164" y="180" width="65" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c9J-Jp-4VL">
-                                            <rect key="frame" x="133" y="275" width="45" height="45"/>
+                                            <rect key="frame" x="138" y="535" width="45" height="45"/>
                                             <state key="normal" image="instaComtBtn.png">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="instaComt.png" translatesAutoresizingMaskIntoConstraints="NO" id="6zV-cF-Bqi">
-                                            <rect key="frame" x="109" y="246" width="92" height="20"/>
+                                            <rect key="frame" x="114" y="327" width="92" height="20"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Insta Caption" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r79-K2-xHS">
-                                            <rect key="frame" x="96" y="186" width="150" height="50"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Insta Caption" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r79-K2-xHS">
+                                            <rect key="frame" x="64" y="209" width="192" height="93"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a5v-59-MZV">
-                                            <rect key="frame" x="0.0" y="1" width="320" height="158"/>
-                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
@@ -643,7 +682,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lgy-GR-uQT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-785" y="514"/>
+            <point key="canvasLocation" x="-785" y="509"/>
         </scene>
         <!--Dummy Nav View Controller-->
         <scene sceneID="MRa-QN-Wkb">
@@ -685,6 +724,7 @@
     <resources>
         <image name="instaComt.png" width="76" height="16"/>
         <image name="instaComtBtn.png" width="44" height="44"/>
+        <image name="instaFollBtn.png" width="61" height="22"/>
         <image name="instaLikeBtn.png" width="25" height="25"/>
         <image name="instaNormBtn.png" width="25" height="25"/>
         <image name="menuBtn.png" width="124" height="124"/>

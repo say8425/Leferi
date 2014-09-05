@@ -18,7 +18,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //Navigaxtion Setting
+
+    self.tableView.sectionHeaderHeight = 64;
+    
+    //Navigation Setting
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"proposeTitle.png"] forBarMetrics:UIBarMetricsDefault];
@@ -103,43 +106,35 @@
 //    //return mediaArray.count;
 //}
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return mediaArray.count;
-    //return 1;
+///Height of header
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForFooterInSection:(NSInteger)section {
+    return 0;
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return mediaArray.count;
+}
+
+///Setting order of media
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    //Setting order of media
     mediaOrder = section;
     self.media = mediaArray[section];
     
-    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 300)];
+    UserHeaderTableViewCell *header = [tableView dequeueReusableCellWithIdentifier:@"InstaUserSectionHeader"];
     
-    UIImageView *userImageView; [userImageView setImageWithURL:self.media.user.profilePictureURL];   //image for profile photo
-    UIButton *userProfile = [self makingRoundButtonWithImage:userImageView.image buttonForX:4 buttonForY:4 buttonForSize:48];
-    UILabel *userName = [[UILabel alloc]initWithFrame:CGRectMake(64, 4, 142, 32)];
-    UILabel *createDate = [[UILabel alloc]initWithFrame:CGRectMake(64, 24, 142, 32)];
-    UIButton *followButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    //[header.userProfileBtn setFrame:CGRectMake(8, 8, 48, 48)];
+    [header.userProfileBtn setClipsToBounds:YES];
+    [header.userProfileBtn.layer setCornerRadius:header.userProfileBtn.bounds.size.width / 2.0];
+    [header.userProfileBtn setImageForState:UIControlStateNormal withURL:self.media.user.profilePictureURL];
+    [header.userName setText:self.media.user.username];
+    [header.createdDate setText:[self returnCreatedDate:self.media.createdDate]];
+    [header.followBtn addTarget:self action:@selector(followUser) forControlEvents:UIControlEventTouchUpInside];
     
-    [followButton setFrame:CGRectMake(200, 14, 40, 10)];
-    [followButton setImage:[UIImage imageNamed:@"instaFollBtn.png"] forState:UIControlStateNormal];
-    [followButton addTarget:self action:@selector(followUser) forControlEvents:UIControlEventTouchUpInside];
-    
-    [userName setFont:[UIFont systemFontOfSize:24]];
-    [userName setText:self.media.user.username];
-    [createDate setFont:[UIFont systemFontOfSize:12]];
-    [createDate setText:[self returnCreatedDate:self.media.createdDate]];
-    
-    [view addSubview:userProfile];
-    [view addSubview:userName];
-    [view addSubview:createDate];
-    [view setBackgroundColor:[UIColor whiteColor]];
-    
-    return view;
+    return header;
 }
 
 
-#pragma makr - Setting of Table
+#pragma mark - Setting of Table Cell
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     //return mediaArray.count;
 //    NSString *sectionTitle = [instaSectionTitle objectAtIndex:section];
@@ -150,21 +145,21 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BeautiTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"instaCell" forIndexPath:indexPath];
-    if (mediaArray.count >= indexPath.row + 1) {
+    if (mediaArray.count >= mediaOrder + 1) {    //indexPath.row + 1
         self.media = mediaArray[mediaOrder];    //indexPath.row
+        
         [cell.instaImageView setImageWithURL:self.media.standardResolutionImageURL];
         [cell.likeCount setText:[NSString stringWithFormat:@"%ld", (long)self.media.likesCount]];
         [cell.caption setText:self.media.caption.text];
         [cell.caption setNumberOfLines:0];
         [cell.caption setTextAlignment:NSTextAlignmentCenter];
         [cell.caption setLineBreakMode:NSLineBreakByWordWrapping];
-        //[cell.captionLb sizeToFit];
-        NSLog(@"Image is loaded");
+        //[cell.caption sizeToFit];
+        NSLog(@"mediaArray : %lu, mediaOrder : %ld", (unsigned long)mediaArray.count, (long)mediaOrder);
     } else {
         [cell.instaImageView setImage:nil];
         NSLog(@"Sorry. Image is nil");
-    }
-    return cell;
+    } return cell;
 }
 
 

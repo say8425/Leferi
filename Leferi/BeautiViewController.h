@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BeautiTableViewCell.h"
+#import "UserHeaderTableViewCell.h"
 #import "UIBarButtonItem+Image.h"
 #import "TLYShyNavBarManager.h"
 #import "InstagramKit.h"
