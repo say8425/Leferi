@@ -18,6 +18,7 @@
 @interface BeautiViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
     NSString *tagString;
     NSMutableArray *mediaArray;
+    NSInteger mediaOrder;
 }
 
 @property (strong, nonatomic) IBOutlet UIImageView *headImageView;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.9" systemVersion="14A343f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="DxM-8z-rMo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.9" systemVersion="14A343f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ciP-tg-0mX">
     <dependencies>
         <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
@@ -587,9 +587,6 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MNv-dp-T5r" id="RdK-It-LMS">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a5v-59-MZV">
-                                            <rect key="frame" x="0.0" y="1" width="320" height="158"/>
-                                        </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TTl-t8-9mG">
                                             <rect key="frame" x="106" y="167" width="45" height="45"/>
                                             <state key="normal" image="instaNormBtn.png">
@@ -618,13 +615,16 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a5v-59-MZV">
+                                            <rect key="frame" x="0.0" y="1" width="320" height="158"/>
+                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="caption" destination="r79-K2-xHS" id="i0l-1l-6Jh"/>
                                     <outlet property="commentBtn" destination="c9J-Jp-4VL" id="Os3-Ok-jmN"/>
-                                    <outlet property="imageView" destination="a5v-59-MZV" id="deh-h0-wYw"/>
                                     <outlet property="instaCaption" destination="r79-K2-xHS" id="ZrP-BB-eN9"/>
+                                    <outlet property="instaImageView" destination="a5v-59-MZV" id="O2h-UJ-0Sx"/>
                                     <outlet property="likeBtn" destination="TTl-t8-9mG" id="L5J-qp-FUM"/>
                                     <outlet property="likeCount" destination="SrF-8e-XbN" id="4k7-N0-zqK"/>
                                 </connections>

@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface BeautiTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
+@property (strong, nonatomic) IBOutlet UIImageView *instaImageView;
 @property (weak, nonatomic) IBOutlet UIButton *likeBtn;
 @property (weak, nonatomic) IBOutlet UILabel *likeCount;
 @property (weak, nonatomic) IBOutlet UILabel *caption;

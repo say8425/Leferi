@@ -96,33 +96,31 @@
     }];
 }
 
-#pragma makr - Setting of Table
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return mediaArray.count;
-}
 
+#pragma mark - Setting of Table Header
 //- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
 //    return self.media.user.username;
 //    //return mediaArray.count;
 //}
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return mediaArray.count;
-//    NSString *sectionTitle = [instaSectionTitle objectAtIndex:section];
-//    NSArray *sectionInstas = [instaDictionary objectForKey:sectionTitle];
-//    return [sectionInstas count];
+    //return 1;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    //Setting order of media
+    mediaOrder = section;
     self.media = mediaArray[section];
+    
     UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 300)];
-    view.backgroundColor = [UIColor whiteColor];
     
     UIImageView *userImageView; [userImageView setImageWithURL:self.media.user.profilePictureURL];   //image for profile photo
     UIButton *userProfile = [self makingRoundButtonWithImage:userImageView.image buttonForX:4 buttonForY:4 buttonForSize:48];
     UILabel *userName = [[UILabel alloc]initWithFrame:CGRectMake(64, 4, 142, 32)];
     UILabel *createDate = [[UILabel alloc]initWithFrame:CGRectMake(64, 24, 142, 32)];
     UIButton *followButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    
     [followButton setFrame:CGRectMake(200, 14, 40, 10)];
     [followButton setImage:[UIImage imageNamed:@"instaFollBtn.png"] forState:UIControlStateNormal];
     [followButton addTarget:self action:@selector(followUser) forControlEvents:UIControlEventTouchUpInside];
@@ -135,15 +133,26 @@
     [view addSubview:userProfile];
     [view addSubview:userName];
     [view addSubview:createDate];
+    [view setBackgroundColor:[UIColor whiteColor]];
     
     return view;
+}
+
+
+#pragma makr - Setting of Table
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    //return mediaArray.count;
+//    NSString *sectionTitle = [instaSectionTitle objectAtIndex:section];
+//    NSArray *sectionInstas = [instaDictionary objectForKey:sectionTitle];
+//    return [sectionInstas count];
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BeautiTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"instaCell" forIndexPath:indexPath];
     if (mediaArray.count >= indexPath.row + 1) {
-        self.media = mediaArray[indexPath.row];
-        [cell.imageView setImageWithURL:self.media.standardResolutionImageURL];
+        self.media = mediaArray[mediaOrder];    //indexPath.row
+        [cell.instaImageView setImageWithURL:self.media.standardResolutionImageURL];
         [cell.likeCount setText:[NSString stringWithFormat:@"%ld", (long)self.media.likesCount]];
         [cell.caption setText:self.media.caption.text];
         [cell.caption setNumberOfLines:0];
@@ -152,7 +161,7 @@
         //[cell.captionLb sizeToFit];
         NSLog(@"Image is loaded");
     } else {
-        [cell.imageView setImage:nil];
+        [cell.instaImageView setImage:nil];
         NSLog(@"Sorry. Image is nil");
     }
     return cell;
