@@ -38,7 +38,6 @@
 }
 
 #pragma mark - InstaGram Setting Func
-
 ///Basic parameter and Method init
 - (void)loadMedia {
     tagString = [NSString new];
@@ -47,11 +46,21 @@
     
     if (sharedEngine.accessToken) {
         [self getMediaFromTag:tagString];
+        login = YES;
         NSLog(@"Success");
     } else {
         [self loadPopularMedia];
+        NSLog(@"%@",sharedEngine.accessToken);
         NSLog(@"Token getting is FAIL");
+        login = NO;
     }
+}
+
+- (void)reloadMedia {
+    self.currentPaginationInfo = nil;
+    if (mediaArray) {
+        [mediaArray removeAllObjects];
+    } [self loadMedia];
 }
 
 ///Get media from Tag.
@@ -88,15 +97,6 @@
     newStringDate = [dateFormat stringFromDate:[NSDate new]];
     
     return newStringDate;
-}
-
-///Follow the user
-- (void)followUser {
-    [[InstagramEngine sharedEngine]followUser:self.media.user.Id withSuccess:^(NSDictionary *response) {
-        NSLog(@"Follow success");
-    }failure:^(NSError *error){
-        NSLog(@"Failed to follow");
-    }];
 }
 
 
@@ -151,16 +151,48 @@
         [cell.instaImageView setImageWithURL:self.media.standardResolutionImageURL];
         [cell.likeCount setText:[NSString stringWithFormat:@"%ld", (long)self.media.likesCount]];
         [cell.caption setText:self.media.caption.text];
-        [cell.caption setNumberOfLines:0];
-        [cell.caption setTextAlignment:NSTextAlignmentCenter];
-        [cell.caption setLineBreakMode:NSLineBreakByWordWrapping];
-        //[cell.caption sizeToFit];
         NSLog(@"mediaArray : %lu, mediaOrder : %ld", (unsigned long)mediaArray.count, (long)mediaOrder);
     } else {
         [cell.instaImageView setImage:nil];
         NSLog(@"Sorry. Image is nil");
     } return cell;
 }
+
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//
+////    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"instaCell" forIndexPath:indexPath];
+////    if (!self.mediaCell) {
+////        
+////        self.mediaCell = [self.tableView dequeueReusableCellWithIdentifier:@"instaCell" forIndexPath:indexPath];
+////        NSLog(@";lj");
+////    }
+////    BeautiTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"instaCell" forIndexPath:indexPath];
+////    NSLog(@"asdf");
+////    if (mediaArray.count >= indexPath.row + 1) {    //indexPath.row + 1
+////        self.media = mediaArray[indexPath.row];    //indexPath.row         //Temp_deleted it.
+////        [self.cell.instaImageView setImageWithURL:self.media.standardResolutionImageURL];
+////        [self.cell.likeCount setText:[NSString stringWithFormat:@"%ld", (long)self.media.likesCount]];
+////        [self.cell.caption setText:self.media.caption.text];
+////        NSLog(@"mediaArray : %lu, mediaOrder : %ld", (unsigned long)mediaArray.count, (long)mediaOrder);
+////    } else {
+////        [self.cell.instaImageView setImage:nil];
+////        NSLog(@"Sorry. Image is nil");
+////    }
+//
+////    
+////    [self.mediaCell layoutIfNeeded];                 //FIT, but can not load with mediaOrder safely.
+////    CGFloat newHeight = [self.mediaCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+////    CGFloat newHeight = 250;
+//    BeautiTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"instaCell"];
+//    [cell setNeedsLayout];
+//    [cell layoutIfNeeded];
+//    CGFloat newHeight = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+//    return newHeight;
+//}
+//
+//- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return 750;
+//}
 
 
 #pragma mark - Rounding Button
@@ -185,6 +217,37 @@
 
 
 #pragma makr - Action of Button
+///Follow the user
+//- (void)followUser:(UIButton *)sender {
+//    NSLog(@"followFunc is ON");
+//    [[InstagramEngine sharedEngine]followUser:userId withSuccess:^(NSDictionary *response) {
+//        NSLog(@"Follow success");
+//    }failure:^(NSError *error){
+//        NSLog(@"Failed to follow");
+//    }];
+//    
+//}
+
+- (void)followUser {
+    if (!login) {
+        [self performSegueWithIdentifier:@"instaLoginSegue" sender:nil];
+    }
+    NSLog(@"UserName:%@", self.media.user.Id);
+    [[InstagramEngine sharedEngine]followUser:self.media.user.Id withSuccess:^(NSDictionary *response) {
+        NSLog(@"Follow success");
+    }failure:^(NSError *error){
+        NSLog(@"Failed to follow");
+    }];
+}
+
+- (void)likeMedia {
+    [[InstagramEngine sharedEngine]likeMedia:self.media.Id withSuccess:^{
+        NSLog(@"Like sueecess");
+    }failure:^(NSError *error){
+        NSLog(@"Like is fail");
+    }];
+}
+
 - (void)profileButtonDidTap:(UIButton*)tappedButton {
     NSLog(@"roundButtonDidTap Method Called");
 }

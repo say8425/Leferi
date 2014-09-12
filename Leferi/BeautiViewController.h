@@ -20,6 +20,7 @@
     NSString *tagString;
     NSMutableArray *mediaArray;
     NSInteger mediaOrder;
+    BOOL login;
 }
 
 @property (strong, nonatomic) IBOutlet UIImageView *headImageView;
@@ -27,6 +28,6 @@
 @property (strong, nonatomic) InstagramMedia * media;
 @property (strong, nonatomic) InstagramPaginationInfo *currentPaginationInfo;
 
-
+- (void)reloadMedia;
 
 @end

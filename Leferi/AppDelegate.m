@@ -46,6 +46,11 @@
     [self saveContext];
 }
 
+-(BOOL) application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+        NSLog(@"Tracing URL : %@", url);    //accessToken is maden, based this [p]url. Trace it.
+    return [[InstagramEngine sharedEngine] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
+}
+
 - (void)saveContext {
     NSError *error = nil;
     NSManagedObjectContext *managedObjectContext = self.managedObjectContext;

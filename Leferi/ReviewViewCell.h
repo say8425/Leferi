@@ -10,6 +10,6 @@
 
 @interface ReviewViewCell : UITableViewCell
 
-@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) IBOutlet UIImageView *reviewImageView;
 
 @end

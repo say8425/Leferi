@@ -51,7 +51,7 @@
     ReviewViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"reviewCell" forIndexPath:indexPath];
     
     long row = [indexPath row];
-    [cell.imageView setImage:reviewImageArray[row]];
+    [cell.reviewImageView setImage:reviewImageArray[row]];
     
     return cell;
 }
