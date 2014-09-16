@@ -40,7 +40,7 @@
 #pragma mark - InstaGram Setting Func
 ///Basic parameter and Method init
 - (void)loadMedia {
-    tagString = [NSString new];
+    tagString = @"Chanelbeauty";
     mediaArray = [NSMutableArray new];
     InstagramEngine *sharedEngine = [InstagramEngine sharedEngine];
     
@@ -49,7 +49,8 @@
         login = YES;
         NSLog(@"Success");
     } else {
-        [self loadPopularMedia];
+//        [self loadPopularMedia];
+        [self getMediaFromTag:tagString];
         NSLog(@"%@",sharedEngine.accessToken);
         NSLog(@"Token getting is FAIL");
         login = NO;
@@ -147,16 +148,45 @@
     BeautiTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"instaCell" forIndexPath:indexPath];
     if (mediaArray.count >= mediaOrder + 1) {    //indexPath.row + 1
         self.media = mediaArray[mediaOrder];    //indexPath.row
+
+        
+        
         
         [cell.instaImageView setImageWithURL:self.media.standardResolutionImageURL];
         [cell.likeCount setText:[NSString stringWithFormat:@"%ld", (long)self.media.likesCount]];
         [cell.caption setText:self.media.caption.text];
-        NSLog(@"mediaArray : %lu, mediaOrder : %ld", (unsigned long)mediaArray.count, (long)mediaOrder);
+//        [self userComment];
     } else {
         [cell.instaImageView setImage:nil];
         NSLog(@"Sorry. Image is nil");
     } return cell;
 }
+
+//- (NSString *)userComment {
+//    NSString *tempComment;
+//    NSString *resultComment;
+//    NSError *error;
+//    
+//    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"#/S+" options:NSRegularExpressionCaseInsensitive error:&error];
+//    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]initWithString:tempComment];
+//    [regex enumerateMatchesInString:tempComment
+//                            options:0
+//                              range:NSMakeRange(0, [tempComment length])
+//                         usingBlock:^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) {
+//        NSString *hashTag = [tempComment substringWithRange:result.range];
+//        NSString *linkgContent = [NSString stringWithFormat:@"app-custom]
+//                         }];
+//    
+//    [[InstagramEngine sharedEngine] getCommentsOnMedia:self.media.Id withSuccess:^(NSArray *comments) {
+//        for (InstagramComment *comment in comments) {
+//            //[tempcomment stringByAppendingString:comment.user.username];
+//            
+//            NSLog(@"@%@: %@",comment.user.username, comment.text);
+//        }
+//    } failure:^(NSError *error) {
+//        NSLog(@"Could not load comments");
+//    }];
+//}
 
 //- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 //

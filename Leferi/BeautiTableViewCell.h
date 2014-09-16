@@ -15,6 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *likeCount;
 @property (weak, nonatomic) IBOutlet UILabel *caption;
 @property (weak, nonatomic) IBOutlet UIButton *commentBtn;
-@property (weak, nonatomic) IBOutlet UILabel *commentLb;
+@property (weak, nonatomic) IBOutlet UILabel *comment;
 
 @end

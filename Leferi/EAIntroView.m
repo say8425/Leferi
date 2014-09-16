@@ -334,6 +334,7 @@
     *xIndex -= self.scrollView.frame.size.width;
 }
 
+///It's disabled
 - (void)buildFooterView {
     self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, self.frame.size.height - self.pageControlY, self.frame.size.width, 20)];
     
@@ -568,6 +569,7 @@ float easeOutValue(float value) {
 //    }
 //    NSLog(@"judge:%f", self.judgeLastPage);
 
+    
 #pragma mark skipButtonAnimation
     if(self.skipButton) {
 //        if(!self.showSkipButtonOnlyOnLastPage) {
@@ -711,10 +713,14 @@ float easeOutValue(float value) {
 }
 
 - (void)setSkipButton:(UIButton *)skipButton {
+    [self.skipButton removeFromSuperview];
+    self.skipButton = skipButton;
+    
     [_skipButton removeFromSuperview];
     _skipButton = skipButton;
     [_skipButton setFrame:CGRectMake((self.frame.size.width - _skipButton.frame.size.width)/2, (self.frame.size.height - _skipButton.frame.size.height)/2,
                                      (self.frame.size.width + _skipButton.frame.size.width)/2, (self.frame.size.height + _skipButton.frame.size.height)/2)];
+
     [_skipButton addTarget:self action:@selector(skipIntroduction) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_skipButton];
 }

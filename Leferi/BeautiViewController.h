@@ -19,6 +19,7 @@
 @interface BeautiViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
     NSString *tagString;
     NSMutableArray *mediaArray;
+    NSMutableArray *commentArray;
     NSInteger mediaOrder;
     BOOL login;
 }

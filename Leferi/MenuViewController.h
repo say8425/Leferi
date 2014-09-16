@@ -20,7 +20,6 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UIButton *menuBtn1;
 @property (weak, nonatomic) IBOutlet UIButton *menuBtn2;
-
 @property (strong, nonatomic) IBOutlet UIButton *menuBtn3;
 @property (strong, nonatomic) IBOutlet UIButton *menuBtn4;
 @property (strong, nonatomic) IBOutlet UIButton *menuBtn5;
