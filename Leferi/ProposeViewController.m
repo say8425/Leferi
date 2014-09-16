@@ -27,7 +27,7 @@
     [self.imageView setImage:[UIImage imageNamed:@"proposeStory.png"]];
     [self.imageConstraintHeight setConstant:1648.5];
 
-    self.shyNavBarManager.scrollView = self.scrollView;
+    //self.shyNavBarManager.scrollView = self.scrollView;
 }
 
 - (void)didReceiveMemoryWarning {

@@ -67,12 +67,17 @@
 
     }
 
+    [self.proposeBtn setImage:[UIImage imageNamed:@"pageSkipBtn.png"] forState:UIControlStateNormal];
+    
     EAIntroView *introView = [[EAIntroView alloc]initWithFrame:self.introView.bounds
                                                       andPages:@[page1, page2, page3, page4]];
 
     [introView setSkipButton:self.proposeBtn];
     [introView.skipButton setEnabled:NO];
     [introView.skipButton setAlpha:0.0f];
+//    [introView.skipButton setFrame:CGRectMake(([[UIScreen mainScreen]bounds].size.width - self.proposeBtn.frame.size.width)/2,
+//                                              ([[UIScreen mainScreen]bounds].size.height - self.proposeBtn.frame.size.height)/2,
+//                                              self.proposeBtn.frame.size.width, self.proposeBtn.frame.size.height)];
     [introView setShowSkipButtonOnlyOnLastPage:YES];
     [introView hidePageControl];
     [introView setDelegate:self];

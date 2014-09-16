@@ -596,7 +596,7 @@ float easeOutValue(float value) {
     }
 
     //skpButton is perfectly showed value is 0.996875
-    if (self.judgeLastPage >= 0.996 && !self.judgeSkipBUtton && !self.judgeSkipButtonSeen) {
+    if (self.judgeLastPage >= 0.995 && !self.judgeSkipBUtton && !self.judgeSkipButtonSeen) {
         [UIView animateWithDuration:1.6 delay:0.4 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             self.skipButton.alpha = skipBtnFinishAlpha;
         } completion:^(BOOL finished) {
@@ -713,13 +713,13 @@ float easeOutValue(float value) {
 }
 
 - (void)setSkipButton:(UIButton *)skipButton {
-    [self.skipButton removeFromSuperview];
-    self.skipButton = skipButton;
-    
+//    [self.skipButton removeFromSuperview];
+//    self.skipButton = skipButton;
+//    
     [_skipButton removeFromSuperview];
     _skipButton = skipButton;
     [_skipButton setFrame:CGRectMake((self.frame.size.width - _skipButton.frame.size.width)/2, (self.frame.size.height - _skipButton.frame.size.height)/2,
-                                     (self.frame.size.width + _skipButton.frame.size.width)/2, (self.frame.size.height + _skipButton.frame.size.height)/2)];
+                                     _skipButton.frame.size.width, _skipButton.frame.size.height)];
 
     [_skipButton addTarget:self action:@selector(skipIntroduction) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_skipButton];
