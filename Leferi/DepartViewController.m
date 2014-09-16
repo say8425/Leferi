@@ -20,9 +20,8 @@
     //[self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"proposeTitle.png"] forBarMetrics:UIBarMetricsDefault];
     [self.navigationItem setLeftBarButtonItem:[UIBarButtonItem customBackButtonWithImage:[UIImage imageNamed:@"backButton.png"] Target:self action:@selector(back:)]];
     
-    //WebView setting - Facebook Comment
+    //WebView setting
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://m.shinsegaemall.ssg.com/item/itemView.ssg?itemId=0000002008567&siteNo=6009&salestrNo=1002&tlid=___null__0000002008567___10_10"]]];
-    [self.shyNavBarManager setScrollView:self.webView.scrollView];
     [self.webView setDelegate:self];
     
     //WebView loading //backView
@@ -39,7 +38,12 @@
     [self.loadingView addSubview:self.actiView];
     
     [self.view addSubview:self.loadingView];
-
+    
+    //NavigationBar Fade out
+    if ([self.navigationController.navigationBar respondsToSelector:@selector(setBarTintColor:)]) {
+        [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
+    } [self.navigationController.navigationBar setTranslucent:NO];
+    [self followScrollView:self.webView withDelay:65];
 }
 
 //Web loading function

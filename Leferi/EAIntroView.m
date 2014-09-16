@@ -596,7 +596,7 @@ float easeOutValue(float value) {
     }
 
     //skpButton is perfectly showed value is 0.996875
-    if (self.judgeLastPage >= 0.995 && !self.judgeSkipBUtton && !self.judgeSkipButtonSeen) {
+    if (self.judgeLastPage >= 0.9955 && !self.judgeSkipBUtton && !self.judgeSkipButtonSeen) {
         [UIView animateWithDuration:1.6 delay:0.4 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             self.skipButton.alpha = skipBtnFinishAlpha;
         } completion:^(BOOL finished) {

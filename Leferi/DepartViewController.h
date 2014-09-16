@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "UIBarButtonItem+Image.h"
-#import "TLYShyNavBarManager.h"
+#import "UIViewController+ScrollingNavbar.h"
 
 @interface DepartViewController : UIViewController <UIWebViewDelegate>
 

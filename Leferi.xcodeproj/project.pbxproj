@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		24292D4419909F4A00A56CF3 /* titleIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 24292D4319909F4A00A56CF3 /* titleIcon.png */; };
 		24292D511990EE4F00A56CF3 /* DummyNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24292D501990EE4F00A56CF3 /* DummyNavViewController.m */; };
 		242FC51F19C80C9000BB1832 /* letterImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 242FC51D19C80C9000BB1832 /* letterImage@2x.png */; };
 		242FC52019C80C9000BB1832 /* titleImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 242FC51E19C80C9000BB1832 /* titleImage@2x.png */; };
@@ -20,6 +19,11 @@
 		242FC53119C81F0300BB1832 /* pageText4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 242FC52819C81F0300BB1832 /* pageText4@2x.png */; };
 		242FC53219C81F0300BB1832 /* pageSkipBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 242FC52919C81F0300BB1832 /* pageSkipBtn@2x.png */; };
 		242FC53619C8227B00BB1832 /* page1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 242FC53519C8227B00BB1832 /* page1@2x.png */; };
+		242FC53C19C84A3400BB1832 /* UIViewController+ScrollingNavbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 242FC53B19C84A3400BB1832 /* UIViewController+ScrollingNavbar.m */; };
+		242FC54019C85DA400BB1832 /* propose story title.png in Resources */ = {isa = PBXBuildFile; fileRef = 242FC53F19C85DA400BB1832 /* propose story title.png */; };
+		242FC54219C85E8600BB1832 /* proposeTitleBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 242FC54119C85E8600BB1832 /* proposeTitleBar@2x.png */; };
+		242FC54419C85E9200BB1832 /* instaTitleBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 242FC54319C85E9200BB1832 /* instaTitleBar@2x.png */; };
+		242FC54619C85FEC00BB1832 /* backButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 242FC54519C85FEC00BB1832 /* backButton@2x.png */; };
 		2437348F19B5F3A100B6A0DB /* instaLikeBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2437348E19B5F3A100B6A0DB /* instaLikeBtn@2x.png */; };
 		2437349119B5F4F300B6A0DB /* instaNormBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2437349019B5F4F300B6A0DB /* instaNormBtn@2x.png */; };
 		2437349319B5F57000B6A0DB /* instaComtBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2437349219B5F57000B6A0DB /* instaComtBtn@2x.png */; };
@@ -55,7 +59,6 @@
 		244305651991FF540078250B /* menu5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2443055F1991FF540078250B /* menu5@2x.png */; };
 		244305661991FF540078250B /* menu6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 244305601991FF540078250B /* menu6@2x.png */; };
 		24430568199201950078250B /* menuBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 24430567199201950078250B /* menuBtn.png */; };
-		2443056C199222160078250B /* proposeTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 2443056B199222160078250B /* proposeTitle.png */; };
 		24430571199239BD0078250B /* UIBarButtonItem+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 24430570199239BD0078250B /* UIBarButtonItem+Image.m */; };
 		24430578199335C40078250B /* LeferiBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 24430577199335C40078250B /* LeferiBack.png */; };
 		2453381719B3211900D27354 /* blogMenu1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2453381319B3211900D27354 /* blogMenu1@2x.png */; };
@@ -99,7 +102,6 @@
 		247C055219B98ED500DE603C /* UserHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 247C055119B98ED500DE603C /* UserHeaderTableViewCell.m */; };
 		248B504019ADF9F500E895FD /* UIViewController+Rotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 248B503F19ADF9F500E895FD /* UIViewController+Rotation.m */; };
 		24A0DC1319987E570014ACFE /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A0DC1219987E570014ACFE /* CommentViewController.m */; };
-		24A0DC4B1998B6A70014ACFE /* backButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 24A0DC4A1998B6A70014ACFE /* backButton.png */; };
 		24CD04FE19B5DA2300B39716 /* BeautiTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CD04FD19B5DA2300B39716 /* BeautiTableViewCell.m */; };
 		24CD050019B5DE4800B39716 /* headImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24CD04FF19B5DE4800B39716 /* headImage@2x.png */; };
 		24D5284019B5CB4300C70368 /* TransAlphaSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D5283F19B5CB4300C70368 /* TransAlphaSegue.m */; };
@@ -110,11 +112,6 @@
 		24D7110319ACAE2A005F4886 /* DepartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D7110219ACAE2A005F4886 /* DepartViewController.m */; };
 		24DE367F19ADC16100AD57E4 /* proposeStory@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24DE367E19ADC16100AD57E4 /* proposeStory@2x.png */; };
 		24DE368219ADC53A00AD57E4 /* RTScreenPhysicalSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DE368119ADC53A00AD57E4 /* RTScreenPhysicalSize.m */; };
-		24ED1FD31999237E00BE3386 /* NSObject+TLYSwizzlingHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 24ED1FCA1999237E00BE3386 /* NSObject+TLYSwizzlingHelpers.m */; };
-		24ED1FD41999237E00BE3386 /* UIViewController+BetterLayoutGuides.m in Sources */ = {isa = PBXBuildFile; fileRef = 24ED1FCC1999237E00BE3386 /* UIViewController+BetterLayoutGuides.m */; };
-		24ED1FD51999237E00BE3386 /* TLYDelegateProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 24ED1FCE1999237E00BE3386 /* TLYDelegateProxy.m */; };
-		24ED1FD61999237E00BE3386 /* TLYShyNavBarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 24ED1FD01999237E00BE3386 /* TLYShyNavBarManager.m */; };
-		24ED1FD71999237E00BE3386 /* TLYShyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24ED1FD21999237E00BE3386 /* TLYShyViewController.m */; };
 		24F15B3919C2BF7000EFB989 /* InstaLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F15B3819C2BF7000EFB989 /* InstaLoginViewController.m */; };
 		24F26D83199A2A8600C8A766 /* menu7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24F26D82199A2A8600C8A766 /* menu7@2x.png */; };
 		24F26D85199A2B2800C8A766 /* menu1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24F26D84199A2B2800C8A766 /* menu1@2x.png */; };
@@ -138,7 +135,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		24292D4319909F4A00A56CF3 /* titleIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titleIcon.png; sourceTree = "<group>"; };
 		24292D4F1990EE4F00A56CF3 /* DummyNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyNavViewController.h; sourceTree = "<group>"; };
 		24292D501990EE4F00A56CF3 /* DummyNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyNavViewController.m; sourceTree = "<group>"; };
 		242FC51D19C80C9000BB1832 /* letterImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "letterImage@2x.png"; sourceTree = "<group>"; };
@@ -152,6 +148,12 @@
 		242FC52819C81F0300BB1832 /* pageText4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pageText4@2x.png"; sourceTree = "<group>"; };
 		242FC52919C81F0300BB1832 /* pageSkipBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pageSkipBtn@2x.png"; sourceTree = "<group>"; };
 		242FC53519C8227B00BB1832 /* page1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page1@2x.png"; sourceTree = "<group>"; };
+		242FC53A19C84A3400BB1832 /* UIViewController+ScrollingNavbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ScrollingNavbar.h"; sourceTree = "<group>"; };
+		242FC53B19C84A3400BB1832 /* UIViewController+ScrollingNavbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ScrollingNavbar.m"; sourceTree = "<group>"; };
+		242FC53F19C85DA400BB1832 /* propose story title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "propose story title.png"; sourceTree = "<group>"; };
+		242FC54119C85E8600BB1832 /* proposeTitleBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "proposeTitleBar@2x.png"; sourceTree = "<group>"; };
+		242FC54319C85E9200BB1832 /* instaTitleBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "instaTitleBar@2x.png"; sourceTree = "<group>"; };
+		242FC54519C85FEC00BB1832 /* backButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backButton@2x.png"; sourceTree = "<group>"; };
 		2437348E19B5F3A100B6A0DB /* instaLikeBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "instaLikeBtn@2x.png"; sourceTree = "<group>"; };
 		2437349019B5F4F300B6A0DB /* instaNormBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "instaNormBtn@2x.png"; sourceTree = "<group>"; };
 		2437349219B5F57000B6A0DB /* instaComtBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "instaComtBtn@2x.png"; sourceTree = "<group>"; };
@@ -212,7 +214,6 @@
 		2443055F1991FF540078250B /* menu5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu5@2x.png"; sourceTree = "<group>"; };
 		244305601991FF540078250B /* menu6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu6@2x.png"; sourceTree = "<group>"; };
 		24430567199201950078250B /* menuBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuBtn.png; sourceTree = "<group>"; };
-		2443056B199222160078250B /* proposeTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = proposeTitle.png; sourceTree = "<group>"; };
 		2443056F199239BD0078250B /* UIBarButtonItem+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Image.h"; sourceTree = "<group>"; };
 		24430570199239BD0078250B /* UIBarButtonItem+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Image.m"; sourceTree = "<group>"; };
 		24430577199335C40078250B /* LeferiBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LeferiBack.png; sourceTree = "<group>"; };
@@ -294,7 +295,6 @@
 		248B503F19ADF9F500E895FD /* UIViewController+Rotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Rotation.m"; sourceTree = "<group>"; };
 		24A0DC1119987E570014ACFE /* CommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentViewController.h; sourceTree = "<group>"; };
 		24A0DC1219987E570014ACFE /* CommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentViewController.m; sourceTree = "<group>"; };
-		24A0DC4A1998B6A70014ACFE /* backButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backButton.png; sourceTree = "<group>"; };
 		24CD04FC19B5DA2300B39716 /* BeautiTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautiTableViewCell.h; sourceTree = "<group>"; };
 		24CD04FD19B5DA2300B39716 /* BeautiTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeautiTableViewCell.m; sourceTree = "<group>"; };
 		24CD04FF19B5DE4800B39716 /* headImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "headImage@2x.png"; sourceTree = "<group>"; };
@@ -313,16 +313,6 @@
 		24DE367E19ADC16100AD57E4 /* proposeStory@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "proposeStory@2x.png"; sourceTree = "<group>"; };
 		24DE368019ADC53A00AD57E4 /* RTScreenPhysicalSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTScreenPhysicalSize.h; sourceTree = "<group>"; };
 		24DE368119ADC53A00AD57E4 /* RTScreenPhysicalSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTScreenPhysicalSize.m; sourceTree = "<group>"; };
-		24ED1FC91999237E00BE3386 /* NSObject+TLYSwizzlingHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+TLYSwizzlingHelpers.h"; sourceTree = "<group>"; };
-		24ED1FCA1999237E00BE3386 /* NSObject+TLYSwizzlingHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+TLYSwizzlingHelpers.m"; sourceTree = "<group>"; };
-		24ED1FCB1999237E00BE3386 /* UIViewController+BetterLayoutGuides.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BetterLayoutGuides.h"; sourceTree = "<group>"; };
-		24ED1FCC1999237E00BE3386 /* UIViewController+BetterLayoutGuides.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BetterLayoutGuides.m"; sourceTree = "<group>"; };
-		24ED1FCD1999237E00BE3386 /* TLYDelegateProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLYDelegateProxy.h; sourceTree = "<group>"; };
-		24ED1FCE1999237E00BE3386 /* TLYDelegateProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLYDelegateProxy.m; sourceTree = "<group>"; };
-		24ED1FCF1999237E00BE3386 /* TLYShyNavBarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLYShyNavBarManager.h; sourceTree = "<group>"; };
-		24ED1FD01999237E00BE3386 /* TLYShyNavBarManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLYShyNavBarManager.m; sourceTree = "<group>"; };
-		24ED1FD11999237E00BE3386 /* TLYShyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLYShyViewController.h; sourceTree = "<group>"; };
-		24ED1FD21999237E00BE3386 /* TLYShyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLYShyViewController.m; sourceTree = "<group>"; };
 		24F15B3719C2BF7000EFB989 /* InstaLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstaLoginViewController.h; sourceTree = "<group>"; };
 		24F15B3819C2BF7000EFB989 /* InstaLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstaLoginViewController.m; sourceTree = "<group>"; };
 		24F26D82199A2A8600C8A766 /* menu7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu7@2x.png"; sourceTree = "<group>"; };
@@ -356,6 +346,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		242FC53919C84A3400BB1832 /* AMScrollingNavbar */ = {
+			isa = PBXGroup;
+			children = (
+				242FC53A19C84A3400BB1832 /* UIViewController+ScrollingNavbar.h */,
+				242FC53B19C84A3400BB1832 /* UIViewController+ScrollingNavbar.m */,
+			);
+			path = AMScrollingNavbar;
+			sourceTree = "<group>";
+		};
+		242FC53D19C8565300BB1832 /* Old */ = {
+			isa = PBXGroup;
+			children = (
+				24F26D84199A2B2800C8A766 /* menu1@2x.png */,
+				2443055C1991FF540078250B /* menu2@2x.png */,
+				2443055D1991FF540078250B /* menu3@2x.png */,
+				2443055E1991FF540078250B /* menu4@2x.png */,
+				2443055F1991FF540078250B /* menu5@2x.png */,
+				244305601991FF540078250B /* menu6@2x.png */,
+				24F26D82199A2A8600C8A766 /* menu7@2x.png */,
+				244016F419A227640009B5A7 /* titleBar@2x.png */,
+				246BFC02198F79CC002B4456 /* MainTableViewController.h */,
+				246BFC03198F79CC002B4456 /* MainTableViewController.m */,
+				246BFC00198F79CC002B4456 /* MainTableViewCell.h */,
+				246BFC01198F79CC002B4456 /* MainTableViewCell.m */,
+			);
+			name = Old;
+			sourceTree = "<group>";
+		};
+		242FC53E19C8566100BB1832 /* New */ = {
+			isa = PBXGroup;
+			children = (
+				2440170319A228170009B5A7 /* MenuViewController.h */,
+				2440170419A228170009B5A7 /* MenuViewController.m */,
+				24D710E619AC994A005F4886 /* VideoView */,
+			);
+			name = New;
+			sourceTree = "<group>";
+		};
 		243F36C119B72EC500729FB5 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -429,7 +457,6 @@
 				246BFC5A198F7C18002B4456 /* ProposeView */,
 				2443057A19934B230078250B /* CommentView */,
 				24D710DD19AC785D005F4886 /* ReviewView */,
-				24D710E619AC994A005F4886 /* VideoView */,
 				24D710FF19ACADFD005F4886 /* DepartView */,
 				24D710FE19ACADE9005F4886 /* BeautiGram */,
 			);
@@ -448,6 +475,7 @@
 		245E5F8319AD710B00781E30 /* BeautiGram */ = {
 			isa = PBXGroup;
 			children = (
+				242FC54319C85E9200BB1832 /* instaTitleBar@2x.png */,
 				2437349419B5F5F600B6A0DB /* instaComt@2x.png */,
 				2437348E19B5F3A100B6A0DB /* instaLikeBtn@2x.png */,
 				2437349019B5F4F300B6A0DB /* instaNormBtn@2x.png */,
@@ -554,6 +582,7 @@
 				246BFC57198F7B06002B4456 /* ProposeView */,
 				24D710E119AC7A17005F4886 /* ReviewView */,
 				245E5F8319AD710B00781E30 /* BeautiGram */,
+				242FC54519C85FEC00BB1832 /* backButton@2x.png */,
 				24430577199335C40078250B /* LeferiBack.png */,
 				246BFBFF198F79CC002B4456 /* LeferiIcon.png */,
 			);
@@ -563,11 +592,11 @@
 		246BFC45198F7A1E002B4456 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				242FC53919C84A3400BB1832 /* AMScrollingNavbar */,
 				246CB31419C2B5370090F9D8 /* InstagramKit */,
 				243F36C119B72EC500729FB5 /* AFNetworking */,
 				243F36D519B72EC500729FB5 /* UIKit+AFNetworking */,
 				244016F619A227CF0009B5A7 /* MCPanelViewController */,
-				24ED1FC71999237E00BE3386 /* TLYShyNavBar */,
 				246BFC52198F7A83002B4456 /* EAIntroView */,
 				246BFC54198F7AA2002B4456 /* SMPageCTR */,
 				245E5F8819ADB58B00781E30 /* XCDYouTubeKit */,
@@ -631,16 +660,7 @@
 				24FF958819C6FC5900240170 /* story2@2x.png */,
 				24FF958919C6FC5900240170 /* story3@2x.png */,
 				24FF958A19C6FC5900240170 /* story4@2x.png */,
-				24F26D84199A2B2800C8A766 /* menu1@2x.png */,
-				2443055C1991FF540078250B /* menu2@2x.png */,
-				2443055D1991FF540078250B /* menu3@2x.png */,
-				2443055E1991FF540078250B /* menu4@2x.png */,
-				2443055F1991FF540078250B /* menu5@2x.png */,
-				244305601991FF540078250B /* menu6@2x.png */,
-				24F26D82199A2A8600C8A766 /* menu7@2x.png */,
 				24430567199201950078250B /* menuBtn.png */,
-				24292D4319909F4A00A56CF3 /* titleIcon.png */,
-				244016F419A227640009B5A7 /* titleBar@2x.png */,
 				24F26D88199A384B00C8A766 /* naviBarShadow.png */,
 			);
 			name = MenuView;
@@ -649,9 +669,9 @@
 		246BFC57198F7B06002B4456 /* ProposeView */ = {
 			isa = PBXGroup;
 			children = (
-				2443056B199222160078250B /* proposeTitle.png */,
+				242FC54119C85E8600BB1832 /* proposeTitleBar@2x.png */,
+				242FC53F19C85DA400BB1832 /* propose story title.png */,
 				246BFC15198F79CC002B4456 /* proposeFBbtn.png */,
-				24A0DC4A1998B6A70014ACFE /* backButton.png */,
 				24DE367E19ADC16100AD57E4 /* proposeStory@2x.png */,
 			);
 			name = ProposeView;
@@ -671,8 +691,6 @@
 			children = (
 				246BFC1C198F79CC002B4456 /* SlideOutTableViewController.h */,
 				246BFC1D198F79CC002B4456 /* SlideOutTableViewController.m */,
-				2440170319A228170009B5A7 /* MenuViewController.h */,
-				2440170419A228170009B5A7 /* MenuViewController.m */,
 				24FF958419C6EB6700240170 /* NewMenuViewController.h */,
 				24FF958519C6EB6700240170 /* NewMenuViewController.m */,
 			);
@@ -732,10 +750,8 @@
 		2483C72C19A5D80F00A6262B /* TrashCan */ = {
 			isa = PBXGroup;
 			children = (
-				246BFC02198F79CC002B4456 /* MainTableViewController.h */,
-				246BFC03198F79CC002B4456 /* MainTableViewController.m */,
-				246BFC00198F79CC002B4456 /* MainTableViewCell.h */,
-				246BFC01198F79CC002B4456 /* MainTableViewCell.m */,
+				242FC53E19C8566100BB1832 /* New */,
+				242FC53D19C8565300BB1832 /* Old */,
 			);
 			name = TrashCan;
 			path = Leferi;
@@ -796,31 +812,6 @@
 				24D7110219ACAE2A005F4886 /* DepartViewController.m */,
 			);
 			name = DepartView;
-			sourceTree = "<group>";
-		};
-		24ED1FC71999237E00BE3386 /* TLYShyNavBar */ = {
-			isa = PBXGroup;
-			children = (
-				24ED1FC81999237E00BE3386 /* Categories */,
-				24ED1FCD1999237E00BE3386 /* TLYDelegateProxy.h */,
-				24ED1FCE1999237E00BE3386 /* TLYDelegateProxy.m */,
-				24ED1FCF1999237E00BE3386 /* TLYShyNavBarManager.h */,
-				24ED1FD01999237E00BE3386 /* TLYShyNavBarManager.m */,
-				24ED1FD11999237E00BE3386 /* TLYShyViewController.h */,
-				24ED1FD21999237E00BE3386 /* TLYShyViewController.m */,
-			);
-			path = TLYShyNavBar;
-			sourceTree = "<group>";
-		};
-		24ED1FC81999237E00BE3386 /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				24ED1FC91999237E00BE3386 /* NSObject+TLYSwizzlingHelpers.h */,
-				24ED1FCA1999237E00BE3386 /* NSObject+TLYSwizzlingHelpers.m */,
-				24ED1FCB1999237E00BE3386 /* UIViewController+BetterLayoutGuides.h */,
-				24ED1FCC1999237E00BE3386 /* UIViewController+BetterLayoutGuides.m */,
-			);
-			path = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -915,7 +906,6 @@
 				2437349119B5F4F300B6A0DB /* instaNormBtn@2x.png in Resources */,
 				242FC52C19C81F0300BB1832 /* page3@2x.png in Resources */,
 				24430578199335C40078250B /* LeferiBack.png in Resources */,
-				24292D4419909F4A00A56CF3 /* titleIcon.png in Resources */,
 				245E5F8719AD790500781E30 /* beautiGram@2x.jpg in Resources */,
 				242FC52D19C81F0300BB1832 /* page4@2x.png in Resources */,
 				242FC52019C80C9000BB1832 /* titleImage@2x.png in Resources */,
@@ -932,22 +922,24 @@
 				244305651991FF540078250B /* menu5@2x.png in Resources */,
 				244305631991FF540078250B /* menu3@2x.png in Resources */,
 				246BFC3C198F79CC002B4456 /* proposeFBbtn.png in Resources */,
+				242FC54419C85E9200BB1832 /* instaTitleBar@2x.png in Resources */,
 				24430568199201950078250B /* menuBtn.png in Resources */,
 				2453381819B3211900D27354 /* blogMenu2@2x.png in Resources */,
 				2453381919B3211900D27354 /* blogMenu3@2x.png in Resources */,
 				24F26D89199A384B00C8A766 /* naviBarShadow.png in Resources */,
 				242FC52F19C81F0300BB1832 /* pageText2@2x.png in Resources */,
 				246BFC28198F79CC002B4456 /* LeferiIcon.png in Resources */,
+				242FC54219C85E8600BB1832 /* proposeTitleBar@2x.png in Resources */,
 				242FC53119C81F0300BB1832 /* pageText4@2x.png in Resources */,
 				2437349319B5F57000B6A0DB /* instaComtBtn@2x.png in Resources */,
 				244305641991FF540078250B /* menu4@2x.png in Resources */,
+				242FC54019C85DA400BB1832 /* propose story title.png in Resources */,
 				242FC52B19C81F0300BB1832 /* page2@2x.png in Resources */,
 				242FC51F19C80C9000BB1832 /* letterImage@2x.png in Resources */,
 				24FF958D19C6FC5900240170 /* story3@2x.png in Resources */,
 				24FF958E19C6FC5900240170 /* story4@2x.png in Resources */,
+				242FC54619C85FEC00BB1832 /* backButton@2x.png in Resources */,
 				242FC53019C81F0300BB1832 /* pageText3@2x.png in Resources */,
-				24A0DC4B1998B6A70014ACFE /* backButton.png in Resources */,
-				2443056C199222160078250B /* proposeTitle.png in Resources */,
 				242FC53619C8227B00BB1832 /* page1@2x.png in Resources */,
 				2437349519B5F5F600B6A0DB /* instaComt@2x.png in Resources */,
 				243F36F919B738D300729FB5 /* instaFollBtn@2x.png in Resources */,
@@ -973,16 +965,15 @@
 				245E5F9C19ADB58B00781E30 /* XCDYouTubePlayerScript.m in Sources */,
 				246CB32E19C2B5370090F9D8 /* InstagramModel.m in Sources */,
 				246CB32D19C2B5370090F9D8 /* InstagramMedia.m in Sources */,
+				242FC53C19C84A3400BB1832 /* UIViewController+ScrollingNavbar.m in Sources */,
 				243F36EC19B72EC500729FB5 /* AFURLConnectionOperation.m in Sources */,
 				246BFBD3198F7978002B4456 /* Leferi.xcdatamodeld in Sources */,
 				2453381D19B3251900D27354 /* ReviewViewController.m in Sources */,
 				243F36ED19B72EC500729FB5 /* AFURLRequestSerialization.m in Sources */,
 				24A0DC1319987E570014ACFE /* CommentViewController.m in Sources */,
 				248B504019ADF9F500E895FD /* UIViewController+Rotation.m in Sources */,
-				24ED1FD51999237E00BE3386 /* TLYDelegateProxy.m in Sources */,
 				24D7110319ACAE2A005F4886 /* DepartViewController.m in Sources */,
 				243F36F019B72EC500729FB5 /* AFNetworkActivityIndicatorManager.m in Sources */,
-				24ED1FD61999237E00BE3386 /* TLYShyNavBarManager.m in Sources */,
 				2442BBEC19B337C7008C89D2 /* ReviewViewCell.m in Sources */,
 				243F36E819B72EC500729FB5 /* AFHTTPRequestOperationManager.m in Sources */,
 				243F36EA19B72EC500729FB5 /* AFNetworkReachabilityManager.m in Sources */,
@@ -993,18 +984,15 @@
 				243F36F219B72EC500729FB5 /* UIAlertView+AFNetworking.m in Sources */,
 				2440170119A227CF0009B5A7 /* UIImage+ImageEffects.m in Sources */,
 				246BFC4A198F7A3D002B4456 /* EAIntroPage.m in Sources */,
-				24ED1FD71999237E00BE3386 /* TLYShyViewController.m in Sources */,
 				243F36EB19B72EC500729FB5 /* AFSecurityPolicy.m in Sources */,
 				243F36F119B72EC500729FB5 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				246CB32B19C2B5370090F9D8 /* IKUserInPhoto.m in Sources */,
 				243F36F419B72EC500729FB5 /* UIImageView+AFNetworking.m in Sources */,
-				24ED1FD41999237E00BE3386 /* UIViewController+BetterLayoutGuides.m in Sources */,
 				24F15B3919C2BF7000EFB989 /* InstaLoginViewController.m in Sources */,
 				243F36F619B72EC500729FB5 /* UIRefreshControl+AFNetworking.m in Sources */,
 				2440170219A227CF0009B5A7 /* UIView+MCAdditions.m in Sources */,
 				2440170019A227CF0009B5A7 /* MCPanGestureRecognizer.m in Sources */,
 				243F36E719B72EC500729FB5 /* AFHTTPRequestOperation.m in Sources */,
-				24ED1FD31999237E00BE3386 /* NSObject+TLYSwizzlingHelpers.m in Sources */,
 				24CD04FE19B5DA2300B39716 /* BeautiTableViewCell.m in Sources */,
 				246CB32C19C2B5370090F9D8 /* InstagramComment.m in Sources */,
 				24292D511990EE4F00A56CF3 /* DummyNavViewController.m in Sources */,

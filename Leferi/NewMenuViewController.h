@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TLYShyNavBarManager.h"
 #import "MCPanelViewController.h"
 #import "XCDYouTubeKit.h"
 #import "UIViewController+Rotation.h"

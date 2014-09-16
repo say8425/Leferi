@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ReviewViewCell.h"
 #import "ReviewViewController.h"
-#import "TLYShyNavBarManager.h"
+#import "UIViewController+ScrollingNavbar.h"
 #import "UIBarButtonItem+Image.h"
 
 @interface ReviewListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {

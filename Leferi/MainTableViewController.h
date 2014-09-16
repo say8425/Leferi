@@ -12,7 +12,6 @@
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
 #import "MainTableViewCell.h"
-#import "TLYShyNavBarManager.h"
 //#import "UIViewController+ScrollingNavbar.h"
 
 @interface MainTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>

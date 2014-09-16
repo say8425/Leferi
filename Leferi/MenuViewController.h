@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "SlideOutTableViewController.h"
-#import "TLYShyNavBarManager.h"
 #import "MCPanelViewController.h"
 #import "XCDYouTubeKit.h"
 #import "UIViewController+Rotation.h"
+#import "UIViewController+ScrollingNavbar.h"
 
 @interface MenuViewController : UIViewController {
     MCPanelViewController *slideOutPanelController;

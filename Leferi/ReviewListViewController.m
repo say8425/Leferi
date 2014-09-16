@@ -33,8 +33,11 @@
                            @"http://www.cyworld.com/gheyseo/8152782",
                            @"http://blog.naver.com/godbwithuu/220079143390"];
     
-    //NaviBar fadeOut
-    [self.shyNavBarManager setScrollView:self.tableView];
+    //NavigationBar Fade out
+    if ([self.navigationController.navigationBar respondsToSelector:@selector(setBarTintColor:)]) {
+        [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
+    } [self.navigationController.navigationBar setTranslucent:NO];
+    [self followScrollView:self.tableView withDelay:65];
 }
 
 
@@ -51,7 +54,8 @@
     ReviewViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"reviewCell" forIndexPath:indexPath];
     
     long row = [indexPath row];
-    [cell.reviewImageView setImage:reviewImageArray[row]];
+    [cell.reviewImageView setImage:[UIImage imageNamed:reviewImageArray[row]]];
+    
     
     return cell;
 }

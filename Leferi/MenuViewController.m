@@ -36,8 +36,11 @@
     slideOutPanelController.tintColor = [UIColor colorWithWhite:0.91 alpha:0.12];   //tintColor
     slideOutPanelController.backgroundStyle = MCPanelBackgroundStyleCustomTint;
 
-    //NaviBar fadeOut
-    [self.shyNavBarManager setScrollView:self.scrollView];
+    //NavigationBar Fade out
+    if ([self.navigationController.navigationBar respondsToSelector:@selector(setBarTintColor:)]) {
+        [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
+    } [self.navigationController.navigationBar setTranslucent:NO];
+    [self followScrollView:self.scrollView withDelay:65];
 }
 
 // SlideMenu fadeOut subFunc

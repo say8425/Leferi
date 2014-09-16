@@ -24,14 +24,17 @@
     //Navigation Setting
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"proposeTitle.png"] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"instaTitleBar.png"] forBarMetrics:UIBarMetricsDefault];
     [self.navigationItem setLeftBarButtonItem:[UIBarButtonItem customBackButtonWithImage:[UIImage imageNamed:@"backButton.png"] Target:self action:@selector(back:)]];
     
-    //Head Image Setting
+    //TitleImage Setting
     [self.headImageView setImage:[UIImage imageNamed:@"headImage@2x.png"]];
     
-    //Title Bar Hding
-    [self.shyNavBarManager setScrollView:self.tableView];
+    //NavigationBar Fade out
+    if ([self.navigationController.navigationBar respondsToSelector:@selector(setBarTintColor:)]) {
+        [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
+    } [self.navigationController.navigationBar setTranslucent:NO];
+    [self followScrollView:self.tableView withDelay:65];
     
     //Instagram Load
     [self loadMedia];

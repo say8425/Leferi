@@ -7,7 +7,6 @@
 //
 
 #import "ProposeViewController.h"
-#import "TLYShyNavBarManager.h"
 
 @interface ProposeViewController ()
 
@@ -17,29 +16,36 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //navigationBar setting
+    
+    //NavigationBar setting
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"proposeTitle.png"] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"proposeTitleBar.png"] forBarMetrics:UIBarMetricsDefault];
     [self.navigationItem setLeftBarButtonItem:[UIBarButtonItem customBackButtonWithImage:[UIImage imageNamed:@"backButton.png"] Target:self action:@selector(back:)]];
-
-    //Propose content - have to get height of image
+  
+  
+    //Contents Setting
     [self.imageView setImage:[UIImage imageNamed:@"proposeStory.png"]];
-    [self.imageConstraintHeight setConstant:1648.5];
+    [self.imageConstraintHeight setConstant:1648.5];   //Propose content - have to get height of image
 
-    //self.shyNavBarManager.scrollView = self.scrollView;
+    
+    //NavigationBar Fade out
+    if ([self.navigationController.navigationBar respondsToSelector:@selector(setBarTintColor:)]) {
+        [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
+    } [self.navigationController.navigationBar setTranslucent:NO];
+    [self followScrollView:self.scrollView withDelay:65];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+//
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    //floating btn Function
-//    if ([scrollView isEqual:self.imageView]) {
-//        self.floatingBtn.transform = CGAffineTransformMakeTranslation(0, scrollView.contentOffset.y);
-//    }
+    //NavigationBar Fade out - sub Function
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self showNavBarAnimated:NO];
 }
 
 - (IBAction)back:(id)sender {

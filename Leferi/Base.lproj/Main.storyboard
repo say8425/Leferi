@@ -559,13 +559,16 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="u5C-kX-gdJ" id="m98-60-g4d">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZEx-Gy-fPI">
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yKb-2h-eZo">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
-                                        </imageView>
+                                            <state key="normal">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="reviewImageView" destination="ZEx-Gy-fPI" id="GcM-bY-mHf"/>
+                                    <outlet property="reviewCellBtn" destination="yKb-2h-eZo" id="f48-Tf-xDT"/>
                                     <segue destination="Wdw-2Z-5cs" kind="custom" identifier="showReview" customClass="TransAlphaSegue" id="EhR-0I-7PY"/>
                                 </connections>
                             </tableViewCell>

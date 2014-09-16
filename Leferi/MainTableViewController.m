@@ -7,7 +7,6 @@
 //
 
 #import "MainTableViewController.h"
-#import "TLYShyNavBarManager.h"
 
 @interface MainTableViewController ()
 
@@ -59,7 +58,7 @@
     //[self.navigationController.navigationBar setTranslucent:NO];
     //[self.navigationController.navigationBar setTintColor:[UIColor clearColor]];
 
-    self.shyNavBarManager.scrollView = self.tableView;
+//    self.shyNavBarManager.scrollView = self.tableView;
 
 }
 
