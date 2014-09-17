@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A361c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="DxM-8z-rMo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A361c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vw1-vP-GhI">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -294,145 +294,6 @@
             </objects>
             <point key="canvasLocation" x="-1986" y="-1396"/>
         </scene>
-        <!--Menu View Controller-->
-        <scene sceneID="gMi-d6-Xlw">
-            <objects>
-                <viewController id="q03-uC-WfS" customClass="MenuViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="UKs-DN-8DF"/>
-                        <viewControllerLayoutGuide type="bottom" id="dN6-4S-bD1"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="hFh-Mg-8ea">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fC9-5V-Mjd">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9tF-c6-TWL">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="1280"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MXy-YT-JJA" userLabel="menu1 - Propose">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
-                                                <state key="normal">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jN-le-TIP" userLabel="menu2 - YouTube">
-                                                <rect key="frame" x="0.0" y="320" width="320" height="160"/>
-                                                <state key="normal">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="btn2YouTube:" destination="q03-uC-WfS" eventType="touchUpInside" id="PNX-T2-Egw"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="896-Yf-HhS" userLabel="menu3 - Propose">
-                                                <rect key="frame" x="0.0" y="480" width="320" height="160"/>
-                                                <state key="normal">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lcR-QE-rkA" userLabel="menu4 - Review">
-                                                <rect key="frame" x="0.0" y="640" width="320" height="160"/>
-                                                <state key="normal">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fsx-VF-YBF" userLabel="menu5 - BeautiGram">
-                                                <rect key="frame" x="0.0" y="800" width="320" height="160"/>
-                                                <state key="normal">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hFJ-td-XTi" userLabel="menu6 - Depart">
-                                                <rect key="frame" x="0.0" y="960" width="320" height="160"/>
-                                                <state key="normal">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YWq-kY-wDM" userLabel="menu7 - FB">
-                                                <rect key="frame" x="0.0" y="1120" width="320" height="160"/>
-                                                <state key="normal">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="btn7Facebook:" destination="q03-uC-WfS" eventType="touchUpInside" id="nwK-Pf-aFs"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="320" id="5MC-zY-y35"/>
-                                            <constraint firstAttribute="height" constant="1280" id="zNJ-Ib-WCA"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="9tF-c6-TWL" secondAttribute="bottom" id="2ba-xm-V19"/>
-                                    <constraint firstItem="9tF-c6-TWL" firstAttribute="top" secondItem="fC9-5V-Mjd" secondAttribute="top" id="2ce-jD-tnr"/>
-                                    <constraint firstAttribute="trailing" secondItem="9tF-c6-TWL" secondAttribute="trailing" id="95z-eA-baJ"/>
-                                    <constraint firstItem="9tF-c6-TWL" firstAttribute="leading" secondItem="fC9-5V-Mjd" secondAttribute="leading" id="oMu-Eg-sVs"/>
-                                </constraints>
-                            </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rck-Mx-9lh" userLabel="menuButton">
-                                <rect key="frame" x="18" y="480" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="mwm-l3-XhZ"/>
-                                    <constraint firstAttribute="height" constant="50" id="vVY-rV-fjU"/>
-                                </constraints>
-                                <state key="normal" image="menuBtn.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="slideBtn:" destination="q03-uC-WfS" eventType="touchUpInside" id="Asa-Nu-ap0"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="dN6-4S-bD1" firstAttribute="top" secondItem="fC9-5V-Mjd" secondAttribute="bottom" id="30C-PE-MQY"/>
-                            <constraint firstItem="fC9-5V-Mjd" firstAttribute="leading" secondItem="hFh-Mg-8ea" secondAttribute="leading" id="8Zq-C3-oXf"/>
-                            <constraint firstAttribute="centerX" secondItem="rck-Mx-9lh" secondAttribute="centerX" constant="117" id="Ere-BG-G93"/>
-                            <constraint firstItem="dN6-4S-bD1" firstAttribute="top" secondItem="rck-Mx-9lh" secondAttribute="bottom" constant="38" id="Orn-tK-M3G"/>
-                            <constraint firstAttribute="trailing" secondItem="fC9-5V-Mjd" secondAttribute="trailing" id="YPN-0C-xWn"/>
-                            <constraint firstItem="fC9-5V-Mjd" firstAttribute="top" secondItem="hFh-Mg-8ea" secondAttribute="top" id="bxv-If-EQX"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="400-Dy-9M7"/>
-                    <connections>
-                        <outlet property="menuBtn1" destination="MXy-YT-JJA" id="gxy-IY-o3j"/>
-                        <outlet property="menuBtn2" destination="3jN-le-TIP" id="zr3-qy-V1Q"/>
-                        <outlet property="menuBtn3" destination="896-Yf-HhS" id="69Q-Zg-IQY"/>
-                        <outlet property="menuBtn4" destination="lcR-QE-rkA" id="D5z-UB-ddr"/>
-                        <outlet property="menuBtn5" destination="fsx-VF-YBF" id="khN-fH-WrZ"/>
-                        <outlet property="menuBtn6" destination="hFJ-td-XTi" id="4FQ-AR-mTb"/>
-                        <outlet property="menuBtn7" destination="YWq-kY-wDM" id="pJT-tU-5v2"/>
-                        <outlet property="scrollView" destination="fC9-5V-Mjd" id="CqG-zs-jyP"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Asc-tC-XIR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1651" y="571"/>
-        </scene>
-        <!--Dummy Nav View Controller-->
-        <scene sceneID="K9J-lv-rys">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="an7-Zh-uMP" customClass="DummyNavViewController" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bbQ-hT-toI">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="q03-uC-WfS" kind="relationship" relationship="rootViewController" id="NiL-4T-X3w"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CSC-hU-mpw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2024" y="571"/>
-        </scene>
         <!--New Menu View Controller-->
         <scene sceneID="rji-ak-Ppc">
             <objects>
@@ -548,7 +409,7 @@
         <scene sceneID="aSN-Wu-tzq">
             <objects>
                 <viewController id="Zhw-hf-D7s" customClass="ReviewListViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="320" sectionHeaderHeight="22" sectionFooterHeight="22" id="fMZ-fJ-aga">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="320" sectionHeaderHeight="22" sectionFooterHeight="22" id="fMZ-fJ-aga">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -564,15 +425,21 @@
                                             <state key="normal">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <segue destination="Wdw-2Z-5cs" kind="push" identifier="showReview" id="KMG-zx-VBM"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="reviewCellBtn" destination="yKb-2h-eZo" id="f48-Tf-xDT"/>
-                                    <segue destination="Wdw-2Z-5cs" kind="custom" identifier="showReview" customClass="TransAlphaSegue" id="EhR-0I-7PY"/>
+                                    <outlet property="reviewCellBtn" destination="yKb-2h-eZo" id="D6x-kL-rap"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Zhw-hf-D7s" id="R6Q-qg-tbj"/>
+                            <outlet property="delegate" destination="Zhw-hf-D7s" id="98F-CP-cgi"/>
+                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="E4r-pH-omu"/>
                     <connections>
@@ -602,7 +469,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="FQi-nP-rq6"/>
                     <connections>
+                        <outlet property="view" destination="8i1-B1-Vpm" id="ANm-Xr-AHS"/>
                         <outlet property="webView" destination="tkP-f9-6mw" id="lA8-ED-o2S"/>
                     </connections>
                 </viewController>

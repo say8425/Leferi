@@ -7,16 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XCDYouTubeKit.h"
 #import "ReviewViewCell.h"
 #import "ReviewViewController.h"
 #import "UIViewController+ScrollingNavbar.h"
 #import "UIBarButtonItem+Image.h"
 
-@interface ReviewListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
-    NSArray *reviewImageArray;
-    NSArray *reviewAddressArray;
-}
+@interface ReviewListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
+@property (strong, nonatomic) NSArray *reviewImageArray;
+@property (strong, nonatomic) NSArray *reviewAddressArray;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end

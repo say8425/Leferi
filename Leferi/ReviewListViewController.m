@@ -20,18 +20,20 @@
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     
-    // NaviBar setting
+    // NaviBar Setting
     //[self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"titleBar.png"] forBarMetrics:UIBarMetricsDefault];
     [self.navigationItem setLeftBarButtonItem:[UIBarButtonItem customBackButtonWithImage:[UIImage imageNamed:@"backButton.png"] Target:self action:@selector(back:)]];
     
-    reviewImageArray = @[@"blogMenu1.png",
-                         @"blogMenu2.png",
-                         @"blogMenu3.png"];
+    //TableCell Setting
+    self.reviewImageArray = @[@"blogMenu1.png",
+                              @"blogMenu2.png",
+                              @"blogMenu3.png",
+                              @"blogMenu4.png"];
     
-    reviewAddressArray = @[@"http://seohalim21.blog.me/140195077056",
-                           @"http://serviceapi.nmv.naver.com/flash/convertIframeTag.nhn?vid=46F001D0BEA2B7DAC8571D40F0807E2F6632&outKey=V1277a0bba0d0ef67329d9c7c5f97885bfb1d930164907b0feda19c7c5f97885bfb1d&width=720&height=438",
-                           @"http://www.cyworld.com/gheyseo/8152782",
-                           @"http://blog.naver.com/godbwithuu/220079143390"];
+    self.reviewAddressArray = @[@"http://seohalim21.blog.me/140195077056",
+                                @"http://serviceapi.nmv.naver.com/flash/convertIframeTag.nhn?vid=46F001D0BEA2B7DAC8571D40F0807E2F6632&outKey=V1277a0bba0d0ef67329d9c7c5f97885bfb1d930164907b0feda19c7c5f97885bfb1d&width=720&height=438",
+                                @"http://www.cyworld.com/gheyseo/8152782",
+                                @"http://blog.naver.com/godbwithuu/220079143390"];
     
     //NavigationBar Fade out
     if ([self.navigationController.navigationBar respondsToSelector:@selector(setBarTintColor:)]) {
@@ -47,16 +49,15 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return reviewImageArray.count;
+    return self.reviewImageArray.count;
+
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ReviewViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"reviewCell" forIndexPath:indexPath];
     
     long row = [indexPath row];
-    [cell.reviewImageView setImage:[UIImage imageNamed:reviewImageArray[row]]];
-    
-    
+    [cell.reviewCellBtn setImage:[UIImage imageNamed:self.reviewImageArray[row]] forState:UIControlStateNormal];
     return cell;
 }
 
@@ -66,7 +67,8 @@
         ReviewViewController *reviewViewController = [segue destinationViewController];
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         long row = [indexPath row];
-        reviewViewController.reviewURL = reviewAddressArray[row];
+        //reviewViewController.urlString = self.reviewAddressArray[row];
+        reviewViewController.reviewURL = [NSURL URLWithString:self.reviewAddressArray[row]];
     }
 }
 
