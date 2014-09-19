@@ -23,10 +23,10 @@
     RTScreenPhysicalSize *rtScreenPhysicalSize = [RTScreenPhysicalSize new];
 
     //EAIntro Setting
-    EAIntroPage *page1 = [EAIntroPage page];
-    EAIntroPage *page2 = [EAIntroPage page];
-    EAIntroPage *page3 = [EAIntroPage page];
-    EAIntroPage *page4 = [EAIntroPage page];
+    EAIntroPageNP *page1 = [EAIntroPageNP page];
+    EAIntroPageNP *page2 = [EAIntroPageNP page];
+    EAIntroPageNP *page3 = [EAIntroPageNP page];
+    EAIntroPageNP *page4 = [EAIntroPageNP page];
 
 
     if ([rtScreenPhysicalSize screenPhysicalSize] == SCREEN_SIZE_IPHONE_TALL) {
@@ -69,7 +69,7 @@
 
     [self.proposeBtn setImage:[UIImage imageNamed:@"pageSkipBtn.png"] forState:UIControlStateNormal];
     
-    EAIntroView *introView = [[EAIntroView alloc]initWithFrame:self.introView.bounds
+    EAIntroViewNP *introView = [[EAIntroViewNP alloc]initWithFrame:self.introView.bounds
                                                       andPages:@[page1, page2, page3, page4]];
 
     [introView setSkipButton:self.proposeBtn];

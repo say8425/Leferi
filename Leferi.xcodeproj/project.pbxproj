@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2416B9B519CC3ECF00F222A7 /* popViewBack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2416B9B419CC3ECF00F222A7 /* popViewBack@2x.png */; };
+		2416B9B819CC3EE500F222A7 /* PopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2416B9B719CC3EE500F222A7 /* PopupViewController.m */; };
+		2416B9C019CC42BF00F222A7 /* popHistoryBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2416B9B919CC42BF00F222A7 /* popHistoryBtn@2x.png */; };
+		2416B9C119CC42BF00F222A7 /* popHistoryHig@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2416B9BA19CC42BF00F222A7 /* popHistoryHig@2x.png */; };
+		2416B9C219CC42BF00F222A7 /* popHomeBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2416B9BB19CC42BF00F222A7 /* popHomeBtn@2x.png */; };
+		2416B9C319CC42BF00F222A7 /* popHomeHig@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2416B9BC19CC42BF00F222A7 /* popHomeHig@2x.png */; };
+		2416B9C419CC42BF00F222A7 /* popIntroBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2416B9BD19CC42BF00F222A7 /* popIntroBtn@2x.png */; };
+		2416B9C519CC42BF00F222A7 /* popIntroHig@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2416B9BE19CC42BF00F222A7 /* popIntroHig@2x.png */; };
+		2416B9C619CC42BF00F222A7 /* popSettingBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2416B9BF19CC42BF00F222A7 /* popSettingBtn@2x.png */; };
 		24292D511990EE4F00A56CF3 /* DummyNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24292D501990EE4F00A56CF3 /* DummyNavViewController.m */; };
 		242FC51F19C80C9000BB1832 /* letterImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 242FC51D19C80C9000BB1832 /* letterImage@2x.png */; };
 		242FC52019C80C9000BB1832 /* titleImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 242FC51E19C80C9000BB1832 /* titleImage@2x.png */; };
@@ -86,9 +95,8 @@
 		246BFC2A198F79CC002B4456 /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 246BFC03198F79CC002B4456 /* MainTableViewController.m */; };
 		246BFC3C198F79CC002B4456 /* proposeFBbtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 246BFC15198F79CC002B4456 /* proposeFBbtn.png */; };
 		246BFC3F198F79CC002B4456 /* ProposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 246BFC19198F79CC002B4456 /* ProposeViewController.m */; };
-		246BFC42198F79CC002B4456 /* SlideOutTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 246BFC1D198F79CC002B4456 /* SlideOutTableViewController.m */; };
-		246BFC4A198F7A3D002B4456 /* EAIntroPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 246BFC47198F7A3D002B4456 /* EAIntroPage.m */; };
-		246BFC4B198F7A3D002B4456 /* EAIntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = 246BFC49198F7A3D002B4456 /* EAIntroView.m */; };
+		246BFC4A198F7A3D002B4456 /* EAIntroPageNP.m in Sources */ = {isa = PBXBuildFile; fileRef = 246BFC47198F7A3D002B4456 /* EAIntroPageNP.m */; };
+		246BFC4B198F7A3D002B4456 /* EAIntroViewNP.m in Sources */ = {isa = PBXBuildFile; fileRef = 246BFC49198F7A3D002B4456 /* EAIntroViewNP.m */; };
 		246BFC4E198F7A6F002B4456 /* SMPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 246BFC4D198F7A6F002B4456 /* SMPageControl.m */; };
 		246CB32919C2B5370090F9D8 /* InstagramEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 246CB31719C2B5370090F9D8 /* InstagramEngine.m */; };
 		246CB32A19C2B5370090F9D8 /* InstagramKit.plist in Resources */ = {isa = PBXBuildFile; fileRef = 246CB31919C2B5370090F9D8 /* InstagramKit.plist */; };
@@ -137,6 +145,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2416B9B419CC3ECF00F222A7 /* popViewBack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popViewBack@2x.png"; sourceTree = "<group>"; };
+		2416B9B619CC3EE500F222A7 /* PopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupViewController.h; sourceTree = "<group>"; };
+		2416B9B719CC3EE500F222A7 /* PopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupViewController.m; sourceTree = "<group>"; };
+		2416B9B919CC42BF00F222A7 /* popHistoryBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popHistoryBtn@2x.png"; sourceTree = "<group>"; };
+		2416B9BA19CC42BF00F222A7 /* popHistoryHig@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popHistoryHig@2x.png"; sourceTree = "<group>"; };
+		2416B9BB19CC42BF00F222A7 /* popHomeBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popHomeBtn@2x.png"; sourceTree = "<group>"; };
+		2416B9BC19CC42BF00F222A7 /* popHomeHig@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popHomeHig@2x.png"; sourceTree = "<group>"; };
+		2416B9BD19CC42BF00F222A7 /* popIntroBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popIntroBtn@2x.png"; sourceTree = "<group>"; };
+		2416B9BE19CC42BF00F222A7 /* popIntroHig@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popIntroHig@2x.png"; sourceTree = "<group>"; };
+		2416B9BF19CC42BF00F222A7 /* popSettingBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popSettingBtn@2x.png"; sourceTree = "<group>"; };
 		24292D4F1990EE4F00A56CF3 /* DummyNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyNavViewController.h; sourceTree = "<group>"; };
 		24292D501990EE4F00A56CF3 /* DummyNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyNavViewController.m; sourceTree = "<group>"; };
 		242FC51D19C80C9000BB1832 /* letterImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "letterImage@2x.png"; sourceTree = "<group>"; };
@@ -265,12 +283,10 @@
 		246BFC15198F79CC002B4456 /* proposeFBbtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = proposeFBbtn.png; sourceTree = "<group>"; };
 		246BFC18198F79CC002B4456 /* ProposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProposeViewController.h; sourceTree = "<group>"; };
 		246BFC19198F79CC002B4456 /* ProposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProposeViewController.m; sourceTree = "<group>"; };
-		246BFC1C198F79CC002B4456 /* SlideOutTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideOutTableViewController.h; sourceTree = "<group>"; };
-		246BFC1D198F79CC002B4456 /* SlideOutTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideOutTableViewController.m; sourceTree = "<group>"; };
-		246BFC46198F7A3D002B4456 /* EAIntroPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIntroPage.h; sourceTree = "<group>"; };
-		246BFC47198F7A3D002B4456 /* EAIntroPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAIntroPage.m; sourceTree = "<group>"; };
-		246BFC48198F7A3D002B4456 /* EAIntroView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIntroView.h; sourceTree = "<group>"; };
-		246BFC49198F7A3D002B4456 /* EAIntroView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAIntroView.m; sourceTree = "<group>"; };
+		246BFC46198F7A3D002B4456 /* EAIntroPageNP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIntroPageNP.h; sourceTree = "<group>"; };
+		246BFC47198F7A3D002B4456 /* EAIntroPageNP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAIntroPageNP.m; sourceTree = "<group>"; };
+		246BFC48198F7A3D002B4456 /* EAIntroViewNP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIntroViewNP.h; sourceTree = "<group>"; };
+		246BFC49198F7A3D002B4456 /* EAIntroViewNP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAIntroViewNP.m; sourceTree = "<group>"; };
 		246BFC4C198F7A6F002B4456 /* SMPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPageControl.h; sourceTree = "<group>"; };
 		246BFC4D198F7A6F002B4456 /* SMPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPageControl.m; sourceTree = "<group>"; };
 		246CB31619C2B5370090F9D8 /* InstagramEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramEngine.h; sourceTree = "<group>"; };
@@ -350,6 +366,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2416B9B219CC3EA100F222A7 /* PopupView */ = {
+			isa = PBXGroup;
+			children = (
+				2416B9B619CC3EE500F222A7 /* PopupViewController.h */,
+				2416B9B719CC3EE500F222A7 /* PopupViewController.m */,
+			);
+			name = PopupView;
+			sourceTree = "<group>";
+		};
+		2416B9B319CC3EB200F222A7 /* PopView */ = {
+			isa = PBXGroup;
+			children = (
+				2416B9B419CC3ECF00F222A7 /* popViewBack@2x.png */,
+				2416B9B919CC42BF00F222A7 /* popHistoryBtn@2x.png */,
+				2416B9BA19CC42BF00F222A7 /* popHistoryHig@2x.png */,
+				2416B9BB19CC42BF00F222A7 /* popHomeBtn@2x.png */,
+				2416B9BC19CC42BF00F222A7 /* popHomeHig@2x.png */,
+				2416B9BD19CC42BF00F222A7 /* popIntroBtn@2x.png */,
+				2416B9BE19CC42BF00F222A7 /* popIntroHig@2x.png */,
+				2416B9BF19CC42BF00F222A7 /* popSettingBtn@2x.png */,
+			);
+			name = PopView;
+			sourceTree = "<group>";
+		};
 		242FC53919C84A3400BB1832 /* AMScrollingNavbar */ = {
 			isa = PBXGroup;
 			children = (
@@ -458,6 +498,7 @@
 			children = (
 				246BFC58198F7B97002B4456 /* IntroView */,
 				246BFC59198F7BAD002B4456 /* MenuView */,
+				2416B9B219CC3EA100F222A7 /* PopupView */,
 				246BFC5A198F7C18002B4456 /* ProposeView */,
 				2443057A19934B230078250B /* CommentView */,
 				24D710DD19AC785D005F4886 /* ReviewView */,
@@ -583,6 +624,7 @@
 			children = (
 				246BFC55198F7AF0002B4456 /* IntroView */,
 				246BFC56198F7AF8002B4456 /* MenuView */,
+				2416B9B319CC3EB200F222A7 /* PopView */,
 				246BFC57198F7B06002B4456 /* ProposeView */,
 				24D710E119AC7A17005F4886 /* ReviewView */,
 				24BEAC1819CAA75100FE207C /* DepartView */,
@@ -602,7 +644,7 @@
 				243F36C119B72EC500729FB5 /* AFNetworking */,
 				243F36D519B72EC500729FB5 /* UIKit+AFNetworking */,
 				244016F619A227CF0009B5A7 /* MCPanelViewController */,
-				246BFC52198F7A83002B4456 /* EAIntroView */,
+				246BFC52198F7A83002B4456 /* EAIntroViewNP */,
 				246BFC54198F7AA2002B4456 /* SMPageCTR */,
 				245E5F8819ADB58B00781E30 /* XCDYouTubeKit */,
 				24292D4F1990EE4F00A56CF3 /* DummyNavViewController.h */,
@@ -620,15 +662,15 @@
 			name = Library;
 			sourceTree = "<group>";
 		};
-		246BFC52198F7A83002B4456 /* EAIntroView */ = {
+		246BFC52198F7A83002B4456 /* EAIntroViewNP */ = {
 			isa = PBXGroup;
 			children = (
-				246BFC46198F7A3D002B4456 /* EAIntroPage.h */,
-				246BFC47198F7A3D002B4456 /* EAIntroPage.m */,
-				246BFC48198F7A3D002B4456 /* EAIntroView.h */,
-				246BFC49198F7A3D002B4456 /* EAIntroView.m */,
+				246BFC46198F7A3D002B4456 /* EAIntroPageNP.h */,
+				246BFC47198F7A3D002B4456 /* EAIntroPageNP.m */,
+				246BFC48198F7A3D002B4456 /* EAIntroViewNP.h */,
+				246BFC49198F7A3D002B4456 /* EAIntroViewNP.m */,
 			);
-			name = EAIntroView;
+			name = EAIntroViewNP;
 			sourceTree = "<group>";
 		};
 		246BFC54198F7AA2002B4456 /* SMPageCTR */ = {
@@ -694,8 +736,6 @@
 		246BFC59198F7BAD002B4456 /* MenuView */ = {
 			isa = PBXGroup;
 			children = (
-				246BFC1C198F79CC002B4456 /* SlideOutTableViewController.h */,
-				246BFC1D198F79CC002B4456 /* SlideOutTableViewController.m */,
 				24FF958419C6EB6700240170 /* NewMenuViewController.h */,
 				24FF958519C6EB6700240170 /* NewMenuViewController.m */,
 			);
@@ -912,8 +952,10 @@
 				24F26D85199A2B2800C8A766 /* menu1@2x.png in Resources */,
 				24F26D83199A2A8600C8A766 /* menu7@2x.png in Resources */,
 				2453381A19B3211900D27354 /* blogMenu4@2x.png in Resources */,
+				2416B9B519CC3ECF00F222A7 /* popViewBack@2x.png in Resources */,
 				244305621991FF540078250B /* menu2@2x.png in Resources */,
 				244016F519A227640009B5A7 /* titleBar@2x.png in Resources */,
+				2416B9C119CC42BF00F222A7 /* popHistoryHig@2x.png in Resources */,
 				2453381719B3211900D27354 /* blogMenu1@2x.png in Resources */,
 				24FF959119C705C300240170 /* Info.plist in Resources */,
 				244305661991FF540078250B /* menu6@2x.png in Resources */,
@@ -921,19 +963,24 @@
 				242FC52C19C81F0300BB1832 /* page3@2x.png in Resources */,
 				24430578199335C40078250B /* LeferiBack.png in Resources */,
 				245E5F8719AD790500781E30 /* beautiGram@2x.jpg in Resources */,
+				2416B9C519CC42BF00F222A7 /* popIntroHig@2x.png in Resources */,
 				242FC52D19C81F0300BB1832 /* page4@2x.png in Resources */,
+				2416B9C019CC42BF00F222A7 /* popHistoryBtn@2x.png in Resources */,
 				242FC52019C80C9000BB1832 /* titleImage@2x.png in Resources */,
 				2437348F19B5F3A100B6A0DB /* instaLikeBtn@2x.png in Resources */,
+				2416B9C219CC42BF00F222A7 /* popHomeBtn@2x.png in Resources */,
 				242FC52E19C81F0300BB1832 /* pageText1@2x.png in Resources */,
 				246BFBD9198F7978002B4456 /* Main.storyboard in Resources */,
 				24CD050019B5DE4800B39716 /* headImage@2x.png in Resources */,
 				24DE367F19ADC16100AD57E4 /* proposeStory@2x.png in Resources */,
 				246BFBDB198F7978002B4456 /* Images.xcassets in Resources */,
 				24FF958C19C6FC5900240170 /* story2@2x.png in Resources */,
+				2416B9C319CC42BF00F222A7 /* popHomeHig@2x.png in Resources */,
 				24FF958B19C6FC5900240170 /* story1@2x.png in Resources */,
 				246CB32A19C2B5370090F9D8 /* InstagramKit.plist in Resources */,
 				242FC53219C81F0300BB1832 /* pageSkipBtn@2x.png in Resources */,
 				244305651991FF540078250B /* menu5@2x.png in Resources */,
+				2416B9C419CC42BF00F222A7 /* popIntroBtn@2x.png in Resources */,
 				244305631991FF540078250B /* menu3@2x.png in Resources */,
 				246BFC3C198F79CC002B4456 /* proposeFBbtn.png in Resources */,
 				24BEAC1719CAA70800FE207C /* reviewTitleBar@2x.png in Resources */,
@@ -942,6 +989,7 @@
 				2453381819B3211900D27354 /* blogMenu2@2x.png in Resources */,
 				24BEAC1A19CAA76700FE207C /* departTitleBar@2x.png in Resources */,
 				2453381919B3211900D27354 /* blogMenu3@2x.png in Resources */,
+				2416B9C619CC42BF00F222A7 /* popSettingBtn@2x.png in Resources */,
 				24F26D89199A384B00C8A766 /* naviBarShadow.png in Resources */,
 				242FC52F19C81F0300BB1832 /* pageText2@2x.png in Resources */,
 				246BFC28198F79CC002B4456 /* LeferiIcon.png in Resources */,
@@ -979,6 +1027,7 @@
 				246BFC4E198F7A6F002B4456 /* SMPageControl.m in Sources */,
 				2440170519A228170009B5A7 /* MenuViewController.m in Sources */,
 				245E5F9C19ADB58B00781E30 /* XCDYouTubePlayerScript.m in Sources */,
+				2416B9B819CC3EE500F222A7 /* PopupViewController.m in Sources */,
 				246CB32E19C2B5370090F9D8 /* InstagramModel.m in Sources */,
 				246CB32D19C2B5370090F9D8 /* InstagramMedia.m in Sources */,
 				242FC53C19C84A3400BB1832 /* UIViewController+ScrollingNavbar.m in Sources */,
@@ -999,7 +1048,7 @@
 				245E5F8219AD704800781E30 /* BeautiViewController.m in Sources */,
 				243F36F219B72EC500729FB5 /* UIAlertView+AFNetworking.m in Sources */,
 				2440170119A227CF0009B5A7 /* UIImage+ImageEffects.m in Sources */,
-				246BFC4A198F7A3D002B4456 /* EAIntroPage.m in Sources */,
+				246BFC4A198F7A3D002B4456 /* EAIntroPageNP.m in Sources */,
 				243F36EB19B72EC500729FB5 /* AFSecurityPolicy.m in Sources */,
 				243F36F119B72EC500729FB5 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				246CB32B19C2B5370090F9D8 /* IKUserInPhoto.m in Sources */,
@@ -1014,7 +1063,7 @@
 				24292D511990EE4F00A56CF3 /* DummyNavViewController.m in Sources */,
 				245E5F9E19ADB58B00781E30 /* XCDYouTubeVideoOperation.m in Sources */,
 				246BFC20198F79CC002B4456 /* AppDelegate.m in Sources */,
-				246BFC4B198F7A3D002B4456 /* EAIntroView.m in Sources */,
+				246BFC4B198F7A3D002B4456 /* EAIntroViewNP.m in Sources */,
 				245E5F9F19ADB58B00781E30 /* XCDYouTubeVideoPlayerViewController.m in Sources */,
 				24D710E919AC997A005F4886 /* VideoViewController.m in Sources */,
 				246CB32919C2B5370090F9D8 /* InstagramEngine.m in Sources */,
@@ -1031,7 +1080,6 @@
 				24FF958619C6EB6700240170 /* NewMenuViewController.m in Sources */,
 				246BFBD6198F7978002B4456 /* ViewController.m in Sources */,
 				243F36EF19B72EC500729FB5 /* AFURLSessionManager.m in Sources */,
-				246BFC42198F79CC002B4456 /* SlideOutTableViewController.m in Sources */,
 				245E5FA019ADB58B00781E30 /* XCDYouTubeVideoWebpage.m in Sources */,
 				246BFBCD198F7978002B4456 /* main.m in Sources */,
 				246BFC2A198F79CC002B4456 /* MainTableViewController.m in Sources */,
