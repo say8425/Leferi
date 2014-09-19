@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A361c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vw1-vP-GhI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A361c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8jq-CF-trM">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -42,7 +42,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gml-bB-1QD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-390" y="-1404"/>
+            <point key="canvasLocation" x="-390" y="-756"/>
         </scene>
         <!--Propose View Controller-->
         <scene sceneID="LBj-YS-KeW">
@@ -97,7 +97,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="EJ4-Ue-Bt7" kind="modal" modalTransitionStyle="crossDissolve" id="jBf-zp-d6x"/>
+                                    <segue destination="6eg-7f-0Bw" kind="push" id="mAs-Ns-7xd"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -179,7 +179,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xye-in-uRG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2451" y="-116"/>
+            <point key="canvasLocation" x="-2074" y="-116"/>
         </scene>
         <!--Slide Out Table View Controller-->
         <scene sceneID="FPE-6V-4JU">
@@ -257,25 +257,6 @@
             </objects>
             <point key="canvasLocation" x="-1590" y="-1396"/>
         </scene>
-        <!--Dummy Nav View Controller-->
-        <scene sceneID="E3c-bg-upO">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EJ4-Ue-Bt7" customClass="DummyNavViewController" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="5c3-6k-rcl"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tbD-ou-ulT">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="6eg-7f-0Bw" kind="relationship" relationship="rootViewController" id="YAv-wg-Ycc"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mby-GY-ikh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-785" y="-1404"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="hMU-kw-fME">
             <objects>
@@ -333,7 +314,7 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="vw1-vP-GhI" kind="custom" customClass="TransAlphaSegue" id="Xyi-XB-Y05"/>
+                                                    <segue destination="vw1-vP-GhI" kind="modal" id="Xyi-XB-Y05"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xbf-r3-6OE" userLabel="menu3 - instagram">
@@ -420,8 +401,12 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="u5C-kX-gdJ" id="m98-60-g4d">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yKb-2h-eZo">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yKb-2h-eZo">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="320" id="cqJ-LW-Ol7"/>
+                                                <constraint firstAttribute="height" constant="320" id="vs5-sN-xAM"/>
+                                            </constraints>
                                             <state key="normal">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -430,6 +415,12 @@
                                             </connections>
                                         </button>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="yKb-2h-eZo" secondAttribute="trailing" id="3dt-Yj-Y3O"/>
+                                        <constraint firstItem="yKb-2h-eZo" firstAttribute="top" secondItem="m98-60-g4d" secondAttribute="top" id="Hw9-7S-bfX"/>
+                                        <constraint firstAttribute="bottom" secondItem="yKb-2h-eZo" secondAttribute="bottom" id="JQL-iq-v7Y"/>
+                                        <constraint firstItem="yKb-2h-eZo" firstAttribute="leading" secondItem="m98-60-g4d" secondAttribute="leading" id="Owe-04-O1x"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="reviewCellBtn" destination="yKb-2h-eZo" id="D6x-kL-rap"/>
@@ -462,12 +453,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tkP-f9-6mw">
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tkP-f9-6mw">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="56S-AQ-vzB"/>
+                                    <constraint firstAttribute="height" constant="568" id="eXe-p0-wTU"/>
+                                </constraints>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="tkP-f9-6mw" secondAttribute="trailing" id="0BI-lG-1LF"/>
+                            <constraint firstItem="tkP-f9-6mw" firstAttribute="top" secondItem="8i1-B1-Vpm" secondAttribute="top" id="GOO-E9-cHb"/>
+                            <constraint firstItem="tkP-f9-6mw" firstAttribute="leading" secondItem="8i1-B1-Vpm" secondAttribute="leading" id="JIO-Mr-pPG"/>
+                            <constraint firstItem="U5M-Ad-Lg3" firstAttribute="top" secondItem="tkP-f9-6mw" secondAttribute="bottom" id="Jq4-34-Iqf"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="FQi-nP-rq6"/>
                     <connections>
@@ -498,6 +499,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ZgP-7G-s8A"/>
                     <connections>
                         <outlet property="webView" destination="1IP-SU-M2i" id="Grm-sh-tdu"/>
                     </connections>
@@ -550,6 +552,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vw1-vP-GhI" customClass="DummyNavViewController" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="bQp-fx-jAM"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ivl-nQ-GbE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -724,7 +727,7 @@
                     <connections>
                         <outlet property="headImageView" destination="nkJ-JZ-AXG" id="ZzT-69-NeA"/>
                         <outlet property="tableView" destination="2lo-MY-WEK" id="9hP-vl-9U5"/>
-                        <segue destination="B0j-hA-feS" kind="custom" identifier="instaLoginSegue" customClass="TransAlphaSegue" id="RfN-EH-9iD"/>
+                        <segue destination="B0j-hA-feS" kind="push" id="tSF-mV-ts2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lgy-GR-uQT" userLabel="First Responder" sceneMemberID="firstResponder"/>

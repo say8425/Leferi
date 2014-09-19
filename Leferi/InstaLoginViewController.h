@@ -16,6 +16,8 @@
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) BeautiViewController *beautiViewController;
 @property (assign, nonatomic) IKLoginScope scope;
+@property (strong, nonatomic) UIView *loadingView;
+@property (strong, nonatomic) UIActivityIndicatorView *actiView;
 
 
 

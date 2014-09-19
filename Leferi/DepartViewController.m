@@ -17,8 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //[self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"proposeTitle.png"] forBarMetrics:UIBarMetricsDefault];
-    [self.navigationItem setLeftBarButtonItem:[UIBarButtonItem customBackButtonWithImage:[UIImage imageNamed:@"backButton.png"] Target:self action:@selector(back:)]];
+    //NavigationBar Setting
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"departTitleBar.png"] forBarMetrics:UIBarMetricsDefault];  //titleBar
+    [self.navigationItem setLeftBarButtonItem:[UIBarButtonItem customBackButtonWithImage:[UIImage imageNamed:@"backButton.png"] Target:self action:@selector(back:)]]; //backButton
     
     //WebView Setting
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://m.hyundaihmall.com/front/smItemDetailR.do?SectId=580895&ItemCode=2013030154"]]];
@@ -31,7 +32,7 @@
     [self.loadingView.layer setCornerRadius:5];
     NSLog(@"%f", self.navigationController.navigationBar.frame.size.height);
     
-    //LoadingIcon
+    //WebView Loading //actiIcon
     self.actiView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     [self.actiView setCenter:CGPointMake(self.loadingView.frame.size.width / 2.0, self.loadingView.frame.size.height / 2.0)];
     [self.actiView startAnimating];
@@ -47,7 +48,7 @@
     [self followScrollView:self.webView withDelay:65];
 }
 
-//Web loading function
+#pragma mark - Web loading function
 - (void)webViewDidStartLoad:(UIWebView*)webView {
     [self.loadingView setHidden:NO];
 }
@@ -56,8 +57,20 @@
     [self.loadingView removeFromSuperview];
 }
 
+#pragma mark - NavigationBar Fade out - sub Function
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self showNavBarAnimated:NO];
+}
+
 - (IBAction)back:(id)sender {
+    //[self.navigationController popViewControllerAnimated:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
+//    [[self parentViewController] dismissModalViewControllerAnimated:YES];
+//    self.parentViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+//    self.parentViewController.view.alpha = 0.0;
+//    [UIView animateWithDuration:0.5
+//                     animations:^{self.parentViewController.view.alpha  = 1.0;}];
 }
 
 - (void)didReceiveMemoryWarning {

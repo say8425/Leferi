@@ -10,8 +10,7 @@
 #import "UIBarButtonItem+Image.h"
 #import "UIViewController+ScrollingNavbar.h"
 
-@interface ReviewViewController : UIViewController <UIWebViewDelegate>
-
+@interface ReviewViewController : UIViewController <UIScrollViewDelegate, UIWebViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIView *view;
 @property (strong, nonatomic) IBOutlet UIWebView *webView;

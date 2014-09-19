@@ -21,7 +21,7 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     
     // NaviBar Setting
-    //[self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"titleBar.png"] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"reviewTitleBar.png"] forBarMetrics:UIBarMetricsDefault];
     [self.navigationItem setLeftBarButtonItem:[UIBarButtonItem customBackButtonWithImage:[UIImage imageNamed:@"backButton.png"] Target:self action:@selector(back:)]];
     
     //TableCell Setting
@@ -39,7 +39,7 @@
     if ([self.navigationController.navigationBar respondsToSelector:@selector(setBarTintColor:)]) {
         [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
     } [self.navigationController.navigationBar setTranslucent:NO];
-    [self followScrollView:self.tableView withDelay:65];
+    [self followScrollView:self.tableView];
 }
 
 
@@ -61,6 +61,13 @@
     return cell;
 }
 
+#pragma mark - NavigationBar Fade out - sub Function
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self showNavBarAnimated:NO];
+    //[self stopFollowingScrollView];
+}
+
 #pragma mark - Segue Setting
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier]isEqualToString:@"showReview"]) {
@@ -72,7 +79,6 @@
     }
 }
 
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -80,6 +86,14 @@
 
 - (IBAction)back:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView
+{
+    // This enables the user to scroll down the navbar by tapping the status bar.
+    [self showNavbar];
+    
+    return YES;
 }
 
 @end

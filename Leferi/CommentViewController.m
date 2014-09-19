@@ -40,7 +40,7 @@
     [self.view addSubview:self.loadingView];
 }
 
-//Web loading function
+#pragma mark - Web loading function
 - (void)webViewDidStartLoad:(UIWebView*)webView {
     [self.loadingView setHidden:NO];
 }
@@ -49,9 +49,9 @@
     [self.loadingView removeFromSuperview];
 }
 
-
 - (IBAction)back:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
+    //[self dismissViewControllerAnimated:YES completion:nil];
 }
 
 

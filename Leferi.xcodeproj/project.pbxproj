@@ -102,6 +102,8 @@
 		247C055219B98ED500DE603C /* UserHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 247C055119B98ED500DE603C /* UserHeaderTableViewCell.m */; };
 		248B504019ADF9F500E895FD /* UIViewController+Rotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 248B503F19ADF9F500E895FD /* UIViewController+Rotation.m */; };
 		24A0DC1319987E570014ACFE /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A0DC1219987E570014ACFE /* CommentViewController.m */; };
+		24BEAC1719CAA70800FE207C /* reviewTitleBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24BEAC1619CAA70800FE207C /* reviewTitleBar@2x.png */; };
+		24BEAC1A19CAA76700FE207C /* departTitleBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24BEAC1919CAA76700FE207C /* departTitleBar@2x.png */; };
 		24CD04FE19B5DA2300B39716 /* BeautiTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CD04FD19B5DA2300B39716 /* BeautiTableViewCell.m */; };
 		24CD050019B5DE4800B39716 /* headImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24CD04FF19B5DE4800B39716 /* headImage@2x.png */; };
 		24D5284019B5CB4300C70368 /* TransAlphaSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D5283F19B5CB4300C70368 /* TransAlphaSegue.m */; };
@@ -295,6 +297,8 @@
 		248B503F19ADF9F500E895FD /* UIViewController+Rotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Rotation.m"; sourceTree = "<group>"; };
 		24A0DC1119987E570014ACFE /* CommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentViewController.h; sourceTree = "<group>"; };
 		24A0DC1219987E570014ACFE /* CommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentViewController.m; sourceTree = "<group>"; };
+		24BEAC1619CAA70800FE207C /* reviewTitleBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reviewTitleBar@2x.png"; sourceTree = "<group>"; };
+		24BEAC1919CAA76700FE207C /* departTitleBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "departTitleBar@2x.png"; sourceTree = "<group>"; };
 		24CD04FC19B5DA2300B39716 /* BeautiTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautiTableViewCell.h; sourceTree = "<group>"; };
 		24CD04FD19B5DA2300B39716 /* BeautiTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeautiTableViewCell.m; sourceTree = "<group>"; };
 		24CD04FF19B5DE4800B39716 /* headImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "headImage@2x.png"; sourceTree = "<group>"; };
@@ -581,6 +585,7 @@
 				246BFC56198F7AF8002B4456 /* MenuView */,
 				246BFC57198F7B06002B4456 /* ProposeView */,
 				24D710E119AC7A17005F4886 /* ReviewView */,
+				24BEAC1819CAA75100FE207C /* DepartView */,
 				245E5F8319AD710B00781E30 /* BeautiGram */,
 				242FC54519C85FEC00BB1832 /* backButton@2x.png */,
 				24430577199335C40078250B /* LeferiBack.png */,
@@ -757,6 +762,14 @@
 			path = Leferi;
 			sourceTree = "<group>";
 		};
+		24BEAC1819CAA75100FE207C /* DepartView */ = {
+			isa = PBXGroup;
+			children = (
+				24BEAC1919CAA76700FE207C /* departTitleBar@2x.png */,
+			);
+			name = DepartView;
+			sourceTree = "<group>";
+		};
 		24D710DD19AC785D005F4886 /* ReviewView */ = {
 			isa = PBXGroup;
 			children = (
@@ -773,6 +786,7 @@
 		24D710E119AC7A17005F4886 /* ReviewView */ = {
 			isa = PBXGroup;
 			children = (
+				24BEAC1619CAA70800FE207C /* reviewTitleBar@2x.png */,
 				2453381319B3211900D27354 /* blogMenu1@2x.png */,
 				2453381419B3211900D27354 /* blogMenu2@2x.png */,
 				2453381519B3211900D27354 /* blogMenu3@2x.png */,
@@ -922,9 +936,11 @@
 				244305651991FF540078250B /* menu5@2x.png in Resources */,
 				244305631991FF540078250B /* menu3@2x.png in Resources */,
 				246BFC3C198F79CC002B4456 /* proposeFBbtn.png in Resources */,
+				24BEAC1719CAA70800FE207C /* reviewTitleBar@2x.png in Resources */,
 				242FC54419C85E9200BB1832 /* instaTitleBar@2x.png in Resources */,
 				24430568199201950078250B /* menuBtn.png in Resources */,
 				2453381819B3211900D27354 /* blogMenu2@2x.png in Resources */,
+				24BEAC1A19CAA76700FE207C /* departTitleBar@2x.png in Resources */,
 				2453381919B3211900D27354 /* blogMenu3@2x.png in Resources */,
 				24F26D89199A384B00C8A766 /* naviBarShadow.png in Resources */,
 				242FC52F19C81F0300BB1832 /* pageText2@2x.png in Resources */,

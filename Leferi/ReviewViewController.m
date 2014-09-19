@@ -20,13 +20,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //[self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"proposeTitle.png"] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"reviewTitleBar.png"] forBarMetrics:UIBarMetricsDefault];
+    //[[UINavigationBar appearance] setBackIndicatorImage:[UIImage imageNamed:@"backButton.png"]];
+    //[[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:[UIImage imageNamed:@"backButton.png"]];
+
     [self.navigationItem setLeftBarButtonItem:[UIBarButtonItem customBackButtonWithImage:[UIImage imageNamed:@"backButton.png"] Target:self action:@selector(back:)]];
     
     //WebView setting
     [self.webView loadRequest:[NSURLRequest requestWithURL:self.reviewURL]];
+    [self.webView.scrollView setDelegate:self];
     [self.webView setDelegate:self];
-    NSLog(@"%@", self.urlString);
     
     //WebView loading //backView
     self.loadingView = [[UIView alloc]initWithFrame:CGRectMake([[UIScreen mainScreen]bounds].size.width/2 - 40,
@@ -47,10 +50,11 @@
     if ([self.navigationController.navigationBar respondsToSelector:@selector(setBarTintColor:)]) {
         [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
     } [self.navigationController.navigationBar setTranslucent:NO];
-    [self followScrollView:self.webView withDelay:65];
+    [self followScrollView:self.webView];
+
 }
 
-//Web loading function
+#pragma mark - Web loading function
 - (void)webViewDidStartLoad:(UIWebView*)webView {
     [self.loadingView setHidden:NO];
 }
@@ -59,14 +63,28 @@
     [self.loadingView removeFromSuperview];
 }
 
-- (IBAction)back:(id)sender {
+-  (IBAction)back:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
-    //[self dismissViewControllerAnimated:YES completion:nil];  //transModal
+}
+
+#pragma mark - NavigationBar Fade out - sub Function
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self showNavBarAnimated:NO];
+    //[self stopFollowingScrollView];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView
+{
+    // This enables the user to scroll down the navbar by tapping the status bar.
+    [self showNavbar];
+    
+    return YES;
 }
 
 @end

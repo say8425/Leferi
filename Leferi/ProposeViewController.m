@@ -42,7 +42,7 @@
 }
 //
 
-    //NavigationBar Fade out - sub Function
+#pragma mark - NavigationBar Fade out - sub Function
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self showNavBarAnimated:NO];
@@ -50,6 +50,9 @@
 
 - (IBAction)back:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+    
+    /* Deleting */
+    
     //[self performSegueWithIdentifier:@"enterMenu" sender:nil];
 //        self.parentViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
 //    [[self parentViewController]dismissViewControllerAnimated:YES completion:^{}];
