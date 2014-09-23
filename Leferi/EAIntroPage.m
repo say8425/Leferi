@@ -3,7 +3,7 @@
 //
 //  Copyright (c) 2013-2014 Evgeny Aleksandrov. License: MIT.
 
-#import "EAIntroPageNP.h"
+#import "EAIntroPage.h"
 
 #define DEFAULT_DESCRIPTION_LABEL_SIDE_PADDING 25
 #define DEFAULT_TITLE_FONT [UIFont fontWithName:@"HelveticaNeue-Bold" size:16.0]
@@ -13,16 +13,16 @@
 #define DEFAULT_TITLE_LABEL_Y_POSITION 160.0f
 #define DEFAULT_DESCRIPTION_LABEL_Y_POSITION 140.0f
 
-@interface EAIntroPageNP ()
+@interface EAIntroPage ()
 @property(nonatomic, strong, readwrite) UIView *pageView;
 @end
 
-@implementation EAIntroPageNP
+@implementation EAIntroPage
 
 #pragma mark - Page lifecycle
 
 + (instancetype)page {
-    EAIntroPageNP *newPage = [[self alloc] init];
+    EAIntroPage *newPage = [[self alloc] init];
     newPage.titleIconPositionY = DEFAULT_TITLE_IMAGE_Y_POSITION;
     newPage.titlePositionY  = DEFAULT_TITLE_LABEL_Y_POSITION;
     newPage.descPositionY   = DEFAULT_DESCRIPTION_LABEL_Y_POSITION;
@@ -38,7 +38,7 @@
 }
 
 + (instancetype)pageWithCustomView:(UIView *)customV {
-    EAIntroPageNP *newPage = [[self alloc] init];
+    EAIntroPage *newPage = [[self alloc] init];
     newPage.customView = customV;
     return newPage;
 }
@@ -48,7 +48,7 @@
 }
 
 + (instancetype)pageWithCustomViewFromNibNamed:(NSString *)nibName bundle:(NSBundle*)aBundle {
-    EAIntroPageNP *newPage = [[self alloc] init];
+    EAIntroPage *newPage = [[self alloc] init];
     newPage.customView = [[aBundle loadNibNamed:nibName owner:newPage options:nil] firstObject];
     return newPage;
 }

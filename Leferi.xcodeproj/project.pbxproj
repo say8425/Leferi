@@ -83,6 +83,8 @@
 		245E5F9E19ADB58B00781E30 /* XCDYouTubeVideoOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 245E5F9519ADB58B00781E30 /* XCDYouTubeVideoOperation.m */; };
 		245E5F9F19ADB58B00781E30 /* XCDYouTubeVideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 245E5F9719ADB58B00781E30 /* XCDYouTubeVideoPlayerViewController.m */; };
 		245E5FA019ADB58B00781E30 /* XCDYouTubeVideoWebpage.m in Sources */ = {isa = PBXBuildFile; fileRef = 245E5F9919ADB58B00781E30 /* XCDYouTubeVideoWebpage.m */; };
+		24615F0119D08EB000B8AE51 /* EAIntroPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 24615EFE19D08EB000B8AE51 /* EAIntroPage.m */; };
+		24615F0219D08EB000B8AE51 /* EAIntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24615F0019D08EB000B8AE51 /* EAIntroView.m */; };
 		246BFBCD198F7978002B4456 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 246BFBCC198F7978002B4456 /* main.m */; };
 		246BFBD3198F7978002B4456 /* Leferi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 246BFBD1198F7978002B4456 /* Leferi.xcdatamodeld */; };
 		246BFBD6198F7978002B4456 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 246BFBD5198F7978002B4456 /* ViewController.m */; };
@@ -95,8 +97,6 @@
 		246BFC2A198F79CC002B4456 /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 246BFC03198F79CC002B4456 /* MainTableViewController.m */; };
 		246BFC3C198F79CC002B4456 /* proposeFBbtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 246BFC15198F79CC002B4456 /* proposeFBbtn.png */; };
 		246BFC3F198F79CC002B4456 /* ProposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 246BFC19198F79CC002B4456 /* ProposeViewController.m */; };
-		246BFC4A198F7A3D002B4456 /* EAIntroPageNP.m in Sources */ = {isa = PBXBuildFile; fileRef = 246BFC47198F7A3D002B4456 /* EAIntroPageNP.m */; };
-		246BFC4B198F7A3D002B4456 /* EAIntroViewNP.m in Sources */ = {isa = PBXBuildFile; fileRef = 246BFC49198F7A3D002B4456 /* EAIntroViewNP.m */; };
 		246BFC4E198F7A6F002B4456 /* SMPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 246BFC4D198F7A6F002B4456 /* SMPageControl.m */; };
 		246CB32919C2B5370090F9D8 /* InstagramEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 246CB31719C2B5370090F9D8 /* InstagramEngine.m */; };
 		246CB32A19C2B5370090F9D8 /* InstagramKit.plist in Resources */ = {isa = PBXBuildFile; fileRef = 246CB31919C2B5370090F9D8 /* InstagramKit.plist */; };
@@ -263,6 +263,10 @@
 		245E5F9719ADB58B00781E30 /* XCDYouTubeVideoPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCDYouTubeVideoPlayerViewController.m; sourceTree = "<group>"; };
 		245E5F9819ADB58B00781E30 /* XCDYouTubeVideoWebpage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCDYouTubeVideoWebpage.h; sourceTree = "<group>"; };
 		245E5F9919ADB58B00781E30 /* XCDYouTubeVideoWebpage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCDYouTubeVideoWebpage.m; sourceTree = "<group>"; };
+		24615EFD19D08EB000B8AE51 /* EAIntroPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIntroPage.h; sourceTree = "<group>"; };
+		24615EFE19D08EB000B8AE51 /* EAIntroPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAIntroPage.m; sourceTree = "<group>"; };
+		24615EFF19D08EB000B8AE51 /* EAIntroView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIntroView.h; sourceTree = "<group>"; };
+		24615F0019D08EB000B8AE51 /* EAIntroView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAIntroView.m; sourceTree = "<group>"; };
 		246BFBC7198F7978002B4456 /* Leferi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Leferi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		246BFBCC198F7978002B4456 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		246BFBD2198F7978002B4456 /* Leferi.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Leferi.xcdatamodel; sourceTree = "<group>"; };
@@ -283,10 +287,6 @@
 		246BFC15198F79CC002B4456 /* proposeFBbtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = proposeFBbtn.png; sourceTree = "<group>"; };
 		246BFC18198F79CC002B4456 /* ProposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProposeViewController.h; sourceTree = "<group>"; };
 		246BFC19198F79CC002B4456 /* ProposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProposeViewController.m; sourceTree = "<group>"; };
-		246BFC46198F7A3D002B4456 /* EAIntroPageNP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIntroPageNP.h; sourceTree = "<group>"; };
-		246BFC47198F7A3D002B4456 /* EAIntroPageNP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAIntroPageNP.m; sourceTree = "<group>"; };
-		246BFC48198F7A3D002B4456 /* EAIntroViewNP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIntroViewNP.h; sourceTree = "<group>"; };
-		246BFC49198F7A3D002B4456 /* EAIntroViewNP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAIntroViewNP.m; sourceTree = "<group>"; };
 		246BFC4C198F7A6F002B4456 /* SMPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPageControl.h; sourceTree = "<group>"; };
 		246BFC4D198F7A6F002B4456 /* SMPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPageControl.m; sourceTree = "<group>"; };
 		246CB31619C2B5370090F9D8 /* InstagramEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramEngine.h; sourceTree = "<group>"; };
@@ -644,7 +644,7 @@
 				243F36C119B72EC500729FB5 /* AFNetworking */,
 				243F36D519B72EC500729FB5 /* UIKit+AFNetworking */,
 				244016F619A227CF0009B5A7 /* MCPanelViewController */,
-				246BFC52198F7A83002B4456 /* EAIntroViewNP */,
+				246BFC52198F7A83002B4456 /* EAIntroView */,
 				246BFC54198F7AA2002B4456 /* SMPageCTR */,
 				245E5F8819ADB58B00781E30 /* XCDYouTubeKit */,
 				24292D4F1990EE4F00A56CF3 /* DummyNavViewController.h */,
@@ -662,15 +662,15 @@
 			name = Library;
 			sourceTree = "<group>";
 		};
-		246BFC52198F7A83002B4456 /* EAIntroViewNP */ = {
+		246BFC52198F7A83002B4456 /* EAIntroView */ = {
 			isa = PBXGroup;
 			children = (
-				246BFC46198F7A3D002B4456 /* EAIntroPageNP.h */,
-				246BFC47198F7A3D002B4456 /* EAIntroPageNP.m */,
-				246BFC48198F7A3D002B4456 /* EAIntroViewNP.h */,
-				246BFC49198F7A3D002B4456 /* EAIntroViewNP.m */,
+				24615EFD19D08EB000B8AE51 /* EAIntroPage.h */,
+				24615EFE19D08EB000B8AE51 /* EAIntroPage.m */,
+				24615EFF19D08EB000B8AE51 /* EAIntroView.h */,
+				24615F0019D08EB000B8AE51 /* EAIntroView.m */,
 			);
-			name = EAIntroViewNP;
+			name = EAIntroView;
 			sourceTree = "<group>";
 		};
 		246BFC54198F7AA2002B4456 /* SMPageCTR */ = {
@@ -1045,10 +1045,10 @@
 				24DE368219ADC53A00AD57E4 /* RTScreenPhysicalSize.m in Sources */,
 				243F36E919B72EC500729FB5 /* AFHTTPSessionManager.m in Sources */,
 				24D710E019AC78A9005F4886 /* ReviewListViewController.m in Sources */,
+				24615F0219D08EB000B8AE51 /* EAIntroView.m in Sources */,
 				245E5F8219AD704800781E30 /* BeautiViewController.m in Sources */,
 				243F36F219B72EC500729FB5 /* UIAlertView+AFNetworking.m in Sources */,
 				2440170119A227CF0009B5A7 /* UIImage+ImageEffects.m in Sources */,
-				246BFC4A198F7A3D002B4456 /* EAIntroPageNP.m in Sources */,
 				243F36EB19B72EC500729FB5 /* AFSecurityPolicy.m in Sources */,
 				243F36F119B72EC500729FB5 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				246CB32B19C2B5370090F9D8 /* IKUserInPhoto.m in Sources */,
@@ -1060,10 +1060,10 @@
 				243F36E719B72EC500729FB5 /* AFHTTPRequestOperation.m in Sources */,
 				24CD04FE19B5DA2300B39716 /* BeautiTableViewCell.m in Sources */,
 				246CB32C19C2B5370090F9D8 /* InstagramComment.m in Sources */,
+				24615F0119D08EB000B8AE51 /* EAIntroPage.m in Sources */,
 				24292D511990EE4F00A56CF3 /* DummyNavViewController.m in Sources */,
 				245E5F9E19ADB58B00781E30 /* XCDYouTubeVideoOperation.m in Sources */,
 				246BFC20198F79CC002B4456 /* AppDelegate.m in Sources */,
-				246BFC4B198F7A3D002B4456 /* EAIntroViewNP.m in Sources */,
 				245E5F9F19ADB58B00781E30 /* XCDYouTubeVideoPlayerViewController.m in Sources */,
 				24D710E919AC997A005F4886 /* VideoViewController.m in Sources */,
 				246CB32919C2B5370090F9D8 /* InstagramEngine.m in Sources */,

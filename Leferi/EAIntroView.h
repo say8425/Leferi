@@ -5,7 +5,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "EAIntroPageNP.h"
+#import "EAIntroPage.h"
 
 #define skipBtnFinishAlpha 1.0f
 
@@ -15,17 +15,17 @@ enum EAIntroViewTags {
     kTitleImageViewTag
 };
 
-@class EAIntroViewNP;
+@class EAIntroView;
 
 @protocol EAIntroDelegate
 @optional
-- (void)introDidFinish:(EAIntroViewNP *)introView;
-- (void)intro:(EAIntroViewNP *)introView pageAppeared:(EAIntroPageNP *)page withIndex:(NSInteger)pageIndex;
-- (void)intro:(EAIntroViewNP *)introView pageStartScrolling:(EAIntroPageNP *)page withIndex:(NSInteger)pageIndex;
-- (void)intro:(EAIntroViewNP *)introView pageEndScrolling:(EAIntroPageNP *)page withIndex:(NSInteger)pageIndex;
+- (void)introDidFinish:(EAIntroView *)introView;
+- (void)intro:(EAIntroView *)introView pageAppeared:(EAIntroPage *)page withIndex:(NSInteger)pageIndex;
+- (void)intro:(EAIntroView *)introView pageStartScrolling:(EAIntroPage *)page withIndex:(NSInteger)pageIndex;
+- (void)intro:(EAIntroView *)introView pageEndScrolling:(EAIntroPage *)page withIndex:(NSInteger)pageIndex;
 @end
 
-@interface EAIntroViewNP : UIView <UIScrollViewDelegate>
+@interface EAIntroView : UIView <UIScrollViewDelegate>
 
 @property (nonatomic, weak) id<EAIntroDelegate> delegate;
 

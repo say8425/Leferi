@@ -7,7 +7,7 @@
 
 typedef void (^VoidBlock)();
 
-@interface EAIntroPageNP : NSObject
+@interface EAIntroPage : NSObject
 
 // background used for cross-dissolve
 @property (nonatomic, strong) UIImage *bgImage;

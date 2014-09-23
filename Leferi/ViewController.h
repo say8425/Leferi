@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "EAIntroViewNP.h"
+#import "EAIntroView.h"
 #import "SMPageControl.h"
 #import "RTScreenPhysicalSize.h"
 #import "UIViewController+Rotation.h"
@@ -15,9 +15,7 @@
 
 @interface ViewController : UIViewController <EAIntroDelegate>
 
-@property (weak, nonatomic) IBOutlet EAIntroViewNP *introView;
+@property (weak, nonatomic) IBOutlet EAIntroView *introView;
 @property (weak, nonatomic) IBOutlet UIButton *proposeBtn;
-
-- (IBAction)proposeBtn:(id)sender;
 
 @end
