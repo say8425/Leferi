@@ -126,6 +126,9 @@
 		24F26D83199A2A8600C8A766 /* menu7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24F26D82199A2A8600C8A766 /* menu7@2x.png */; };
 		24F26D85199A2B2800C8A766 /* menu1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24F26D84199A2B2800C8A766 /* menu1@2x.png */; };
 		24F26D89199A384B00C8A766 /* naviBarShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 24F26D88199A384B00C8A766 /* naviBarShadow.png */; };
+		24F6098419D10E24004DE601 /* IntroduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F6098319D10E24004DE601 /* IntroduceViewController.m */; };
+		24F6098819D116B1004DE601 /* introduceBack1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24F6098619D116B1004DE601 /* introduceBack1@2x.png */; };
+		24F6098919D116B1004DE601 /* introduceText1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24F6098719D116B1004DE601 /* introduceText1@2x.png */; };
 		24FF958619C6EB6700240170 /* NewMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24FF958519C6EB6700240170 /* NewMenuViewController.m */; };
 		24FF958B19C6FC5900240170 /* story1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24FF958719C6FC5900240170 /* story1@2x.png */; };
 		24FF958C19C6FC5900240170 /* story2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24FF958819C6FC5900240170 /* story2@2x.png */; };
@@ -338,6 +341,10 @@
 		24F26D82199A2A8600C8A766 /* menu7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu7@2x.png"; sourceTree = "<group>"; };
 		24F26D84199A2B2800C8A766 /* menu1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu1@2x.png"; sourceTree = "<group>"; };
 		24F26D88199A384B00C8A766 /* naviBarShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = naviBarShadow.png; sourceTree = "<group>"; };
+		24F6098219D10E24004DE601 /* IntroduceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroduceViewController.h; sourceTree = "<group>"; };
+		24F6098319D10E24004DE601 /* IntroduceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroduceViewController.m; sourceTree = "<group>"; };
+		24F6098619D116B1004DE601 /* introduceBack1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "introduceBack1@2x.png"; sourceTree = "<group>"; };
+		24F6098719D116B1004DE601 /* introduceText1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "introduceText1@2x.png"; sourceTree = "<group>"; };
 		24FF958419C6EB6700240170 /* NewMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewMenuViewController.h; sourceTree = "<group>"; };
 		24FF958519C6EB6700240170 /* NewMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewMenuViewController.m; sourceTree = "<group>"; };
 		24FF958719C6FC5900240170 /* story1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "story1@2x.png"; sourceTree = "<group>"; };
@@ -369,6 +376,8 @@
 		2416B9B219CC3EA100F222A7 /* PopupView */ = {
 			isa = PBXGroup;
 			children = (
+				24F6098219D10E24004DE601 /* IntroduceViewController.h */,
+				24F6098319D10E24004DE601 /* IntroduceViewController.m */,
 				2416B9B619CC3EE500F222A7 /* PopupViewController.h */,
 				2416B9B719CC3EE500F222A7 /* PopupViewController.m */,
 			);
@@ -378,6 +387,7 @@
 		2416B9B319CC3EB200F222A7 /* PopView */ = {
 			isa = PBXGroup;
 			children = (
+				24F6098519D1168F004DE601 /* IntroduceView */,
 				2416B9B419CC3ECF00F222A7 /* popViewBack@2x.png */,
 				2416B9B919CC42BF00F222A7 /* popHistoryBtn@2x.png */,
 				2416B9BA19CC42BF00F222A7 /* popHistoryHig@2x.png */,
@@ -868,6 +878,15 @@
 			name = DepartView;
 			sourceTree = "<group>";
 		};
+		24F6098519D1168F004DE601 /* IntroduceView */ = {
+			isa = PBXGroup;
+			children = (
+				24F6098619D116B1004DE601 /* introduceBack1@2x.png */,
+				24F6098719D116B1004DE601 /* introduceText1@2x.png */,
+			);
+			name = IntroduceView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -950,6 +969,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24F26D85199A2B2800C8A766 /* menu1@2x.png in Resources */,
+				24F6098819D116B1004DE601 /* introduceBack1@2x.png in Resources */,
 				24F26D83199A2A8600C8A766 /* menu7@2x.png in Resources */,
 				2453381A19B3211900D27354 /* blogMenu4@2x.png in Resources */,
 				2416B9B519CC3ECF00F222A7 /* popViewBack@2x.png in Resources */,
@@ -973,6 +993,7 @@
 				246BFBD9198F7978002B4456 /* Main.storyboard in Resources */,
 				24CD050019B5DE4800B39716 /* headImage@2x.png in Resources */,
 				24DE367F19ADC16100AD57E4 /* proposeStory@2x.png in Resources */,
+				24F6098919D116B1004DE601 /* introduceText1@2x.png in Resources */,
 				246BFBDB198F7978002B4456 /* Images.xcassets in Resources */,
 				24FF958C19C6FC5900240170 /* story2@2x.png in Resources */,
 				2416B9C319CC42BF00F222A7 /* popHomeHig@2x.png in Resources */,
@@ -1079,6 +1100,7 @@
 				246BFC29198F79CC002B4456 /* MainTableViewCell.m in Sources */,
 				24FF958619C6EB6700240170 /* NewMenuViewController.m in Sources */,
 				246BFBD6198F7978002B4456 /* ViewController.m in Sources */,
+				24F6098419D10E24004DE601 /* IntroduceViewController.m in Sources */,
 				243F36EF19B72EC500729FB5 /* AFURLSessionManager.m in Sources */,
 				245E5FA019ADB58B00781E30 /* XCDYouTubeVideoWebpage.m in Sources */,
 				246BFBCD198F7978002B4456 /* main.m in Sources */,

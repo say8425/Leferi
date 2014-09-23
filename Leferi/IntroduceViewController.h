@@ -1,0 +1,19 @@
+//
+//  IntroduceViewController.h
+//  Leferi
+//
+//  Created by Cheon Park on 2014. 9. 19..
+//  Copyright (c) 2014년 northPenguin. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import "EAIntroView.h"
+#import "RTScreenPhysicalSize.h"
+#import "Config.h"
+
+@interface IntroduceViewController : UIViewController
+
+@property (strong, nonatomic) IBOutlet UIView *view;
+@property (strong, nonatomic) IBOutlet UIButton *skipBtn;
+
+@end

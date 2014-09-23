@@ -207,6 +207,9 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted" image="popIntroHig.png"/>
+                                <connections>
+                                    <segue destination="K9n-Xe-1re" kind="custom" customClass="TransAlphaSegue" id="oey-qA-bPY"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="viA-Cd-uOA" userLabel="Propose History">
                                 <rect key="frame" x="35" y="317" width="250" height="50"/>
@@ -257,6 +260,70 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="waX-D8-QNJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1651" y="-1393"/>
+        </scene>
+        <!--Introduce View Controller-->
+        <scene sceneID="tve-zK-Qit">
+            <objects>
+                <viewController id="K9n-Xe-1re" customClass="IntroduceViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ebW-yR-jsh"/>
+                        <viewControllerLayoutGuide type="bottom" id="dgl-gY-YdZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jqs-Cm-v3E">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a2b-hf-RLj">
+                                <rect key="frame" x="224" y="20" width="80" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="aQe-bp-c7L"/>
+                                    <constraint firstAttribute="width" constant="80" id="xzp-QB-g6b"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="소개 그만보기">
+                                            <attributes>
+                                                <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <font key="NSFont" size="14" name="AppleSDGothicNeo-Regular"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural">
+                                                    <tabStops>
+                                                        <textTab alignment="left" location="28.299999237060547"/>
+                                                        <textTab alignment="left" location="56.650001525878906"/>
+                                                        <textTab alignment="left" location="85"/>
+                                                        <textTab alignment="left" location="113.34999847412109"/>
+                                                        <textTab alignment="left" location="141.69999694824219"/>
+                                                        <textTab alignment="left" location="170.05000305175781"/>
+                                                        <textTab alignment="left" location="198.39999389648438"/>
+                                                        <textTab alignment="left" location="226.75"/>
+                                                        <textTab alignment="left" location="255.10000610351562"/>
+                                                        <textTab alignment="left" location="283.45001220703125"/>
+                                                        <textTab alignment="left" location="311.79998779296875"/>
+                                                        <textTab alignment="left" location="340.14999389648438"/>
+                                                    </tabStops>
+                                                </paragraphStyle>
+                                                <integer key="NSUnderline" value="1"/>
+                                                <color key="NSUnderlineColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <segue destination="wmb-SQ-V5h" kind="custom" customClass="TransAlphaSegue" id="SMz-Hc-afp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="a2b-hf-RLj" secondAttribute="bottom" constant="528" id="68Q-fz-eSR"/>
+                            <constraint firstItem="a2b-hf-RLj" firstAttribute="leading" secondItem="jqs-Cm-v3E" secondAttribute="leading" constant="224" id="Oj4-Hw-eGW"/>
+                            <constraint firstAttribute="trailing" secondItem="a2b-hf-RLj" secondAttribute="trailing" constant="16" id="ahs-5u-DpG"/>
+                            <constraint firstItem="a2b-hf-RLj" firstAttribute="top" secondItem="ebW-yR-jsh" secondAttribute="bottom" id="hrd-dV-tvw"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r2O-xj-Iro" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1187" y="-1393"/>
         </scene>
         <!--New Menu View Controller-->
         <scene sceneID="rji-ak-Ppc">
@@ -780,7 +847,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="kgr-6m-9MY"/>
+        <segue reference="WeE-LZ-TO6"/>
+        <segue reference="SMz-Hc-afp"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

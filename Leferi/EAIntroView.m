@@ -409,224 +409,284 @@ float easeOutValue(float value) {
 }
 
 - (void)crossDissolveForOffset:(float)offset {
-    NSInteger page = (NSInteger)(offset);
-    float alphaValue = offset - page;
-//    NSLog(@"%d", page);
-//    NSLog(@"all page is %d", [self.pages count]);
-//    NSLog(@"BTN alpha value is %f", self.skipButton.alpha);
-//    NSLog(@"Jude alpha value is %f", self.judgeLastPage);
-
-    if (alphaValue < 0 && self.visiblePageIndex == 0){
-        self.pageBgBack.image = nil;
-        self.pageBgFront.alpha = (1 + alphaValue);
-        return;
-    }
-    
-    self.pageBgFront.alpha = 1;
-    self.pageBgFront.image = [self bgForPage:page];
-    self.pageBgBack.alpha = 0;
-    self.pageBgBack.image = [self bgForPage:page+1];
-    
-    float backLayerAlpha = alphaValue;
-    float frontLayerAlpha = (1 - alphaValue);
-    
-    if (self.easeOutCrossDisolves) {
-        backLayerAlpha = easeOutValue(backLayerAlpha);
-        frontLayerAlpha = easeOutValue(frontLayerAlpha);
-    }
-    
-    self.pageBgBack.alpha = backLayerAlpha;
-    self.pageBgFront.alpha = frontLayerAlpha;
-
-    if(self.titleView) {
-        if([self showTitleViewForPage:page] && [self showTitleViewForPage:page+1]) {
-            [self.titleView setAlpha:1.0];
-        } else if(![self showTitleViewForPage:page] && ![self showTitleViewForPage:page+1]) {
-            [self.titleView setAlpha:0.0];
-        } else if([self showTitleViewForPage:page]) {
-            [self.titleView setAlpha:(1 - alphaValue)];
-        } else {
-            [self.titleView setAlpha:alphaValue];
+    //for IntroView
+    if (_pages.count == 4) {
+        NSLog(@"cout4");
+        NSInteger page = (NSInteger)(offset);
+        float alphaValue = offset - page;
+        //    NSLog(@"%d", page);
+        //    NSLog(@"all page is %d", [self.pages count]);
+        //    NSLog(@"BTN alpha value is %f", self.skipButton.alpha);
+        //    NSLog(@"Jude alpha value is %f", self.judgeLastPage);
+        
+        if (alphaValue < 0 && self.visiblePageIndex == 0){
+            self.pageBgBack.image = nil;
+            self.pageBgFront.alpha = (1 + alphaValue);
+            return;
         }
-    }
-
-//#pragma mark skipButtonAnimation
-//   
-////    if(self.skipButton && !self.judgeSkipBUtton) {
-//////        if(!self.showSkipButtonOnlyOnLastPage) {
-//////            [self.skipButton setAlpha:1.0];
-//////        }
-////        if (page < (long)[self.pages count] -2) {
-////            self.judgeLastPage = 0.0;
-////        } else if (page == [self.pages count] -1) {
-////            self.judgeLastPage = skipBtnFinishAlpha - alphaValue;
-////        } else {
-////            self.judgeLastPage = alphaValue;
-////        }
-////        //NSLog(@"judegNO");
-////    }
-//
-//    if(self.skipButton) {
-//        //        if(!self.showSkipButtonOnlyOnLastPage) {
-//        //            [self.skipButton setAlpha:1.0];
-//        //        }
-//        if (page < (long)[self.pages count] -2) {
-//            self.judgeLastPage = 0.0;
-//        } else if (page == [self.pages count] -1) {
-//            self.judgeLastPage = skipBtnFinishAlpha - alphaValue;
-//        } else {
-//            self.judgeLastPage = alphaValue;
-//        }
-//        //NSLog(@"judegNO");
-//    }
-//    else if (self.skipButton && self.judgeSkipBUtton) {
-//        if(page < (long)[self.pages count] - 2) {
-//            [self.skipButton setAlpha:0.0];
-//        } else if(page == [self.pages count] - 1) {
-//            //prevent the dissolve when last page out, don't want uncomment
-//            [self.skipButton setAlpha:(skipBtnFinishAlpha - alphaValue)];
-//        } else if (page == [self.pages count]) {
-//            //[self.skipButton setAlpha:alphaValue];
-//            NSLog(@"another!");
-//        }
-////         else if (page <= [self.pages count] +1 && page > [self.pages count]) {
-////            [self.skipButton setAlpha:alphaValue];
-////            NSLog(@"newSET");
-////        }
-//
-//        else {
-//            NSLog(@"ELSE");
-//            [self.skipButton setAlpha:alphaValue];
-//
-//
-//        }
-//        //NSLog(@"judgeYES");
-//    }
-//    //skpButton is perfectly showed value is 0.996875
-//    if (self.judgeLastPage > 0.95) {
-//        //durationSec is under 2.4, then it split
-//        [UIView animateWithDuration:1.3 delay:0.2
-//                            options:UIViewAnimationOptionCurveEaseInOut
-//                         animations:^{
-//                             self.skipButton.alpha = skipBtnFinishAlpha;
-//                         } completion:^(BOOL finished) {
-//                             if (finished) {
-//
-//                                 NSLog(@"animate");
-//                             }
-//                             NSLog(@"%c",finished);
-//                         }
-//
-//         ];
-//        self.judgeSkipBUtton = YES;
-//        self.skipButton.enabled = YES;
-//        NSLog(@"it's the end");
-//    } else if (self.judgeLastPage <= 0.95) {
-//        self.judgeSkipBUtton = NO;
-//        self.skipButton.enabled = NO;
-//        NSLog(@"it's not the end");
-//    }
-//    if(self.skipButton && !self.judgeSkipBUtton) {
-//        if(!self.showSkipButtonOnlyOnLastPage) {
-//            [self.skipButton setAlpha:1.0];
-//        } else if (page < (long)[self.pages count] -2) {
-//            self.judgeLastPage = 0.0;
-//        } else if (page == [self.pages count] -1) {
-//            self.judgeLastPage = skipBtnFinishAlpha - alphaValue;
-//        } else {
-//            self.judgeLastPage = alphaValue;
-//            //self.judgeLastPage = skipBtnFinishAlpha - alphaValue;
-//        }
-//        NSLog(@"judegNO");
-//    }
-//    if (self.skipButton) {
-//        if(page < (long)[self.pages count] - 2) {
-//            [self.skipButton setAlpha:0.0];
-//        } else if(page == [self.pages count] - 1) {
-//            //prevent the dissolve when last page out, don't want uncomment
-//            [self.skipButton setAlpha:(skipBtnFinishAlpha - alphaValue)];
-//        } else {
-//            [self.skipButton setAlpha:alphaValue];
-//            NSLog(@"else");
-//        }
-//        NSLog(@"judgeYES");
-//        //self.judgeSkipBUtton = NO;
-//    }
-//    //skpButton is perfectly showed value is 0.996875
-//    if (self.judgeLastPage > 0.995) {
-//        //durationSec is under 2.4, then it split
-//        [UIView animateWithDuration:2.4 delay:0.2
-//                            options:UIViewAnimationOptionCurveEaseInOut
-//                         animations:^{
-//                             self.skipButton.alpha = skipBtnFinishAlpha;
-//                         } completion:^(BOOL finished) {
-//
-//                             //self.judgeSkipBUtton = YES;
-//                         }];
-//        //self.skipButton.enabled = YES;
-//        //self.judgeSkipBUtton = NO;
-//        NSLog(@"animated");
-//    }
-//    NSLog(@"judge:%f", self.judgeLastPage);
-
-    
+        
+        self.pageBgFront.alpha = 1;
+        self.pageBgFront.image = [self bgForPage:page];
+        self.pageBgBack.alpha = 0;
+        self.pageBgBack.image = [self bgForPage:page+1];
+        
+        float backLayerAlpha = alphaValue;
+        float frontLayerAlpha = (1 - alphaValue);
+        
+        if (self.easeOutCrossDisolves) {
+            backLayerAlpha = easeOutValue(backLayerAlpha);
+            frontLayerAlpha = easeOutValue(frontLayerAlpha);
+        }
+        
+        self.pageBgBack.alpha = backLayerAlpha;
+        self.pageBgFront.alpha = frontLayerAlpha;
+        
+        if(self.titleView) {
+            if([self showTitleViewForPage:page] && [self showTitleViewForPage:page+1]) {
+                [self.titleView setAlpha:1.0];
+            } else if(![self showTitleViewForPage:page] && ![self showTitleViewForPage:page+1]) {
+                [self.titleView setAlpha:0.0];
+            } else if([self showTitleViewForPage:page]) {
+                [self.titleView setAlpha:(1 - alphaValue)];
+            } else {
+                [self.titleView setAlpha:alphaValue];
+            }
+        }
+        
+        //#pragma mark skipButtonAnimation
+        //
+        ////    if(self.skipButton && !self.judgeSkipBUtton) {
+        //////        if(!self.showSkipButtonOnlyOnLastPage) {
+        //////            [self.skipButton setAlpha:1.0];
+        //////        }
+        ////        if (page < (long)[self.pages count] -2) {
+        ////            self.judgeLastPage = 0.0;
+        ////        } else if (page == [self.pages count] -1) {
+        ////            self.judgeLastPage = skipBtnFinishAlpha - alphaValue;
+        ////        } else {
+        ////            self.judgeLastPage = alphaValue;
+        ////        }
+        ////        //NSLog(@"judegNO");
+        ////    }
+        //
+        //    if(self.skipButton) {
+        //        //        if(!self.showSkipButtonOnlyOnLastPage) {
+        //        //            [self.skipButton setAlpha:1.0];
+        //        //        }
+        //        if (page < (long)[self.pages count] -2) {
+        //            self.judgeLastPage = 0.0;
+        //        } else if (page == [self.pages count] -1) {
+        //            self.judgeLastPage = skipBtnFinishAlpha - alphaValue;
+        //        } else {
+        //            self.judgeLastPage = alphaValue;
+        //        }
+        //        //NSLog(@"judegNO");
+        //    }
+        //    else if (self.skipButton && self.judgeSkipBUtton) {
+        //        if(page < (long)[self.pages count] - 2) {
+        //            [self.skipButton setAlpha:0.0];
+        //        } else if(page == [self.pages count] - 1) {
+        //            //prevent the dissolve when last page out, don't want uncomment
+        //            [self.skipButton setAlpha:(skipBtnFinishAlpha - alphaValue)];
+        //        } else if (page == [self.pages count]) {
+        //            //[self.skipButton setAlpha:alphaValue];
+        //            NSLog(@"another!");
+        //        }
+        ////         else if (page <= [self.pages count] +1 && page > [self.pages count]) {
+        ////            [self.skipButton setAlpha:alphaValue];
+        ////            NSLog(@"newSET");
+        ////        }
+        //
+        //        else {
+        //            NSLog(@"ELSE");
+        //            [self.skipButton setAlpha:alphaValue];
+        //
+        //
+        //        }
+        //        //NSLog(@"judgeYES");
+        //    }
+        //    //skpButton is perfectly showed value is 0.996875
+        //    if (self.judgeLastPage > 0.95) {
+        //        //durationSec is under 2.4, then it split
+        //        [UIView animateWithDuration:1.3 delay:0.2
+        //                            options:UIViewAnimationOptionCurveEaseInOut
+        //                         animations:^{
+        //                             self.skipButton.alpha = skipBtnFinishAlpha;
+        //                         } completion:^(BOOL finished) {
+        //                             if (finished) {
+        //
+        //                                 NSLog(@"animate");
+        //                             }
+        //                             NSLog(@"%c",finished);
+        //                         }
+        //
+        //         ];
+        //        self.judgeSkipBUtton = YES;
+        //        self.skipButton.enabled = YES;
+        //        NSLog(@"it's the end");
+        //    } else if (self.judgeLastPage <= 0.95) {
+        //        self.judgeSkipBUtton = NO;
+        //        self.skipButton.enabled = NO;
+        //        NSLog(@"it's not the end");
+        //    }
+        //    if(self.skipButton && !self.judgeSkipBUtton) {
+        //        if(!self.showSkipButtonOnlyOnLastPage) {
+        //            [self.skipButton setAlpha:1.0];
+        //        } else if (page < (long)[self.pages count] -2) {
+        //            self.judgeLastPage = 0.0;
+        //        } else if (page == [self.pages count] -1) {
+        //            self.judgeLastPage = skipBtnFinishAlpha - alphaValue;
+        //        } else {
+        //            self.judgeLastPage = alphaValue;
+        //            //self.judgeLastPage = skipBtnFinishAlpha - alphaValue;
+        //        }
+        //        NSLog(@"judegNO");
+        //    }
+        //    if (self.skipButton) {
+        //        if(page < (long)[self.pages count] - 2) {
+        //            [self.skipButton setAlpha:0.0];
+        //        } else if(page == [self.pages count] - 1) {
+        //            //prevent the dissolve when last page out, don't want uncomment
+        //            [self.skipButton setAlpha:(skipBtnFinishAlpha - alphaValue)];
+        //        } else {
+        //            [self.skipButton setAlpha:alphaValue];
+        //            NSLog(@"else");
+        //        }
+        //        NSLog(@"judgeYES");
+        //        //self.judgeSkipBUtton = NO;
+        //    }
+        //    //skpButton is perfectly showed value is 0.996875
+        //    if (self.judgeLastPage > 0.995) {
+        //        //durationSec is under 2.4, then it split
+        //        [UIView animateWithDuration:2.4 delay:0.2
+        //                            options:UIViewAnimationOptionCurveEaseInOut
+        //                         animations:^{
+        //                             self.skipButton.alpha = skipBtnFinishAlpha;
+        //                         } completion:^(BOOL finished) {
+        //
+        //                             //self.judgeSkipBUtton = YES;
+        //                         }];
+        //        //self.skipButton.enabled = YES;
+        //        //self.judgeSkipBUtton = NO;
+        //        NSLog(@"animated");
+        //    }
+        //    NSLog(@"judge:%f", self.judgeLastPage);
+        
+        
 #pragma mark skipButtonAnimation
-    if(self.skipButton) {
-//        if(!self.showSkipButtonOnlyOnLastPage) {
-//            [self.skipButton setAlpha:1.0];
-//        }
-        if (page < (long)[self.pages count] -2) {
-            //self.judgeLastPage = 0.0;
-        } else if (page == [self.pages count] -1) {
-            //self.judgeLastPage = 1 - alphaValue;
-        }else {
-            NSLog(@"else");
-
-            self.judgeLastPage = alphaValue;
+        if(self.skipButton) {
+            //        if(!self.showSkipButtonOnlyOnLastPage) {
+            //            [self.skipButton setAlpha:1.0];
+            //        }
+            if (page < (long)[self.pages count] -2) {
+                //self.judgeLastPage = 0.0;
+            } else if (page == [self.pages count] -1) {
+                //self.judgeLastPage = 1 - alphaValue;
+            }else {
+                NSLog(@"else");
+                
+                self.judgeLastPage = alphaValue;
+            }
+        } if (self.skipButton && self.judgeSkipBUtton == YES) {
+            //self.skipButton.alpha = self.judgeLastPage;
+            NSLog(@"asdf");
+            if (self.skipButton.alpha == 0) {
+                self.judgeSkipBUtton = NO;
+                self.skipButton.enabled = NO;
+                NSLog(@"no");
+                
+            }
         }
-    } if (self.skipButton && self.judgeSkipBUtton == YES) {
-        //self.skipButton.alpha = self.judgeLastPage;
-        NSLog(@"asdf");
-        if (self.skipButton.alpha == 0) {
-            self.judgeSkipBUtton = NO;
-            self.skipButton.enabled = NO;
-            NSLog(@"no");
-
-        }
-    }
-
-    //skpButton is perfectly showed value is 0.996875
-    if (self.judgeLastPage >= 0.9955 && !self.judgeSkipBUtton && !self.judgeSkipButtonSeen) {
-        [UIView animateWithDuration:1.6 delay:0.4 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            self.skipButton.alpha = skipBtnFinishAlpha;
-        } completion:^(BOOL finished) {
-            if (finished) {
+        
+        //skpButton is perfectly showed value is 0.996875
+        if (self.judgeLastPage >= 0.9955 && !self.judgeSkipBUtton && !self.judgeSkipButtonSeen) {
+            [UIView animateWithDuration:1.6 delay:0.4 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                self.skipButton.alpha = skipBtnFinishAlpha;
+            } completion:^(BOOL finished) {
+                if (finished) {
+                    self.skipButton.enabled = YES;
+                    self.judgeSkipBUtton = YES;
+                    self.judgeSkipButtonSeen = YES;
+                    NSLog(@"finished");
+                }
+                
+            }];
+            NSLog(@"animate");
+        } else if (self.judgeSkipButtonSeen) {
+            //        self.skipButton.alpha = skipBtnFinishAlpha;
+            //        self.skipButton.enabled = YES;
+            //        self.judgeSkipBUtton = YES;
+            
+            self.skipButton.alpha = self.judgeLastPage;
+            //self.skipButton.alpha = alphaValue;
+            NSLog(@"DDagh");
+            if (self.judgeLastPage >= 0.9955) {
                 self.skipButton.enabled = YES;
                 self.judgeSkipBUtton = YES;
-                self.judgeSkipButtonSeen = YES;
-                NSLog(@"finished");
+                NSLog(@"it's locked");
             }
-
-        }];
-        NSLog(@"animate");
-    } else if (self.judgeSkipButtonSeen) {
-//        self.skipButton.alpha = skipBtnFinishAlpha;
-//        self.skipButton.enabled = YES;
-//        self.judgeSkipBUtton = YES;
-
-                       self.skipButton.alpha = self.judgeLastPage;
-        //self.skipButton.alpha = alphaValue;
-                NSLog(@"DDagh");
-        if (self.judgeLastPage >= 0.996) {
-            self.skipButton.enabled = YES;
-            self.judgeSkipBUtton = YES;
-            NSLog(@"it's locked");
+            
         }
+        NSLog(@"page:%lu", (long)page);
+        NSLog(@"juge:%f", self.skipButton.alpha);
+        NSLog(@"%d", self.judgeSkipBUtton);
 
     }
-            NSLog(@"page:%lu", (long)page);
-    NSLog(@"juge:%f", self.skipButton.alpha);
-    NSLog(@"%d", self.judgeSkipBUtton);
+    
+    //for NormalView(e.g. introduceView)
+    else {
+        NSLog(@"else %d", self.pages.count);
+        NSInteger page = (NSInteger)(offset);
+        float alphaValue = offset - page;
+        
+        if (alphaValue < 0 && self.visiblePageIndex == 0){
+            self.pageBgBack.image = nil;
+            self.pageBgFront.alpha = (1 + alphaValue);
+            return;
+        }
+        
+        self.pageBgFront.alpha = 1;
+        self.pageBgFront.image = [self bgForPage:page];
+        self.pageBgBack.alpha = 0;
+        self.pageBgBack.image = [self bgForPage:page+1];
+        
+        float backLayerAlpha = alphaValue;
+        float frontLayerAlpha = (1 - alphaValue);
+        
+        if (self.easeOutCrossDisolves) {
+            backLayerAlpha = easeOutValue(backLayerAlpha);
+            frontLayerAlpha = easeOutValue(frontLayerAlpha);
+        }
+        
+        self.pageBgBack.alpha = backLayerAlpha;
+        self.pageBgFront.alpha = frontLayerAlpha;
+        
+        if(self.titleView) {
+            if([self showTitleViewForPage:page] && [self showTitleViewForPage:page+1]) {
+                [self.titleView setAlpha:1.0];
+            } else if(![self showTitleViewForPage:page] && ![self showTitleViewForPage:page+1]) {
+                [self.titleView setAlpha:0.0];
+            } else if([self showTitleViewForPage:page]) {
+                [self.titleView setAlpha:(1 - alphaValue)];
+            } else {
+                [self.titleView setAlpha:alphaValue];
+            }
+        }
+        
+        if(self.skipButton) {
+            if(!self.showSkipButtonOnlyOnLastPage) {
+                [self.skipButton setAlpha:1.0];
+            } else if(page < (long)[self.pages count] - 2) {
+                [self.skipButton setAlpha:0.0];
+            } else if(page == [self.pages count] - 1) {
+                [self.skipButton setAlpha:(1 - alphaValue)];
+            } else {
+                [self.skipButton setAlpha:alphaValue];
+            }
+        }
+        
+
+    }
 }
 
 
@@ -692,7 +752,8 @@ float easeOutValue(float value) {
     _titleView.frame = CGRectMake((self.frame.size.width-_titleView.frame.size.width)/2, self.titleViewY, _titleView.frame.size.width, _titleView.frame.size.height);
     
     float offset = self.scrollView.contentOffset.x / self.scrollView.frame.size.width;
-    [self crossDissolveForOffset:offset];
+        [self crossDissolveForOffset:offset];
+
     
     [self addSubview:_titleView];
 }
@@ -718,8 +779,11 @@ float easeOutValue(float value) {
 //    
     [_skipButton removeFromSuperview];
     _skipButton = skipButton;
-    [_skipButton setFrame:CGRectMake((self.frame.size.width - _skipButton.frame.size.width)/2, (self.frame.size.height - _skipButton.frame.size.height)/2,
-                                     _skipButton.frame.size.width, _skipButton.frame.size.height)];
+//    [_skipButton setFrame:CGRectMake((self.frame.size.width - _skipButton.frame.size.width)/2,
+//                                     (self.frame.size.height - _skipButton.frame.size.height)/2 + 35,
+//                                     _skipButton.frame.size.width, _skipButton.frame.size.height)];
+//    [_skipButton setFrame:CGRectMake(skipButton.frame.origin.x, skipButton.frame.origin.y, skipButton.frame.size.width, skipButton.frame.size.height)];
+    NSLog(@"%f", _skipButton.frame.origin.y);
 
     [_skipButton addTarget:self action:@selector(skipIntroduction) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_skipButton];

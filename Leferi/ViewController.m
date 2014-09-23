@@ -76,9 +76,9 @@
     [skipBtn setAlpha:0.0f];
     [skipBtn setEnabled:NO];
     [skipBtn setBackgroundImage:[UIImage imageNamed:@"pageSkipBtn.png"] forState:UIControlStateNormal];
-    [skipBtn setFrame:CGRectMake(([[UIScreen mainScreen]bounds].size.width - self.proposeBtn.frame.size.width)/2,
-                                ([[UIScreen mainScreen]bounds].size.height - self.proposeBtn.frame.size.height)/2,
-                                 115, 115)];
+    [skipBtn setFrame:CGRectMake(([[UIScreen mainScreen]bounds].size.width - self.proposeBtn.frame.size.width)/2 - 62,
+                                ([[UIScreen mainScreen]bounds].size.height - self.proposeBtn.frame.size.height)/2 - 85,
+                                 124, 124)];
     [skipBtn addTarget:self action:@selector(proposeBtn:) forControlEvents:UIControlEventTouchUpInside];
     [introView setSkipButton:skipBtn];
 //    introView.skipButton = skipBtn;
