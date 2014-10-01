@@ -45,7 +45,6 @@
         page4.bgImage = [UIImage imageNamed:@"page4.png"];
         page4.titleIconView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"pageText4.png"]];
         page4.titleIconPositionY = 0;
-        NSLog(@"tall");
     } else {
         //iPhone 4S Screen
         page1.bgImage = [UIImage imageNamed:@"page1.png"];
@@ -63,24 +62,23 @@
         page4.bgImage = [UIImage imageNamed:@"page4.png"];
         page4.titleIconView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"pageText4.png"]];
         page4.titleIconPositionY = 0;
-        NSLog(@"short");
-
     }
 
 //    [self.proposeBtn setImage:[UIImage imageNamed:@"pageSkipBtn.png"] forState:UIControlStateNormal];
 //    
-    EAIntroView *introView = [[EAIntroView alloc]initWithFrame:self.introView.bounds
+    EAIntroView *introView = [[EAIntroView alloc]initWithFrame:self.view.bounds
                                                       andPages:@[page1, page2, page3, page4]];
 
     UIButton *skipBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [skipBtn setAlpha:0.0f];
     [skipBtn setEnabled:NO];
     [skipBtn setBackgroundImage:[UIImage imageNamed:@"pageSkipBtn.png"] forState:UIControlStateNormal];
-    [skipBtn setFrame:CGRectMake(([[UIScreen mainScreen]bounds].size.width - self.proposeBtn.frame.size.width)/2 - 62,
-                                ([[UIScreen mainScreen]bounds].size.height - self.proposeBtn.frame.size.height)/2 - 85,
+    [skipBtn setFrame:CGRectMake([[UIScreen mainScreen]bounds].size.width/2 - 62,
+                                 [[UIScreen mainScreen]bounds].size.height/2 - 86,
                                  124, 124)];
     [skipBtn addTarget:self action:@selector(proposeBtn:) forControlEvents:UIControlEventTouchUpInside];
     [introView setSkipButton:skipBtn];
+    [introView setSwipeToExit:NO];
 //    introView.skipButton = skipBtn;
 
 //    introView.skipButton = self.proposeBtn;
@@ -93,7 +91,7 @@
 //    [introView setShowSkipButtonOnlyOnLastPage:YES];
     //[introView hidePageControl];
     //[introView setDelegate:self];
-    [introView showInView:self.introView animateDuration:0.3];
+    [introView showInView:self.view animateDuration:0.3];
 }
 
 

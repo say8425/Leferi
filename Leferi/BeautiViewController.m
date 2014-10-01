@@ -18,7 +18,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
+    
+//    for (NSString* family in [UIFont familyNames])
+//    {
+//        NSLog(@"%@", family);
+//        
+//        for (NSString* name in [UIFont fontNamesForFamilyName: family])
+//        {
+//            NSLog(@"  %@", name);
+//        }
+//    }
+    
     self.tableView.sectionHeaderHeight = 64;
     
     //Navigation Setting
@@ -126,7 +137,7 @@
     
     UserHeaderTableViewCell *header = [tableView dequeueReusableCellWithIdentifier:@"InstaUserSectionHeader"];
     
-    //[header.userProfileBtn setFrame:CGRectMake(8, 8, 48, 48)];
+    [header setAlpha:1.0f];
     [header.userProfileBtn setClipsToBounds:YES];
     [header.userProfileBtn.layer setCornerRadius:header.userProfileBtn.bounds.size.width / 2.0];
     [header.userProfileBtn setImageForState:UIControlStateNormal withURL:self.media.user.profilePictureURL];
@@ -140,93 +151,151 @@
 
 #pragma mark - Setting of Table Cell
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    //return mediaArray.count;
-//    NSString *sectionTitle = [instaSectionTitle objectAtIndex:section];
-//    NSArray *sectionInstas = [instaDictionary objectForKey:sectionTitle];
-//    return [sectionInstas count];
     return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 44.0;
+    
     BeautiTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"instaCell" forIndexPath:indexPath];
     if (mediaArray.count >= mediaOrder + 1) {    //indexPath.row + 1
-        self.media = mediaArray[mediaOrder];    //indexPath.row
-
-        
-        
-        
-        [cell.instaImageView setImageWithURL:self.media.standardResolutionImageURL];
+        self.media = mediaArray[mediaOrder];     //indexPath.row
+        [cell.instaImageView setImageWithURL:self.media.standardResolutionImageURL ];
         [cell.likeCount setText:[NSString stringWithFormat:@"%ld", (long)self.media.likesCount]];
-        [cell.caption setText:self.media.caption.text];
-//        [self userComment];
+
+        //[cell.caption setText:self.media.caption.text];
+        [self userCaption:cell withCaption:self.media.caption.text];
+        [self userComment:cell];
+
+
     } else {
         [cell.instaImageView setImage:nil];
         NSLog(@"Sorry. Image is nil");
     } return cell;
 }
 
-//- (NSString *)userComment {
-//    NSString *tempComment;
-//    NSString *resultComment;
-//    NSError *error;
-//    
-//    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"#/S+" options:NSRegularExpressionCaseInsensitive error:&error];
-//    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]initWithString:tempComment];
-//    [regex enumerateMatchesInString:tempComment
-//                            options:0
-//                              range:NSMakeRange(0, [tempComment length])
-//                         usingBlock:^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) {
-//        NSString *hashTag = [tempComment substringWithRange:result.range];
-//        NSString *linkgContent = [NSString stringWithFormat:@"app-custom]
-//                         }];
-//    
-//    [[InstagramEngine sharedEngine] getCommentsOnMedia:self.media.Id withSuccess:^(NSArray *comments) {
-//        for (InstagramComment *comment in comments) {
-//            //[tempcomment stringByAppendingString:comment.user.username];
-//            
-//            NSLog(@"@%@: %@",comment.user.username, comment.text);
-//        }
-//    } failure:^(NSError *error) {
-//        NSLog(@"Could not load comments");
-//    }];
-//}
+- (void)userCaption:(BeautiTableViewCell *)cell withCaption:(NSString *)caption{
+    NSError *error = nil;
+    NSRegularExpression *mentRegex = [NSRegularExpression regularExpressionWithPattern:@"@\\S+" options:NSRegularExpressionCaseInsensitive error:&error];
+    NSRegularExpression *hashRegex = [NSRegularExpression regularExpressionWithPattern:@"#\\S+" options:NSRegularExpressionCaseInsensitive error:&error];
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//
-////    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"instaCell" forIndexPath:indexPath];
-////    if (!self.mediaCell) {
-////        
-////        self.mediaCell = [self.tableView dequeueReusableCellWithIdentifier:@"instaCell" forIndexPath:indexPath];
-////        NSLog(@";lj");
-////    }
-////    BeautiTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"instaCell" forIndexPath:indexPath];
-////    NSLog(@"asdf");
-////    if (mediaArray.count >= indexPath.row + 1) {    //indexPath.row + 1
-////        self.media = mediaArray[indexPath.row];    //indexPath.row         //Temp_deleted it.
-////        [self.cell.instaImageView setImageWithURL:self.media.standardResolutionImageURL];
-////        [self.cell.likeCount setText:[NSString stringWithFormat:@"%ld", (long)self.media.likesCount]];
-////        [self.cell.caption setText:self.media.caption.text];
-////        NSLog(@"mediaArray : %lu, mediaOrder : %ld", (unsigned long)mediaArray.count, (long)mediaOrder);
-////    } else {
-////        [self.cell.instaImageView setImage:nil];
-////        NSLog(@"Sorry. Image is nil");
-////    }
-//
-////    
-////    [self.mediaCell layoutIfNeeded];                 //FIT, but can not load with mediaOrder safely.
-////    CGFloat newHeight = [self.mediaCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
-////    CGFloat newHeight = 250;
-//    BeautiTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"instaCell"];
-//    [cell setNeedsLayout];
-//    [cell layoutIfNeeded];
-//    CGFloat newHeight = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
-//    return newHeight;
-//}
-//
-//- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    return 750;
-//}
+    NSAssert(error == nil, @"Regular expression was not valid");    
+    
+    UIFont *mentFont = [UIFont fontWithName:@"08SeoulNamsanL" size:18];
+    UIFont *hashFont = [UIFont fontWithName:@"08SeoulNamsanL" size:18];
+    
+    NSMutableAttributedString *styledCaptionString = [[NSMutableAttributedString alloc]initWithString:caption];
+    NSMutableParagraphStyle *paraString = [[NSParagraphStyle defaultParagraphStyle]mutableCopy];
+    [paraString setParagraphSpacing:15.0f];
+    [paraString setAlignment:NSTextAlignmentCenter];
+        
+    ///String Style
+    [styledCaptionString addAttributes:@{NSParagraphStyleAttributeName:paraString}
+                                 range:[caption rangeOfString:caption]];
+        
+    ///@Configure
+    [mentRegex enumerateMatchesInString:caption
+                                options:0
+                                  range:NSMakeRange(0, [caption length])
+                             usingBlock:^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) {
+                                 NSString *linkContent = [NSString stringWithFormat:@"app-custom-scheme://hashtag?tag=%@",
+                                                         [caption substringWithRange:result.range], nil];
+                                 [styledCaptionString addAttributes:@{//NSLinkAttributeName:[NSURL URLWithString:linkContent],
+                                                                      NSFontAttributeName:mentFont,
+                                                                      NSForegroundColorAttributeName:[UIColor colorWithRed:0.58 green:0.13 blue:0.54 alpha:1.0]}
+                                                              range:result.range];
+                             }
+    ];
+        
+    ///#Configure
+    [hashRegex enumerateMatchesInString:caption
+                                options:0
+                                  range:NSMakeRange(0, [caption length])
+                             usingBlock:^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) {
+                                     NSString *linkContent = [NSString stringWithFormat:@"app-custom-scheme://hashtag?tag=%@",
+                                                             [caption substringWithRange:result.range], nil];
+                                     [styledCaptionString addAttributes:@{//NSLinkAttributeName:[NSURL URLWithString:linkContent],
+                                                                          NSFontAttributeName:hashFont,
+                                                                          NSForegroundColorAttributeName:[UIColor colorWithRed:0.18 green:0.13 blue:0.54 alpha:1.0]}
+                                                                  range:result.range];
+                             }
+    ]; [cell.caption setAttributedText:styledCaptionString];
+}
 
+
+- (void)userComment:(BeautiTableViewCell *)cell {
+    NSError *error = nil;
+    NSRegularExpression *hashRegex = [NSRegularExpression regularExpressionWithPattern:@"#\\S+" options:NSRegularExpressionCaseInsensitive error:&error];
+    NSRegularExpression *mentRegex = [NSRegularExpression regularExpressionWithPattern:@"@\\S+" options:NSRegularExpressionCaseInsensitive error:&error];
+    NSAssert(error == nil, @"Regular expression was not valid");
+    
+    [[InstagramEngine sharedEngine] getCommentsOnMedia:self.media.Id withSuccess:^(NSArray *comments) {
+        NSString *commentString;
+        NSMutableArray *resultArray = [[NSMutableArray alloc]initWithCapacity:50];
+        UIFont *mentFont = [UIFont fontWithName:@"08SeoulNamsanL" size:18];
+        UIFont *hashFont = [UIFont fontWithName:@"08SeoulNamsanL" size:18];
+        
+        for (InstagramComment *comment in comments) {
+            commentString = [NSString stringWithFormat:@"%@ %@\n", comment.user.username, comment.text];
+            
+            NSMutableAttributedString *styledCommentString = [[NSMutableAttributedString alloc]initWithString:commentString];
+            NSMutableParagraphStyle *paraString = [[NSParagraphStyle defaultParagraphStyle]mutableCopy];
+            [paraString setParagraphSpacing:15.0f];
+            [paraString setAlignment:NSTextAlignmentCenter];
+            
+            ///Commenting User Name
+            [styledCommentString setAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithRed:0.88 green:0.13 blue:0.54 alpha:1.0],
+                                                 NSFontAttributeName:[UIFont fontWithName:@"08SeoulNamsanB" size:18]}
+                                         range:[commentString rangeOfString:comment.user.username]];
+            [styledCommentString addAttributes:@{NSParagraphStyleAttributeName:paraString}
+                                         range:[commentString rangeOfString:commentString]];
+            
+            ///@Configure
+            [mentRegex enumerateMatchesInString:commentString
+                                        options:0
+                                          range:NSMakeRange(0, [commentString length])
+                                     usingBlock:^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) {
+                                         NSString *linkContent = [NSString stringWithFormat:@"app-custom-scheme://hashtag?tag=%@",
+                                                                 [commentString substringWithRange:result.range], nil];
+                                         [styledCommentString addAttributes:@{//NSLinkAttributeName:[NSURL URLWithString:linkContent],
+                                                                              NSFontAttributeName:mentFont,
+                                                                              NSForegroundColorAttributeName:[UIColor colorWithRed:0.58 green:0.13 blue:0.54 alpha:1.0]}
+                                                                      range:result.range];
+                                     }
+             ];
+            
+            ///#Configure
+            [hashRegex enumerateMatchesInString:commentString
+                                    options:0
+                                      range:NSMakeRange(0, [commentString length])
+                                 usingBlock:^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) {
+                                     NSString *linkContent = [NSString stringWithFormat:@"app-custom-scheme://hashtag?tag=%@",
+                                                             [commentString substringWithRange:result.range], nil];
+                                     [styledCommentString addAttributes:@{//NSLinkAttributeName:[NSURL URLWithString:linkContent],
+                                                                          NSFontAttributeName:hashFont,
+                                                                          NSForegroundColorAttributeName:[UIColor colorWithRed:0.18 green:0.13 blue:0.54 alpha:1.0]}
+                                                                  range:result.range];
+                                 }
+             ];
+            
+            [resultArray addObject:styledCommentString];
+        }
+        
+        NSMutableAttributedString *resultString = [[NSMutableAttributedString alloc]init];
+        NSLog(@"arrayCount:%lu", (unsigned long)resultArray.count);
+        
+        for (int i = 0; i < resultArray.count; ++i) {
+            [resultString appendAttributedString:[resultArray objectAtIndex:i]];
+        }
+        
+        NSLog(@"result:%@",resultString);
+        [cell.comment setAttributedText:resultString];
+        
+    } failure:^(NSError *error) {
+        NSLog(@"Could not load comments");
+    }];
+}
 
 #pragma mark - Rounding Button
 - (UIButton *)makingRoundButtonWithImage:(UIImage *)buttonImage buttonForX:(NSInteger)buttonX buttonForY:(NSInteger)buttonY buttonForSize:(NSInteger)buttonSize {

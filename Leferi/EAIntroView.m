@@ -51,7 +51,7 @@
 #pragma mark - Private
 
 - (void)applyDefaultsToSelfDuringInitializationWithframe:(CGRect)frame pages:(NSArray *)pagesArray {
-    self.swipeToExit = NO;
+    self.swipeToExit = YES;
     self.easeOutCrossDisolves = YES;
     self.hideOffscreenPages = YES;
     self.titleViewY = 20.0f;
@@ -753,6 +753,7 @@ float easeOutValue(float value) {
     
     float offset = self.scrollView.contentOffset.x / self.scrollView.frame.size.width;
         [self crossDissolveForOffset:offset];
+    NSLog(@"%f",offset);
 
     
     [self addSubview:_titleView];

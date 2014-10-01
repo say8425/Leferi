@@ -80,14 +80,49 @@
         page6.titleIconView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"introduceText1.png"]];
         page6.titleIconPositionY = 0;
         
-        EAIntroView *introduceView = [[EAIntroView alloc]initWithFrame:self.view.bounds andPages:@[page1, page2, page3, page4, page5, page6]];
-        [introduceView showInView:self.view animateDuration:0.3];
     }
+//    EAIntroView *introView = [[EAIntroView alloc]initWithFrame:self.introduceView.bounds];
+    EAIntroView *introView = [[EAIntroView alloc]initWithFrame:self.introduceView.bounds
+                                                          andPages:@[page1, page2, page3, page4, page5, page6]];
+    
+    UIButton *skipBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc]initWithString:@"소개 그만보기"];
+    [attributeString addAttribute:NSUnderlineStyleAttributeName
+                            value:[NSNumber numberWithInt:1]
+                            range:(NSRange) {0, [attributeString length]}];
+    UILabel *titleSkipBtn = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 150, 20)];
+//    [titleSkipBtn setBackgroundColor:[UIColor whiteColor]];
+    //[titleSkipBtn setFont:[UIFont fontWithName:@"Chalkboard" size:14]];
+    [titleSkipBtn setFont:[UIFont systemFontOfSize:14]];
+//    titleSkipBtn.text=@"소개 그만보기";
+    [titleSkipBtn setTextColor:[UIColor whiteColor]];
+    [titleSkipBtn setAttributedText:[attributeString copy]];
+    [skipBtn addSubview:titleSkipBtn];
+    [skipBtn setAlpha:0.0f];
+    //[skipBtn setTitle:@"소개 그만보기" forState:UIControlStateNormal];
+    //[skipBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+
+    //[skipBtn setBackgroundImage:[UIImage imageNamed:@"pageSkipBtn.png"] forState:UIControlStateNormal];
+    [skipBtn setFrame:CGRectMake([[UIScreen mainScreen]bounds].size.width/2 + 74,
+                                 [[UIScreen mainScreen]bounds].size.height/2 - 240,
+                                 150, 20)];
+    [skipBtn addTarget:self action:@selector(skipBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [introView setSkipButton:skipBtn];
+    [introView setSwipeToExit:NO];
+    [introView setShowSkipButtonOnlyOnLastPage:NO];
+//    [introView setPages:@[page1, page2, page3, page4, page5, page6]];
+//    [introView setDelegate:self];
+    [introView showInView:self.introduceView animateDuration:0.3];
+
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)skipBtn:(id)sender {
+    [self performSegueWithIdentifier:@"backPopup" sender:sender];
 }
 
 /*

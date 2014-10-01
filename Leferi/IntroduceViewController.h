@@ -11,9 +11,8 @@
 #import "RTScreenPhysicalSize.h"
 #import "Config.h"
 
-@interface IntroduceViewController : UIViewController
+@interface IntroduceViewController : UIViewController <EAIntroDelegate>
 
-@property (strong, nonatomic) IBOutlet UIView *view;
-@property (strong, nonatomic) IBOutlet UIButton *skipBtn;
+@property (strong, nonatomic) IBOutlet UIView *introduceView;
 
 @end

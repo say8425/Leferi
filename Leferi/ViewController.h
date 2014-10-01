@@ -15,7 +15,7 @@
 
 @interface ViewController : UIViewController <EAIntroDelegate>
 
-@property (weak, nonatomic) IBOutlet EAIntroView *introView;
+@property (strong, nonatomic) IBOutlet UIView *view;
 @property (weak, nonatomic) IBOutlet UIButton *proposeBtn;
 
 @end
