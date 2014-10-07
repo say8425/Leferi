@@ -85,6 +85,7 @@
 }
 
 - (IBAction)back:(id)sender {
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

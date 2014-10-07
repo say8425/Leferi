@@ -11,7 +11,9 @@
 #import "XCDYouTubeKit.h"
 #import "UIViewController+Rotation.h"
 
-@interface NewMenuViewController : UIViewController
+@interface NewMenuViewController : UIViewController {
+    UIView *statusBarView;
+}
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UIImageView *titleImageView;

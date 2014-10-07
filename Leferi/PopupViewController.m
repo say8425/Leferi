@@ -18,11 +18,19 @@
     [super viewDidLoad];
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+    [self.homeBtn addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
+    [self.backView addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)back:(id)sender {
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*

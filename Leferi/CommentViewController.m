@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //NavigationBar setting
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"proposeTitle.png"] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"proposeTitleBar.png"] forBarMetrics:UIBarMetricsDefault];
     [self.navigationItem setLeftBarButtonItem:[UIBarButtonItem customBackButtonWithImage:[UIImage imageNamed:@"backButton.png"] Target:self action:@selector(back:)]];
 
     //WebView setting - Facebook Comment

@@ -15,7 +15,11 @@
     
     // StatusBar setting
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+    statusBarView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 22)];
+    statusBarView.backgroundColor  =  [UIColor blackColor];
+    [self.view addSubview:statusBarView];
+
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     // NaviBar setting
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"titleBar.png"] forBarMetrics:UIBarMetricsDefault];
@@ -41,6 +45,11 @@
 //    [self.navigationController removeGestureRecognizersFromViewForScreenEdgeGestureWithPanelViewController:slideOutPanelController];
 //    //[self showNavBarAnimated:NO];
 //}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+    
+}
 
 
 - (IBAction)btn2YouTube:(id)sender {

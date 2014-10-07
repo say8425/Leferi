@@ -122,7 +122,8 @@
 }
 
 - (void)skipBtn:(id)sender {
-    [self performSegueWithIdentifier:@"backPopup" sender:sender];
+        [self dismissViewControllerAnimated:YES completion:nil];
+//    [self performSegueWithIdentifier:@"backPopup" sender:sender];
 }
 
 /*

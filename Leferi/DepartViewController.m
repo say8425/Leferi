@@ -65,6 +65,7 @@
 
 - (IBAction)back:(id)sender {
     //[self.navigationController popViewControllerAnimated:YES];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [self dismissViewControllerAnimated:YES completion:nil];
 //    [[self parentViewController] dismissModalViewControllerAnimated:YES];
 //    self.parentViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;

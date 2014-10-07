@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+//    font string search
 //    for (NSString* family in [UIFont familyNames])
 //    {
 //        NSLog(@"%@", family);
@@ -39,7 +39,7 @@
     [self.navigationItem setLeftBarButtonItem:[UIBarButtonItem customBackButtonWithImage:[UIImage imageNamed:@"backButton.png"] Target:self action:@selector(back:)]];
     
     //TitleImage Setting
-    [self.headImageView setImage:[UIImage imageNamed:@"headImage@2x.png"]];
+    [self.headImageView setImage:[UIImage imageNamed:@"instaHeadImage.png"]];
     
     //NavigationBar Fade out
     if ([self.navigationController.navigationBar respondsToSelector:@selector(setBarTintColor:)]) {
@@ -54,7 +54,7 @@
 #pragma mark - InstaGram Setting Func
 ///Basic parameter and Method init
 - (void)loadMedia {
-    tagString = @"Chanelbeauty";
+    tagString = @"Chanel";
     mediaArray = [NSMutableArray new];
     InstagramEngine *sharedEngine = [InstagramEngine sharedEngine];
     
@@ -81,7 +81,7 @@
 ///Get media from Tag.
 - (void)getMediaFromTag:(NSString *)tag {
     [mediaArray removeAllObjects];
-    [[InstagramEngine sharedEngine] getMediaWithTagName:tag count:15 maxId:self.currentPaginationInfo.nextMaxId withSuccess:^(NSArray *media, InstagramPaginationInfo *paginationInfo) {
+    [[InstagramEngine sharedEngine] getMediaWithTagName:tag count:20 maxId:self.currentPaginationInfo.nextMaxId withSuccess:^(NSArray *media, InstagramPaginationInfo *paginationInfo) {
         self.currentPaginationInfo = paginationInfo;
         [mediaArray addObjectsFromArray:media];
         [self.tableView reloadData];
@@ -108,7 +108,8 @@
 - (NSString *)returnCreatedDate:(NSDate *)createdDate {
     NSString *newStringDate;
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"yyyy. MM. dd h:mm a"];
+    //[dateFormat setDateFormat:@"yyyy. MM. dd h:mm a"];
+    [dateFormat setDateFormat:@"yyyy. MM. dd"];
     newStringDate = [dateFormat stringFromDate:[NSDate new]];
     
     return newStringDate;
@@ -160,15 +161,12 @@
     
     BeautiTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"instaCell" forIndexPath:indexPath];
     if (mediaArray.count >= mediaOrder + 1) {    //indexPath.row + 1
+        NSLog(@"index:%d", mediaOrder);
         self.media = mediaArray[mediaOrder];     //indexPath.row
         [cell.instaImageView setImageWithURL:self.media.standardResolutionImageURL ];
         [cell.likeCount setText:[NSString stringWithFormat:@"%ld", (long)self.media.likesCount]];
-
-        //[cell.caption setText:self.media.caption.text];
         [self userCaption:cell withCaption:self.media.caption.text];
         [self userComment:cell];
-
-
     } else {
         [cell.instaImageView setImage:nil];
         NSLog(@"Sorry. Image is nil");
@@ -278,12 +276,9 @@
                                                                   range:result.range];
                                  }
              ];
-            
             [resultArray addObject:styledCommentString];
         }
-        
         NSMutableAttributedString *resultString = [[NSMutableAttributedString alloc]init];
-        NSLog(@"arrayCount:%lu", (unsigned long)resultArray.count);
         
         for (int i = 0; i < resultArray.count; ++i) {
             [resultString appendAttributedString:[resultArray objectAtIndex:i]];
@@ -355,7 +350,7 @@
 }
 
 - (IBAction)back:(id)sender {
-    //[self.navigationController popViewControllerAnimated:YES];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

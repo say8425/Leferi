@@ -19,7 +19,7 @@
     
     //NavigationBar setting
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"proposeTitleBar.png"] forBarMetrics:UIBarMetricsDefault];
     [self.navigationItem setLeftBarButtonItem:[UIBarButtonItem customBackButtonWithImage:[UIImage imageNamed:@"backButton.png"] Target:self action:@selector(back:)]];
   
@@ -49,6 +49,7 @@
 }
 
 - (IBAction)back:(id)sender {
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [self dismissViewControllerAnimated:YES completion:nil];
     
     /* Deleting */

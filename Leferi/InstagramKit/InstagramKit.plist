@@ -5,7 +5,7 @@
 	<key>InstagramKitAppClientId</key>
 	<string>62df179dcbf84becb1664b07456fb830</string>
 	<key>InstagramKitAppRedirectURL</key>
-	<string>http://leferi.com</string>
+	<string>http://121.78.85.56/auth/instagram</string>
 	<key>InstagramKitBaseUrl</key>
 	<string>https://api.instagram.com/v1/</string>
 	<key>InstagramKitAuthorizationUrl</key>

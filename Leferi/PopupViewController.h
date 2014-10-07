@@ -11,5 +11,7 @@
 @interface PopupViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UIView *view;
+@property (strong, nonatomic) IBOutlet UIButton *homeBtn;
+@property (strong, nonatomic) IBOutlet UIButton *backView;
 
 @end
