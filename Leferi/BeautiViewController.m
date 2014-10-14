@@ -6,6 +6,7 @@
 //  Copyright (c) 2014년 northPenguin. All rights reserved.
 //
 
+#define pinkColor colorWithRed:0.88 green:0.13 blue:0.54 alpha:1.0
 #import "BeautiViewController.h"
 
 @interface BeautiViewController ()
@@ -19,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    font string search
+    //font string search
 //    for (NSString* family in [UIFont familyNames])
 //    {
 //        NSLog(@"%@", family);
@@ -29,8 +30,6 @@
 //            NSLog(@"  %@", name);
 //        }
 //    }
-    
-    self.tableView.sectionHeaderHeight = 64;
     
     //Navigation Setting
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
@@ -47,14 +46,39 @@
     } [self.navigationController.navigationBar setTranslucent:NO];
     [self followScrollView:self.tableView withDelay:65];
     
+//    //Setting Header Height
+    [self.tableView setEstimatedRowHeight:600.0];
+    [self.tableView setRowHeight:UITableViewAutomaticDimension];
+    //self.tableView.estimatedRowHeight = 500.0;
+    //    self.tableView.rowHeight = UITableViewAutomaticDimension;
+
+    
     //Instagram Load
     [self loadMedia];
 }
 
+- (void)viewDidLayoutSubviews {
+    [self.tableView layoutIfNeeded];
+    [self.view layoutIfNeeded];
+//    let testSize : CGSize = CGSizeMake(self.tableView.bounds.size.width, CGFloat.max)
+//    let tableHeight : CGFloat = self.tableView.sizeThatFits(testSize).height
+//    self.tableViewHeightConstraint.constant = tableHeight
+//    
+//    self.view.layoutIfNeeded()
+//    
+//    self.containerViewHeightConstraint.constant = tableHeight + 350 // this is the fixed height of the image
+//    
+//    self.view.layoutIfNeeded()
+//    
+//    self.tableView.reloadData()
+
+}
+
+
 #pragma mark - InstaGram Setting Func
 ///Basic parameter and Method init
 - (void)loadMedia {
-    tagString = @"Chanel";
+    tagString = @"샤넬립스틱";
     mediaArray = [NSMutableArray new];
     InstagramEngine *sharedEngine = [InstagramEngine sharedEngine];
     
@@ -123,9 +147,9 @@
 //}
 
 ///Height of header
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForFooterInSection:(NSInteger)section {
-    return 0;
-}
+//- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForFooterInSection:(NSInteger)section {
+//    return 0;
+//}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return mediaArray.count;
@@ -133,7 +157,7 @@
 
 ///Setting order of media
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    mediaOrder = section;
+    //mediaOrder = section;
     self.media = mediaArray[section];
     
     UserHeaderTableViewCell *header = [tableView dequeueReusableCellWithIdentifier:@"InstaUserSectionHeader"];
@@ -156,32 +180,41 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 44.0;
+    self.media = mediaArray[indexPath.section];
     
     BeautiTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"instaCell" forIndexPath:indexPath];
-    if (mediaArray.count >= mediaOrder + 1) {    //indexPath.row + 1
-        NSLog(@"index:%d", mediaOrder);
-        self.media = mediaArray[mediaOrder];     //indexPath.row
-        [cell.instaImageView setImageWithURL:self.media.standardResolutionImageURL ];
-        [cell.likeCount setText:[NSString stringWithFormat:@"%ld", (long)self.media.likesCount]];
+    if (mediaArray.count >= indexPath.section + 1) {    //indexPath.row + 1
+        NSLog(@"index:%ld", (long)indexPath.section );
+        [cell.instaImageView setImage:[UIImage imageNamed:@"instaLoading.png"]];
+        [cell.instaImageView setImageWithURL:self.media.standardResolutionImageURL];
+        [cell.likeBtn setTitle:[NSString stringWithFormat:@" %ld", (long)self.media.likesCount] forState:UIControlStateNormal];
         [self userCaption:cell withCaption:self.media.caption.text];
         [self userComment:cell];
+//        NSLog(@"comment:%@", cell.comment);
+        NSLog(@"rowHeight:%f", self.tableView.rowHeight);
     } else {
         [cell.instaImageView setImage:nil];
         NSLog(@"Sorry. Image is nil");
-    } return cell;
+    }
+    return cell;
 }
 
+///Settging Caption in Instagram
 - (void)userCaption:(BeautiTableViewCell *)cell withCaption:(NSString *)caption{
+    if (caption == nil) {
+//        [cell.caption setHidden:YES];
+        [cell.caption setText:@""];
+        //[cell.caption sizeToFit];
+        return;
+    }
     NSError *error = nil;
     NSRegularExpression *mentRegex = [NSRegularExpression regularExpressionWithPattern:@"@\\S+" options:NSRegularExpressionCaseInsensitive error:&error];
     NSRegularExpression *hashRegex = [NSRegularExpression regularExpressionWithPattern:@"#\\S+" options:NSRegularExpressionCaseInsensitive error:&error];
 
     NSAssert(error == nil, @"Regular expression was not valid");    
     
-    UIFont *mentFont = [UIFont fontWithName:@"08SeoulNamsanL" size:18];
-    UIFont *hashFont = [UIFont fontWithName:@"08SeoulNamsanL" size:18];
+    UIFont *mentFont = [UIFont fontWithName:@"NanumGothicOTFLight" size:15];
+    UIFont *hashFont = [UIFont fontWithName:@"NanumGothicOTFLight" size:15];
     
     NSMutableAttributedString *styledCaptionString = [[NSMutableAttributedString alloc]initWithString:caption];
     NSMutableParagraphStyle *paraString = [[NSParagraphStyle defaultParagraphStyle]mutableCopy];
@@ -201,7 +234,7 @@
                                                          [caption substringWithRange:result.range], nil];
                                  [styledCaptionString addAttributes:@{//NSLinkAttributeName:[NSURL URLWithString:linkContent],
                                                                       NSFontAttributeName:mentFont,
-                                                                      NSForegroundColorAttributeName:[UIColor colorWithRed:0.58 green:0.13 blue:0.54 alpha:1.0]}
+                                                                      NSForegroundColorAttributeName:[UIColor pinkColor]}
                                                               range:result.range];
                              }
     ];
@@ -215,13 +248,16 @@
                                                              [caption substringWithRange:result.range], nil];
                                      [styledCaptionString addAttributes:@{//NSLinkAttributeName:[NSURL URLWithString:linkContent],
                                                                           NSFontAttributeName:hashFont,
-                                                                          NSForegroundColorAttributeName:[UIColor colorWithRed:0.18 green:0.13 blue:0.54 alpha:1.0]}
+                                                                          NSForegroundColorAttributeName:[UIColor pinkColor]}
                                                                   range:result.range];
                              }
     ]; [cell.caption setAttributedText:styledCaptionString];
+//    [cell.caption sizeToFit];
+//    [cell.caption setNumberOfLines:0];
 }
 
 
+///Setting Comment in Instagram
 - (void)userComment:(BeautiTableViewCell *)cell {
     NSError *error = nil;
     NSRegularExpression *hashRegex = [NSRegularExpression regularExpressionWithPattern:@"#\\S+" options:NSRegularExpressionCaseInsensitive error:&error];
@@ -229,10 +265,19 @@
     NSAssert(error == nil, @"Regular expression was not valid");
     
     [[InstagramEngine sharedEngine] getCommentsOnMedia:self.media.Id withSuccess:^(NSArray *comments) {
+        //if comments is nil, then return
+        if (comments.count == 0) {
+            
+//            [cell.comment removeFromSuperview];
+//            [cell.comment setHidden:YES];
+            [cell.comment setText:@""];
+            //[cell.caption sizeToFit];
+            return;
+        }
         NSString *commentString;
         NSMutableArray *resultArray = [[NSMutableArray alloc]initWithCapacity:50];
-        UIFont *mentFont = [UIFont fontWithName:@"08SeoulNamsanL" size:18];
-        UIFont *hashFont = [UIFont fontWithName:@"08SeoulNamsanL" size:18];
+        UIFont *mentFont = [UIFont fontWithName:@"NanumGothicOTFLight" size:14];
+        UIFont *hashFont = [UIFont fontWithName:@"NanumGothicOTFLight" size:14];
         
         for (InstagramComment *comment in comments) {
             commentString = [NSString stringWithFormat:@"%@ %@\n", comment.user.username, comment.text];
@@ -243,8 +288,8 @@
             [paraString setAlignment:NSTextAlignmentCenter];
             
             ///Commenting User Name
-            [styledCommentString setAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithRed:0.88 green:0.13 blue:0.54 alpha:1.0],
-                                                 NSFontAttributeName:[UIFont fontWithName:@"08SeoulNamsanB" size:18]}
+            [styledCommentString setAttributes:@{NSForegroundColorAttributeName:[UIColor pinkColor],
+                                                 NSFontAttributeName:[UIFont fontWithName:@"NanumGothicOTFBold" size:14]}
                                          range:[commentString rangeOfString:comment.user.username]];
             [styledCommentString addAttributes:@{NSParagraphStyleAttributeName:paraString}
                                          range:[commentString rangeOfString:commentString]];
@@ -258,7 +303,7 @@
                                                                  [commentString substringWithRange:result.range], nil];
                                          [styledCommentString addAttributes:@{//NSLinkAttributeName:[NSURL URLWithString:linkContent],
                                                                               NSFontAttributeName:mentFont,
-                                                                              NSForegroundColorAttributeName:[UIColor colorWithRed:0.58 green:0.13 blue:0.54 alpha:1.0]}
+                                                                              NSForegroundColorAttributeName:[UIColor pinkColor]}
                                                                       range:result.range];
                                      }
              ];
@@ -272,7 +317,7 @@
                                                              [commentString substringWithRange:result.range], nil];
                                      [styledCommentString addAttributes:@{//NSLinkAttributeName:[NSURL URLWithString:linkContent],
                                                                           NSFontAttributeName:hashFont,
-                                                                          NSForegroundColorAttributeName:[UIColor colorWithRed:0.18 green:0.13 blue:0.54 alpha:1.0]}
+                                                                          NSForegroundColorAttributeName:[UIColor pinkColor]}
                                                                   range:result.range];
                                  }
              ];
@@ -283,9 +328,11 @@
         for (int i = 0; i < resultArray.count; ++i) {
             [resultString appendAttributedString:[resultArray objectAtIndex:i]];
         }
-        
-        NSLog(@"result:%@",resultString);
+//resultString
+//        NSLog(@"result:%@",resultString);
         [cell.comment setAttributedText:resultString];
+//        [cell.comment sizeToFit];
+//        [cell.comment setNumberOfLines:0];
         
     } failure:^(NSError *error) {
         NSLog(@"Could not load comments");

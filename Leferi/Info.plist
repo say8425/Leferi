@@ -35,6 +35,8 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
+		<string>NanumGothicLight.otf</string>
+		<string>NanumGothicBold.otf</string>
 		<string>SeoulNamsanB.otf</string>
 		<string>SeoulNamsanL.otf</string>
 	</array>

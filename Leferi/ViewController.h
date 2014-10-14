@@ -8,14 +8,23 @@
 
 #import <UIKit/UIKit.h>
 #import "EAIntroView.h"
+#import "AFNetworking.h"
 #import "SMPageControl.h"
 #import "RTScreenPhysicalSize.h"
 #import "UIViewController+Rotation.h"
+#import "UIImageView+AFNetworking.h"
 #import "Config.h"
 
 @interface ViewController : UIViewController <EAIntroDelegate>
 
+@property (strong, nonatomic) NSDictionary *pathDictionary;
 @property (strong, nonatomic) IBOutlet UIView *view;
-@property (weak, nonatomic) IBOutlet UIButton *proposeBtn;
+@property (strong, nonatomic) UIView *loadingView;
+@property (strong, nonatomic) UIActivityIndicatorView *actiView;
+@property (strong, nonatomic) NSString *testPath;
+@property (strong, nonatomic) EAIntroPage *page1;
+@property (strong, nonatomic) EAIntroPage *page2;
+@property (strong, nonatomic) EAIntroPage *page3;
+@property (strong, nonatomic) EAIntroPage *page4;
 
 @end

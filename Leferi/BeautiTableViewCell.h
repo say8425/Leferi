@@ -11,8 +11,7 @@
 @interface BeautiTableViewCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UIImageView *instaImageView;
-@property (weak, nonatomic) IBOutlet UIButton *likeBtn;
-@property (weak, nonatomic) IBOutlet UILabel *likeCount;
+@property (strong, nonatomic) IBOutlet UIButton *likeBtn;
 @property (weak, nonatomic) IBOutlet UILabel *caption;
 @property (weak, nonatomic) IBOutlet UIButton *commentBtn;
 @property (weak, nonatomic) IBOutlet UILabel *comment;

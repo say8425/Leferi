@@ -46,11 +46,6 @@
 //    //[self showNavBarAnimated:NO];
 //}
 
-- (void)viewDidDisappear:(BOOL)animated {
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-    
-}
-
 
 - (IBAction)btn2YouTube:(id)sender {
     NSString *Lancome = @"vFgD5-X7_zQ";
