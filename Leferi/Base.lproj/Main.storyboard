@@ -7,6 +7,7 @@
     <customFonts key="customFonts">
         <mutableArray key="NanumGothicLight.otf">
             <string>NanumGothicOTFLight</string>
+            <string>NanumGothicOTFLight</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -163,10 +164,17 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="TyC-2Q-WRO">
                                 <rect key="frame" x="142" y="343" width="37" height="37"/>
                             </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="서버에 접속하고 있어요" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02D-0m-0LS">
+                                <rect key="frame" x="44" y="476" width="233" height="21"/>
+                                <fontDescription key="fontDescription" name="NanumGothicOTFLight" family="NanumGothicOTF" pointSize="13"/>
+                                <color key="textColor" red="0.69805476639999997" green="0.69805476639999997" blue="0.69805476639999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="connectStatus" destination="02D-0m-0LS" id="tts-JZ-peh"/>
                         <segue destination="DxM-8z-rMo" kind="modal" identifier="enterIntro" modalTransitionStyle="crossDissolve" id="fOE-Ti-NQb"/>
                     </connections>
                 </viewController>

@@ -12,6 +12,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSDictionary *pathPlist = [NSDictionary dictionaryWithContentsOfFile:@"/tmp/path.plist"];
     
     // StatusBar setting
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
@@ -21,12 +22,9 @@
 
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
-    // NaviBar setting
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"titleBar.png"] forBarMetrics:UIBarMetricsDefault];
-    
     // MenuBtn setting
-    [self.titleImageView setImage:[UIImage imageNamed:@"titleImage.png"]];
-    [self.letterImageView setImage:[UIImage imageNamed:@"letterImage.png"]];
+    [self.titleImageView setImage:[UIImage imageNamed:@"letter1.png"]];
+    [self.letterImageView setImage:[UIImage imageNamed:@"letter2.png"]];
     [self.menuBtn1 setImage:[UIImage imageNamed:@"story1.png"] forState:UIControlStateNormal];
     [self.menuBtn2 setImage:[UIImage imageNamed:@"story2.png"] forState:UIControlStateNormal];
     [self.menuBtn3 setImage:[UIImage imageNamed:@"story3.png"] forState:UIControlStateNormal];
@@ -34,6 +32,8 @@
     
     //NaviBar fadeOut
     //[self.shyNavBarManager setScrollView:self.scrollView];
+
+    NSLog(@"letter1:%@", [pathPlist objectForKey:@"letter1"]);
 }
 
 // SlideMenu fadeOut subFunc

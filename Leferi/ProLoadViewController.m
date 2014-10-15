@@ -7,8 +7,13 @@
 //
 
 #import "ProLoadViewController.h"
-#define ENTERING_INTRO_JUG 9
+#define ENTERING_INTRO_JUG 22
 #define INTRO_VIEW_PATH @"http://121.78.85.56/mobileApp/iOS/currentVersion/images/IntroView/"
+#define MENU_VIEW_PATH @"http://121.78.85.56/mobileApp/iOS/currentVersion/images/MenuView/"
+#define PROPOSE_VIEW_PATH @"http://121.78.85.56/mobileApp/iOS/currentVersion/images/ProposeView/"
+#define REVIEW_VIEW_PATH @"http://121.78.85.56/mobileApp/iOS/currentVersion/images/ReviewView/"
+#define BEAUTIGRAM_PATH @"http://121.78.85.56/mobileApp/iOS/currentVersion/images/BeautiGram/"
+#define JSON_PATH @"http://121.78.85.56/mobileApp/iOS/currentVersion/JSON/"
 
 @interface ProLoadViewController ()
 
@@ -25,61 +30,57 @@
 - (void)makeIntroPage {
     NSOperationQueue *operationQueue = [NSOperationQueue new];
     
-    for (int fileNum = 1; fileNum <= 4; ++fileNum) {
-        NSString *urlPath = INTRO_VIEW_PATH;
-        NSString *filePath = [NSString stringWithFormat:@"%@page%d@2x.png", urlPath, fileNum];
-        NSLog(@"URL:%@",filePath);
-        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:filePath]];
-        
-        AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *path = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"page%d@2x.png",fileNum]];
-        operation.outputStream = [NSOutputStream outputStreamToFileAtPath:path append:NO];
-        
-        
-        [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-            
-            NSLog(@"Successfully downloaded file to %@", path);
-            [pathDictionary setObject:path forKey:[NSString stringWithFormat:@"page%d", fileNum]];
-            if (pathDictionary.count == ENTERING_INTRO_JUG) {
-                [self showIntroView];
-                NSLog(@"loadingView is dis1");
-            }
-            
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"Error: %@", error);
-        }];
-        
-        [operation setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
-            float percentDone = ((float)((int)totalBytesRead) / (float)((int)totalBytesExpectedToRead));
-            NSLog(@"%ddone:%f", fileNum, percentDone);
-        }];
-        [operationQueue addOperation:operation];
-    }
+#pragma IntroView Bak
+    [operationQueue addOperations:[self conditionOperationPath:INTRO_VIEW_PATH withFileName:@"page" withStatusText:@"시작화면을 그리고 있어요" withForCount:4] waitUntilFinished:NO];
     
-    for (int fileNum = 1; fileNum <= 4; ++fileNum) {
-        NSString *urlPath = INTRO_VIEW_PATH;
-        NSString *filePath = [NSString stringWithFormat:@"%@pageText%d@2x.png", urlPath, fileNum];
-        NSLog(@"URL:%@",filePath);
-        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:filePath]];
-        
-        AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *path = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"pageText%d@2x.png",fileNum]];
-        operation.outputStream = [NSOutputStream outputStreamToFileAtPath:path append:NO];
-        
-        
-        [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-            [pathDictionary setObject:path forKey:[NSString stringWithFormat:@"pageText%d", fileNum]];
-            NSLog(@"Successfully downloaded file to %@", path);
-            
-            if (pathDictionary.count == ENTERING_INTRO_JUG) {
-                [self showIntroView];
-                NSLog(@"loadingView is dis2");
-            }
-            
+#pragma mark - IntroView Text
+    [operationQueue addOperations:[self conditionOperationPath:INTRO_VIEW_PATH withFileName:@"pageText" withStatusText:@"시작화면 문구가 준비되었어요" withForCount:4] waitUntilFinished:NO];
+    
+#pragma mark - IntroView SkipButton
+    [operationQueue addOperation:[self singOperationPath:INTRO_VIEW_PATH withFileName:@"pageSkipBtn" withStatusText:@"터치버튼을 준비하고 있어요"]];
+    
+#pragma mark - MenuView Menu
+    [operationQueue addOperations:[self conditionOperationPath:MENU_VIEW_PATH withFileName:@"story" withStatusText:@"메뉴를 배치하고 있어요" withForCount:4] waitUntilFinished:NO];
+    
+#pragma mark - MenuView Letter
+    [operationQueue addOperations:[self conditionOperationPath:MENU_VIEW_PATH withFileName:@"letter" withStatusText:@"초대장을 받아오고 있어요" withForCount:2] waitUntilFinished:NO];
 
+#pragma mark - ProposeView Image
+    [operationQueue addOperation:[self singOperationPath:PROPOSE_VIEW_PATH withFileName:@"proposeStory" withStatusText:@"초대장을 작성하고 있어요"]];
+    
+#pragma mark - ReviewView List
+    [operationQueue addOperations:[self conditionOperationPath:REVIEW_VIEW_PATH withFileName:@"blogMenu" withStatusText:@"블로거들의 리뷰를 받아오고 있어요" withForCount:4] waitUntilFinished:NO];
+    
+#pragma mark - Beautigram HeadImage
+    [operationQueue addOperation:[self singOperationPath:BEAUTIGRAM_PATH withFileName:@"instaHead" withStatusText:@"인스타그램에 접속중이에요"]];
+
+#pragma mark - JSON
+    [operationQueue addOperation:[self jsonOperationPath]];
+
+}
+
+///Work on multiple operation. Put in count numbers.
+- (NSMutableArray *)conditionOperationPath:(NSString *)urlPath withFileName:(NSString *)fileName withStatusText:(NSString *)statusText withForCount:(NSInteger)count {
+    NSMutableArray* operationArray = [[NSMutableArray alloc]initWithCapacity:count];
+    for (int fileNum = 1; fileNum <= count; ++fileNum) {
+        NSString *filePath = [NSString stringWithFormat:@"%@%@%d@2x.png", urlPath, fileName, fileNum];
+        NSLog(@"URL:%@",filePath);
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:filePath]];
+        
+        AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *path = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@%d@2x.png",fileName, fileNum]];
+        operation.outputStream = [NSOutputStream outputStreamToFileAtPath:path append:NO];
+        
+        
+        [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [pathDictionary setObject:path forKey:[NSString stringWithFormat:@"%@%d", fileName, fileNum]];
+            [self.connectStatus setText:statusText];
+            NSLog(@"Successfully downloaded file to %@", path);
             
+            if (pathDictionary.count == ENTERING_INTRO_JUG) {
+                [self showIntroView];
+            }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error: %@", error);
         }];
@@ -88,22 +89,26 @@
             float percentDone = ((float)((int)totalBytesRead) / (float)((int)totalBytesExpectedToRead));
             NSLog(@"%ddone:%f", fileNum, percentDone);
         }];
-        [operationQueue addOperation:operation];
+        [operationArray addObject:operation];
     }
-    
-    NSString *urlPath = INTRO_VIEW_PATH;
-    NSString *filePath = [NSString stringWithFormat:@"%@pageSkipBtn@2x.png", urlPath];
+    return operationArray;
+}
+
+///Work on singleOperation.
+- (AFHTTPRequestOperation *)singOperationPath:(NSString *)urlPath withFileName:(NSString *)fileName withStatusText:(NSString *)statusText {
+    NSString *filePath = [NSString stringWithFormat:@"%@%@@2x.png", urlPath, fileName];
     NSLog(@"URL:%@",filePath);
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:filePath]];
     
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *path = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"pageSkipBtn@2x.png"];
+    NSString *path = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@@2x.png", fileName]];
     operation.outputStream = [NSOutputStream outputStreamToFileAtPath:path append:NO];
-
+    
     
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [pathDictionary setObject:path forKey:@"pageSkipBtn"];
+        [pathDictionary setObject:path forKey:[NSString stringWithFormat:@"%@",fileName]];
+        [self.connectStatus setText:statusText];
         NSLog(@"Successfully downloaded file to %@", path);
         if (pathDictionary.count == ENTERING_INTRO_JUG) {
             [self showIntroView];
@@ -118,14 +123,46 @@
         float percentDone = ((float)((int)totalBytesRead) / (float)((int)totalBytesExpectedToRead));
         NSLog(@"done:%f", percentDone);
     }];
-    [operationQueue addOperation:operation];
-    
-    
-    
+    return operation;
 }
 
+///Getting JSON File. (read-only)
+- (AFHTTPRequestOperation *)jsonOperationPath {
+    NSString *urlPath = JSON_PATH;
+    NSString *filePath = [NSString stringWithFormat:@"%@config.json", urlPath];
+    NSLog(@"URL:%@",filePath);
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:filePath]];
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *path = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"config.json"];
+    operation.outputStream = [NSOutputStream outputStreamToFileAtPath:path append:NO];
+    
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [pathDictionary setObject:path forKey:[NSString stringWithFormat:@"config"]];
+        NSLog(@"Successfully downloaded file to %@", path);
+        if (pathDictionary.count == ENTERING_INTRO_JUG) {
+            [self showIntroView];
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+    
+    [operation setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
+        float percentDone = ((float)((int)totalBytesRead) / (float)((int)totalBytesExpectedToRead));
+        NSLog(@"done:%f", percentDone);
+    }];
+    
+    return operation;
+}
+
+///Entering introView
 - (void)showIntroView {
     NSLog(@"entering Intro");
+    [pathDictionary writeToFile:@"/tmp/path.plist" atomically:YES];
+    NSLog(@"%@", [NSDictionary dictionaryWithContentsOfFile:@"/tmp/path.plist"]);
     [self performSegueWithIdentifier:@"enterIntro" sender:nil];
 }
 
@@ -141,15 +178,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

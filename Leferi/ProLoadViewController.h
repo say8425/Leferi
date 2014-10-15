@@ -15,4 +15,6 @@
     NSMutableDictionary *pathDictionary;
 }
 
+@property (strong, nonatomic) IBOutlet UILabel *connectStatus;
+
 @end

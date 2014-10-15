@@ -19,8 +19,8 @@
 		2416B9C519CC42BF00F222A7 /* popIntroHig@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2416B9BE19CC42BF00F222A7 /* popIntroHig@2x.png */; };
 		2416B9C619CC42BF00F222A7 /* popSettingBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2416B9BF19CC42BF00F222A7 /* popSettingBtn@2x.png */; };
 		24292D511990EE4F00A56CF3 /* DummyNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24292D501990EE4F00A56CF3 /* DummyNavViewController.m */; };
-		242FC51F19C80C9000BB1832 /* letterImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 242FC51D19C80C9000BB1832 /* letterImage@2x.png */; };
-		242FC52019C80C9000BB1832 /* titleImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 242FC51E19C80C9000BB1832 /* titleImage@2x.png */; };
+		242FC51F19C80C9000BB1832 /* letter2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 242FC51D19C80C9000BB1832 /* letter2@2x.png */; };
+		242FC52019C80C9000BB1832 /* letter1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 242FC51E19C80C9000BB1832 /* letter1@2x.png */; };
 		242FC52B19C81F0300BB1832 /* page2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 242FC52219C81F0300BB1832 /* page2@2x.png */; };
 		242FC52C19C81F0300BB1832 /* page3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 242FC52319C81F0300BB1832 /* page3@2x.png */; };
 		242FC52D19C81F0300BB1832 /* page4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 242FC52419C81F0300BB1832 /* page4@2x.png */; };
@@ -169,8 +169,8 @@
 		2416B9BF19CC42BF00F222A7 /* popSettingBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popSettingBtn@2x.png"; sourceTree = "<group>"; };
 		24292D4F1990EE4F00A56CF3 /* DummyNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyNavViewController.h; sourceTree = "<group>"; };
 		24292D501990EE4F00A56CF3 /* DummyNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyNavViewController.m; sourceTree = "<group>"; };
-		242FC51D19C80C9000BB1832 /* letterImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "letterImage@2x.png"; sourceTree = "<group>"; };
-		242FC51E19C80C9000BB1832 /* titleImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "titleImage@2x.png"; sourceTree = "<group>"; };
+		242FC51D19C80C9000BB1832 /* letter2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "letter2@2x.png"; sourceTree = "<group>"; };
+		242FC51E19C80C9000BB1832 /* letter1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "letter1@2x.png"; sourceTree = "<group>"; };
 		242FC52219C81F0300BB1832 /* page2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page2@2x.png"; sourceTree = "<group>"; };
 		242FC52319C81F0300BB1832 /* page3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page3@2x.png"; sourceTree = "<group>"; };
 		242FC52419C81F0300BB1832 /* page4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page4@2x.png"; sourceTree = "<group>"; };
@@ -759,8 +759,8 @@
 		246BFC56198F7AF8002B4456 /* MenuView */ = {
 			isa = PBXGroup;
 			children = (
-				242FC51D19C80C9000BB1832 /* letterImage@2x.png */,
-				242FC51E19C80C9000BB1832 /* titleImage@2x.png */,
+				242FC51E19C80C9000BB1832 /* letter1@2x.png */,
+				242FC51D19C80C9000BB1832 /* letter2@2x.png */,
 				24FF958719C6FC5900240170 /* story1@2x.png */,
 				24FF958819C6FC5900240170 /* story2@2x.png */,
 				24FF958919C6FC5900240170 /* story3@2x.png */,
@@ -1074,7 +1074,7 @@
 				242FC52D19C81F0300BB1832 /* page4@2x.png in Resources */,
 				24F609A119D2E5E2004DE601 /* backButtonDS@2x.png in Resources */,
 				2416B9C019CC42BF00F222A7 /* popHistoryBtn@2x.png in Resources */,
-				242FC52019C80C9000BB1832 /* titleImage@2x.png in Resources */,
+				242FC52019C80C9000BB1832 /* letter1@2x.png in Resources */,
 				2437348F19B5F3A100B6A0DB /* instaLikeBtn@2x.png in Resources */,
 				2416B9C219CC42BF00F222A7 /* popHomeBtn@2x.png in Resources */,
 				242FC52E19C81F0300BB1832 /* pageText1@2x.png in Resources */,
@@ -1109,7 +1109,7 @@
 				2437349319B5F57000B6A0DB /* instaComtBtn@2x.png in Resources */,
 				242FC54019C85DA400BB1832 /* propose story title.png in Resources */,
 				242FC52B19C81F0300BB1832 /* page2@2x.png in Resources */,
-				242FC51F19C80C9000BB1832 /* letterImage@2x.png in Resources */,
+				242FC51F19C80C9000BB1832 /* letter2@2x.png in Resources */,
 				24FF958D19C6FC5900240170 /* story3@2x.png in Resources */,
 				24FF958E19C6FC5900240170 /* story4@2x.png in Resources */,
 				242FC54619C85FEC00BB1832 /* backButton@2x.png in Resources */,
