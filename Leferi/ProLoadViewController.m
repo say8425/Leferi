@@ -13,7 +13,7 @@
 #define PROPOSE_VIEW_PATH @"http://121.78.85.56/mobileApp/iOS/currentVersion/images/ProposeView/"
 #define REVIEW_VIEW_PATH @"http://121.78.85.56/mobileApp/iOS/currentVersion/images/ReviewView/"
 #define BEAUTIGRAM_PATH @"http://121.78.85.56/mobileApp/iOS/currentVersion/images/BeautiGram/"
-#define JSON_PATH @"http://121.78.85.56/mobileApp/iOS/currentVersion/JSON/"
+#define PLIST_PATH @"http://121.78.85.56/mobileApp/iOS/currentVersion/plist/"
 
 @interface ProLoadViewController ()
 
@@ -27,38 +27,56 @@
     [self makeIntroPage];
 }
 
+#pragma mark - Download Cache
+///Download cache from server
 - (void)makeIntroPage {
     NSOperationQueue *operationQueue = [NSOperationQueue new];
     
-#pragma IntroView Bak
+//IntroView Bak
     [operationQueue addOperations:[self conditionOperationPath:INTRO_VIEW_PATH withFileName:@"page" withStatusText:@"시작화면을 그리고 있어요" withForCount:4] waitUntilFinished:NO];
     
-#pragma mark - IntroView Text
+//IntroView Text
     [operationQueue addOperations:[self conditionOperationPath:INTRO_VIEW_PATH withFileName:@"pageText" withStatusText:@"시작화면 문구가 준비되었어요" withForCount:4] waitUntilFinished:NO];
     
-#pragma mark - IntroView SkipButton
+//IntroView SkipButton
     [operationQueue addOperation:[self singOperationPath:INTRO_VIEW_PATH withFileName:@"pageSkipBtn" withStatusText:@"터치버튼을 준비하고 있어요"]];
     
-#pragma mark - MenuView Menu
+//MenuView Menu
     [operationQueue addOperations:[self conditionOperationPath:MENU_VIEW_PATH withFileName:@"story" withStatusText:@"메뉴를 배치하고 있어요" withForCount:4] waitUntilFinished:NO];
     
-#pragma mark - MenuView Letter
+//MenuView Letter
     [operationQueue addOperations:[self conditionOperationPath:MENU_VIEW_PATH withFileName:@"letter" withStatusText:@"초대장을 받아오고 있어요" withForCount:2] waitUntilFinished:NO];
 
-#pragma mark - ProposeView Image
+//ProposeView Image
     [operationQueue addOperation:[self singOperationPath:PROPOSE_VIEW_PATH withFileName:@"proposeStory" withStatusText:@"초대장을 작성하고 있어요"]];
     
-#pragma mark - ReviewView List
+//ReviewView List
     [operationQueue addOperations:[self conditionOperationPath:REVIEW_VIEW_PATH withFileName:@"blogMenu" withStatusText:@"블로거들의 리뷰를 받아오고 있어요" withForCount:4] waitUntilFinished:NO];
     
-#pragma mark - Beautigram HeadImage
+//Beautigram HeadImage
     [operationQueue addOperation:[self singOperationPath:BEAUTIGRAM_PATH withFileName:@"instaHead" withStatusText:@"인스타그램에 접속중이에요"]];
 
-#pragma mark - JSON
-    [operationQueue addOperation:[self jsonOperationPath]];
-
+//Plist
+    [operationQueue addOperation:[self plistOperationPath]];
 }
 
+#pragma mark - Entering Intro
+- (void)showIntroView {
+    NSLog(@"entering Intro");
+    [pathDictionary writeToFile:[ETCLibrary getPath] atomically:YES];
+    NSLog(@"%@", [NSDictionary dictionaryWithContentsOfFile:[ETCLibrary getPath]]);
+    [self performSegueWithIdentifier:@"enterIntro" sender:nil];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier]isEqualToString:@"enterIntro"]) {
+        ViewController *viewController = [segue destinationViewController];
+        viewController.pathDictionary = pathDictionary;
+    }
+    
+}
+
+#pragma mark - Downloading Func
 ///Work on multiple operation. Put in count numbers.
 - (NSMutableArray *)conditionOperationPath:(NSString *)urlPath withFileName:(NSString *)fileName withStatusText:(NSString *)statusText withForCount:(NSInteger)count {
     NSMutableArray* operationArray = [[NSMutableArray alloc]initWithCapacity:count];
@@ -81,6 +99,7 @@
             if (pathDictionary.count == ENTERING_INTRO_JUG) {
                 [self showIntroView];
             }
+            
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error: %@", error);
         }];
@@ -105,7 +124,6 @@
     NSString *path = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@@2x.png", fileName]];
     operation.outputStream = [NSOutputStream outputStreamToFileAtPath:path append:NO];
     
-    
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         [pathDictionary setObject:path forKey:[NSString stringWithFormat:@"%@",fileName]];
         [self.connectStatus setText:statusText];
@@ -127,15 +145,15 @@
 }
 
 ///Getting JSON File. (read-only)
-- (AFHTTPRequestOperation *)jsonOperationPath {
-    NSString *urlPath = JSON_PATH;
-    NSString *filePath = [NSString stringWithFormat:@"%@config.json", urlPath];
+- (AFHTTPRequestOperation *)plistOperationPath {
+    NSString *urlPath = PLIST_PATH;
+    NSString *filePath = [NSString stringWithFormat:@"%@config.plist", urlPath];
     NSLog(@"URL:%@",filePath);
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:filePath]];
     
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *path = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"config.json"];
+    NSString *path = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"config.plist"];
     operation.outputStream = [NSOutputStream outputStreamToFileAtPath:path append:NO];
     
     
@@ -145,35 +163,18 @@
         if (pathDictionary.count == ENTERING_INTRO_JUG) {
             [self showIntroView];
         }
-        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
+        NSLog(@"Error:%@", error);
     }];
     
     [operation setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
         float percentDone = ((float)((int)totalBytesRead) / (float)((int)totalBytesExpectedToRead));
         NSLog(@"done:%f", percentDone);
     }];
-    
     return operation;
 }
 
-///Entering introView
-- (void)showIntroView {
-    NSLog(@"entering Intro");
-    [pathDictionary writeToFile:@"/tmp/path.plist" atomically:YES];
-    NSLog(@"%@", [NSDictionary dictionaryWithContentsOfFile:@"/tmp/path.plist"]);
-    [self performSegueWithIdentifier:@"enterIntro" sender:nil];
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier]isEqualToString:@"enterIntro"]) {
-        ViewController *viewController = [segue destinationViewController];
-        viewController.pathDictionary = pathDictionary;
-    }
-
-}
-
+#pragma mark -
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

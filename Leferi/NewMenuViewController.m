@@ -12,7 +12,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSDictionary *pathPlist = [NSDictionary dictionaryWithContentsOfFile:@"/tmp/path.plist"];
+    NSDictionary *pathPlist = [NSDictionary dictionaryWithContentsOfFile:[ETCLibrary getPath]];
     
     // StatusBar setting
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
@@ -23,29 +23,14 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     // MenuBtn setting
-    [self.titleImageView setImage:[UIImage imageNamed:@"letter1.png"]];
-    [self.letterImageView setImage:[UIImage imageNamed:@"letter2.png"]];
-    [self.menuBtn1 setImage:[UIImage imageNamed:@"story1.png"] forState:UIControlStateNormal];
-    [self.menuBtn2 setImage:[UIImage imageNamed:@"story2.png"] forState:UIControlStateNormal];
-    [self.menuBtn3 setImage:[UIImage imageNamed:@"story3.png"] forState:UIControlStateNormal];
-    [self.menuBtn4 setImage:[UIImage imageNamed:@"story4.png"] forState:UIControlStateNormal];
+    [self.titleImageView setImage:[UIImage imageNamed:[pathPlist objectForKey:@"letter1"]]];
+    [self.letterImageView setImage:[UIImage imageNamed:[pathPlist objectForKey:@"letter2"]]];
+    [self.menuBtn1 setImage:[UIImage imageNamed:[pathPlist objectForKey:@"story1"]] forState:UIControlStateNormal];
+    [self.menuBtn2 setImage:[UIImage imageNamed:[pathPlist objectForKey:@"story2"]] forState:UIControlStateNormal];
+    [self.menuBtn3 setImage:[UIImage imageNamed:[pathPlist objectForKey:@"story3"]] forState:UIControlStateNormal];
+    [self.menuBtn4 setImage:[UIImage imageNamed:[pathPlist objectForKey:@"story4"]] forState:UIControlStateNormal];
     
-    //NaviBar fadeOut
-    //[self.shyNavBarManager setScrollView:self.scrollView];
-
-    NSLog(@"letter1:%@", [pathPlist objectForKey:@"letter1"]);
 }
-
-// SlideMenu fadeOut subFunc
-//- (void)viewWillAppear:(BOOL)animated {
-//    [self.navigationController addGestureRecognizerToViewForScreenEdgeGestureWithPanelViewController:slideOutPanelController withDirection:MCPanelAnimationDirectionLeft];
-//}
-//
-//- (void)viewWillDisappear:(BOOL)animated {
-//    [self.navigationController removeGestureRecognizersFromViewForScreenEdgeGestureWithPanelViewController:slideOutPanelController];
-//    //[self showNavBarAnimated:NO];
-//}
-
 
 - (IBAction)btn2YouTube:(id)sender {
     NSString *Lancome = @"vFgD5-X7_zQ";

@@ -18,6 +18,11 @@
 @property (strong, nonatomic) NSString *urlString;
 @property (strong, nonatomic) UIView *loadingView;
 @property (strong, nonatomic) UIActivityIndicatorView *actiView;
+@property (strong, nonatomic) IBOutlet UIButton *webBack;
+@property (strong, nonatomic) IBOutlet UIButton *webForward;
+@property (strong, nonatomic) IBOutlet UIButton *webReload;
 
+- (IBAction)webBack:(id)sender;
+- (IBAction)webForward:(id)sender;
 
 @end

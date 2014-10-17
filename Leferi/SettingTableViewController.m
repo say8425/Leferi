@@ -42,6 +42,7 @@
 }
 
 - (IBAction)back:(id)sender {
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

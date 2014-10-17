@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MCPanelViewController.h"
+#import "ETCLibrary.h"
 #import "XCDYouTubeKit.h"
 #import "UIViewController+Rotation.h"
 

@@ -16,24 +16,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // StatusBar setting
+
+    //StatusBar Setting
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     
-    // NaviBar Setting
+    //NaviBar Setting
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"reviewTitleBar.png"] forBarMetrics:UIBarMetricsDefault];
     [self.navigationItem setLeftBarButtonItem:[UIBarButtonItem customBackButtonWithImage:[UIImage imageNamed:@"backButton.png"] Target:self action:@selector(back:)]];
     
-    //TableCell Setting
-    self.reviewImageArray = @[@"blogMenu1.png",
-                              @"blogMenu2.png",
-                              @"blogMenu3.png",
-                              @"blogMenu4.png"];
+    //Cache Loading
+    NSDictionary *pathPlist = [NSDictionary dictionaryWithContentsOfFile:[ETCLibrary getPath]];
+    NSDictionary *urlDict = [NSDictionary dictionaryWithContentsOfFile:[pathPlist objectForKey:@"config"]];
     
-    self.reviewAddressArray = @[@"http://seohalim21.blog.me/140195077056",
-                                @"http://serviceapi.nmv.naver.com/flash/convertIframeTag.nhn?vid=46F001D0BEA2B7DAC8571D40F0807E2F6632&outKey=V1277a0bba0d0ef67329d9c7c5f97885bfb1d930164907b0feda19c7c5f97885bfb1d&width=720&height=438",
-                                @"http://www.cyworld.com/gheyseo/8152782",
-                                @"http://blog.naver.com/godbwithuu/220079143390"];
+    //TableCell Setting
+    self.reviewImageArray = @[[pathPlist objectForKey:@"blogMenu1"],
+                              [pathPlist objectForKey:@"blogMenu2"],
+                              [pathPlist objectForKey:@"blogMenu3"],
+                              [pathPlist objectForKey:@"blogMenu4"]];
+    
+    self.reviewAddressArray = @[[urlDict objectForKey:@"blogURL1"],
+                                [urlDict objectForKey:@"blogURL2"],
+                                [urlDict objectForKey:@"blogURL3"],
+                                [urlDict objectForKey:@"blogURL4"]];
     
     //NavigationBar Fade out
     if ([self.navigationController.navigationBar respondsToSelector:@selector(setBarTintColor:)]) {

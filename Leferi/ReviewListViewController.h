@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "XCDYouTubeKit.h"
+#import "ETCLibrary.h"
 #import "ReviewViewCell.h"
 #import "ReviewViewController.h"
 #import "UIViewController+ScrollingNavbar.h"
+#import "NSDictionary+JSONCategories.h"
 #import "UIBarButtonItem+Image.h"
 
 @interface ReviewListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>

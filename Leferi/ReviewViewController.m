@@ -10,20 +10,9 @@
 
 @implementation ReviewViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"reviewTitleBar.png"] forBarMetrics:UIBarMetricsDefault];
-    //[[UINavigationBar appearance] setBackIndicatorImage:[UIImage imageNamed:@"backButton.png"]];
-    //[[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:[UIImage imageNamed:@"backButton.png"]];
-
     [self.navigationItem setLeftBarButtonItem:[UIBarButtonItem customBackButtonWithImage:[UIImage imageNamed:@"backButton.png"] Target:self action:@selector(back:)]];
     
     //WebView setting
@@ -51,16 +40,39 @@
         [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
     } [self.navigationController.navigationBar setTranslucent:NO];
     [self followScrollView:self.webView];
-
 }
 
-#pragma mark - Web loading function
+#pragma mark - Web loading&stopping function
 - (void)webViewDidStartLoad:(UIWebView*)webView {
+    [self.webReload removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
+    [self.webReload addTarget:self action:@selector(webStop:) forControlEvents:UIControlEventTouchUpInside];
+    [self.webReload setImage:[UIImage imageNamed:@"webStop.png"] forState:UIControlStateNormal];
     [self.loadingView setHidden:NO];
+    NSLog(@"webStart");
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    [self.loadingView removeFromSuperview];
+    if ([webView canGoBack]) {
+        [self.webBack setEnabled:YES];
+        [self.webBack setAlpha:1.0f];
+    } else {
+        [self.webBack setEnabled:NO];
+        [self.webBack setAlpha:0.5f];
+    }
+    
+    if ([webView canGoForward]) {
+        [self.webForward setEnabled:YES];
+        [self.webForward setAlpha:1.0f];
+    } else {
+        [self.webForward setEnabled:NO];
+        [self.webForward setAlpha:0.5f];
+    }
+    
+    [self.webReload removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
+    [self.webReload addTarget:self action:@selector(webReload:) forControlEvents:UIControlEventTouchUpInside];
+    [self.webReload setImage:[UIImage imageNamed:@"webReload.png"] forState:UIControlStateNormal];
+    [self.loadingView setHidden:YES];
+    NSLog(@"webFinish");
 }
 
 -  (IBAction)back:(id)sender {
@@ -74,17 +86,41 @@
     //[self stopFollowingScrollView];
 }
 
+- (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView{
+    // This enables the user to scroll down the navbar by tapping the status bar.
+    [self showNavbar];
+    return YES;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView
-{
-    // This enables the user to scroll down the navbar by tapping the status bar.
-    [self showNavbar];
-    
-    return YES;
+#pragma mark - WebButton Action
+- (IBAction)webBack:(id)sender {
+    [self.webView goBack];
 }
 
+- (IBAction)webForward:(id)sender {
+    [self.webView goForward];
+}
+
+- (IBAction)webReload:(id)sender {
+    [self.webView reload];
+    [self.webReload removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
+    [self.webReload addTarget:self action:@selector(webStop:) forControlEvents:UIControlEventTouchUpInside];
+    [self.webReload setImage:[UIImage imageNamed:@"webStop.png"] forState:UIControlStateNormal];
+    [self.loadingView setHidden:NO];
+    NSLog(@"webReload");
+}
+
+- (IBAction)webStop:(id)sender {
+    [self.webView stopLoading];
+    [self.webReload removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
+    [self.webReload addTarget:self action:@selector(webReload:) forControlEvents:UIControlEventTouchUpInside];
+    [self.webReload setImage:[UIImage imageNamed:@"webReload.png"] forState:UIControlStateNormal];
+    [self.loadingView setHidden:YES];
+    NSLog(@"webStop");
+}
 @end

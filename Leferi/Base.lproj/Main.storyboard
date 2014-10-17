@@ -158,24 +158,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="launchImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="fe6-75-yF6">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="fe6-75-yF6">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="TyC-2Q-WRO">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="TyC-2Q-WRO">
                                 <rect key="frame" x="142" y="343" width="37" height="37"/>
                             </activityIndicatorView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="서버에 접속하고 있어요" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02D-0m-0LS">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="서버에 접속하고 있어요" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02D-0m-0LS">
                                 <rect key="frame" x="44" y="476" width="233" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="L0o-MI-D75"/>
+                                    <constraint firstAttribute="width" constant="233" id="vkt-ya-IG1"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="NanumGothicOTFLight" family="NanumGothicOTF" pointSize="13"/>
                                 <color key="textColor" red="0.69805476639999997" green="0.69805476639999997" blue="0.69805476639999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YAK-HP-cVC" firstAttribute="top" secondItem="fe6-75-yF6" secondAttribute="bottom" id="4GD-Iv-mB9"/>
+                            <constraint firstItem="YAK-HP-cVC" firstAttribute="top" secondItem="TyC-2Q-WRO" secondAttribute="bottom" constant="188" id="5zR-ty-Fll"/>
+                            <constraint firstItem="fe6-75-yF6" firstAttribute="top" secondItem="HfC-9M-SmL" secondAttribute="top" id="782-H3-yzj"/>
+                            <constraint firstItem="YAK-HP-cVC" firstAttribute="top" secondItem="02D-0m-0LS" secondAttribute="bottom" constant="71" id="Y7w-0S-xPp"/>
+                            <constraint firstAttribute="centerX" secondItem="02D-0m-0LS" secondAttribute="centerX" constant="-0.5" id="ZYN-p2-Vmz"/>
+                            <constraint firstAttribute="trailing" secondItem="fe6-75-yF6" secondAttribute="trailing" id="g4j-9B-zu1"/>
+                            <constraint firstAttribute="centerX" secondItem="TyC-2Q-WRO" secondAttribute="centerX" constant="-0.5" id="z2N-6H-K5d"/>
+                            <constraint firstItem="fe6-75-yF6" firstAttribute="leading" secondItem="HfC-9M-SmL" secondAttribute="leading" id="zNu-0f-llE"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="connectStatus" destination="02D-0m-0LS" id="tts-JZ-peh"/>
-                        <segue destination="DxM-8z-rMo" kind="modal" identifier="enterIntro" modalTransitionStyle="crossDissolve" id="fOE-Ti-NQb"/>
+                        <segue destination="DxM-8z-rMo" kind="custom" identifier="enterIntro" customClass="DissolveSegue" id="fOE-Ti-NQb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Or6-JV-oqt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -197,7 +211,7 @@
                     </view>
                     <connections>
                         <outlet property="view" destination="N24-6I-nU2" id="qz3-pE-6t4"/>
-                        <segue destination="8jq-CF-trM" kind="custom" identifier="enterMenu" customClass="TransAlphaSegue" id="kgr-6m-9MY"/>
+                        <segue destination="8jq-CF-trM" kind="custom" identifier="enterMenu" customClass="DissolveSegue" id="kgr-6m-9MY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xye-in-uRG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -244,7 +258,7 @@
                                 </state>
                                 <state key="highlighted" image="popIntroHig.png"/>
                                 <connections>
-                                    <segue destination="K9n-Xe-1re" kind="modal" id="oey-qA-bPY"/>
+                                    <segue destination="K9n-Xe-1re" kind="custom" customClass="DissolveSegue" id="oey-qA-bPY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="viA-Cd-uOA" userLabel="Propose History">
@@ -268,7 +282,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="CL9-BA-nKo" kind="modal" id="kgP-16-ZEW"/>
+                                    <segue destination="CL9-BA-nKo" kind="custom" customClass="DissolveSegue" id="kgP-16-ZEW"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -340,7 +354,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="2HP-nE-2fr" kind="modal" identifier="enterVersion" modalTransitionStyle="crossDissolve" id="vkM-bg-X6J"/>
+                                            <segue destination="2HP-nE-2fr" kind="custom" identifier="enterVersion" customClass="DissolveSegue" id="vkM-bg-X6J"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="provision" rowHeight="55" id="fdh-lC-fPJ">
@@ -440,7 +454,7 @@
                     </view>
                     <connections>
                         <outlet property="introduceView" destination="jqs-Cm-v3E" id="8yU-kF-7fd"/>
-                        <segue destination="wmb-SQ-V5h" kind="custom" identifier="backPopup" customClass="TransAlphaSegue" id="56G-3j-A58"/>
+                        <segue destination="wmb-SQ-V5h" kind="custom" identifier="backPopup" customClass="DissolveSegue" id="56G-3j-A58"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r2O-xj-Iro" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -477,7 +491,7 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="lCX-70-Iwd" kind="modal" id="VVI-mc-7SA"/>
+                                                    <segue destination="lCX-70-Iwd" kind="custom" customClass="DissolveSegue" id="VVI-mc-7SA"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Heo-Wo-O5m" userLabel="menu2 - blog">
@@ -486,7 +500,7 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="vw1-vP-GhI" kind="modal" id="Xyi-XB-Y05"/>
+                                                    <segue destination="vw1-vP-GhI" kind="custom" customClass="DissolveSegue" id="Xyi-XB-Y05"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xbf-r3-6OE" userLabel="menu3 - instagram">
@@ -495,7 +509,7 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="ciP-tg-0mX" kind="custom" customClass="TransAlphaSegue" id="WET-Id-K8Y"/>
+                                                    <segue destination="ciP-tg-0mX" kind="custom" customClass="DissolveSegue" id="WET-Id-K8Y"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zwu-sd-p4M" userLabel="menu4 - depart">
@@ -504,7 +518,7 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="WXk-Jc-hSM" kind="custom" customClass="TransAlphaSegue" id="69G-t5-loO"/>
+                                                    <segue destination="WXk-Jc-hSM" kind="custom" customClass="DissolveSegue" id="69G-t5-loO"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -532,7 +546,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="wmb-SQ-V5h" kind="modal" id="zAD-GB-Xiu"/>
+                                    <segue destination="wmb-SQ-V5h" kind="custom" customClass="DissolveSegue" id="zAD-GB-Xiu"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -636,18 +650,63 @@
                                     <constraint firstAttribute="height" constant="568" id="eXe-p0-wTU"/>
                                 </constraints>
                             </webView>
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWd-n4-ih9" userLabel="back">
+                                <rect key="frame" x="16" y="515" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="8lg-qU-Ctu"/>
+                                    <constraint firstAttribute="height" constant="45" id="wD7-xc-Idv"/>
+                                </constraints>
+                                <state key="normal" image="webBack.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="webBack:" destination="Wdw-2Z-5cs" eventType="touchUpInside" id="eSk-Y4-JMb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OL5-Ig-hk1" userLabel="reload">
+                                <rect key="frame" x="259" y="515" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="Wan-ed-g3K"/>
+                                    <constraint firstAttribute="width" constant="45" id="f28-UP-9MS"/>
+                                </constraints>
+                                <state key="normal" image="webStop.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IoU-yf-XNY" userLabel="foward">
+                                <rect key="frame" x="69" y="515" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="KkD-Ga-LPp"/>
+                                    <constraint firstAttribute="height" constant="45" id="r5K-9O-Pr3"/>
+                                </constraints>
+                                <state key="normal" image="webFront.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="webForward:" destination="Wdw-2Z-5cs" eventType="touchUpInside" id="lNw-i2-Uih"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="tkP-f9-6mw" secondAttribute="trailing" id="0BI-lG-1LF"/>
+                            <constraint firstAttribute="centerX" secondItem="IoU-yf-XNY" secondAttribute="centerX" constant="68.5" id="2MH-Qc-4Hd"/>
+                            <constraint firstAttribute="centerX" secondItem="OL5-Ig-hk1" secondAttribute="centerX" constant="-121.5" id="Br7-Yk-iLc"/>
                             <constraint firstItem="tkP-f9-6mw" firstAttribute="top" secondItem="8i1-B1-Vpm" secondAttribute="top" id="GOO-E9-cHb"/>
                             <constraint firstItem="tkP-f9-6mw" firstAttribute="leading" secondItem="8i1-B1-Vpm" secondAttribute="leading" id="JIO-Mr-pPG"/>
                             <constraint firstItem="U5M-Ad-Lg3" firstAttribute="top" secondItem="tkP-f9-6mw" secondAttribute="bottom" id="Jq4-34-Iqf"/>
+                            <constraint firstItem="U5M-Ad-Lg3" firstAttribute="top" secondItem="OL5-Ig-hk1" secondAttribute="bottom" constant="8" id="MOt-17-Vc3"/>
+                            <constraint firstItem="U5M-Ad-Lg3" firstAttribute="top" secondItem="IoU-yf-XNY" secondAttribute="bottom" constant="8" id="iA0-kg-d7N"/>
+                            <constraint firstItem="U5M-Ad-Lg3" firstAttribute="top" secondItem="FWd-n4-ih9" secondAttribute="bottom" constant="8" id="sdm-5y-U7E"/>
+                            <constraint firstAttribute="centerX" secondItem="FWd-n4-ih9" secondAttribute="centerX" constant="121.5" id="wAT-qu-ICB"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="FQi-nP-rq6"/>
                     <connections>
                         <outlet property="view" destination="8i1-B1-Vpm" id="ANm-Xr-AHS"/>
+                        <outlet property="webBack" destination="FWd-n4-ih9" id="0R8-rw-E2q"/>
+                        <outlet property="webForward" destination="IoU-yf-XNY" id="AtO-xp-dEG"/>
+                        <outlet property="webReload" destination="OL5-Ig-hk1" id="xBw-pP-esf"/>
                         <outlet property="webView" destination="tkP-f9-6mw" id="lA8-ED-o2S"/>
                     </connections>
                 </viewController>
@@ -1001,7 +1060,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iZk-kB-93d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1187" y="524"/>
+            <point key="canvasLocation" x="-1187" y="513"/>
         </scene>
         <!--Dummy Nav View Controller-->
         <scene sceneID="lIi-fJ-3gs">
@@ -1040,6 +1099,9 @@
         <image name="popViewBack.png" width="320" height="568"/>
         <image name="proposeFBbtn.png" width="124" height="124"/>
         <image name="versionView.png" width="319" height="568"/>
+        <image name="webBack.png" width="21" height="21"/>
+        <image name="webFront.png" width="21" height="21"/>
+        <image name="webStop.png" width="22" height="22"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -1047,7 +1109,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="zAD-GB-Xiu"/>
+        <segue reference="56G-3j-A58"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

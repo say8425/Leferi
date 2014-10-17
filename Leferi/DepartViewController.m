@@ -17,6 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //StatusBar Setting
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+
     //NavigationBar Setting
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"departTitleBar.png"] forBarMetrics:UIBarMetricsDefault];  //titleBar
     [self.navigationItem setLeftBarButtonItem:[UIBarButtonItem customBackButtonWithImage:[UIImage imageNamed:@"backButton.png"] Target:self action:@selector(back:)]]; //backButton
