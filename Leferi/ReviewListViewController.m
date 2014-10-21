@@ -40,6 +40,8 @@
                                 [urlDict objectForKey:@"blogURL3"],
                                 [urlDict objectForKey:@"blogURL4"]];
     
+    NSLog(@"AddressLoad:%@", self.reviewAddressArray);
+    
     //NavigationBar Fade out
     if ([self.navigationController.navigationBar respondsToSelector:@selector(setBarTintColor:)]) {
         [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
@@ -60,9 +62,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ReviewViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"reviewCell" forIndexPath:indexPath];
-    
-    long row = [indexPath row];
-    [cell.reviewCellBtn setImage:[UIImage imageNamed:self.reviewImageArray[row]] forState:UIControlStateNormal];
+    [cell.reviewImage setImage:[UIImage imageNamed:self.reviewImageArray[[indexPath row]]]];
     return cell;
 }
 
@@ -70,7 +70,6 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self showNavBarAnimated:NO];
-    //[self stopFollowingScrollView];
 }
 
 #pragma mark - Segue Setting
@@ -79,7 +78,6 @@
         ReviewViewController *reviewViewController = [segue destinationViewController];
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         long row = [indexPath row];
-        //reviewViewController.urlString = self.reviewAddressArray[row];
         reviewViewController.reviewURL = [NSURL URLWithString:self.reviewAddressArray[row]];
     }
 }
@@ -91,14 +89,12 @@
 
 - (IBAction)back:(id)sender {
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self performSegueWithIdentifier:@"backMenuFromReviewList" sender:self];
 }
 
-- (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView
-{
+- (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView {
     // This enables the user to scroll down the navbar by tapping the status bar.
     [self showNavbar];
-    
     return YES;
 }
 

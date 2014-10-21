@@ -11,7 +11,7 @@
 
 @interface BeautiViewController ()
 
-- (UIButton *)makingRoundButtonWithImage:(UIImage *)buttonImage buttonForX:(NSInteger)buttonX buttonForY:(NSInteger)buttonY buttonForSize:(NSInteger)buttonSize;
+//- (UIButton *)makingRoundButtonWithImage:(UIImage *)buttonImage buttonForX:(NSInteger)buttonX buttonForY:(NSInteger)buttonY buttonForSize:(NSInteger)buttonSize;
 
 @end
 
@@ -40,9 +40,15 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"instaTitleBar.png"] forBarMetrics:UIBarMetricsDefault];
     [self.navigationItem setLeftBarButtonItem:[UIBarButtonItem customBackButtonWithImage:[UIImage imageNamed:@"backButton.png"] Target:self action:@selector(back:)]];
     
-    //TitleImage Setting
-    [self.headImageView setImage:[UIImage imageNamed:@"instaHeadImage.png"]];
+    //Cache Loading
+    NSDictionary *pathPlist = [NSDictionary dictionaryWithContentsOfFile:[ETCLibrary getPath]];
+    NSDictionary *urlDict = [NSDictionary dictionaryWithContentsOfFile:[pathPlist objectForKey:@"config"]];
     
+    //TitleImage & tag Setting
+    [self.headImageView setImage:[UIImage imageNamed:[pathPlist objectForKey:@"instaHead"]]];
+    self.tagString = [urlDict objectForKey:@"beautiTag"];
+    
+    NSLog(@"%@",self.tagString);
     //NavigationBar Fade out
     if ([self.navigationController.navigationBar respondsToSelector:@selector(setBarTintColor:)]) {
         [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
@@ -81,17 +87,16 @@
 #pragma mark - InstaGram Setting Func
 ///Basic parameter and Method init
 - (void)loadMedia {
-    tagString = @"샤넬립스틱";
     mediaArray = [NSMutableArray new];
     InstagramEngine *sharedEngine = [InstagramEngine sharedEngine];
     
     if (sharedEngine.accessToken) {
-        [self getMediaFromTag:tagString];
+        [self getMediaFromTag:self.tagString];
         login = YES;
         NSLog(@"Success");
     } else {
 //        [self loadPopularMedia];
-        [self getMediaFromTag:tagString];
+        [self getMediaFromTag:self.tagString];
         NSLog(@"%@",sharedEngine.accessToken);
         NSLog(@"Token getting is FAIL");
         login = NO;
@@ -401,7 +406,8 @@
 
 - (IBAction)back:(id)sender {
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self performSegueWithIdentifier:@"backMenuFromBeauti" sender:self];
+//    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

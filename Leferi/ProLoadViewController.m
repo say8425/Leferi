@@ -8,12 +8,12 @@
 
 #import "ProLoadViewController.h"
 #define ENTERING_INTRO_JUG 22
-#define INTRO_VIEW_PATH @"http://121.78.85.56/mobileApp/iOS/currentVersion/images/IntroView/"
-#define MENU_VIEW_PATH @"http://121.78.85.56/mobileApp/iOS/currentVersion/images/MenuView/"
-#define PROPOSE_VIEW_PATH @"http://121.78.85.56/mobileApp/iOS/currentVersion/images/ProposeView/"
-#define REVIEW_VIEW_PATH @"http://121.78.85.56/mobileApp/iOS/currentVersion/images/ReviewView/"
-#define BEAUTIGRAM_PATH @"http://121.78.85.56/mobileApp/iOS/currentVersion/images/BeautiGram/"
-#define PLIST_PATH @"http://121.78.85.56/mobileApp/iOS/currentVersion/plist/"
+#define INTRO_VIEW_PATH @"http://www.leferi.com/mobileApp/iOS/currentVersion/images/IntroView/"
+#define MENU_VIEW_PATH @"http://www.leferi.com/mobileApp/iOS/currentVersion/images/MenuView/"
+#define PROPOSE_VIEW_PATH @"http://www.leferi.com/mobileApp/iOS/currentVersion/images/ProposeView/"
+#define REVIEW_VIEW_PATH @"http://www.leferi.com/mobileApp/iOS/currentVersion/images/ReviewView/"
+#define BEAUTIGRAM_PATH @"http://www.leferi.com/mobileApp/iOS/currentVersion/images/BeautiGram/"
+#define PLIST_PATH @"http://www.leferi.com/mobileApp/iOS/currentVersion/plist/"
 
 @interface ProLoadViewController ()
 
@@ -66,14 +66,6 @@
     [pathDictionary writeToFile:[ETCLibrary getPath] atomically:YES];
     NSLog(@"%@", [NSDictionary dictionaryWithContentsOfFile:[ETCLibrary getPath]]);
     [self performSegueWithIdentifier:@"enterIntro" sender:nil];
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier]isEqualToString:@"enterIntro"]) {
-        ViewController *viewController = [segue destinationViewController];
-        viewController.pathDictionary = pathDictionary;
-    }
-    
 }
 
 #pragma mark - Downloading Func

@@ -5,11 +5,14 @@
 
 #import "EAIntroView.h"
 
+
 @interface EAIntroView()
 
 @property (nonatomic, strong) UIImageView *bgImageView;
 @property (nonatomic, strong) UIImageView *pageBgBack;
 @property (nonatomic, strong) UIImageView *pageBgFront;
+
+@property(nonatomic, strong) NSLayoutConstraint *pageControlYConstraint;
 
 @end
 
@@ -58,8 +61,6 @@
     self.pageControlY = 60.0f;
     self.bgViewContentMode = UIViewContentModeScaleAspectFill;
     self.motionEffectsRelativeValue = 40.0f;
-    self.judgeSkipBUtton = NO;
-    self.judgeSkipButtonSeen = NO;
     _pages = [pagesArray copy];
     [self buildUI];
     self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -68,6 +69,7 @@
 - (void)applyDefaultsToBackgroundImageView:(UIImageView *)backgroundImageView {
     backgroundImageView.backgroundColor = [UIColor clearColor];
     backgroundImageView.contentMode = self.bgViewContentMode;
+    backgroundImageView.autoresizesSubviews = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
 }
 
@@ -109,22 +111,23 @@
     
     if (self.currentPageIndex == (_pages.count)) {
         
-        //if run here, it means you cann't  call _pages[self.currentPageIndex],
+        //if run here, it means you can't  call _pages[self.currentPageIndex],
         //to be safe, set to the biggest index
-        self.currentPageIndex = _pages.count - 1;
+        _currentPageIndex = _pages.count - 1;
         
         [self finishIntroductionAndRemoveSelf];
     }
 }
 
 - (void)finishIntroductionAndRemoveSelf {
-
-//  if you want to finish with swipe the revive bottom code
-//	if ([(id)self.delegate respondsToSelector:@selector(introDidFinish:)]) {
-//        [self.delegate introDidFinish:self];
-//	}
-
-	//Calling removeFromSuperview from scrollViewDidEndDecelerating: method leads to crash on iOS versions < 7.0.
+	if ([(id)self.delegate respondsToSelector:@selector(introDidFinish:)]) {
+		[self.delegate introDidFinish:self];
+	}
+    
+    //prevent last page flicker on disappearing
+    self.alpha = 0;
+    
+    //Calling removeFromSuperview from scrollViewDidEndDecelerating: method leads to crash on iOS versions < 7.0.
     //removeFromSuperview should be called after a delay
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)0);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
@@ -180,16 +183,16 @@
 #pragma mark - UI building
 
 - (void)buildUI {
-    self.backgroundColor = [UIColor whiteColor];
+    self.backgroundColor = [UIColor blackColor];
     
     [self buildBackgroundImage];
     [self buildScrollView];
     
-    //[self buildFooterView];
+    [self buildFooterView];
     
     self.bgImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.pageControl.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    self.skipButton.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewContentModeCenter;
+    self.skipButton.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 }
 
 - (void)buildBackgroundImage {
@@ -229,7 +232,7 @@
 
 - (UIView *)viewForPage:(EAIntroPage *)page atXIndex:(CGFloat *)xIndex {
     
-    UIView *pageView = [[UIView alloc] initWithFrame:CGRectMake(*xIndex, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height)]; //uibounds frame set size
+    UIView *pageView = [[UIView alloc] initWithFrame:CGRectMake(*xIndex, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height)];
     
     *xIndex += self.scrollView.frame.size.width;
     
@@ -334,7 +337,6 @@
     *xIndex -= self.scrollView.frame.size.width;
 }
 
-///It's disabled
 - (void)buildFooterView {
     self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, self.frame.size.height - self.pageControlY, self.frame.size.width, 20)];
     
@@ -344,38 +346,37 @@
     [self.pageControl addTarget:self action:@selector(showPanelAtPageControl) forControlEvents:UIControlEventValueChanged];
     self.pageControl.numberOfPages = _pages.count;
     [self addSubview:self.pageControl];
-
+    
     self.skipButton = [[UIButton alloc] initWithFrame:CGRectMake(self.scrollView.frame.size.width - 80, self.pageControl.frame.origin.y - ((30 - self.pageControl.frame.size.height)/2), 80, 30)];
     [self.skipButton setTitle:NSLocalizedString(@"Skip", nil) forState:UIControlStateNormal];
     [self.skipButton addTarget:self action:@selector(skipIntroduction) forControlEvents:UIControlEventTouchUpInside];
-[self addSubview:self.skipButton];
+    [self addSubview:self.skipButton];
     
     if ([self respondsToSelector:@selector(addConstraint:)]) {
         self.pageControl.translatesAutoresizingMaskIntoConstraints = NO;
         [self addConstraint:[NSLayoutConstraint constraintWithItem:self.pageControl attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
-        [self addConstraint:[NSLayoutConstraint constraintWithItem:self.pageControl attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.skipButton attribute:NSLayoutAttributeCenterY multiplier:1 constant:0]];
-    
+        
+        //store Y constraint
+        //at launch - page control centered with skip button by Y. If Y is set manually, Y constraint turns to bottom constraint
+        self.pageControlYConstraint = [NSLayoutConstraint constraintWithItem:self.pageControl attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.skipButton attribute:NSLayoutAttributeCenterY multiplier:1 constant:0];
+        [self addConstraint:self.pageControlYConstraint];
+        
         self.skipButton.translatesAutoresizingMaskIntoConstraints = NO;
-        [self addConstraint:[NSLayoutConstraint constraintWithItem:self.skipButton attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1 constant:-30]];
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:self.skipButton attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1 constant:-30]];
         [self addConstraint:[NSLayoutConstraint constraintWithItem:self.skipButton attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom multiplier:1 constant:-20]];
-//        NSLog(@"adding");
     }
-}
-
-- (void)hidePageControl {
-        self.pageControlY = 0.0f;
 }
 
 #pragma mark - UIScrollView Delegate
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-    if ([(id)self.delegate respondsToSelector:@selector(intro:pageStartScrolling:withIndex:)]) {
+    if ([(id)self.delegate respondsToSelector:@selector(intro:pageStartScrolling:withIndex:)] && self.currentPageIndex < [self.pages count]) {
         [self.delegate intro:self pageStartScrolling:_pages[self.currentPageIndex] withIndex:self.currentPageIndex];
     }
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     [self checkIndexForScrollView:scrollView];
-    if ([(id)self.delegate respondsToSelector:@selector(intro:pageEndScrolling:withIndex:)]) {
+    if ([(id)self.delegate respondsToSelector:@selector(intro:pageEndScrolling:withIndex:)] && self.currentPageIndex < [self.pages count]) {
         [self.delegate intro:self pageEndScrolling:_pages[self.currentPageIndex] withIndex:self.currentPageIndex];
     }
 }
@@ -409,271 +410,64 @@ float easeOutValue(float value) {
 }
 
 - (void)crossDissolveForOffset:(float)offset {
-    //for IntroView
-    if (_pages.count == 4) {
-        NSLog(@"cout4");
-        NSInteger page = (NSInteger)(offset);
-        float alphaValue = offset - page;
-        //    NSLog(@"%d", page);
-        //    NSLog(@"all page is %d", [self.pages count]);
-        //    NSLog(@"BTN alpha value is %f", self.skipButton.alpha);
-        //    NSLog(@"Jude alpha value is %f", self.judgeLastPage);
-        
-        if (alphaValue < 0 && self.visiblePageIndex == 0){
-            self.pageBgBack.image = nil;
-            self.pageBgFront.alpha = (1 + alphaValue);
-            return;
-        }
-        
-        self.pageBgFront.alpha = 1;
-        self.pageBgFront.image = [self bgForPage:page];
-        self.pageBgBack.alpha = 0;
-        self.pageBgBack.image = [self bgForPage:page+1];
-        
-        float backLayerAlpha = alphaValue;
-        float frontLayerAlpha = (1 - alphaValue);
-        
-        if (self.easeOutCrossDisolves) {
-            backLayerAlpha = easeOutValue(backLayerAlpha);
-            frontLayerAlpha = easeOutValue(frontLayerAlpha);
-        }
-        
-        self.pageBgBack.alpha = backLayerAlpha;
-        self.pageBgFront.alpha = frontLayerAlpha;
-        
-        if(self.titleView) {
-            if([self showTitleViewForPage:page] && [self showTitleViewForPage:page+1]) {
-                [self.titleView setAlpha:1.0];
-            } else if(![self showTitleViewForPage:page] && ![self showTitleViewForPage:page+1]) {
-                [self.titleView setAlpha:0.0];
-            } else if([self showTitleViewForPage:page]) {
-                [self.titleView setAlpha:(1 - alphaValue)];
-            } else {
-                [self.titleView setAlpha:alphaValue];
-            }
-        }
-        
-        //#pragma mark skipButtonAnimation
-        //
-        ////    if(self.skipButton && !self.judgeSkipBUtton) {
-        //////        if(!self.showSkipButtonOnlyOnLastPage) {
-        //////            [self.skipButton setAlpha:1.0];
-        //////        }
-        ////        if (page < (long)[self.pages count] -2) {
-        ////            self.judgeLastPage = 0.0;
-        ////        } else if (page == [self.pages count] -1) {
-        ////            self.judgeLastPage = skipBtnFinishAlpha - alphaValue;
-        ////        } else {
-        ////            self.judgeLastPage = alphaValue;
-        ////        }
-        ////        //NSLog(@"judegNO");
-        ////    }
-        //
-        //    if(self.skipButton) {
-        //        //        if(!self.showSkipButtonOnlyOnLastPage) {
-        //        //            [self.skipButton setAlpha:1.0];
-        //        //        }
-        //        if (page < (long)[self.pages count] -2) {
-        //            self.judgeLastPage = 0.0;
-        //        } else if (page == [self.pages count] -1) {
-        //            self.judgeLastPage = skipBtnFinishAlpha - alphaValue;
-        //        } else {
-        //            self.judgeLastPage = alphaValue;
-        //        }
-        //        //NSLog(@"judegNO");
-        //    }
-        //    else if (self.skipButton && self.judgeSkipBUtton) {
-        //        if(page < (long)[self.pages count] - 2) {
-        //            [self.skipButton setAlpha:0.0];
-        //        } else if(page == [self.pages count] - 1) {
-        //            //prevent the dissolve when last page out, don't want uncomment
-        //            [self.skipButton setAlpha:(skipBtnFinishAlpha - alphaValue)];
-        //        } else if (page == [self.pages count]) {
-        //            //[self.skipButton setAlpha:alphaValue];
-        //            NSLog(@"another!");
-        //        }
-        ////         else if (page <= [self.pages count] +1 && page > [self.pages count]) {
-        ////            [self.skipButton setAlpha:alphaValue];
-        ////            NSLog(@"newSET");
-        ////        }
-        //
-        //        else {
-        //            NSLog(@"ELSE");
-        //            [self.skipButton setAlpha:alphaValue];
-        //
-        //
-        //        }
-        //        //NSLog(@"judgeYES");
-        //    }
-        //    //skpButton is perfectly showed value is 0.996875
-        //    if (self.judgeLastPage > 0.95) {
-        //        //durationSec is under 2.4, then it split
-        //        [UIView animateWithDuration:1.3 delay:0.2
-        //                            options:UIViewAnimationOptionCurveEaseInOut
-        //                         animations:^{
-        //                             self.skipButton.alpha = skipBtnFinishAlpha;
-        //                         } completion:^(BOOL finished) {
-        //                             if (finished) {
-        //
-        //                                 NSLog(@"animate");
-        //                             }
-        //                             NSLog(@"%c",finished);
-        //                         }
-        //
-        //         ];
-        //        self.judgeSkipBUtton = YES;
-        //        self.skipButton.enabled = YES;
-        //        NSLog(@"it's the end");
-        //    } else if (self.judgeLastPage <= 0.95) {
-        //        self.judgeSkipBUtton = NO;
-        //        self.skipButton.enabled = NO;
-        //        NSLog(@"it's not the end");
-        //    }
-        //    if(self.skipButton && !self.judgeSkipBUtton) {
-        //        if(!self.showSkipButtonOnlyOnLastPage) {
-        //            [self.skipButton setAlpha:1.0];
-        //        } else if (page < (long)[self.pages count] -2) {
-        //            self.judgeLastPage = 0.0;
-        //        } else if (page == [self.pages count] -1) {
-        //            self.judgeLastPage = skipBtnFinishAlpha - alphaValue;
-        //        } else {
-        //            self.judgeLastPage = alphaValue;
-        //            //self.judgeLastPage = skipBtnFinishAlpha - alphaValue;
-        //        }
-        //        NSLog(@"judegNO");
-        //    }
-        //    if (self.skipButton) {
-        //        if(page < (long)[self.pages count] - 2) {
-        //            [self.skipButton setAlpha:0.0];
-        //        } else if(page == [self.pages count] - 1) {
-        //            //prevent the dissolve when last page out, don't want uncomment
-        //            [self.skipButton setAlpha:(skipBtnFinishAlpha - alphaValue)];
-        //        } else {
-        //            [self.skipButton setAlpha:alphaValue];
-        //            NSLog(@"else");
-        //        }
-        //        NSLog(@"judgeYES");
-        //        //self.judgeSkipBUtton = NO;
-        //    }
-        //    //skpButton is perfectly showed value is 0.996875
-        //    if (self.judgeLastPage > 0.995) {
-        //        //durationSec is under 2.4, then it split
-        //        [UIView animateWithDuration:2.4 delay:0.2
-        //                            options:UIViewAnimationOptionCurveEaseInOut
-        //                         animations:^{
-        //                             self.skipButton.alpha = skipBtnFinishAlpha;
-        //                         } completion:^(BOOL finished) {
-        //
-        //                             //self.judgeSkipBUtton = YES;
-        //                         }];
-        //        //self.skipButton.enabled = YES;
-        //        //self.judgeSkipBUtton = NO;
-        //        NSLog(@"animated");
-        //    }
-        //    NSLog(@"judge:%f", self.judgeLastPage);
-        
-        
-#pragma mark skipButtonAnimation
-        if(self.skipButton) {
-            //        if(!self.showSkipButtonOnlyOnLastPage) {
-            //            [self.skipButton setAlpha:1.0];
-            //        }
-            if (page < (long)[self.pages count] -2) {
-                //self.judgeLastPage = 0.0;
-            } else if (page == [self.pages count] -1) {
-                //self.judgeLastPage = 1 - alphaValue;
-            }else {
-                NSLog(@"else");
-                
-                self.judgeLastPage = alphaValue;
-            }
-        } if (self.skipButton && self.judgeSkipBUtton == YES) {
-            //self.skipButton.alpha = self.judgeLastPage;
-            NSLog(@"asdf");
-            if (self.skipButton.alpha == 0) {
-                self.judgeSkipBUtton = NO;
-                self.skipButton.enabled = NO;
-                NSLog(@"no");
-                
-            }
-        }
-        
-        //skpButton is perfectly showed value is 0.996875
-        if (self.judgeLastPage >= 0.9955 && !self.judgeSkipBUtton && !self.judgeSkipButtonSeen) {
-            [UIView animateWithDuration:1.6 delay:0.4 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-                self.skipButton.alpha = skipBtnFinishAlpha;
-            } completion:^(BOOL finished) {
-                if (finished) {
-                    self.skipButton.enabled = YES;
-                    self.judgeSkipBUtton = YES;
-                    self.judgeSkipButtonSeen = YES;
-                    NSLog(@"finished");
-                }
-                
-            }];
-            NSLog(@"animate");
-        } else if (self.judgeSkipButtonSeen) {
-            //        self.skipButton.alpha = skipBtnFinishAlpha;
-            //        self.skipButton.enabled = YES;
-            //        self.judgeSkipBUtton = YES;
-            
-            self.skipButton.alpha = self.judgeLastPage;
-            //self.skipButton.alpha = alphaValue;
-            NSLog(@"DDagh");
-            if (self.judgeLastPage >= 0.9955) {
-                self.skipButton.enabled = YES;
-                self.judgeSkipBUtton = YES;
-                NSLog(@"it's locked");
-            }
-            
-        }
-        NSLog(@"page:%lu", (long)page);
-        NSLog(@"juge:%f", self.skipButton.alpha);
-        NSLog(@"%d", self.judgeSkipBUtton);
-
+    NSInteger page = (NSInteger)(offset);
+    float alphaValue = offset - page;
+    
+    if (alphaValue < 0 && self.visiblePageIndex == 0){
+        self.pageBgBack.image = nil;
+        self.pageBgFront.alpha = (1 + alphaValue);
+        return;
     }
     
-    //for NormalView(e.g. introduceView)
-    else {
-        NSLog(@"else %d", self.pages.count);
-        NSInteger page = (NSInteger)(offset);
-        float alphaValue = offset - page;
-        
-        if (alphaValue < 0 && self.visiblePageIndex == 0){
-            self.pageBgBack.image = nil;
-            self.pageBgFront.alpha = (1 + alphaValue);
-            return;
+    self.pageBgFront.alpha = 1;
+    self.pageBgFront.image = [self bgForPage:page];
+    self.pageBgBack.alpha = 0;
+    self.pageBgBack.image = [self bgForPage:page+1];
+    
+    float backLayerAlpha = alphaValue;
+    float frontLayerAlpha = (1 - alphaValue);
+    
+    if (self.easeOutCrossDisolves) {
+        backLayerAlpha = easeOutValue(backLayerAlpha);
+        frontLayerAlpha = easeOutValue(frontLayerAlpha);
+    }
+    
+    self.pageBgBack.alpha = backLayerAlpha;
+    self.pageBgFront.alpha = frontLayerAlpha;
+    
+    if(self.titleView) {
+        if([self showTitleViewForPage:page] && [self showTitleViewForPage:page+1]) {
+            [self.titleView setAlpha:1.0];
+        } else if(![self showTitleViewForPage:page] && ![self showTitleViewForPage:page+1]) {
+            [self.titleView setAlpha:0.0];
+        } else if([self showTitleViewForPage:page]) {
+            [self.titleView setAlpha:(1 - alphaValue)];
+        } else {
+            [self.titleView setAlpha:alphaValue];
         }
-        
-        self.pageBgFront.alpha = 1;
-        self.pageBgFront.image = [self bgForPage:page];
-        self.pageBgBack.alpha = 0;
-        self.pageBgBack.image = [self bgForPage:page+1];
-        
-        float backLayerAlpha = alphaValue;
-        float frontLayerAlpha = (1 - alphaValue);
-        
-        if (self.easeOutCrossDisolves) {
-            backLayerAlpha = easeOutValue(backLayerAlpha);
-            frontLayerAlpha = easeOutValue(frontLayerAlpha);
-        }
-        
-        self.pageBgBack.alpha = backLayerAlpha;
-        self.pageBgFront.alpha = frontLayerAlpha;
-        
-        if(self.titleView) {
-            if([self showTitleViewForPage:page] && [self showTitleViewForPage:page+1]) {
-                [self.titleView setAlpha:1.0];
-            } else if(![self showTitleViewForPage:page] && ![self showTitleViewForPage:page+1]) {
-                [self.titleView setAlpha:0.0];
-            } else if([self showTitleViewForPage:page]) {
-                [self.titleView setAlpha:(1 - alphaValue)];
+    }
+    
+#pragma mark skipButton
+    if(self.skipButton) {
+        if (self.penguinSkip == YES) {
+            if(!self.showSkipButtonOnlyOnLastPage) {
+                [self.skipButton setAlpha:1.0];
+            } else if(page < (long)[self.pages count] - 2) {
+                [self.skipButton setAlpha:0.0];
+            } else if(page == [self.pages count] - 1) {
+                [self.skipButton setEnabled:NO];
+                [UIView animateWithDuration:1.24f delay:0.42f options:UIViewAnimationOptionTransitionNone animations:^{
+                    [self.skipButton setAlpha:1.0f];
+                    [self.skipButton setEnabled:YES];
+                } completion:^(BOOL finished) {
+                    if (finished) {
+                        self.penguinSkip = NO;
+                    }
+                }];
             } else {
-                [self.titleView setAlpha:alphaValue];
+                
             }
-        }
-        
-        if(self.skipButton) {
+        } else {
             if(!self.showSkipButtonOnlyOnLastPage) {
                 [self.skipButton setAlpha:1.0];
             } else if(page < (long)[self.pages count] - 2) {
@@ -684,12 +478,8 @@ float easeOutValue(float value) {
                 [self.skipButton setAlpha:alphaValue];
             }
         }
-        
-
     }
 }
-
-
 
 - (UIImage *)bgForPage:(NSInteger)idx {
     if(idx >= _pages.count || idx < 0)
@@ -752,9 +542,7 @@ float easeOutValue(float value) {
     _titleView.frame = CGRectMake((self.frame.size.width-_titleView.frame.size.width)/2, self.titleViewY, _titleView.frame.size.width, _titleView.frame.size.height);
     
     float offset = self.scrollView.contentOffset.x / self.scrollView.frame.size.width;
-        [self crossDissolveForOffset:offset];
-    NSLog(@"%f",offset);
-
+    [self crossDissolveForOffset:offset];
     
     [self addSubview:_titleView];
 }
@@ -764,28 +552,39 @@ float easeOutValue(float value) {
     _titleView.frame = CGRectMake((self.frame.size.width-_titleView.frame.size.width)/2, self.titleViewY, _titleView.frame.size.width, _titleView.frame.size.height);
 }
 
+- (void)setPageControl:(UIPageControl *)pageControl {
+    [_pageControl removeFromSuperview];
+    _pageControl = pageControl;
+    [self addSubview:_pageControl];
+}
+
 - (void)setPageControlY:(CGFloat)pageControlY {
     _pageControlY = pageControlY;
-    self.pageControl.frame = CGRectMake(0, self.frame.size.height - pageControlY, self.frame.size.width, 20);
+    self.pageControl.frame = CGRectMake(self.pageControl.frame.origin.y, self.frame.size.width - pageControlY, self.frame.size.width, self.pageControl.frame.size.height);
     
-    self.pageControl.defersCurrentPageDisplay = YES;
-    self.pageControl.autoresizingMask =  UIViewAutoresizingFlexibleWidth;
-    [self.pageControl addTarget:self action:@selector(showPanelAtPageControl) forControlEvents:UIControlEventValueChanged];
-    self.pageControl.numberOfPages = _pages.count;
+    if (self.pageControlYConstraint) {
+        [self removeConstraint:self.pageControlYConstraint];
+        if (self.pageControlYConstraint.firstAttribute != NSLayoutAttributeBottom || self.pageControlYConstraint.secondAttribute != NSLayoutAttributeBottom) {
+            self.pageControlYConstraint = [NSLayoutConstraint constraintWithItem:self.pageControl
+                                                                       attribute:NSLayoutAttributeBottom
+                                                                       relatedBy:NSLayoutRelationEqual
+                                                                          toItem:self
+                                                                       attribute:NSLayoutAttributeBottom
+                                                                      multiplier:1
+                                                                        constant:-pageControlY];
+        } else {
+            self.pageControlYConstraint.constant = -pageControlY;
+        }
+        [self addConstraint:self.pageControlYConstraint];
+    }
 }
 
 - (void)setSkipButton:(UIButton *)skipButton {
-//    [self.skipButton removeFromSuperview];
-//    self.skipButton = skipButton;
-//    
     [_skipButton removeFromSuperview];
-    _skipButton = skipButton;
-//    [_skipButton setFrame:CGRectMake((self.frame.size.width - _skipButton.frame.size.width)/2,
-//                                     (self.frame.size.height - _skipButton.frame.size.height)/2 + 35,
-//                                     _skipButton.frame.size.width, _skipButton.frame.size.height)];
-//    [_skipButton setFrame:CGRectMake(skipButton.frame.origin.x, skipButton.frame.origin.y, skipButton.frame.size.width, skipButton.frame.size.height)];
-    NSLog(@"%f", _skipButton.frame.origin.y);
-
+    if (self.penguinSkip) {
+        [skipButton setAlpha:0.0f];
+        [skipButton setEnabled:NO];
+    } _skipButton = skipButton;
     [_skipButton addTarget:self action:@selector(skipIntroduction) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_skipButton];
 }
@@ -873,6 +672,7 @@ float easeOutValue(float value) {
 
 - (void)showInView:(UIView *)view animateDuration:(CGFloat)duration {
     self.alpha = 0;
+    _currentPageIndex = 0;
     self.scrollView.contentOffset = CGPointZero;
     [view addSubview:self];
     
@@ -902,10 +702,9 @@ float easeOutValue(float value) {
 
 - (void)setCurrentPageIndex:(NSInteger)currentPageIndex animated:(BOOL)animated {
     if(currentPageIndex < 0 || currentPageIndex >= [self.pages count]) {
+        NSLog(@"Wrong currentPageIndex received: %ld",(long)currentPageIndex);
         return;
     }
-    
-    _currentPageIndex = currentPageIndex;
     
     float offset = currentPageIndex * self.scrollView.frame.size.width;
     CGRect pageRect = { .origin.x = offset, .origin.y = 0.0, .size.width = self.scrollView.frame.size.width, .size.height = self.scrollView.frame.size.height };

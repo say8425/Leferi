@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
-#import "CommentViewController.h"
+#import "ETCLibrary.h"
 #import "UIBarButtonItem+Image.h"
 #import "UIViewController+ScrollingNavbar.h"
 

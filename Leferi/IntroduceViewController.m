@@ -81,37 +81,35 @@
         page6.titleIconPositionY = 0;
         
     }
-//    EAIntroView *introView = [[EAIntroView alloc]initWithFrame:self.introduceView.bounds];
-    EAIntroView *introView = [[EAIntroView alloc]initWithFrame:self.introduceView.bounds
-                                                          andPages:@[page1, page2, page3, page4, page5, page6]];
-    
-    UIButton *skipBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+
+    //Setting Button of text's attributted
     NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc]initWithString:@"소개 그만보기"];
     [attributeString addAttribute:NSUnderlineStyleAttributeName
                             value:[NSNumber numberWithInt:1]
                             range:(NSRange) {0, [attributeString length]}];
+
+    //Setting Button of text
     UILabel *titleSkipBtn = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 150, 20)];
-//    [titleSkipBtn setBackgroundColor:[UIColor whiteColor]];
-    //[titleSkipBtn setFont:[UIFont fontWithName:@"Chalkboard" size:14]];
     [titleSkipBtn setFont:[UIFont systemFontOfSize:14]];
-//    titleSkipBtn.text=@"소개 그만보기";
     [titleSkipBtn setTextColor:[UIColor whiteColor]];
     [titleSkipBtn setAttributedText:[attributeString copy]];
+    
+    //Setting Button
+    UIButton *skipBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [skipBtn addSubview:titleSkipBtn];
     [skipBtn setAlpha:0.0f];
-    //[skipBtn setTitle:@"소개 그만보기" forState:UIControlStateNormal];
-    //[skipBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-
-    //[skipBtn setBackgroundImage:[UIImage imageNamed:@"pageSkipBtn.png"] forState:UIControlStateNormal];
     [skipBtn setFrame:CGRectMake([[UIScreen mainScreen]bounds].size.width/2 + 74,
-                                 [[UIScreen mainScreen]bounds].size.height/2 - 240,
+                                 [[UIScreen mainScreen]bounds].size.height/2 - 277,
                                  150, 20)];
     [skipBtn addTarget:self action:@selector(skipBtn:) forControlEvents:UIControlEventTouchUpInside];
+    
+    //Setting IntroView
+    EAIntroView *introView = [[EAIntroView alloc]initWithFrame:self.introduceView.bounds
+                                                      andPages:@[page1, page2, page3, page4, page5, page6]];
+    [introView setPageControl:nil];
     [introView setSkipButton:skipBtn];
     [introView setSwipeToExit:NO];
     [introView setShowSkipButtonOnlyOnLastPage:NO];
-//    [introView setPages:@[page1, page2, page3, page4, page5, page6]];
-//    [introView setDelegate:self];
     [introView showInView:self.introduceView animateDuration:0.3];
 
 }
@@ -122,8 +120,7 @@
 }
 
 - (void)skipBtn:(id)sender {
-        [self dismissViewControllerAnimated:YES completion:nil];
-//    [self performSegueWithIdentifier:@"backPopup" sender:sender];
+    [self performSegueWithIdentifier:@"backPopFromIntro" sender:self];
 }
 
 /*

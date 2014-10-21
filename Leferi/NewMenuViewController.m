@@ -12,17 +12,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSDictionary *pathPlist = [NSDictionary dictionaryWithContentsOfFile:[ETCLibrary getPath]];
+
+    // StatusBar Setting
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
-    // StatusBar setting
+    // StatusBar FrameBar Setting
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
     statusBarView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 22)];
     statusBarView.backgroundColor  =  [UIColor blackColor];
     [self.view addSubview:statusBarView];
-
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
-    // MenuBtn setting
+    //Cache Loading
+    NSDictionary *pathPlist = [NSDictionary dictionaryWithContentsOfFile:[ETCLibrary getPath]];
+    
+    // MenuBtn Setting
     [self.titleImageView setImage:[UIImage imageNamed:[pathPlist objectForKey:@"letter1"]]];
     [self.letterImageView setImage:[UIImage imageNamed:[pathPlist objectForKey:@"letter2"]]];
     [self.menuBtn1 setImage:[UIImage imageNamed:[pathPlist objectForKey:@"story1"]] forState:UIControlStateNormal];
@@ -31,6 +35,7 @@
     [self.menuBtn4 setImage:[UIImage imageNamed:[pathPlist objectForKey:@"story4"]] forState:UIControlStateNormal];
     
 }
+
 
 - (IBAction)btn2YouTube:(id)sender {
     NSString *Lancome = @"vFgD5-X7_zQ";
@@ -41,16 +46,19 @@
     [self presentMoviePlayerViewControllerAnimated:videoPlayerViewController];
 }
 
+- (IBAction)exitToMainMenu:(UIStoryboardSegue *)sender {
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
 }
-*/
+
+
+
+- (UIStoryboardSegue *)segueForUnwindingToViewController:(UIViewController *)toViewController fromViewController:(UIViewController *)fromViewController identifier:(NSString *)identifier {
+    // Instantiate a new CustomUnwindSegue
+    DissolveUnsegue *segue = [[DissolveUnsegue alloc] initWithIdentifier:identifier source:fromViewController destination:toViewController];
+    // Set the target point for the animation to the center of the button in this VC
+    //    segue.targetPoint = self.segueButton.center;
+    return segue;
+}
 
 @end
  

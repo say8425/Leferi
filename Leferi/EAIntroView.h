@@ -3,11 +3,9 @@
 //
 //  Copyright (c) 2013-2014 Evgeny Aleksandrov. License: MIT.
 
-#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "EAIntroPage.h"
-
-#define skipBtnFinishAlpha 1.0f
+#import "ETCLibrary.h"
 
 enum EAIntroViewTags {
     kTitleLabelTag = 1,
@@ -37,6 +35,7 @@ enum EAIntroViewTags {
 @property (nonatomic, assign) bool easeOutCrossDisolves;
 @property (nonatomic, assign) bool showSkipButtonOnlyOnLastPage;
 @property (nonatomic, assign) bool useMotionEffects;
+@property (nonatomic, assign) bool penguinSkip;
 @property (nonatomic, assign) CGFloat motionEffectsRelativeValue;
 @property (nonatomic, strong) UIImage *bgImage;
 @property (nonatomic, assign) UIViewContentMode bgViewContentMode;
@@ -45,9 +44,7 @@ enum EAIntroViewTags {
 @property (nonatomic, strong) UIPageControl *pageControl;
 @property (nonatomic, assign) CGFloat pageControlY;
 @property (nonatomic, strong) UIButton *skipButton;
-@property (nonatomic, assign) float judgeLastPage;
-@property (nonatomic, assign) BOOL judgeSkipBUtton;
-@property (nonatomic, assign) BOOL judgeSkipButtonSeen;
+
 @property (nonatomic, assign) NSInteger currentPageIndex;
 @property (nonatomic, assign) NSInteger visiblePageIndex;
 @property (nonatomic, strong) UIScrollView *scrollView;
@@ -57,9 +54,8 @@ enum EAIntroViewTags {
 
 - (void)showInView:(UIView *)view animateDuration:(CGFloat)duration;
 - (void)hideWithFadeOutDuration:(CGFloat)duration;
-- (void)hidePageControl;
+
 - (void)setCurrentPageIndex:(NSInteger)currentPageIndex;
 - (void)setCurrentPageIndex:(NSInteger)currentPageIndex animated:(BOOL)animated;
-
 
 @end

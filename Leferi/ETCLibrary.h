@@ -13,4 +13,8 @@
 ///Downloaded cache path
 + (NSString *)getPath;
 
+///Makeing random float number
++ (float)randFloatBetweenLow:(float)low andHigh:(float)high;
+
+
 @end

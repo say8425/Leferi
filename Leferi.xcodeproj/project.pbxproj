@@ -18,6 +18,7 @@
 		2416B9C419CC42BF00F222A7 /* popIntroBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2416B9BD19CC42BF00F222A7 /* popIntroBtn@2x.png */; };
 		2416B9C519CC42BF00F222A7 /* popIntroHig@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2416B9BE19CC42BF00F222A7 /* popIntroHig@2x.png */; };
 		2416B9C619CC42BF00F222A7 /* popSettingBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2416B9BF19CC42BF00F222A7 /* popSettingBtn@2x.png */; };
+		241D39E419F4F39600150754 /* DissolveUnsegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 241D39E319F4F39600150754 /* DissolveUnsegue.m */; };
 		24292D511990EE4F00A56CF3 /* DummyNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24292D501990EE4F00A56CF3 /* DummyNavViewController.m */; };
 		242FC51F19C80C9000BB1832 /* letter2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 242FC51D19C80C9000BB1832 /* letter2@2x.png */; };
 		242FC52019C80C9000BB1832 /* letter1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 242FC51E19C80C9000BB1832 /* letter1@2x.png */; };
@@ -31,7 +32,6 @@
 		242FC53219C81F0300BB1832 /* pageSkipBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 242FC52919C81F0300BB1832 /* pageSkipBtn@2x.png */; };
 		242FC53619C8227B00BB1832 /* page1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 242FC53519C8227B00BB1832 /* page1@2x.png */; };
 		242FC53C19C84A3400BB1832 /* UIViewController+ScrollingNavbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 242FC53B19C84A3400BB1832 /* UIViewController+ScrollingNavbar.m */; };
-		242FC54019C85DA400BB1832 /* propose story title.png in Resources */ = {isa = PBXBuildFile; fileRef = 242FC53F19C85DA400BB1832 /* propose story title.png */; };
 		242FC54219C85E8600BB1832 /* proposeTitleBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 242FC54119C85E8600BB1832 /* proposeTitleBar@2x.png */; };
 		242FC54419C85E9200BB1832 /* instaTitleBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 242FC54319C85E9200BB1832 /* instaTitleBar@2x.png */; };
 		242FC54619C85FEC00BB1832 /* backButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 242FC54519C85FEC00BB1832 /* backButton@2x.png */; };
@@ -81,8 +81,6 @@
 		245E5F9E19ADB58B00781E30 /* XCDYouTubeVideoOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 245E5F9519ADB58B00781E30 /* XCDYouTubeVideoOperation.m */; };
 		245E5F9F19ADB58B00781E30 /* XCDYouTubeVideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 245E5F9719ADB58B00781E30 /* XCDYouTubeVideoPlayerViewController.m */; };
 		245E5FA019ADB58B00781E30 /* XCDYouTubeVideoWebpage.m in Sources */ = {isa = PBXBuildFile; fileRef = 245E5F9919ADB58B00781E30 /* XCDYouTubeVideoWebpage.m */; };
-		24615F0119D08EB000B8AE51 /* EAIntroPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 24615EFE19D08EB000B8AE51 /* EAIntroPage.m */; };
-		24615F0219D08EB000B8AE51 /* EAIntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24615F0019D08EB000B8AE51 /* EAIntroView.m */; };
 		24696A0419E3EC9600546A7E /* instaLoading@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24696A0319E3EC9600546A7E /* instaLoading@3x.png */; };
 		24696A0719E4096A00546A7E /* NanumGothicBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 24696A0519E4096A00546A7E /* NanumGothicBold.otf */; };
 		24696A0819E4096A00546A7E /* NanumGothicLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 24696A0619E4096A00546A7E /* NanumGothicLight.otf */; };
@@ -112,6 +110,8 @@
 		247CB3E419DBF81600FE6CAA /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 247CB3E319DBF81600FE6CAA /* TTTAttributedLabel.m */; };
 		247CB3E719DC13D600FE6CAA /* SeoulNamsanB.otf in Resources */ = {isa = PBXBuildFile; fileRef = 247CB3E619DC12D000FE6CAA /* SeoulNamsanB.otf */; };
 		247CB3E919DC1E9200FE6CAA /* SeoulNamsanL.otf in Resources */ = {isa = PBXBuildFile; fileRef = 247CB3E819DC1B0900FE6CAA /* SeoulNamsanL.otf */; };
+		2489966C19F281F200AAB674 /* EAIntroPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2489966919F281F200AAB674 /* EAIntroPage.m */; };
+		2489966D19F281F200AAB674 /* EAIntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2489966B19F281F200AAB674 /* EAIntroView.m */; };
 		248B504019ADF9F500E895FD /* UIViewController+Rotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 248B503F19ADF9F500E895FD /* UIViewController+Rotation.m */; };
 		24A0DC1319987E570014ACFE /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A0DC1219987E570014ACFE /* CommentViewController.m */; };
 		24A94D7819F0FA51007C076E /* DissolveSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A94D7719F0FA51007C076E /* DissolveSegue.m */; };
@@ -174,6 +174,8 @@
 		2416B9BD19CC42BF00F222A7 /* popIntroBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popIntroBtn@2x.png"; sourceTree = "<group>"; };
 		2416B9BE19CC42BF00F222A7 /* popIntroHig@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popIntroHig@2x.png"; sourceTree = "<group>"; };
 		2416B9BF19CC42BF00F222A7 /* popSettingBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popSettingBtn@2x.png"; sourceTree = "<group>"; };
+		241D39E219F4F39600150754 /* DissolveUnsegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DissolveUnsegue.h; sourceTree = "<group>"; };
+		241D39E319F4F39600150754 /* DissolveUnsegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DissolveUnsegue.m; sourceTree = "<group>"; };
 		24292D4F1990EE4F00A56CF3 /* DummyNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyNavViewController.h; sourceTree = "<group>"; };
 		24292D501990EE4F00A56CF3 /* DummyNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyNavViewController.m; sourceTree = "<group>"; };
 		242FC51D19C80C9000BB1832 /* letter2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "letter2@2x.png"; sourceTree = "<group>"; };
@@ -189,7 +191,6 @@
 		242FC53519C8227B00BB1832 /* page1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page1@2x.png"; sourceTree = "<group>"; };
 		242FC53A19C84A3400BB1832 /* UIViewController+ScrollingNavbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ScrollingNavbar.h"; sourceTree = "<group>"; };
 		242FC53B19C84A3400BB1832 /* UIViewController+ScrollingNavbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ScrollingNavbar.m"; sourceTree = "<group>"; };
-		242FC53F19C85DA400BB1832 /* propose story title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "propose story title.png"; sourceTree = "<group>"; };
 		242FC54119C85E8600BB1832 /* proposeTitleBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "proposeTitleBar@2x.png"; sourceTree = "<group>"; };
 		242FC54319C85E9200BB1832 /* instaTitleBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "instaTitleBar@2x.png"; sourceTree = "<group>"; };
 		242FC54519C85FEC00BB1832 /* backButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backButton@2x.png"; sourceTree = "<group>"; };
@@ -284,10 +285,6 @@
 		245E5F9719ADB58B00781E30 /* XCDYouTubeVideoPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCDYouTubeVideoPlayerViewController.m; sourceTree = "<group>"; };
 		245E5F9819ADB58B00781E30 /* XCDYouTubeVideoWebpage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCDYouTubeVideoWebpage.h; sourceTree = "<group>"; };
 		245E5F9919ADB58B00781E30 /* XCDYouTubeVideoWebpage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCDYouTubeVideoWebpage.m; sourceTree = "<group>"; };
-		24615EFD19D08EB000B8AE51 /* EAIntroPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIntroPage.h; sourceTree = "<group>"; };
-		24615EFE19D08EB000B8AE51 /* EAIntroPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAIntroPage.m; sourceTree = "<group>"; };
-		24615EFF19D08EB000B8AE51 /* EAIntroView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIntroView.h; sourceTree = "<group>"; };
-		24615F0019D08EB000B8AE51 /* EAIntroView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAIntroView.m; sourceTree = "<group>"; };
 		24696A0319E3EC9600546A7E /* instaLoading@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "instaLoading@3x.png"; sourceTree = "<group>"; };
 		24696A0519E4096A00546A7E /* NanumGothicBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumGothicBold.otf; sourceTree = "<group>"; };
 		24696A0619E4096A00546A7E /* NanumGothicLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumGothicLight.otf; sourceTree = "<group>"; };
@@ -337,6 +334,10 @@
 		247CB3E319DBF81600FE6CAA /* TTTAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTAttributedLabel.m; sourceTree = "<group>"; };
 		247CB3E619DC12D000FE6CAA /* SeoulNamsanB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SeoulNamsanB.otf; sourceTree = "<group>"; };
 		247CB3E819DC1B0900FE6CAA /* SeoulNamsanL.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SeoulNamsanL.otf; sourceTree = "<group>"; };
+		2489966819F281F200AAB674 /* EAIntroPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIntroPage.h; sourceTree = "<group>"; };
+		2489966919F281F200AAB674 /* EAIntroPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAIntroPage.m; sourceTree = "<group>"; };
+		2489966A19F281F200AAB674 /* EAIntroView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIntroView.h; sourceTree = "<group>"; };
+		2489966B19F281F200AAB674 /* EAIntroView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAIntroView.m; sourceTree = "<group>"; };
 		248B503E19ADF9F500E895FD /* UIViewController+Rotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Rotation.h"; sourceTree = "<group>"; };
 		248B503F19ADF9F500E895FD /* UIViewController+Rotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Rotation.m"; sourceTree = "<group>"; };
 		24A0DC1119987E570014ACFE /* CommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentViewController.h; sourceTree = "<group>"; };
@@ -738,6 +739,8 @@
 				244B0CAD19EFAEA00012B76F /* ETCLibrary.m */,
 				24A94D7619F0FA51007C076E /* DissolveSegue.h */,
 				24A94D7719F0FA51007C076E /* DissolveSegue.m */,
+				241D39E219F4F39600150754 /* DissolveUnsegue.h */,
+				241D39E319F4F39600150754 /* DissolveUnsegue.m */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -745,10 +748,10 @@
 		246BFC52198F7A83002B4456 /* EAIntroView */ = {
 			isa = PBXGroup;
 			children = (
-				24615EFD19D08EB000B8AE51 /* EAIntroPage.h */,
-				24615EFE19D08EB000B8AE51 /* EAIntroPage.m */,
-				24615EFF19D08EB000B8AE51 /* EAIntroView.h */,
-				24615F0019D08EB000B8AE51 /* EAIntroView.m */,
+				2489966819F281F200AAB674 /* EAIntroPage.h */,
+				2489966919F281F200AAB674 /* EAIntroPage.m */,
+				2489966A19F281F200AAB674 /* EAIntroView.h */,
+				2489966B19F281F200AAB674 /* EAIntroView.m */,
 			);
 			name = EAIntroView;
 			sourceTree = "<group>";
@@ -798,7 +801,6 @@
 			isa = PBXGroup;
 			children = (
 				242FC54119C85E8600BB1832 /* proposeTitleBar@2x.png */,
-				242FC53F19C85DA400BB1832 /* propose story title.png */,
 				246BFC15198F79CC002B4456 /* proposeFBbtn.png */,
 				24DE367E19ADC16100AD57E4 /* proposeStory@2x.png */,
 			);
@@ -1138,7 +1140,6 @@
 				247CB3E919DC1E9200FE6CAA /* SeoulNamsanL.otf in Resources */,
 				24EAF71819EEAAF700B4E30A /* webFront@2x.png in Resources */,
 				2437349319B5F57000B6A0DB /* instaComtBtn@2x.png in Resources */,
-				242FC54019C85DA400BB1832 /* propose story title.png in Resources */,
 				242FC52B19C81F0300BB1832 /* page2@2x.png in Resources */,
 				242FC51F19C80C9000BB1832 /* letter2@2x.png in Resources */,
 				24FF958D19C6FC5900240170 /* story3@2x.png in Resources */,
@@ -1187,6 +1188,7 @@
 				243F36F019B72EC500729FB5 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				247CB3E419DBF81600FE6CAA /* TTTAttributedLabel.m in Sources */,
 				2442BBEC19B337C7008C89D2 /* ReviewViewCell.m in Sources */,
+				241D39E419F4F39600150754 /* DissolveUnsegue.m in Sources */,
 				243F36E819B72EC500729FB5 /* AFHTTPRequestOperationManager.m in Sources */,
 				243F36EA19B72EC500729FB5 /* AFNetworkReachabilityManager.m in Sources */,
 				246E06DE19D42D7B0066D9EA /* InstagramPaginationInfo.m in Sources */,
@@ -1195,7 +1197,7 @@
 				243F36E919B72EC500729FB5 /* AFHTTPSessionManager.m in Sources */,
 				24F6099C19D1DB3B004DE601 /* SettingTableViewController.m in Sources */,
 				24D710E019AC78A9005F4886 /* ReviewListViewController.m in Sources */,
-				24615F0219D08EB000B8AE51 /* EAIntroView.m in Sources */,
+				2489966D19F281F200AAB674 /* EAIntroView.m in Sources */,
 				244B0CAE19EFAEA00012B76F /* ETCLibrary.m in Sources */,
 				245E5F8219AD704800781E30 /* BeautiViewController.m in Sources */,
 				243F36F219B72EC500729FB5 /* UIAlertView+AFNetworking.m in Sources */,
@@ -1211,7 +1213,6 @@
 				2440170019A227CF0009B5A7 /* MCPanGestureRecognizer.m in Sources */,
 				243F36E719B72EC500729FB5 /* AFHTTPRequestOperation.m in Sources */,
 				24CD04FE19B5DA2300B39716 /* BeautiTableViewCell.m in Sources */,
-				24615F0119D08EB000B8AE51 /* EAIntroPage.m in Sources */,
 				24292D511990EE4F00A56CF3 /* DummyNavViewController.m in Sources */,
 				245E5F9E19ADB58B00781E30 /* XCDYouTubeVideoOperation.m in Sources */,
 				24EAF71319EEA40500B4E30A /* NSDictionary+JSONCategories.m in Sources */,
@@ -1224,6 +1225,7 @@
 				24430571199239BD0078250B /* UIBarButtonItem+Image.m in Sources */,
 				243F36F519B72EC500729FB5 /* UIProgressView+AFNetworking.m in Sources */,
 				243F36F319B72EC500729FB5 /* UIButton+AFNetworking.m in Sources */,
+				2489966C19F281F200AAB674 /* EAIntroPage.m in Sources */,
 				245E5F9B19ADB58B00781E30 /* XCDYouTubeClient.m in Sources */,
 				246BFC29198F79CC002B4456 /* MainTableViewCell.m in Sources */,
 				24FF958619C6EB6700240170 /* NewMenuViewController.m in Sources */,
@@ -1352,8 +1354,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEFINES_MODULE = NO;
+				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/northPenguin/Desktop/Dev_iOS/Framework/FacebookSDK,
@@ -1363,6 +1366,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Leferi/Leferi-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -1371,8 +1376,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEFINES_MODULE = NO;
+				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/northPenguin/Desktop/Dev_iOS/Framework/FacebookSDK,
@@ -1382,6 +1388,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Leferi/Leferi-Bridging-Header.h";
 			};
 			name = Release;
 		};

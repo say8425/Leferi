@@ -41,8 +41,21 @@
     return 4;
 }
 
+- (IBAction)exitToSetting:(UIStoryboardSegue *)sender {
+    [[UIApplication sharedApplication]setStatusBarHidden:NO];
+}
+
+- (UIStoryboardSegue *)segueForUnwindingToViewController:(UIViewController *)toViewController fromViewController:(UIViewController *)fromViewController identifier:(NSString *)identifier {
+    DissolveUnsegue *segue = [[DissolveUnsegue alloc] initWithIdentifier:identifier source:fromViewController destination:toViewController];
+    return segue;
+}
+
 - (IBAction)back:(id)sender {
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleLightContent];
+//    [self setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+//    [self dismissViewControllerAnimated:YES completion:nil];
+
+    [self performSegueWithIdentifier:@"backPopFromIntro" sender:self];
+//    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
 }
 @end

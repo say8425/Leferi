@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DissolveUnsegue.h"
 #import "VersionViewController.h"
 #import "UIBarButtonItem+Image.h"
 

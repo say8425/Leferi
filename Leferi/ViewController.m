@@ -16,8 +16,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //statusBar make LightStyle
+    //StatusBar Setting
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
+    
+    NSDictionary *pathPlist = [NSDictionary dictionaryWithContentsOfFile:[ETCLibrary getPath]];
     
     //UIDevice read;
     RTScreenPhysicalSize *rtScreenPhysicalSize = [RTScreenPhysicalSize new];
@@ -32,30 +34,49 @@
     NSString *pageTextName;
     
     for (int i = 1; i <= 4; i++) {
-        pageName  = [NSString stringWithFormat:@"page%d", i];
+        pageName = [NSString stringWithFormat:@"page%d", i];
         pageTextName = [NSString stringWithFormat:@"pageText%d", i];
         
         EAIntroPage *page = (EAIntroPage *)[self valueForKey:pageName];
         
         if (page) {
-            page.bgImage = [UIImage imageNamed:[self.pathDictionary objectForKey:pageName]];
-            page.titleIconView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:[self.pathDictionary objectForKey:pageTextName]]];
+            page.bgImage = [UIImage imageNamed:[pathPlist objectForKey:pageName]];
+            page.titleIconView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:[pathPlist objectForKey:pageTextName]]];
             page.titleIconPositionY = 0;
         }
     }
     
-    EAIntroView *introView = [[EAIntroView alloc]initWithFrame:self.view.bounds andPages:@[self.page1, self.page2, self.page3, self.page4]];
-    
+    //Making SkipButton
     UIButton *skipBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [skipBtn setAlpha:0.0f];
-    [skipBtn setEnabled:NO];
-    [skipBtn setBackgroundImage:[UIImage imageNamed:[self.pathDictionary objectForKey:@"pageSkipBtn"]] forState:UIControlStateNormal];
+    [skipBtn setBackgroundImage:[UIImage imageNamed:[pathPlist objectForKey:@"pageSkipBtn"]] forState:UIControlStateNormal];
     [skipBtn setFrame:CGRectMake([[UIScreen mainScreen]bounds].size.width/2 - 62,
                                  [[UIScreen mainScreen]bounds].size.height/2 - 86, 124, 124)];
     [skipBtn addTarget:self action:@selector(proposeBtn:) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    //Making IntroView
+    EAIntroView *introView = [[EAIntroView alloc]initWithFrame:self.view.bounds andPages:@[self.page1, self.page2, self.page3, self.page4]];
+    [introView setPenguinSkip:YES];
     [introView setSkipButton:skipBtn];
     [introView setSwipeToExit:NO];
-    [introView showInView:self.view animateDuration:0.3];
+    [introView setShowSkipButtonOnlyOnLastPage:YES];
+    [introView setPageControl:nil];
+    
+    
+    UIView *dummyView = [[UIView alloc]init];
+    dummyView.backgroundColor = [UIColor whiteColor];
+    dummyView.alpha = 1.0;
+    [self.view addSubview:dummyView];
+    
+    [UIView animateWithDuration:1 animations:^{
+        dummyView.alpha = 0.0;
+    }completion:^(BOOL finished) {
+        [dummyView removeFromSuperview];
+        [introView showInView:self.view animateDuration:1.42];
+    }];
+
+
+    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -22,4 +22,12 @@
     return databasePath;
 }
 
+///Makeing random float number
++ (float)randFloatBetweenLow:(float)low andHigh:(float)high {
+    float diff = high - low;
+    float result = (((float) rand() / RAND_MAX) * diff) + low;
+    NSLog(@"floatResule:%f", result);
+    return result;
+}
+
 @end

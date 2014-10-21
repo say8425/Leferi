@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // StatusBar setting
     //[[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
-    //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 //    [self.navigationController.navigationBar setBackgroundColor:[UIColor redColor]];
 //    [self.navigationController.navigationBar setHidden:YES];
     //[self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
@@ -32,7 +32,6 @@
     [self.view addSubview:backBtn];
     
 //    [self.navigationItem setLeftBarButtonItem:[UIBarButtonItem customBackButtonWithImage:[UIImage imageNamed:@"backButton.png"] Target:self action:@selector(back:)]];
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,7 +41,16 @@
 
 
 - (IBAction)back:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self performSegueWithIdentifier:@"backSettingFromVersion" sender:self];
+//    [self setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+//    [self dismissViewControllerAnimated:YES completion:nil];
+    
+//    [[self parentViewController] dismissViewControllerAnimated:YES completion:nil];
+//    self.parentViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+//    self.parentViewController.view.alpha = 0.0;
+//    [UIView animateWithDuration:0.5
+//                     animations:^{self.parentViewController.view.alpha  = 1.0;}];    //[self dismissViewControllerAnimated:YES completion:nil];
+
 //    [self.navigationController popViewControllerAnimated:YES];
 //    [self.navigationController.navigationBar setHidden:NO];
 }

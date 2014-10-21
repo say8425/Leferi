@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ETCLibrary.h"
 #import "XCDYouTubeKit.h"
+#import "DissolveUnsegue.h"
 #import "UIViewController+Rotation.h"
 
 @interface NewMenuViewController : UIViewController {
