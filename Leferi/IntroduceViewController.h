@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "EAIntroView.h"
-#import "RTScreenPhysicalSize.h"
-#import "Config.h"
+#import "ETCLibrary.h"
 
 @interface IntroduceViewController : UIViewController <EAIntroDelegate>
 

@@ -10,7 +10,6 @@
 #import "EAIntroView.h"
 #import "AFNetworking.h"
 #import "SMPageControl.h"
-#import "RTScreenPhysicalSize.h"
 #import "UIViewController+Rotation.h"
 #import "UIImageView+AFNetworking.h"
 #import "ETCLibrary.h"

@@ -27,7 +27,7 @@
     
     //Cache Loading
     NSDictionary *pathPlist = [NSDictionary dictionaryWithContentsOfFile:[ETCLibrary getPath]];
-    NSDictionary *urlDict = [NSDictionary dictionaryWithContentsOfFile:[pathPlist objectForKey:@"config"]];
+    NSDictionary *configDict = [NSDictionary dictionaryWithContentsOfFile:[pathPlist objectForKey:@"config"]];
     
     //TableCell Setting
     self.reviewImageArray = @[[pathPlist objectForKey:@"blogMenu1"],
@@ -35,10 +35,10 @@
                               [pathPlist objectForKey:@"blogMenu3"],
                               [pathPlist objectForKey:@"blogMenu4"]];
     
-    self.reviewAddressArray = @[[urlDict objectForKey:@"blogURL1"],
-                                [urlDict objectForKey:@"blogURL2"],
-                                [urlDict objectForKey:@"blogURL3"],
-                                [urlDict objectForKey:@"blogURL4"]];
+    self.reviewAddressArray = @[[configDict objectForKey:@"blogURL1"],
+                                [configDict objectForKey:@"blogURL2"],
+                                [configDict objectForKey:@"blogURL3"],
+                                [configDict objectForKey:@"blogURL4"]];
     
     NSLog(@"AddressLoad:%@", self.reviewAddressArray);
     
@@ -88,7 +88,7 @@
 }
 
 - (IBAction)back:(id)sender {
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    [[UIApplication sharedApplication] setStatusBarStyle:[ETCLibrary getStatusBarFontColor]];
     [self performSegueWithIdentifier:@"backMenuFromReviewList" sender:self];
 }
 

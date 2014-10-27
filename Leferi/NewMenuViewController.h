@@ -10,6 +10,7 @@
 #import "ETCLibrary.h"
 #import "XCDYouTubeKit.h"
 #import "DissolveUnsegue.h"
+#import "UIColor+HexString.h"
 #import "UIViewController+Rotation.h"
 
 @interface NewMenuViewController : UIViewController {

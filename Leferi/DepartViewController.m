@@ -16,6 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //Cache Loading
+    NSDictionary *pathPlist = [NSDictionary dictionaryWithContentsOfFile:[ETCLibrary getPath]];
+    NSDictionary *configDict = [NSDictionary dictionaryWithContentsOfFile:[pathPlist objectForKey:@"config"]];
     
     //StatusBar Setting
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
@@ -26,7 +29,7 @@
     [self.navigationItem setLeftBarButtonItem:[UIBarButtonItem customBackButtonWithImage:[UIImage imageNamed:@"backButton.png"] Target:self action:@selector(back:)]]; //backButton
     
     //WebView Setting
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://m.hyundaihmall.com/front/smItemDetailR.do?SectId=580895&ItemCode=2013030154"]]];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[configDict objectForKey:@"departURL"]]]];
     [self.webView setDelegate:self];
     
     //WebView Loading //backView
@@ -69,8 +72,9 @@
 
 - (IBAction)back:(id)sender {
     //[self.navigationController popViewControllerAnimated:YES];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [[UIApplication sharedApplication] setStatusBarStyle:[ETCLibrary getStatusBarFontColor]];
+    [self performSegueWithIdentifier:@"backMenuFromDepart" sender:self];
+//    [self dismissViewControllerAnimated:YES completion:nil];
 //    [[self parentViewController] dismissModalViewControllerAnimated:YES];
 //    self.parentViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
 //    self.parentViewController.view.alpha = 0.0;

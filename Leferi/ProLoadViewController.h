@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Config.h"
 #import "ETCLibrary.h"
 #import "AFNetworking.h"
 #import "ViewController.h"

@@ -19,18 +19,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    //font string search
-//    for (NSString* family in [UIFont familyNames])
-//    {
-//        NSLog(@"%@", family);
-//        
-//        for (NSString* name in [UIFont fontNamesForFamilyName: family])
-//        {
-//            NSLog(@"  %@", name);
-//        }
-//    }
-    
 
     //StatusBar Setting
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
@@ -42,11 +30,11 @@
     
     //Cache Loading
     NSDictionary *pathPlist = [NSDictionary dictionaryWithContentsOfFile:[ETCLibrary getPath]];
-    NSDictionary *urlDict = [NSDictionary dictionaryWithContentsOfFile:[pathPlist objectForKey:@"config"]];
+    NSDictionary *configDict = [NSDictionary dictionaryWithContentsOfFile:[pathPlist objectForKey:@"config"]];
     
     //TitleImage & tag Setting
     [self.headImageView setImage:[UIImage imageNamed:[pathPlist objectForKey:@"instaHead"]]];
-    self.tagString = [urlDict objectForKey:@"beautiTag"];
+    self.tagString = [configDict objectForKey:@"beautiTag"];
     
     NSLog(@"%@",self.tagString);
     //NavigationBar Fade out
@@ -97,7 +85,7 @@
     } else {
 //        [self loadPopularMedia];
         [self getMediaFromTag:self.tagString];
-        NSLog(@"%@",sharedEngine.accessToken);
+        NSLog(@"token:%@",sharedEngine.accessToken);
         NSLog(@"Token getting is FAIL");
         login = NO;
     }
@@ -404,8 +392,10 @@
     NSLog(@"roundButtonDidTap Method Called");
 }
 
+
 - (IBAction)back:(id)sender {
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    //Cache Loading
+    [[UIApplication sharedApplication] setStatusBarStyle:[ETCLibrary getStatusBarFontColor]];
     [self performSegueWithIdentifier:@"backMenuFromBeauti" sender:self];
 //    [self dismissViewControllerAnimated:YES completion:nil];
 }

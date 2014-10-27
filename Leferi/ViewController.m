@@ -21,9 +21,6 @@
     
     NSDictionary *pathPlist = [NSDictionary dictionaryWithContentsOfFile:[ETCLibrary getPath]];
     
-    //UIDevice read;
-    RTScreenPhysicalSize *rtScreenPhysicalSize = [RTScreenPhysicalSize new];
-    
     //EAIntro Setting
     self.page1 = [EAIntroPage page];
     self.page2 = [EAIntroPage page];
@@ -62,7 +59,7 @@
     [introView setShowSkipButtonOnlyOnLastPage:YES];
     [introView setPageControl:nil];
     
-    
+    //Animation Effect Dummy
     UIView *dummyView = [[UIView alloc]init];
     dummyView.backgroundColor = [UIColor whiteColor];
     dummyView.alpha = 1.0;
@@ -74,9 +71,6 @@
         [dummyView removeFromSuperview];
         [introView showInView:self.view animateDuration:1.42];
     }];
-
-
-    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -12,10 +12,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //NavBar Setting
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"reviewTitleBar.png"] forBarMetrics:UIBarMetricsDefault];
     [self.navigationItem setLeftBarButtonItem:[UIBarButtonItem customBackButtonWithImage:[UIImage imageNamed:@"backButton.png"] Target:self action:@selector(back:)]];
-    
-    //WebView setting
+
+    //WebView Setting
     [self.webView loadRequest:[NSURLRequest requestWithURL:self.reviewURL]];
     [self.webView.scrollView setDelegate:self];
     [self.webView setDelegate:self];
@@ -54,18 +56,18 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     if ([webView canGoBack]) {
         [self.webBack setEnabled:YES];
-        [self.webBack setAlpha:1.0f];
+        [self.webBack setAlpha:0.85f];
     } else {
         [self.webBack setEnabled:NO];
-        [self.webBack setAlpha:0.5f];
+        [self.webBack setAlpha:0.24f];
     }
     
     if ([webView canGoForward]) {
         [self.webForward setEnabled:YES];
-        [self.webForward setAlpha:1.0f];
+        [self.webForward setAlpha:0.85f];
     } else {
         [self.webForward setEnabled:NO];
-        [self.webForward setAlpha:0.5f];
+        [self.webForward setAlpha:0.24f];
     }
     
     [self.webReload removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
@@ -86,8 +88,8 @@
     //[self stopFollowingScrollView];
 }
 
+// This enables the user to scroll down the navbar by tapping the status bar.
 - (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView{
-    // This enables the user to scroll down the navbar by tapping the status bar.
     [self showNavbar];
     return YES;
 }

@@ -27,11 +27,11 @@
     
     //Cache Loading
     NSDictionary *pathPlist = [NSDictionary dictionaryWithContentsOfFile:[ETCLibrary getPath]];
-    NSDictionary *urlDict = [NSDictionary dictionaryWithContentsOfFile:[pathPlist objectForKey:@"config"]];
+    NSDictionary *configDict = [NSDictionary dictionaryWithContentsOfFile:[pathPlist objectForKey:@"config"]];
 
     //Contents Setting
     [self.imageView setImage:[UIImage imageNamed:[pathPlist objectForKey:@"proposeStory"]]];
-    [self.imageConstraintHeight setConstant:[[urlDict objectForKey:@"proposeHeight"]floatValue]];   //Propose content - have to get height of image. imageHeight / 2 + 200
+    [self.imageConstraintHeight setConstant:[[configDict objectForKey:@"proposeHeight"]floatValue]];   //Propose content - have to get height of image. imageHeight / 2 + 200
     
     //NavigationBar Fade out
     if ([self.navigationController.navigationBar respondsToSelector:@selector(setBarTintColor:)]) {
@@ -53,7 +53,7 @@
 }
 
 - (IBAction)back:(id)sender {
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    [[UIApplication sharedApplication] setStatusBarStyle:[ETCLibrary getStatusBarFontColor]];
     [self performSegueWithIdentifier:@"backMenuFromPropose" sender:self];
     
 }

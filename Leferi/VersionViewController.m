@@ -41,9 +41,9 @@
 
 
 - (IBAction)back:(id)sender {
-    [self performSegueWithIdentifier:@"backSettingFromVersion" sender:self];
-//    [self setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
-//    [self dismissViewControllerAnimated:YES completion:nil];
+    //[self performSegueWithIdentifier:@"backSettingFromVersion" sender:self];
+    [self setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+    [self dismissViewControllerAnimated:YES completion:nil];
     
 //    [[self parentViewController] dismissViewControllerAnimated:YES completion:nil];
 //    self.parentViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
