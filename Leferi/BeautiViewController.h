@@ -27,6 +27,7 @@
 @property (strong, nonatomic) NSString *tagString;
 @property (strong, nonatomic) IBOutlet UIImageView *headImageView;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) BeautiTableViewCell *beautitableViewCell;
 @property (strong, nonatomic) InstagramMedia * media;
 @property (strong, nonatomic) InstagramPaginationInfo *currentPaginationInfo;
 

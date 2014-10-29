@@ -16,6 +16,7 @@
     NSDictionary *pathPlist = [NSDictionary dictionaryWithContentsOfFile:[ETCLibrary getPath]];
     NSDictionary *configDict = [NSDictionary dictionaryWithContentsOfFile:[pathPlist objectForKey:@"config"]];
 
+
     // StatusBar Setting
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
     [[UIApplication sharedApplication] setStatusBarStyle:[ETCLibrary getStatusBarFontColor]];
@@ -33,7 +34,6 @@
     [self.menuBtn2 setImage:[UIImage imageNamed:[pathPlist objectForKey:@"story2"]] forState:UIControlStateNormal];
     [self.menuBtn3 setImage:[UIImage imageNamed:[pathPlist objectForKey:@"story3"]] forState:UIControlStateNormal];
     [self.menuBtn4 setImage:[UIImage imageNamed:[pathPlist objectForKey:@"story4"]] forState:UIControlStateNormal];
-    
 }
 
 - (IBAction)exitToMainMenu:(UIStoryboardSegue *)sender {

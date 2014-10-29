@@ -49,6 +49,9 @@
 //Beautigram HeadImage
     [operationQueue addOperation:[self singOperationPath:BEAUTIGRAM_PATH withFileName:@"instaHead"]];
 
+    //Beautigram LoadingImage
+    [operationQueue addOperation:[self singOperationPath:BEAUTIGRAM_PATH withFileName:@"instaLoad"]];
+
 //Plist
     [operationQueue addOperation:[self plistOperationPath]];
 }

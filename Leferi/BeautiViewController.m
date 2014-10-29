@@ -44,32 +44,35 @@
     [self followScrollView:self.tableView withDelay:65];
     
 //    //Setting Header Height
-    [self.tableView setEstimatedRowHeight:600.0];
-    [self.tableView setRowHeight:UITableViewAutomaticDimension];
-    //self.tableView.estimatedRowHeight = 500.0;
-    //    self.tableView.rowHeight = UITableViewAutomaticDimension;
+//    [self.tableView setEstimatedRowHeight:44];
+//    [self.tableView setRowHeight:800];
+    self.tableView.estimatedRowHeight = 500.0;
+        self.tableView.rowHeight = UITableViewAutomaticDimension;
 
     
     //Instagram Load
     [self loadMedia];
 }
 
-- (void)viewDidLayoutSubviews {
-    [self.tableView layoutIfNeeded];
-    [self.view layoutIfNeeded];
-//    let testSize : CGSize = CGSizeMake(self.tableView.bounds.size.width, CGFloat.max)
-//    let tableHeight : CGFloat = self.tableView.sizeThatFits(testSize).height
-//    self.tableViewHeightConstraint.constant = tableHeight
-//    
-//    self.view.layoutIfNeeded()
-//    
-//    self.containerViewHeightConstraint.constant = tableHeight + 350 // this is the fixed height of the image
-//    
-//    self.view.layoutIfNeeded()
-//    
-//    self.tableView.reloadData()
-
-}
+//- (void)viewDidAppear:(BOOL)animated {
+//    [self.tableView reloadData];
+//}
+//- (void)viewDidLayoutSubviews {
+//    [self.tableView layoutIfNeeded];
+//    [self.view layoutIfNeeded];
+////    let testSize : CGSize = CGSizeMake(self.tableView.bounds.size.width, CGFloat.max)
+////    let tableHeight : CGFloat = self.tableView.sizeThatFits(testSize).height
+////    self.tableViewHeightConstraint.constant = tableHeight
+////    
+////    self.view.layoutIfNeeded()
+////    
+////    self.containerViewHeightConstraint.constant = tableHeight + 350 // this is the fixed height of the image
+////    
+////    self.view.layoutIfNeeded()
+////    
+////    self.tableView.reloadData()
+//
+//}
 
 
 #pragma mark - InstaGram Setting Func
@@ -101,7 +104,7 @@
 ///Get media from Tag.
 - (void)getMediaFromTag:(NSString *)tag {
     [mediaArray removeAllObjects];
-    [[InstagramEngine sharedEngine] getMediaWithTagName:tag count:20 maxId:self.currentPaginationInfo.nextMaxId withSuccess:^(NSArray *media, InstagramPaginationInfo *paginationInfo) {
+    [[InstagramEngine sharedEngine] getMediaWithTagName:tag count:30 maxId:self.currentPaginationInfo.nextMaxId withSuccess:^(NSArray *media, InstagramPaginationInfo *paginationInfo) {
         self.currentPaginationInfo = paginationInfo;
         [mediaArray addObjectsFromArray:media];
         [self.tableView reloadData];
@@ -154,6 +157,7 @@
 ///Setting order of media
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     //mediaOrder = section;
+    //[self.tableView reloadData];
     self.media = mediaArray[section];
     
     UserHeaderTableViewCell *header = [tableView dequeueReusableCellWithIdentifier:@"InstaUserSectionHeader"];
@@ -176,7 +180,9 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    //[self.tableView reloadData];
     self.media = mediaArray[indexPath.section];
+    [self.tableView reloadInputViews];
     
     BeautiTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"instaCell" forIndexPath:indexPath];
     if (mediaArray.count >= indexPath.section + 1) {    //indexPath.row + 1
@@ -184,9 +190,12 @@
         [cell.instaImageView setImage:[UIImage imageNamed:@"instaLoading.png"]];
         [cell.instaImageView setImageWithURL:self.media.standardResolutionImageURL];
         [cell.likeBtn setTitle:[NSString stringWithFormat:@" %ld", (long)self.media.likesCount] forState:UIControlStateNormal];
+//        [cell.caption setText:self.media.caption.text];
+//        [cell.comment setText:self.media.comments];
         [self userCaption:cell withCaption:self.media.caption.text];
-        [self userComment:cell];
-//        NSLog(@"comment:%@", cell.comment);
+//        [cell.comment setText:@"loading"];
+        [self userComment:cell withMediaID:self.media.Id];
+//        [self userComment:cell];
         NSLog(@"rowHeight:%f", self.tableView.rowHeight);
     } else {
         [cell.instaImageView setImage:nil];
@@ -194,6 +203,33 @@
     }
     return cell;
 }
+
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+////    [self.tableView reloadData];
+//    self.media = mediaArray[indexPath.section];
+//    if (!self.beautitableViewCell) {
+//        self.beautitableViewCell = [self.tableView dequeueReusableCellWithIdentifier:@"instaCell"];
+//    }
+//    
+//   // if (mediaArray.count >= indexPath.section + 1) {    //indexPath.row + 1
+//        NSLog(@"index:%ld", (long)indexPath.section );
+//        [self.beautitableViewCell.instaImageView setImage:[UIImage imageNamed:@"instaLoading.png"]];
+//        [self.beautitableViewCell.instaImageView setImageWithURL:self.media.standardResolutionImageURL];
+//        [self.beautitableViewCell.likeBtn setTitle:[NSString stringWithFormat:@" %ld", (long)self.media.likesCount] forState:UIControlStateNormal];
+//        [self userCaption:self.beautitableViewCell withCaption:self.media.caption.text];
+//        [self userComment:self.beautitableViewCell];
+//        NSLog(@"rowHeight:%f", self.tableView.rowHeight);
+////    } else {
+////        [self.beautitableViewCell.instaImageView setImage:nil];
+////        NSLog(@"Sorry. Image is nil");
+////    }
+//    
+//    [self.beautitableViewCell layoutIfNeeded];
+//    
+//    CGFloat height = [self.beautitableViewCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+//    CGFloat separatorHeight = 1;
+//    return height + separatorHeight;
+//}
 
 ///Settging Caption in Instagram
 - (void)userCaption:(BeautiTableViewCell *)cell withCaption:(NSString *)caption{
@@ -251,6 +287,116 @@
 //    [cell.caption sizeToFit];
 //    [cell.caption setNumberOfLines:0];
 }
+
+
+- (void)userComment:(BeautiTableViewCell *)cell withMediaID:(NSString *)mediaID { //self.media.Id
+    NSError *error = nil;
+    NSRegularExpression *hashRegex = [NSRegularExpression regularExpressionWithPattern:@"#\\S+" options:NSRegularExpressionCaseInsensitive error:&error];
+    NSRegularExpression *mentRegex = [NSRegularExpression regularExpressionWithPattern:@"@\\S+" options:NSRegularExpressionCaseInsensitive error:&error];
+    NSAssert(error == nil, @"Regular expression was not valid");
+//NSMutableAttributedString *resultString = [[NSMutableAttributedString alloc]init];
+    NSMutableArray *comments = [[NSMutableArray alloc]init];
+
+
+    [[InstagramEngine sharedEngine] getCommentsOnMedia:mediaID withSuccess:^(NSArray *instaComment) {
+        for (InstagramComment *comment in instaComment) {
+            [comments addObject:comment];
+            NSLog(@"@%@: %@",comment.user.username, comment.text);
+        }
+        NSLog(@"ddd%@", comments);
+    } failure:^(NSError *error) {
+        NSLog(@"Could not load comments");
+    }];
+
+        if (comments.count == 0) {
+            
+            //            [cell.comment removeFromSuperview];
+            //            [cell.comment setHidden:YES];
+            [cell.comment setText:@""];
+            //[cell.caption sizeToFit];
+            NSLog(@"countZero");
+            return;
+        }
+        NSString *commentString;
+        NSMutableArray *resultArray = [[NSMutableArray alloc]initWithCapacity:50];
+
+        UIFont *mentFont = [UIFont fontWithName:@"NanumGothicOTFLight" size:14];
+        UIFont *hashFont = [UIFont fontWithName:@"NanumGothicOTFLight" size:14];
+        
+        for (InstagramComment *comment in comments) {
+            commentString = [NSString stringWithFormat:@"%@ %@\n", comment.user.username, comment.text];
+            
+            NSMutableAttributedString *styledCommentString = [[NSMutableAttributedString alloc]initWithString:commentString];
+            NSMutableParagraphStyle *paraString = [[NSParagraphStyle defaultParagraphStyle]mutableCopy];
+            [paraString setParagraphSpacing:15.0f];
+            [paraString setAlignment:NSTextAlignmentCenter];
+            
+            ///Commenting User Name
+            [styledCommentString setAttributes:@{NSForegroundColorAttributeName:[UIColor pinkColor],
+                                                 NSFontAttributeName:[UIFont fontWithName:@"NanumGothicOTFBold" size:14]}
+                                         range:[commentString rangeOfString:comment.user.username]];
+            [styledCommentString addAttributes:@{NSParagraphStyleAttributeName:paraString}
+                                         range:[commentString rangeOfString:commentString]];
+            
+            ///@Configure
+            [mentRegex enumerateMatchesInString:commentString
+                                        options:0
+                                          range:NSMakeRange(0, [commentString length])
+                                     usingBlock:^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) {
+                                         NSString *linkContent = [NSString stringWithFormat:@"app-custom-scheme://hashtag?tag=%@",
+                                                                  [commentString substringWithRange:result.range], nil];
+                                         [styledCommentString addAttributes:@{//NSLinkAttributeName:[NSURL URLWithString:linkContent],
+                                                                              NSFontAttributeName:mentFont,
+                                                                              NSForegroundColorAttributeName:[UIColor pinkColor]}
+                                                                      range:result.range];
+                                     }
+             ];
+            
+            ///#Configure
+            [hashRegex enumerateMatchesInString:commentString
+                                        options:0
+                                          range:NSMakeRange(0, [commentString length])
+                                     usingBlock:^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) {
+                                         NSString *linkContent = [NSString stringWithFormat:@"app-custom-scheme://hashtag?tag=%@",
+                                                                  [commentString substringWithRange:result.range], nil];
+                                         [styledCommentString addAttributes:@{//NSLinkAttributeName:[NSURL URLWithString:linkContent],
+                                                                              NSFontAttributeName:hashFont,
+                                                                              NSForegroundColorAttributeName:[UIColor pinkColor]}
+                                                                      range:result.range];
+                                     }
+             ];
+            NSLog(@"cd:%@", styledCommentString);
+            [resultArray addObject:styledCommentString];
+        }
+        
+        NSMutableAttributedString *resultString = [[NSMutableAttributedString alloc]init];
+        
+        for (int i = 0; i < resultArray.count; ++i) {
+            [resultString appendAttributedString:[resultArray objectAtIndex:i]];
+            NSLog(@"count : %lu, temp : %@", (unsigned long)resultArray.count, resultString);
+        }
+        //resultString
+
+//        [resultString setAttributedString:tempString];
+        [cell.comment setAttributedText:resultString];
+        NSLog(@"commentResult:%@", cell.comment.attributedText);
+        NSLog(@"commentText:%@", cell.comment.text);
+//                [cell.comment sizeToFit];
+        //        [cell.comment setNumberOfLines:0];
+        
+//        NSAttributedString *attrStr = ... // your attributed string
+//        CGFloat width = 300; // whatever your desired width is
+//        CGRect rect = [resultString boundingRectWithSize:CGSizeMake(width, 10000) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading context:nil];
+//        [cell.comment setFrame:rect];
+    
+    
+
+}
+
+
+
+
+
 
 
 ///Setting Comment in Instagram

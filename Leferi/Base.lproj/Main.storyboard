@@ -512,7 +512,7 @@
                                                         </attributes>
                                                     </fragment>
                                                     <fragment>
-                                                        <mutableString key="content">의무 및 책임사항을 규정함을 목적으로 합니다.
+                                                        <string key="content">의무 및 책임사항을 규정함을 목적으로 합니다.
 ※PC통신, 무선 등을 이용하는 전자상거래에 대해서도 그 성질에 반하지 않는 한 이 약관을 준용합니다.
  
 제2조 (정의)
@@ -536,7 +536,7 @@ www.leferi..com
 2) 구매계약이 체결된 재화 등의 관리
 3) 광고의 제공
 4) 기타 "회사"가 정하는 업무
-2. "회사"는 재화 등의 품절 또는 기술적 사양의 변경 등의 경우에는 장차 체결되는 계약에 의해 제공할 재화 등의 내용을 변경할 수 있습니다. 이 경우에는 변경된 재화 등의 내용 및 제공일자를 명시하여 현재의 재화</mutableString>
+2. "회사"는 재화 등의 품절 또는 기술적 사양의 변경 등의 경우에는 장차 체결되는 계약에 의해 제공할 재화 등의 내용을 변경할 수 있습니다. 이 경우에는 변경된 재화 등의 내용 및 제공일자를 명시하여 현재의 재화</string>
                                                         <attributes>
                                                             <color key="NSColor" red="0.40784313725490196" green="0.38823529411764707" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
                                                             <font key="NSFont" size="12" name="KoPubDotumPM"/>
@@ -551,7 +551,7 @@ www.leferi..com
                                                         </attributes>
                                                     </fragment>
                                                     <fragment>
-                                                        <mutableString key="content">용역의 내용을 게시한 곳에 즉시 공지합니다.
+                                                        <string key="content">용역의 내용을 게시한 곳에 즉시 공지합니다.
 3. "회사"가 제공하기로 "이용자"와 계약을 체결한 서비스의 내용을 재화 등의 품절 또는 기술적 사양의 변경 등의 사유로 변경할 경우에는 그 사유를 "이용자"에게 통지 가능한 주소로 즉시 통지합니다.
  
 제5조 서비스 이용요금
@@ -563,7 +563,7 @@ www.leferi..com
 6. MMS 등으로 게시물을 등록할 경우 발생하는 요금은 이동통신사의 정책에 따릅니다
 
 제6조 서비스의 중단
-1. "회사"는 컴퓨터 등 정보통신설비의 보수점검</mutableString>
+1. "회사"는 컴퓨터 등 정보통신설비의 보수점검</string>
                                                         <attributes>
                                                             <color key="NSColor" red="0.40784313725490196" green="0.38823529411764707" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
                                                             <font key="NSFont" size="12" name="KoPubDotumPM"/>
@@ -578,7 +578,7 @@ www.leferi..com
                                                         </attributes>
                                                     </fragment>
                                                     <fragment>
-                                                        <mutableString key="content">교체 및 고장, 통신의 두절 등의 사유가 발생한 경우에는 서비스의 제공을 일시적으로 중단할 수 있습니다. 또 "회사"는 천재지변 또는 이에 준하는 불가항력으로 인하여 회사 서비스를 제공할 수 없는 경우에는 서비스의 제공을 제한하거나 일시 중단할 수 있습니다. 다만 이 경우 그 사유 및 기간 등을 사전 또는 사후에 "이용자"에게 공지합니다.
+                                                        <string key="content">교체 및 고장, 통신의 두절 등의 사유가 발생한 경우에는 서비스의 제공을 일시적으로 중단할 수 있습니다. 또 "회사"는 천재지변 또는 이에 준하는 불가항력으로 인하여 회사 서비스를 제공할 수 없는 경우에는 서비스의 제공을 제한하거나 일시 중단할 수 있습니다. 다만 이 경우 그 사유 및 기간 등을 사전 또는 사후에 "이용자"에게 공지합니다.
 2. "회사"는 본 서비스의 원활한 수행을 위하여 필요한 기간을 정하여 사전에 공지하고 본 서비스를 중지할 수 있습니다.
 
 제7조 회원가입
@@ -662,7 +662,7 @@ www.leferi..com
 3. "회원"이 자신의 ID 및 비밀번호를 도난 당하거나 제3자가 사용하고 있음을 인지한 경우에는 바로 "회사"에 통보하고 "회사"의 안내가 있는 경우에는 그에 따라야 합니다.
 
 제20조 이용자의 의무
-1. "회원"은 서비스 신청</mutableString>
+1. "회원"은 서비스 신청</string>
                                                         <attributes>
                                                             <color key="NSColor" red="0.40784313725490196" green="0.38823529411764707" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
                                                             <font key="NSFont" size="12" name="KoPubDotumPM"/>
@@ -677,7 +677,7 @@ www.leferi..com
                                                         </attributes>
                                                     </fragment>
                                                     <fragment>
-                                                        <mutableString key="content">이용 과정에서 다른 사람의 정보를 이용하거나 허위의 정보를 제공해서는 안 됩니다.
+                                                        <string key="content">이용 과정에서 다른 사람의 정보를 이용하거나 허위의 정보를 제공해서는 안 됩니다.
 2. "회원"은 제 3자의 ID를 이용하거나 자신의 ID를 제3자에게 이용하게 하여서는 안됩니다.
 3. "회원"은 "이용자"의 정보가 변경된 경우에는 이를 회사에 즉시 알려야 하며, "회원"의 변경 정보를 회사에 알리지 않아 발생하는 불이익에 대해 "회사"는 책임을 지지 않습니다.
 4. "회원"은 이 약관 기타 "회사"의 내부 규정 및 관계 법령을 준수해야 합니다.
@@ -715,7 +715,7 @@ www.leferi..com
 2. "회원"이 본 약관의 규정을 위반하여 "회사"에 손해가 발생한 경우 "회사"는 "회원"에 대하여 손해배상을 청구할 수 있습니다. 이 경우 "회원"은 고의, 과실이 없음을 입증하지 못하는 경우 책임을 면할 수 없습니다.
  
 제25조 분쟁해결
-1. "회사"는 "이용자"가 제기하는 정당한 의견이나 불만을 반영하고 그 피해를 보상처리하기 위하여 피해보상 처리기구를 설치</mutableString>
+1. "회사"는 "이용자"가 제기하는 정당한 의견이나 불만을 반영하고 그 피해를 보상처리하기 위하여 피해보상 처리기구를 설치</string>
                                                         <attributes>
                                                             <color key="NSColor" red="0.40784313725490196" green="0.38823529411764707" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
                                                             <font key="NSFont" size="12" name="KoPubDotumPM"/>
@@ -730,7 +730,7 @@ www.leferi..com
                                                         </attributes>
                                                     </fragment>
                                                     <fragment>
-                                                        <mutableString key="content">운영합니다.
+                                                        <string key="content">운영합니다.
 2. "회사"는 "이용자"로부터 제출되는 불만사항 및 의견은 우선적으로 그 사항을 처리합니다. 다만, 신속한 처리가 곤란한 경우에는 "이용자"에게 그 사유와 처리일정을 즉시 통보해 줍니다.
 3. "회사"와 "이용자"간에 발생한 전자상거래 분쟁과 관련하여 "이용자"의 피해구제신청이 있는 경우에는 공정거래위원회 또는 시ㆍ도지사가 의뢰하는 분쟁조정기관의 조정에 따를 수 있습니다.
 4. "회사"와 "이용자" 간에 발생한 위치정보 분쟁과 관련하여 당사자간 협의가 이루어지지 아니하거나 협의를 할 수 없는 경우에 위치정보법 제28조 규정에 의한 방송통신위원회 재정을 신청하거나 개인정보보호법 제43조 규정에 의한 개인정보분쟁조정위원회에 조정을 신청할 수 있습니다.
@@ -755,7 +755,7 @@ www.leferi..com
 4. 대표전화 : 070-8269-2318
 
 부 칙
-제1조 (시행일) 이 약관은 2013년 12월 25일부터 시행합니다.</mutableString>
+제1조 (시행일) 이 약관은 2013년 12월 25일부터 시행합니다.</string>
                                                         <attributes>
                                                             <color key="NSColor" red="0.40784313725490196" green="0.38823529411764707" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
                                                             <font key="NSFont" size="12" name="KoPubDotumPM"/>
@@ -1165,7 +1165,7 @@ www.leferi..com
         <scene sceneID="EQs-Yg-ySH">
             <objects>
                 <viewController id="9OF-hj-FuI" customClass="BeautiViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="650" sectionHeaderHeight="64" sectionFooterHeight="22" id="2lo-MY-WEK">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="635" sectionHeaderHeight="64" sectionFooterHeight="22" id="2lo-MY-WEK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1184,8 +1184,8 @@ www.leferi..com
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E0L-aJ-Phf" userLabel="userProfile">
                                             <rect key="frame" x="13" y="13" width="38" height="38"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="38" id="5Iz-I7-IYv"/>
-                                                <constraint firstAttribute="width" constant="38" id="H6d-8u-PSW"/>
+                                                <constraint firstAttribute="height" constant="38" id="Hm1-2y-wbw"/>
+                                                <constraint firstAttribute="width" constant="38" id="T1K-EC-krF"/>
                                             </constraints>
                                             <state key="normal">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1194,8 +1194,8 @@ www.leferi..com
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3yN-nf-iPr" userLabel="userName">
                                             <rect key="frame" x="59" y="12" width="178" height="27"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="27" id="Kaj-qt-AaE"/>
-                                                <constraint firstAttribute="width" constant="178" id="f0k-kV-8vs"/>
+                                                <constraint firstAttribute="width" constant="178" id="CWb-n8-GLq"/>
+                                                <constraint firstAttribute="height" constant="27" id="am1-VY-TWg"/>
                                             </constraints>
                                             <attributedString key="attributedText">
                                                 <fragment content="User Name">
@@ -1211,8 +1211,8 @@ www.leferi..com
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y1f-iK-OcR">
                                             <rect key="frame" x="59" y="34" width="178" height="21"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="178" id="VtB-d9-SOB"/>
-                                                <constraint firstAttribute="height" constant="21" id="vKK-Df-AeU"/>
+                                                <constraint firstAttribute="width" constant="178" id="leb-YC-YGI"/>
+                                                <constraint firstAttribute="height" constant="21" id="qsZ-kw-twZ"/>
                                             </constraints>
                                             <attributedString key="attributedText">
                                                 <fragment content="createDate">
@@ -1228,8 +1228,8 @@ www.leferi..com
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0do-IO-cHq" userLabel="followBtn">
                                             <rect key="frame" x="246" y="21" width="61" height="22"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="61" id="Di3-KQ-xlS"/>
-                                                <constraint firstAttribute="height" constant="22" id="dXH-DW-4Gp"/>
+                                                <constraint firstAttribute="width" constant="61" id="7eE-2C-IXv"/>
+                                                <constraint firstAttribute="height" constant="22" id="JBb-V4-KCb"/>
                                             </constraints>
                                             <state key="normal" image="instaFollBtn.png">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1237,20 +1237,20 @@ www.leferi..com
                                         </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="0do-IO-cHq" firstAttribute="leading" secondItem="y1f-iK-OcR" secondAttribute="trailing" constant="9" id="1OF-EK-Z3m"/>
-                                        <constraint firstItem="3yN-nf-iPr" firstAttribute="leading" secondItem="E0L-aJ-Phf" secondAttribute="trailing" constant="8" id="9xt-IA-Rzx"/>
-                                        <constraint firstAttribute="bottom" secondItem="E0L-aJ-Phf" secondAttribute="bottom" constant="12" id="Coy-hf-dRz"/>
-                                        <constraint firstItem="0do-IO-cHq" firstAttribute="top" secondItem="FQI-2R-oSN" secondAttribute="top" constant="21" id="FWQ-IK-MXl"/>
-                                        <constraint firstAttribute="bottom" secondItem="0do-IO-cHq" secondAttribute="bottom" constant="20" id="HqK-Vd-CzB"/>
-                                        <constraint firstItem="0do-IO-cHq" firstAttribute="leading" secondItem="3yN-nf-iPr" secondAttribute="trailing" constant="9" id="MkQ-KO-OTs"/>
-                                        <constraint firstItem="E0L-aJ-Phf" firstAttribute="leading" secondItem="FQI-2R-oSN" secondAttribute="leading" constant="13" id="OKl-vU-3Sx"/>
-                                        <constraint firstItem="y1f-iK-OcR" firstAttribute="leading" secondItem="E0L-aJ-Phf" secondAttribute="trailing" constant="8" id="PSY-6u-vsd"/>
-                                        <constraint firstItem="3yN-nf-iPr" firstAttribute="top" secondItem="FQI-2R-oSN" secondAttribute="top" constant="12" id="g72-tl-7kj"/>
-                                        <constraint firstItem="E0L-aJ-Phf" firstAttribute="top" secondItem="FQI-2R-oSN" secondAttribute="top" constant="13" id="iT2-kD-E8l"/>
-                                        <constraint firstAttribute="bottom" secondItem="3yN-nf-iPr" secondAttribute="bottom" constant="24" id="l0Z-Fd-2Vo"/>
-                                        <constraint firstItem="y1f-iK-OcR" firstAttribute="top" secondItem="3yN-nf-iPr" secondAttribute="bottom" constant="-5" id="m21-Hy-y1L"/>
-                                        <constraint firstAttribute="trailing" secondItem="0do-IO-cHq" secondAttribute="trailing" constant="13" id="v3W-Sm-GvH"/>
-                                        <constraint firstAttribute="bottom" secondItem="y1f-iK-OcR" secondAttribute="bottom" constant="8" id="vFc-4U-Tts"/>
+                                        <constraint firstItem="3yN-nf-iPr" firstAttribute="top" secondItem="FQI-2R-oSN" secondAttribute="top" constant="12" id="0sm-1N-16V"/>
+                                        <constraint firstItem="0do-IO-cHq" firstAttribute="top" secondItem="FQI-2R-oSN" secondAttribute="top" constant="21" id="5zT-fg-bWN"/>
+                                        <constraint firstItem="0do-IO-cHq" firstAttribute="leading" secondItem="3yN-nf-iPr" secondAttribute="trailing" constant="9" id="Hbo-cw-KP3"/>
+                                        <constraint firstItem="3yN-nf-iPr" firstAttribute="leading" secondItem="E0L-aJ-Phf" secondAttribute="trailing" constant="8" id="L3H-UL-BxZ"/>
+                                        <constraint firstAttribute="bottom" secondItem="3yN-nf-iPr" secondAttribute="bottom" constant="24" id="Oh9-oS-ZCW"/>
+                                        <constraint firstItem="0do-IO-cHq" firstAttribute="leading" secondItem="y1f-iK-OcR" secondAttribute="trailing" constant="9" id="Pvq-nO-nYa"/>
+                                        <constraint firstAttribute="bottom" secondItem="0do-IO-cHq" secondAttribute="bottom" constant="20" id="TGV-8N-7S7"/>
+                                        <constraint firstAttribute="bottom" secondItem="y1f-iK-OcR" secondAttribute="bottom" constant="8" id="Y6I-Uh-jRs"/>
+                                        <constraint firstItem="y1f-iK-OcR" firstAttribute="top" secondItem="FQI-2R-oSN" secondAttribute="top" constant="34" id="ZVP-3E-bEy"/>
+                                        <constraint firstAttribute="trailing" secondItem="0do-IO-cHq" secondAttribute="trailing" constant="13" id="euu-MQ-rOY"/>
+                                        <constraint firstItem="y1f-iK-OcR" firstAttribute="leading" secondItem="E0L-aJ-Phf" secondAttribute="trailing" constant="8" id="ihr-t6-Nnw"/>
+                                        <constraint firstItem="E0L-aJ-Phf" firstAttribute="leading" secondItem="FQI-2R-oSN" secondAttribute="leading" constant="13" id="lZi-kv-BNE"/>
+                                        <constraint firstAttribute="bottom" secondItem="E0L-aJ-Phf" secondAttribute="bottom" constant="12" id="lfK-so-UpM"/>
+                                        <constraint firstItem="E0L-aJ-Phf" firstAttribute="top" secondItem="FQI-2R-oSN" secondAttribute="top" constant="13" id="wqt-4H-bfo"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1268,29 +1268,17 @@ www.leferi..com
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a5v-59-MZV">
-                                            <rect key="frame" x="0.0" y="1" width="320" height="320"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="320" id="5hC-yd-QGd"/>
-                                                <constraint firstAttribute="height" constant="320" id="Nf8-kg-sFi"/>
+                                                <constraint firstAttribute="height" constant="320" id="Oa6-HA-pd2"/>
+                                                <constraint firstAttribute="width" constant="320" id="lLd-ij-Vq0"/>
                                             </constraints>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TTl-t8-9mG" userLabel="likeBtn">
-                                            <rect key="frame" x="119" y="330" width="83" height="65"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="65" id="Bpy-9h-H9L"/>
-                                                <constraint firstAttribute="width" constant="83" id="OYM-fZ-PZc"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="NanumGothicOTFLight" family="NanumGothicOTF" pointSize="17"/>
-                                            <state key="normal" image="instaNormBtn.png">
-                                                <color key="titleColor" red="0.69805476639999997" green="0.69805476639999997" blue="0.69805476639999997" alpha="1" colorSpace="calibratedRGB"/>
-                                            </state>
-                                            <state key="highlighted" image="instaLikeBtn.png"/>
-                                        </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r79-K2-xHS" userLabel="InstaCaption">
-                                            <rect key="frame" x="64" y="400" width="192" height="17"/>
+                                            <rect key="frame" x="64" y="394" width="192" height="17"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="17" id="UG7-zQ-Vme"/>
-                                                <constraint firstAttribute="width" constant="192" id="mZl-Uf-JZA"/>
+                                                <constraint firstAttribute="width" constant="192" id="5xL-nZ-fo0"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="17" id="SJt-Ng-Uk8"/>
                                             </constraints>
                                             <attributedString key="attributedText">
                                                 <fragment content="Insta Caption">
@@ -1304,17 +1292,39 @@ www.leferi..com
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="instaComt.png" translatesAutoresizingMaskIntoConstraints="NO" id="6zV-cF-Bqi">
-                                            <rect key="frame" x="114" y="437" width="92" height="20"/>
+                                            <rect key="frame" x="114" y="429" width="92" height="20"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="20" id="IKk-r9-ZfP"/>
-                                                <constraint firstAttribute="width" constant="92" id="inR-hv-eyj"/>
+                                                <constraint firstAttribute="height" constant="20" id="apE-al-sHK"/>
+                                                <constraint firstAttribute="width" constant="92" id="eS0-vl-AKY"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BX9-us-Rby">
-                                            <rect key="frame" x="64" y="483" width="192" height="17"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c9J-Jp-4VL" userLabel="ComtBtn">
+                                            <rect key="frame" x="138" y="510" width="45" height="45"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="192" id="FDq-YK-7Hf"/>
-                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="17" id="uaB-kb-w8T"/>
+                                                <constraint firstAttribute="height" constant="45" id="JdJ-7o-BRC"/>
+                                                <constraint firstAttribute="width" constant="45" id="khq-eO-neq"/>
+                                            </constraints>
+                                            <state key="normal" image="instaComtBtn.png">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TTl-t8-9mG" userLabel="likeBtn">
+                                            <rect key="frame" x="119" y="328" width="83" height="65"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="65" id="1nb-tv-pU1"/>
+                                                <constraint firstAttribute="width" constant="83" id="a3B-E1-xUR"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="NanumGothicOTFLight" family="NanumGothicOTF" pointSize="17"/>
+                                            <state key="normal" image="instaNormBtn.png">
+                                                <color key="titleColor" red="0.69805476639999997" green="0.69805476639999997" blue="0.69805476639999997" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <state key="highlighted" image="instaLikeBtn.png"/>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BX9-us-Rby">
+                                            <rect key="frame" x="64" y="472" width="192" height="17"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="192" id="3QZ-h5-UsV"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="250" constant="17" id="X3Q-jT-fct"/>
                                             </constraints>
                                             <attributedString key="attributedText">
                                                 <fragment content="comment">
@@ -1327,39 +1337,27 @@ www.leferi..com
                                             </attributedString>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c9J-Jp-4VL" userLabel="ComtBtn">
-                                            <rect key="frame" x="138" y="517" width="45" height="45"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="EPx-au-SOt"/>
-                                                <constraint firstAttribute="height" constant="45" id="iSq-kM-CW1"/>
-                                                <constraint firstAttribute="width" constant="45" id="rbs-fu-MYR"/>
-                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="rzX-MB-0ax"/>
-                                            </constraints>
-                                            <state key="normal" image="instaComtBtn.png">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                        </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="r79-K2-xHS" firstAttribute="top" secondItem="TTl-t8-9mG" secondAttribute="bottom" constant="5" id="0Jz-zB-tLw"/>
-                                        <constraint firstItem="6zV-cF-Bqi" firstAttribute="leading" secondItem="RdK-It-LMS" secondAttribute="leading" constant="114" id="2B1-P9-six"/>
-                                        <constraint firstAttribute="trailing" secondItem="TTl-t8-9mG" secondAttribute="trailing" constant="118" id="4wb-Dn-9Gb"/>
-                                        <constraint firstItem="a5v-59-MZV" firstAttribute="leading" secondItem="RdK-It-LMS" secondAttribute="leading" id="6yN-O2-BNC"/>
-                                        <constraint firstAttribute="trailing" secondItem="r79-K2-xHS" secondAttribute="trailing" constant="64" id="8SG-Gp-CIx"/>
-                                        <constraint firstItem="c9J-Jp-4VL" firstAttribute="leading" secondItem="RdK-It-LMS" secondAttribute="leading" constant="138" id="Hxd-At-obA"/>
-                                        <constraint firstAttribute="trailing" secondItem="6zV-cF-Bqi" secondAttribute="trailing" constant="114" id="JKj-UU-jwN"/>
-                                        <constraint firstAttribute="trailing" secondItem="a5v-59-MZV" secondAttribute="trailing" id="NiB-OR-JBB"/>
-                                        <constraint firstItem="BX9-us-Rby" firstAttribute="leading" secondItem="RdK-It-LMS" secondAttribute="leading" constant="64" id="Ozn-it-Ezb"/>
-                                        <constraint firstAttribute="trailing" secondItem="c9J-Jp-4VL" secondAttribute="trailing" constant="137" id="Qve-dj-JeA"/>
-                                        <constraint firstItem="6zV-cF-Bqi" firstAttribute="top" secondItem="r79-K2-xHS" secondAttribute="bottom" constant="20" id="Sfb-bt-VfY"/>
-                                        <constraint firstItem="BX9-us-Rby" firstAttribute="top" secondItem="6zV-cF-Bqi" secondAttribute="bottom" constant="26" id="ZoO-Ji-YX1"/>
-                                        <constraint firstItem="TTl-t8-9mG" firstAttribute="top" secondItem="a5v-59-MZV" secondAttribute="bottom" constant="9" id="crZ-rI-jiB"/>
-                                        <constraint firstItem="TTl-t8-9mG" firstAttribute="leading" secondItem="RdK-It-LMS" secondAttribute="leading" constant="119" id="frF-W7-0E8"/>
-                                        <constraint firstAttribute="bottom" secondItem="c9J-Jp-4VL" secondAttribute="bottom" constant="87" id="mCJ-Xm-j0Q"/>
-                                        <constraint firstItem="c9J-Jp-4VL" firstAttribute="top" secondItem="BX9-us-Rby" secondAttribute="bottom" constant="17" id="mXE-Zn-cES"/>
-                                        <constraint firstItem="a5v-59-MZV" firstAttribute="top" secondItem="RdK-It-LMS" secondAttribute="top" constant="1" id="phP-eq-iyh"/>
-                                        <constraint firstItem="r79-K2-xHS" firstAttribute="leading" secondItem="RdK-It-LMS" secondAttribute="leading" constant="64" id="rUY-O6-M7b"/>
-                                        <constraint firstAttribute="trailing" secondItem="BX9-us-Rby" secondAttribute="trailing" constant="64" id="uZU-US-ejF"/>
+                                        <constraint firstItem="TTl-t8-9mG" firstAttribute="leading" secondItem="RdK-It-LMS" secondAttribute="leading" constant="119" id="4QX-uL-cqE"/>
+                                        <constraint firstItem="6zV-cF-Bqi" firstAttribute="leading" secondItem="RdK-It-LMS" secondAttribute="leading" constant="114" id="7MQ-Qs-Dni"/>
+                                        <constraint firstItem="a5v-59-MZV" firstAttribute="top" secondItem="RdK-It-LMS" secondAttribute="top" id="8jZ-PK-Php"/>
+                                        <constraint firstAttribute="trailing" secondItem="c9J-Jp-4VL" secondAttribute="trailing" constant="137" id="BvY-qm-ZDc"/>
+                                        <constraint firstAttribute="trailing" secondItem="6zV-cF-Bqi" secondAttribute="trailing" constant="114" id="DID-7e-QrF"/>
+                                        <constraint firstItem="TTl-t8-9mG" firstAttribute="top" secondItem="a5v-59-MZV" secondAttribute="bottom" constant="8" id="Igc-EC-P1a"/>
+                                        <constraint firstItem="c9J-Jp-4VL" firstAttribute="top" secondItem="BX9-us-Rby" secondAttribute="bottom" constant="21" id="Mty-sa-Pwg"/>
+                                        <constraint firstAttribute="trailing" secondItem="r79-K2-xHS" secondAttribute="trailing" constant="64" id="Oep-Li-jaI"/>
+                                        <constraint firstAttribute="trailing" secondItem="a5v-59-MZV" secondAttribute="trailing" id="Qb4-Le-Gw1"/>
+                                        <constraint firstItem="a5v-59-MZV" firstAttribute="leading" secondItem="RdK-It-LMS" secondAttribute="leading" id="R8U-5K-RIc"/>
+                                        <constraint firstAttribute="trailing" secondItem="TTl-t8-9mG" secondAttribute="trailing" constant="118" id="RMw-Su-dEO"/>
+                                        <constraint firstItem="6zV-cF-Bqi" firstAttribute="top" secondItem="r79-K2-xHS" secondAttribute="bottom" constant="18" id="RZA-RX-2Ao"/>
+                                        <constraint firstItem="r79-K2-xHS" firstAttribute="top" secondItem="TTl-t8-9mG" secondAttribute="bottom" constant="1" id="duX-NC-7rF"/>
+                                        <constraint firstAttribute="bottom" secondItem="c9J-Jp-4VL" secondAttribute="bottom" constant="79" id="exy-3v-ayP"/>
+                                        <constraint firstItem="BX9-us-Rby" firstAttribute="top" secondItem="6zV-cF-Bqi" secondAttribute="bottom" constant="23" id="jzi-ag-nOf"/>
+                                        <constraint firstAttribute="trailing" secondItem="BX9-us-Rby" secondAttribute="trailing" constant="64" id="kxJ-4H-Ivw"/>
+                                        <constraint firstItem="r79-K2-xHS" firstAttribute="leading" secondItem="RdK-It-LMS" secondAttribute="leading" constant="64" id="pDW-Lo-5n4"/>
+                                        <constraint firstItem="BX9-us-Rby" firstAttribute="leading" secondItem="RdK-It-LMS" secondAttribute="leading" constant="64" id="rhb-D7-cHZ"/>
+                                        <constraint firstItem="c9J-Jp-4VL" firstAttribute="leading" secondItem="RdK-It-LMS" secondAttribute="leading" constant="138" id="xOv-51-BVm"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -1478,7 +1476,7 @@ www.leferi..com
                                                         </attributes>
                                                     </fragment>
                                                     <fragment>
-                                                        <mutableString key="content">
+                                                        <string key="content">
 
 - ㈜ 레페리 (이하 “회사”)는 회원님의 개인정보를 안전하게 보호하기 위하여 최선의 노력을 다하고 있으며, “정보통신망 이용촉진 및 정보보호 등에 관한 법률”과 “개인정보 보호법” 등 개인정보와 관련된 법령 상의 규정들과 방송통신위원회 및 행정안전부 등의 유관기관이 제정한 가이드라인을 준수하고 있습니다.
 
@@ -1622,7 +1620,7 @@ www.leferi..com
 
 □ 고객서비스담당 부서: 고객 서비스실
      전화번호: 070-8269-2318
-     이메일: </mutableString>
+     이메일: </string>
                                                         <attributes>
                                                             <color key="NSColor" red="0.38823529411764707" green="0.38823529411764707" blue="0.38823529411764707" alpha="1" colorSpace="calibratedRGB"/>
                                                             <font key="NSFont" size="12" name="KoPubDotumPM"/>
