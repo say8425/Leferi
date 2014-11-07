@@ -16,6 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //GoogleAnal Screen
+    [self setScreenName:@"ReviewListView"];
 
     //StatusBar Setting
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
@@ -79,6 +82,7 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         long row = [indexPath row];
         reviewViewController.reviewURL = [NSURL URLWithString:self.reviewAddressArray[row]];
+        reviewViewController.reviewNum = row;
     }
 }
 

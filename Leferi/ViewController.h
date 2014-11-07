@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 #import "EAIntroView.h"
 #import "AFNetworking.h"
 #import "SMPageControl.h"
@@ -15,7 +16,7 @@
 #import "ETCLibrary.h"
 #import "Config.h"
 
-@interface ViewController : UIViewController <EAIntroDelegate>
+@interface ViewController : GAITrackedViewController <EAIntroDelegate>
 
 @property (strong, nonatomic) IBOutlet UIView *view;
 @property (strong, nonatomic) UIView *loadingView;

@@ -16,7 +16,7 @@
 #define SCREEN_SIZE_IPAD_MINI 7.9
 
 //Number of Cache
-#define ENTERING_INTRO_JUG 23
+#define ENTERING_INTRO_JUG 21
 
 //Cache Path
 #define DEFAULT_PATH @"http://www.leferi.com/mobileApp/iOS/currentVersion/"

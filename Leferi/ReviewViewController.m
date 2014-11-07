@@ -13,6 +13,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //GoogleAnal Screen
+    [self setScreenName:[NSString stringWithFormat:@"BlogView%ld", (long)self.reviewNum]];
+    
     //NavBar Setting
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"reviewTitleBar.png"] forBarMetrics:UIBarMetricsDefault];
     [self.navigationItem setLeftBarButtonItem:[UIBarButtonItem customBackButtonWithImage:[UIImage imageNamed:@"backButton.png"] Target:self action:@selector(back:)]];

@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "EAIntroView.h"
 #import "ETCLibrary.h"
+#import "GAITrackedViewController.h"
 
-@interface IntroduceViewController : UIViewController <EAIntroDelegate>
+@interface IntroduceViewController : GAITrackedViewController <EAIntroDelegate>
 
 @property (strong, nonatomic) IBOutlet UIView *introduceView;
 

@@ -11,7 +11,6 @@
 #import "VersionViewController.h"
 #import "UIBarButtonItem+Image.h"
 
-
 @interface SettingTableViewController : UITableViewController
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;

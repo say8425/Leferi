@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "XCDYouTubeKit.h"
+#import "GAI.h"
+#import "GAIDictionaryBuilder.h"
+#import "GAITrackedViewController.h"
 #import "ETCLibrary.h"
 #import "ReviewViewCell.h"
 #import "ReviewViewController.h"
@@ -15,7 +17,8 @@
 #import "NSDictionary+JSONCategories.h"
 #import "UIBarButtonItem+Image.h"
 
-@interface ReviewListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
+@interface ReviewListViewController : GAITrackedViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) NSArray *reviewImageArray;
 @property (strong, nonatomic) NSArray *reviewAddressArray;

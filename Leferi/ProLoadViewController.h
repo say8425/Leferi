@@ -7,16 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 #import "Config.h"
 #import "ETCLibrary.h"
 #import "AFNetworking.h"
 #import "ViewController.h"
 #import "UIImageView+AFNetworking.h"
 
-@interface ProLoadViewController : UIViewController{
+@interface ProLoadViewController : GAITrackedViewController {
     NSMutableDictionary *pathDictionary;
 }
 
-@property (strong, nonatomic) IBOutlet UILabel *connectStatus;
+@property (strong, nonatomic) IBOutlet UIImageView *launchImage;
+
 
 @end

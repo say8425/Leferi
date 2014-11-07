@@ -17,6 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //GoogleAnal Screen
+    [self setScreenName:@"ProvisionView"];
+    
     //NavBar Setting
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"ProvisionTitleBar.png"] forBarMetrics:UIBarMetricsDefault];
     [self.navigationItem setLeftBarButtonItem:[UIBarButtonItem customBackButtonWithImage:[UIImage imageNamed:@"backButton.png"] Target:self action:@selector(back:)]];
@@ -26,6 +29,10 @@
         [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
     } [self.navigationController.navigationBar setTranslucent:NO];
     [self followScrollView:self.scrollView];
+    
+    //If classic, then bagImage is changed whit classicStyle
+    if ([[ETCLibrary getScreenPhysicalSize] isEqual:@"Classic/"]) [self.provisionBack setImage:[UIImage imageNamed:@"provisionBack_4S.png"]];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,17 +49,5 @@
     [self showNavbar];
     return YES;
 }
-
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

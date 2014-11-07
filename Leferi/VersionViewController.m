@@ -16,22 +16,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // StatusBar setting
-    //[[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-//    [self.navigationController.navigationBar setBackgroundColor:[UIColor redColor]];
-//    [self.navigationController.navigationBar setHidden:YES];
-    //[self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
-    //[self.navigationController.navigationBar setBackgroundColor:[UIColor clearColor]];
-//    [self.navigationController.navigationBar setAlpha:0.5f];
     
+    //GoogleAnal Screen
+    [self setScreenName:@"VersionView"];
+
+    // StatusBar setting
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    //If classic, then bagImage is changed whit classicStyle
+    if ([[ETCLibrary getScreenPhysicalSize] isEqual:@"Classic/"]) [self.versionBack setImage:[UIImage imageNamed:@"versionView4S.png"]];
+    
+    // Making Back Button
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [backBtn setFrame:CGRectMake(15, 24, 22, 37)];
     [backBtn setImage:[UIImage imageNamed:@"backButtonDS@2x.png"] forState:UIControlStateNormal];
     [backBtn addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:backBtn];
     
-//    [self.navigationItem setLeftBarButtonItem:[UIBarButtonItem customBackButtonWithImage:[UIImage imageNamed:@"backButton.png"] Target:self action:@selector(back:)]];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,7 +43,7 @@
 
 
 - (IBAction)back:(id)sender {
-    //[self performSegueWithIdentifier:@"backSettingFromVersion" sender:self];
+    [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleDefault];
     [self setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
     [self dismissViewControllerAnimated:YES completion:nil];
     

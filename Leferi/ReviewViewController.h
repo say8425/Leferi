@@ -7,14 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 #import "UIBarButtonItem+Image.h"
 #import "UIViewController+ScrollingNavbar.h"
 
-@interface ReviewViewController : UIViewController <UIScrollViewDelegate, UIWebViewDelegate>
+@interface ReviewViewController : GAITrackedViewController <UIScrollViewDelegate, UIWebViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIView *view;
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
 @property (strong, nonatomic) NSURL *reviewURL;
+@property (assign, nonatomic) NSInteger reviewNum;
 @property (strong, nonatomic) NSString *urlString;
 @property (strong, nonatomic) UIView *loadingView;
 @property (strong, nonatomic) UIActivityIndicatorView *actiView;

@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import "GAITrackedViewController.h"
 #import "ETCLibrary.h"
 #import "UIBarButtonItem+Image.h"
 #import "UIViewController+ScrollingNavbar.h"
 
-@interface ProposeViewController : UIViewController
+@interface ProposeViewController : GAITrackedViewController
 
 @property (strong, nonatomic) IBOutlet UIView *view;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;

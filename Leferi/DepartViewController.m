@@ -16,6 +16,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //GoogleAnal Screen
+    [self setScreenName:@"DepartView"];
+    
     //Cache Loading
     NSDictionary *pathPlist = [NSDictionary dictionaryWithContentsOfFile:[ETCLibrary getPath]];
     NSDictionary *configDict = [NSDictionary dictionaryWithContentsOfFile:[pathPlist objectForKey:@"config"]];
@@ -37,7 +41,6 @@
                                                                ([[UIScreen mainScreen]bounds].size.height)/2 - 104 , 80, 80)];
     [self.loadingView setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.6]];
     [self.loadingView.layer setCornerRadius:5];
-    NSLog(@"%f", self.navigationController.navigationBar.frame.size.height);
     
     //WebView Loading //actiIcon
     self.actiView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
@@ -71,15 +74,8 @@
 }
 
 - (IBAction)back:(id)sender {
-    //[self.navigationController popViewControllerAnimated:YES];
     [[UIApplication sharedApplication] setStatusBarStyle:[ETCLibrary getStatusBarFontColor]];
     [self performSegueWithIdentifier:@"backMenuFromDepart" sender:self];
-//    [self dismissViewControllerAnimated:YES completion:nil];
-//    [[self parentViewController] dismissModalViewControllerAnimated:YES];
-//    self.parentViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-//    self.parentViewController.view.alpha = 0.0;
-//    [UIView animateWithDuration:0.5
-//                     animations:^{self.parentViewController.view.alpha  = 1.0;}];
 }
 
 - (void)didReceiveMemoryWarning {

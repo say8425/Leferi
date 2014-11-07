@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 #import "ETCLibrary.h"
 #import "UIBarButtonItem+Image.h"
 
-@interface CommentViewController : UIViewController <UIWebViewDelegate>
+@interface CommentViewController : GAITrackedViewController <UIWebViewDelegate>
+
 @property (strong, nonatomic) IBOutlet UIView *view;
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
 @property (strong, nonatomic) UIView *loadingView;

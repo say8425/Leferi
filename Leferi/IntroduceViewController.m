@@ -17,6 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //GoogleAnal Screen
+    [self setScreenName:@"IntroduceView"];
+    
     //statusBar make LightStyle
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
 
@@ -28,32 +31,32 @@
     EAIntroPage *page6 = [EAIntroPage page];
     
 
+    //iPhone 4S Screen
     if ([[ETCLibrary getScreenPhysicalSize] isEqual:@"Classic/"]) {
-        page1.bgImage = [UIImage imageNamed:@"introduceBack1.png"];
-        page1.titleIconView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"introduceText1.png"]];
+        page1.bgImage = [UIImage imageNamed:@"introduceBack4S_1.png"];
+        page1.titleIconView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"introduceText4S_1.png"]];
         page1.titleIconPositionY = 0;
         
-        page2.bgImage = [UIImage imageNamed:@"introduceBack2.png"];
-        page2.titleIconView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"introduceText2.png"]];
+        page2.bgImage = [UIImage imageNamed:@"introduceBack4S_2.png"];
+        page2.titleIconView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"introduceText4S_2.png"]];
         page2.titleIconPositionY = 0;
         
-        page3.bgImage = [UIImage imageNamed:@"introduceBack3.png"];
-        page3.titleIconView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"introduceText3.png"]];
+        page3.bgImage = [UIImage imageNamed:@"introduceBack4S_3.png"];
+        page3.titleIconView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"introduceText4S_3.png"]];
         page3.titleIconPositionY = 0;
         
-        page4.bgImage = [UIImage imageNamed:@"introduceBack4.png"];
-        page4.titleIconView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"introduceText4.png"]];
+        page4.bgImage = [UIImage imageNamed:@"introduceBack4S_4.png"];
+        page4.titleIconView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"introduceText4S_4.png"]];
         page4.titleIconPositionY = 0;
-
-        page5.bgImage = [UIImage imageNamed:@"introduceBack5.png"];
-        page5.titleIconView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"introduceText5.png"]];
+        
+        page5.bgImage = [UIImage imageNamed:@"introduceBack4S_5.png"];
+        page5.titleIconView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"introduceText4S_5.png"]];
         page5.titleIconPositionY = 0;
         
-        page6.bgImage = [UIImage imageNamed:@"introduceBack6.png"];
-        page6.titleIconView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"introduceText6.png"]];
+        page6.bgImage = [UIImage imageNamed:@"introduceBack4S_6.png"];
+        page6.titleIconView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"introduceText4S_6.png"]];
         page6.titleIconPositionY = 0;
     } else {
-        //iPhone 4S Screen
         page1.bgImage = [UIImage imageNamed:@"introduceBack1.png"];
         page1.titleIconView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"introduceText1.png"]];
         page1.titleIconPositionY = 0;
@@ -86,7 +89,7 @@
                             range:(NSRange) {0, [attributeString length]}];
 
     //Setting Button of text
-    UILabel *titleSkipBtn = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 150, 20)];
+    UILabel *titleSkipBtn = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 90, 20)];
     [titleSkipBtn setFont:[UIFont systemFontOfSize:14]];
     [titleSkipBtn setTextColor:[UIColor whiteColor]];
     [titleSkipBtn setAttributedText:[attributeString copy]];
@@ -95,9 +98,7 @@
     UIButton *skipBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [skipBtn addSubview:titleSkipBtn];
     [skipBtn setAlpha:0.0f];
-    [skipBtn setFrame:CGRectMake([[UIScreen mainScreen]bounds].size.width/2 + 74,
-                                 [[UIScreen mainScreen]bounds].size.height/2 - 277,
-                                 150, 20)];
+    [skipBtn setFrame:CGRectMake([[UIScreen mainScreen]bounds].size.width - 92, 7, 90, 20)];
     [skipBtn addTarget:self action:@selector(skipBtn:) forControlEvents:UIControlEventTouchUpInside];
     
     //Setting IntroView

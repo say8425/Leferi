@@ -17,6 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //GoogleAnal Screen
+    [self setScreenName:@"Infoguide"];
+    
     //NavBar Setting
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"InfoGuiteTitleBar.png"] forBarMetrics:UIBarMetricsDefault];
     [self.navigationItem setLeftBarButtonItem:[UIBarButtonItem customBackButtonWithImage:[UIImage imageNamed:@"backButton.png"] Target:self action:@selector(back:)]];
@@ -26,6 +29,10 @@
         [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
     } [self.navigationController.navigationBar setTranslucent:NO];
     [self followScrollView:self.scrollView];
+    
+    //If classic, then bagImage is changed whit classicStyle
+    if ([[ETCLibrary getScreenPhysicalSize] isEqual:@"Classic/"]) [self.InfoGuideBack setImage:[UIImage imageNamed:@"provisionBack_4S.png"]];
+
 }
 
 - (void)didReceiveMemoryWarning {

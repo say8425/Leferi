@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ETCLibrary.h"
 #import "UIViewController+ScrollingNavbar.h"
 #import "UIBarButtonItem+Image.h"
+#import "GAITrackedViewController.h"
 
-@interface VersionViewController : UIViewController
+@interface VersionViewController : GAITrackedViewController
 
-@property (strong, nonatomic) IBOutlet UIView *view;
+@property (strong, nonatomic) IBOutlet UIImageView *versionBack;
+
 
 @end

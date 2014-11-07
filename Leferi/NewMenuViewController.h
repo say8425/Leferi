@@ -7,14 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GAI.h"
+#import "GAIDictionaryBuilder.h"
+#import "GAITrackedViewController.h"
 #import "ETCLibrary.h"
-#import "XCDYouTubeKit.h"
 #import "DissolveUnsegue.h"
 #import "UIColor+HexString.h"
 #import "UIViewController+Rotation.h"
 
-@interface NewMenuViewController : UIViewController {
+@interface NewMenuViewController : GAITrackedViewController {
     UIView *statusBarView;
+    NSString *instaTag;
+    NSString *instaWeb;
 }
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -25,5 +29,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *menuBtn3;
 @property (strong, nonatomic) IBOutlet UIButton *menuBtn4;
 
+- (IBAction)InstagramOpen:(id)sender;
 
 @end

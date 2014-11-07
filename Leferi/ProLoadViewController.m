@@ -15,9 +15,18 @@
 @implementation ProLoadViewController
 
 - (void)viewDidLoad {
-    pathDictionary = [[NSMutableDictionary alloc]initWithCapacity:ENTERING_INTRO_JUG];
     [super viewDidLoad];
+
+    //If classic, then bagImage is changed whit classicStyle
+    if ([[ETCLibrary getScreenPhysicalSize] isEqual:@"Classic/"]) [self.launchImage setImage:[UIImage imageNamed:@"launch_4S.png"]];
+    pathDictionary = [[NSMutableDictionary alloc]initWithCapacity:ENTERING_INTRO_JUG];
+
+    //GoogleAnal Screen
+    [self setScreenName:@"LoadView"];
+
+    //Data Load
     [self makeIntroPage];
+    
 }
 
 #pragma mark - Download Cache
@@ -46,12 +55,6 @@
 //ReviewView List
     [operationQueue addOperations:[self conditionOperationPath:REVIEW_VIEW_PATH withFileName:@"blogMenu" withForCount:4] waitUntilFinished:NO];
     
-//Beautigram HeadImage
-    [operationQueue addOperation:[self singOperationPath:BEAUTIGRAM_PATH withFileName:@"instaHead"]];
-
-    //Beautigram LoadingImage
-    [operationQueue addOperation:[self singOperationPath:BEAUTIGRAM_PATH withFileName:@"instaLoad"]];
-
 //Plist
     [operationQueue addOperation:[self plistOperationPath]];
 }
@@ -75,20 +78,19 @@
         NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:filePath]];
         
         AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc]initWithRequest:request];
-        
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *path = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@%d@2x.png",fileName, fileNum]];
-        
         operation.outputStream = [NSOutputStream outputStreamToFileAtPath:path append:NO];
         
         [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [self addSkipBackupAttributeToItemAtURL:[NSURL fileURLWithPath:path]];
             [pathDictionary setObject:path forKey:[NSString stringWithFormat:@"%@%d", fileName, fileNum]];
             NSLog(@"Successfully downloaded file to %@", path);
             
+            //if all downloaded, then enterin
             if (pathDictionary.count == ENTERING_INTRO_JUG) {
                 [self showIntroView];
-            }
-            
+            }            
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error: %@", error);
         }];
@@ -116,12 +118,14 @@
     operation.outputStream = [NSOutputStream outputStreamToFileAtPath:path append:NO];
     
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self addSkipBackupAttributeToItemAtURL:[NSURL fileURLWithPath:path]];
         [pathDictionary setObject:path forKey:[NSString stringWithFormat:@"%@",fileName]];
         NSLog(@"Successfully downloaded file to %@", path);
+
+        //if all downloaded, then enterin
         if (pathDictionary.count == ENTERING_INTRO_JUG) {
             [self showIntroView];
         }
-        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
@@ -145,8 +149,11 @@
     operation.outputStream = [NSOutputStream outputStreamToFileAtPath:path append:NO];
     
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self addSkipBackupAttributeToItemAtURL:[NSURL fileURLWithPath:path]];
         [pathDictionary setObject:path forKey:[NSString stringWithFormat:@"config"]];
         NSLog(@"Successfully downloaded file to %@", path);
+        
+        //if all downloaded, then enterin
         if (pathDictionary.count == ENTERING_INTRO_JUG) {
             [self showIntroView];
         }
@@ -159,6 +166,19 @@
         NSLog(@"done:%f", percentDone);
     }];
     return operation;
+}
+
+///Make don't backUp in iCloud.
+- (BOOL)addSkipBackupAttributeToItemAtURL:(NSURL *)URL {
+    assert([[NSFileManager defaultManager] fileExistsAtPath: [URL path]]);
+    
+    NSError *error = nil;
+    BOOL success = [URL setResourceValue: [NSNumber numberWithBool: YES]
+                                  forKey: NSURLIsExcludedFromBackupKey error: &error];
+    if(!success){
+        NSLog(@"Error excluding %@ from backup %@", [URL lastPathComponent], error);
+    }
+    return success;
 }
 
 #pragma mark -

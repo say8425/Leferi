@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 #import "ETCLibrary.h"
 #import "UIBarButtonItem+Image.h"
 #import "UIViewController+ScrollingNavbar.h"
 
-@interface DepartViewController : UIViewController <UIWebViewDelegate>
+@interface DepartViewController : GAITrackedViewController <UIWebViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIView *view;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;

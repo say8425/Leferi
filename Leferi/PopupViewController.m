@@ -16,7 +16,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //GoogleAnal Screen
+    [self setScreenName:@"PopupMenuView"];
+
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    //If classic, then bagImage is changed whit classicStyle
+    if ([[ETCLibrary getScreenPhysicalSize] isEqual:@"Classic/"]) [self.popViewBack setImage:[UIImage imageNamed:@"popViewBack4S.png"]];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -43,7 +50,7 @@
 //}
 
 - (IBAction)exitToPopup:(UIStoryboardSegue *)sender {
-    [[UIApplication sharedApplication]setStatusBarHidden:NO];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
 }
 
 - (UIStoryboardSegue *)segueForUnwindingToViewController:(UIViewController *)toViewController fromViewController:(UIViewController *)fromViewController identifier:(NSString *)identifier {

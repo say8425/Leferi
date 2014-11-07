@@ -16,6 +16,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //GoogleAnal Screen
+    [self setScreenName:@"IntroView"];
+    
     //StatusBar Setting
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
     

@@ -17,6 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //GoogleAnal Screen
+    [self setScreenName:@"CommentView"];
+    
     //Cache Loading
     NSDictionary *pathPlist = [NSDictionary dictionaryWithContentsOfFile:[ETCLibrary getPath]];
     NSDictionary *configDict = [NSDictionary dictionaryWithContentsOfFile:[pathPlist objectForKey:@"config"]];
@@ -28,10 +31,10 @@
     //WebView setting - Facebook Comment
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[configDict objectForKey:@"facebookComment"]]]];
     self.webView.delegate = self;
-
+    
     //WebView loading //backView
     self.loadingView = [[UIView alloc]initWithFrame:CGRectMake([[UIScreen mainScreen]bounds].size.width/2 - 40,
-                                                               [[UIScreen mainScreen]bounds].size.height/2 - 40, 80, 80)];
+                                                               ([[UIScreen mainScreen]bounds].size.height)/2 - 104 , 80, 80)];
     [self.loadingView setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.6]];
     [self.loadingView.layer setCornerRadius:5];
 
@@ -56,7 +59,6 @@
 
 - (IBAction)back:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
-    //[self dismissViewControllerAnimated:YES completion:nil];
 }
 
 

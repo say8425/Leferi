@@ -7,14 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ETCLibrary.h"
 #import "DissolveUnsegue.h"
+#import "GAITrackedViewController.h"
 
-@interface PopupViewController : UIViewController
+@interface PopupViewController : GAITrackedViewController
 
 @property (strong, nonatomic) IBOutlet UIView *view;
 @property (strong, nonatomic) IBOutlet UIButton *homeBtn;
 @property (strong, nonatomic) IBOutlet UIButton *introduceBtn;
 @property (strong, nonatomic) IBOutlet UIButton *historyBtn;
 @property (strong, nonatomic) IBOutlet UIButton *backView;
+@property (strong, nonatomic) IBOutlet UIImageView *popViewBack;
 
 @end
