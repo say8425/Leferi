@@ -14,5 +14,12 @@
 @interface IntroduceViewController : GAITrackedViewController <EAIntroDelegate>
 
 @property (strong, nonatomic) IBOutlet UIView *introduceView;
+@property (strong, nonatomic) EAIntroPage *introduce1;
+@property (strong, nonatomic) EAIntroPage *introduce2;
+@property (strong, nonatomic) EAIntroPage *introduce3;
+@property (strong, nonatomic) EAIntroPage *introduce4;
+@property (strong, nonatomic) EAIntroPage *introduce5;
+@property (strong, nonatomic) EAIntroPage *introduce6;
+
 
 @end

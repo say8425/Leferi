@@ -19,9 +19,7 @@
 @interface ViewController : GAITrackedViewController <EAIntroDelegate>
 
 @property (strong, nonatomic) IBOutlet UIView *view;
-@property (strong, nonatomic) UIView *loadingView;
-@property (strong, nonatomic) NSString *testPath;
-@property (strong, nonatomic) EAIntroPage *page1;
+@property (strong, nonatomic) EAIntroPage *page1; 
 @property (strong, nonatomic) EAIntroPage *page2;
 @property (strong, nonatomic) EAIntroPage *page3;
 @property (strong, nonatomic) EAIntroPage *page4;

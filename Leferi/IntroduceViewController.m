@@ -22,64 +22,31 @@
     
     //statusBar make LightStyle
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
-
-    EAIntroPage *page1 = [EAIntroPage page];
-    EAIntroPage *page2 = [EAIntroPage page];
-    EAIntroPage *page3 = [EAIntroPage page];
-    EAIntroPage *page4 = [EAIntroPage page];
-    EAIntroPage *page5 = [EAIntroPage page];
-    EAIntroPage *page6 = [EAIntroPage page];
     
-
-    //iPhone 4S Screen
-    if ([[ETCLibrary getScreenPhysicalSize] isEqual:@"Classic/"]) {
-        page1.bgImage = [UIImage imageNamed:@"introduceBack4S_1.png"];
-        page1.titleIconView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"introduceText4S_1.png"]];
-        page1.titleIconPositionY = 0;
+    NSDictionary *pathPlist = [NSDictionary dictionaryWithContentsOfFile:[ETCLibrary getPath]];
+    
+    //EAIntro Setting
+    self.introduce1 = [EAIntroPage page];
+    self.introduce2 = [EAIntroPage page];
+    self.introduce3 = [EAIntroPage page];
+    self.introduce4 = [EAIntroPage page];
+    self.introduce5 = [EAIntroPage page];
+    self.introduce6 = [EAIntroPage page];
+    
+    NSString *pageName;
+    NSString *pageTextName;
+    
+    for (int i = 1; i <= 6; i++) {
+        pageName = [NSString stringWithFormat:@"introduce%d", i];
+        pageTextName = [NSString stringWithFormat:@"introduceText%d", i];
         
-        page2.bgImage = [UIImage imageNamed:@"introduceBack4S_2.png"];
-        page2.titleIconView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"introduceText4S_2.png"]];
-        page2.titleIconPositionY = 0;
+        EAIntroPage *page = (EAIntroPage *)[self valueForKey:pageName];
         
-        page3.bgImage = [UIImage imageNamed:@"introduceBack4S_3.png"];
-        page3.titleIconView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"introduceText4S_3.png"]];
-        page3.titleIconPositionY = 0;
-        
-        page4.bgImage = [UIImage imageNamed:@"introduceBack4S_4.png"];
-        page4.titleIconView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"introduceText4S_4.png"]];
-        page4.titleIconPositionY = 0;
-        
-        page5.bgImage = [UIImage imageNamed:@"introduceBack4S_5.png"];
-        page5.titleIconView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"introduceText4S_5.png"]];
-        page5.titleIconPositionY = 0;
-        
-        page6.bgImage = [UIImage imageNamed:@"introduceBack4S_6.png"];
-        page6.titleIconView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"introduceText4S_6.png"]];
-        page6.titleIconPositionY = 0;
-    } else {
-        page1.bgImage = [UIImage imageNamed:@"introduceBack1.png"];
-        page1.titleIconView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"introduceText1.png"]];
-        page1.titleIconPositionY = 0;
-        
-        page2.bgImage = [UIImage imageNamed:@"introduceBack2.png"];
-        page2.titleIconView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"introduceText2.png"]];
-        page2.titleIconPositionY = 0;
-        
-        page3.bgImage = [UIImage imageNamed:@"introduceBack3.png"];
-        page3.titleIconView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"introduceText3.png"]];
-        page3.titleIconPositionY = 0;
-        
-        page4.bgImage = [UIImage imageNamed:@"introduceBack4.png"];
-        page4.titleIconView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"introduceText4.png"]];
-        page4.titleIconPositionY = 0;
-        
-        page5.bgImage = [UIImage imageNamed:@"introduceBack5.png"];
-        page5.titleIconView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"introduceText5.png"]];
-        page5.titleIconPositionY = 0;
-        
-        page6.bgImage = [UIImage imageNamed:@"introduceBack6.png"];
-        page6.titleIconView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"introduceText6.png"]];
-        page6.titleIconPositionY = 0;
+        if (page) {
+            page.bgImage = [UIImage imageWithContentsOfFile:[pathPlist objectForKey:pageName]];
+            page.titleIconView = [[UIImageView alloc]initWithImage:[UIImage imageWithContentsOfFile:[pathPlist objectForKey:pageTextName]]];
+            page.titleIconPositionY = 0;
+        }
     }
 
     //Setting Button of text's attributted
@@ -98,12 +65,12 @@
     UIButton *skipBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [skipBtn addSubview:titleSkipBtn];
     [skipBtn setAlpha:0.0f];
-    [skipBtn setFrame:CGRectMake([[UIScreen mainScreen]bounds].size.width - 92, 7, 90, 20)];
+    [skipBtn setFrame:CGRectMake([[UIScreen mainScreen]bounds].size.width - 90, 10, 90, 20)];
     [skipBtn addTarget:self action:@selector(skipBtn:) forControlEvents:UIControlEventTouchUpInside];
     
     //Setting IntroView
     EAIntroView *introView = [[EAIntroView alloc]initWithFrame:self.introduceView.bounds
-                                                      andPages:@[page1, page2, page3, page4, page5, page6]];
+                                                      andPages:@[self.introduce1, self.introduce2, self.introduce3, self.introduce4, self.introduce5, self.introduce6]];
     [introView setPageControl:nil];
     [introView setSkipButton:skipBtn];
     [introView setSwipeToExit:NO];

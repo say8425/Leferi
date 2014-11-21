@@ -456,7 +456,7 @@ float easeOutValue(float value) {
                 [self.skipButton setAlpha:0.0];
             } else if(page == [self.pages count] - 1) {
                 [self.skipButton setEnabled:NO];
-                [UIView animateWithDuration:1.24f delay:0.42f options:UIViewAnimationOptionTransitionNone animations:^{
+                [UIView animateWithDuration:1.24f delay:0.84f options:UIViewAnimationOptionTransitionNone animations:^{
                     [self.skipButton setAlpha:1.0f];
                     [self.skipButton setEnabled:YES];
                 } completion:^(BOOL finished) {

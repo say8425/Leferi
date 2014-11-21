@@ -32,12 +32,12 @@
     [self.view addSubview:statusBarView];
     
     // MenuBtn Setting
-    [self.titleImageView setImage:[UIImage imageNamed:[pathPlist objectForKey:@"letter1"]]];
-    [self.letterImageView setImage:[UIImage imageNamed:[pathPlist objectForKey:@"letter2"]]];
-    [self.menuBtn1 setImage:[UIImage imageNamed:[pathPlist objectForKey:@"story1"]] forState:UIControlStateNormal];
-    [self.menuBtn2 setImage:[UIImage imageNamed:[pathPlist objectForKey:@"story2"]] forState:UIControlStateNormal];
-    [self.menuBtn3 setImage:[UIImage imageNamed:[pathPlist objectForKey:@"story3"]] forState:UIControlStateNormal];
-    [self.menuBtn4 setImage:[UIImage imageNamed:[pathPlist objectForKey:@"story4"]] forState:UIControlStateNormal];
+    [self.titleImageView setImage:[UIImage imageWithContentsOfFile:[pathPlist objectForKey:@"letter1"]]];
+    [self.letterImageView setImage:[UIImage imageWithContentsOfFile:[pathPlist objectForKey:@"letter2"]]];
+    [self.menuBtn1 setImage:[UIImage imageWithContentsOfFile:[pathPlist objectForKey:@"story1"]] forState:UIControlStateNormal];
+    [self.menuBtn2 setImage:[UIImage imageWithContentsOfFile:[pathPlist objectForKey:@"story2"]] forState:UIControlStateNormal];
+    [self.menuBtn3 setImage:[UIImage imageWithContentsOfFile:[pathPlist objectForKey:@"story3"]] forState:UIControlStateNormal];
+    [self.menuBtn4 setImage:[UIImage imageWithContentsOfFile:[pathPlist objectForKey:@"story4"]] forState:UIControlStateNormal];
     
     instaTag = [configDict objectForKeyedSubscript:@"beautiTag"];
     instaWeb = [configDict objectForKeyedSubscript:@"beautiWeb"];

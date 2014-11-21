@@ -32,6 +32,10 @@
 #pragma mark - Download Cache
 ///Download cache from server
 - (void)makeIntroPage {
+//Before working, clear the Document path.
+    [self clearDocuments];
+    
+//Making operationgQueue
     NSOperationQueue *operationQueue = [NSOperationQueue new];
     
 //IntroView Bak
@@ -52,9 +56,15 @@
 //ProposeView Image
     [operationQueue addOperation:[self singOperationPath:PROPOSE_VIEW_PATH withFileName:@"proposeStory"]];
     
+//IntroduceView Bak
+    [operationQueue addOperations:[self conditionOperationPath:INTRODUCE_VIEW_PATH withFileName:@"introduce" withForCount:6] waitUntilFinished:NO];
+    
+//IntroduceView Text
+    [operationQueue addOperations:[self conditionOperationPath:INTRODUCE_VIEW_PATH withFileName:@"introduceText" withForCount:6] waitUntilFinished:NO];
+    
 //ReviewView List
     [operationQueue addOperations:[self conditionOperationPath:REVIEW_VIEW_PATH withFileName:@"blogMenu" withForCount:4] waitUntilFinished:NO];
-    
+
 //Plist
     [operationQueue addOperation:[self plistOperationPath]];
 }
@@ -64,6 +74,8 @@
     NSLog(@"entering Intro");
     [pathDictionary writeToFile:[ETCLibrary getPath] atomically:YES];
     NSLog(@"%@", [NSDictionary dictionaryWithContentsOfFile:[ETCLibrary getPath]]);
+    NSDictionary *test = [NSDictionary dictionaryWithContentsOfFile:[ETCLibrary getPath]];
+    NSLog(@"fff%@", [NSDictionary dictionaryWithContentsOfFile:[test objectForKey:@"config"]]);
     [self performSegueWithIdentifier:@"enterIntro" sender:nil];
 }
 
@@ -80,6 +92,10 @@
         AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc]initWithRequest:request];
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *path = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@%d@2x.png",fileName, fileNum]];
+        
+//        NSString *tempDir = NSTemporaryDirectory();
+//        NSString *path = [tempDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@%d@2x.png",fileName, fileNum]];
+        
         operation.outputStream = [NSOutputStream outputStreamToFileAtPath:path append:NO];
         
         [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -108,13 +124,17 @@
 - (AFHTTPRequestOperation *)singOperationPath:(NSString *)descriptionPath withFileName:(NSString *)fileName {
     NSString *devicePath = [ETCLibrary getScreenPhysicalSize];
     NSString *filePath = [NSString stringWithFormat:@"%@images/%@%@%@@2x.png", DEFAULT_PATH, devicePath, descriptionPath, fileName];
-    //NSString *filePath = [NSString stringWithFormat:@"%@%@@2x.png", urlPath, fileName];
     NSLog(@"URL:%@",filePath);
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:filePath]];
     
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *path = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@@2x.png", fileName]];
+    
+    
+//    NSString *tempDir = NSTemporaryDirectory();
+//    NSString *path = [tempDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@@2x.png",fileName]];
+    
     operation.outputStream = [NSOutputStream outputStreamToFileAtPath:path append:NO];
     
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -146,6 +166,28 @@
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *path = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"config.plist"];
+    
+//    // Create a FileHandle
+//    NSFileHandle *myHandle;
+//    
+//    // Check File Exist at Location or not, if not then create new
+//    if(![[NSFileManager defaultManager] fileExistsAtPath:path])
+//        [[NSFileManager defaultManager] createFileAtPath:path contents:[@"Your First String" dataUsingEncoding:NSUTF8StringEncoding] attributes:nil];
+//    
+//    // Create handle for file to update content
+//    myHandle = [NSFileHandle fileHandleForUpdatingAtPath:path];
+//    
+//    // move to the end of the file to add data
+//    [myHandle seekToEndOfFile];
+//    
+//    // Write data to file
+//    [myHandle writeData:  [@"YOUr Second String" dataUsingEncoding:NSUTF8StringEncoding]];
+//    
+//    // Close file
+//    [myHandle closeFile];
+    
+//    NSString *tempDir = NSTemporaryDirectory();
+//    NSString *path = [tempDir stringByAppendingPathComponent:@"config.plist"];
     operation.outputStream = [NSOutputStream outputStreamToFileAtPath:path append:NO];
     
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -185,6 +227,32 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)clearDocuments {
+    // Path to the Documents directory
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    if ([paths count] > 0) {
+        NSError *error = nil;
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        
+        // Print out the path to verify we are in the right place
+        NSString *directory = [paths objectAtIndex:0];
+        NSLog(@"Directory: %@", directory);
+        
+        // For each file in the directory, create full path and delete the file
+        for (NSString *file in [fileManager contentsOfDirectoryAtPath:directory error:&error]) {
+            NSString *filePath = [directory stringByAppendingPathComponent:file];
+            NSLog(@"File : %@", filePath);
+            
+            BOOL fileDeleted = [fileManager removeItemAtPath:filePath error:&error];
+            
+            if (fileDeleted != YES || error != nil) {
+                NSLog(@"File can't be deleted");
+            }
+        }
+        
+    }
 }
 
 @end

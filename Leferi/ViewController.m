@@ -41,15 +41,15 @@
         EAIntroPage *page = (EAIntroPage *)[self valueForKey:pageName];
         
         if (page) {
-            page.bgImage = [UIImage imageNamed:[pathPlist objectForKey:pageName]];
-            page.titleIconView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:[pathPlist objectForKey:pageTextName]]];
+            page.bgImage = [UIImage imageWithContentsOfFile:[pathPlist objectForKey:pageName]];
+            page.titleIconView = [[UIImageView alloc]initWithImage:[UIImage imageWithContentsOfFile:[pathPlist objectForKey:pageTextName]]];
             page.titleIconPositionY = 0;
         }
     }
     
     //Making SkipButton
     UIButton *skipBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [skipBtn setBackgroundImage:[UIImage imageNamed:[pathPlist objectForKey:@"pageSkipBtn"]] forState:UIControlStateNormal];
+    [skipBtn setBackgroundImage:[UIImage imageWithContentsOfFile:[pathPlist objectForKey:@"pageSkipBtn"]] forState:UIControlStateNormal];
     [skipBtn setFrame:CGRectMake([[UIScreen mainScreen]bounds].size.width/2 - 62,
                                  [[UIScreen mainScreen]bounds].size.height/2 - 86, 124, 124)];
     [skipBtn addTarget:self action:@selector(proposeBtn:) forControlEvents:UIControlEventTouchUpInside];

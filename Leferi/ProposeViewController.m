@@ -33,7 +33,7 @@
     NSDictionary *configDict = [NSDictionary dictionaryWithContentsOfFile:[pathPlist objectForKey:@"config"]];
 
     //Contents Setting
-    [self.imageView setImage:[UIImage imageNamed:[pathPlist objectForKey:@"proposeStory"]]];
+    [self.imageView setImage:[UIImage imageWithContentsOfFile:[pathPlist objectForKey:@"proposeStory"]]];
     [self.imageConstraintHeight setConstant:[[configDict objectForKey:@"proposeHeight"]floatValue]];   //Propose content - have to get height of image. imageHeight / 2 + 200
     
     //NavigationBar Fade out

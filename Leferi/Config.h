@@ -16,18 +16,21 @@
 #define SCREEN_SIZE_IPAD_MINI 7.9
 
 //Number of Cache
-#define ENTERING_INTRO_JUG 21
+#define ENTERING_INTRO_JUG 33
 
 //Cache Path
+//If want to use testVersion currentVersion -> testVersion
 #define DEFAULT_PATH @"http://www.leferi.com/mobileApp/iOS/currentVersion/"
 #define DEPENDENCE_PATH @"images/"
 #define INTRO_VIEW_PATH @"IntroView/"
 #define MENU_VIEW_PATH @"MenuView/"
 #define PROPOSE_VIEW_PATH @"ProposeView/"
 #define REVIEW_VIEW_PATH @"ReviewView/"
+#define INTRODUCE_VIEW_PATH @"IntroduceView/"
 #define BEAUTIGRAM_PATH @"BeautiGram/"
 #define PLIST_PATH @"http://www.leferi.com/mobileApp/iOS/currentVersion/plist/"
 
-
+//iOS Version Check
+#define IS_iOS_8 [[[UIDevice currentDevice] systemVersion] floatValue] >= 8
 
 #endif
